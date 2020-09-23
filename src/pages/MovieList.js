@@ -12,33 +12,35 @@ class MovieList extends Component {
     this.state = {
       movies: [],
       loading: true,
-    }
-  }
-
-  async renderMovies() {
-    this.setState(
-      { loading: true },
-      async () => {
-        let response = await movieAPI.getMovies();
-        this.setState({
-          movies: response,
-          loading: false,
-        });
-      }
-    );
+    };
   }
 
   componentDidMount() {
     this.renderMovies();
   }
 
+  async renderMovies() {
+    this.setState(
+      { loading: true },
+      async () => {
+        const response = await movieAPI.getMovies();
+        this.setState({
+          movies: response,
+          loading: false,
+        });
+      },
+    );
+  }
+
   render() {
     const { movies, loading } = this.state;
-    const loadingElement = <p>Carregando...</p>
+    const loadingElement = <p>Carregando...</p>;
 
     return (
       <div data-testid="movie-list">
-        {loading ? loadingElement : movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        {loading ? loadingElement : movies.map((movie) =>
+          <MovieCard key={movie.title} movie={movie} />,
+        )}
       </div>
     );
   }
