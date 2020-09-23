@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -42,11 +43,19 @@ class MovieDetails extends Component {
             <Link to={`/movies/${id}/edit`} className="movie-details-link">EDITAR</Link>
             <Link to={`/`} className="movie-details-link">VOLTAR</Link>
             <span className="rating">{rating}</span>
-        </div>
+          </div>
         </div>
       </div>
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  })
+};
 
 export default MovieDetails;
