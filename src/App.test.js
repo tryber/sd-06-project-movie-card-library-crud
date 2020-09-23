@@ -209,7 +209,7 @@ describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que 
   });
 });
 
-describe.only('5 - EditMovie: deve realizar uma requisição para buscar o filme que será editado', () => {
+describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que será editado', () => {
 
   it('deverá exibir o texto "Carregando..." enquanto estiver fazendo a requisição', async () => {
     for (const movie of readMovies()) {
@@ -315,7 +315,7 @@ describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos 
   })
 })
 
-describe('Bônus: Adicione um link para deletar um cartão em MovieDetails', () => {
+describe.only('Bônus: Adicione um link para deletar um cartão em MovieDetails', () => {
   it('"MovieDetails" deverá conter um botão com o texto "DELETAR"', async () => {
     for (const movie of readMovies()) {
       const { container, unmount, findByText } = renderPath('/movies/' + movie.id);

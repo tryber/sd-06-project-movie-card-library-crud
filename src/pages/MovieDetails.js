@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
+import { Loading, MovieDelete } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
