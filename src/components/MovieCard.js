@@ -19,7 +19,6 @@ class MovieCard extends React.Component {
         <div className="movie-card-footer">
           <Link to="/movies/:id">VER DETALHES</Link>
         </div>
-        
       </div>
     );
   }
