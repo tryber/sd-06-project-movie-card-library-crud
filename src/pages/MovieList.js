@@ -14,7 +14,6 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    // const myFetchMovies = await movieAPI.getMovies();
     movieAPI.getMovies().then((myFetchMovies) =>
     this.setState({
       movies: myFetchMovies,
