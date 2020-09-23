@@ -1,8 +1,8 @@
 import React from 'react';
 
-function App() {
+function App({ test }) {
   return (
-    <div>Test</div>
+    <div>{test}</div>
   );
 }
 
