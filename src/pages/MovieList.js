@@ -8,16 +8,21 @@ class MovieList extends Component {
   constructor() {
     super();
 
+    this.fetchMoviesArray = this.fetchMoviesArray.bind(this);
+
     this.state = {
       movies: [],
     }
   }
 
-  async componentDidMount() {
-    const moviesArray = await movieAPI.getMovies();
+  async fetchMoviesArray() {
     this.setState({
-      movies: moviesArray,
-    })
+      movies: await movieAPI.getMovies(),
+    });
+  }
+
+  componentDidMount() {
+    this.fetchMoviesArray();
   }
 
   render() {
