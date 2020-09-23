@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import React, { Component } from 'react';
+import React from 'react';
 // import index from './components/index';
 import MovieList from './pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
