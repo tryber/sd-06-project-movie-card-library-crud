@@ -34,10 +34,16 @@ class EditMovie extends Component {
     );
   }
 
-  handleSubmit(updatedMovie) {
-    this.setState({
-      shouldRedirect: true,
-    });
+  async handleSubmit(updatedMovie) {
+    this.setState(
+      { shouldRedirect: false },
+      async () => {
+        movieAPI.updateMovie(updatedMovie);
+        this.setState({
+          shouldRedirect: true,
+        });
+      },
+    );
   }
 
   render() {
