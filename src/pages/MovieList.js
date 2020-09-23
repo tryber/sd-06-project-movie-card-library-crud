@@ -17,7 +17,6 @@ class MovieList extends Component {
   componentDidMount() { 
     this.setState( { loading: true },
       async () => {
-        const moviesFromApi = await movieAPI.getMovies();
         this.setState({ movies: await movieAPI.getMovies(), loading: false });
       }
     );
