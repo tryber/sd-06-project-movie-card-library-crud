@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import Index from './components/index';
 
 function App() {
   return (
     <BrowserRouter>
-      <div>Movie Card Library CRUD do Tio RamireZ xD</div>
+      <Index />
     </BrowserRouter>
   );
 }
