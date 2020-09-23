@@ -40,7 +40,7 @@ class MovieDetails extends Component {
             <p>{`Rating: ${rating}`}</p>
           </section>
           <div className="movie-card-rating" data-testid="rating">
-            <Link to={`/movies/${id}/edit`} className="movie-details-link">EDITAR</Link>
+            <Link to={`/movies/${id}/edit`} className='movie-details-link'>EDITAR</Link>
             <Link to={`/`} className="movie-details-link">VOLTAR</Link>
             <span className="rating">{rating}</span>
           </div>
@@ -54,8 +54,8 @@ MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
-    })
-  })
+    }).isRequired,
+  }).isRequired,
 };
 
 export default MovieDetails;
