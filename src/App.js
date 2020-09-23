@@ -1,7 +1,8 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import { Loading, MovieCard, MovieForm } from './components';
 import { EditMovie, MovieDetails, MovieList, NewMovie, NotFound } from './pages';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route exact path="/" component={MovieList} />
           <Route exact path="/movies/new" component={NewMovie} />
           <Route exact path="/movies/:id" component={MovieDetails} />
-          <Route exact path="/movies/:id/edit" component={EditMovie} />          
+          <Route exact path="/movies/:id/edit" component={EditMovie} />
           <Route path="*" component={NotFound} />
         </Switch>
       </BrowserRouter>
