@@ -36,7 +36,7 @@ class EditMovie extends Component {
 
     if (shouldRedirect) return <Redirect to="/" />;
     if (isLoading) return <Loading />;
-    
+  
     return (
       <div data-testid="edit-movie">
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
