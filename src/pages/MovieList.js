@@ -18,15 +18,15 @@ class MovieList extends Component {
     this.renderMovies = this.renderMovies.bind(this);
   }
 
+  componentDidMount() {
+    this.fetchMovie();
+  }
+
   fetchMovie() {
     this.setState({ loading: true }, () => {
       movieAPI.getMovies()
-        .then(response => this.setState({ movies: response, loading: false }));
+        .then((response) => this.setState({ movies: response, loading: false }));
     })
-  }
-
-  componentDidMount() {
-    this.fetchMovie();
   }
 
   renderMovies() {
@@ -37,7 +37,6 @@ class MovieList extends Component {
   }
 
   render() {
-
     return (
       <div data-testid="movie-list">
         {this.renderMovies()}
