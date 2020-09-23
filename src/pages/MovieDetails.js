@@ -42,6 +42,7 @@ class MovieDetails extends Component {
             </div>
             <div>
               <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+              <Link to="/" onClick={() => movieAPI.deleteMovie(id)}>DELETAR</Link>
               <Link to="/">VOLTAR</Link>
             </div>
           </div>
@@ -51,6 +52,6 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.propTypes = { match: PropTypes.string.isRequired };
+MovieDetails.propTypes = { match: PropTypes.objectOf(Array).isRequired };
 
 export default MovieDetails;
