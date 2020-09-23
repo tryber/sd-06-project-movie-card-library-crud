@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor() {
     super();
 
+    this.fetchGetMovie = this.fetchGetMovie.bind(this);
+
     this.state = {
       movie: [],
       loading: true,
-    }
+    };
   }
-  
-  async componentDidMount() {
+
+  async fetchGetMovie() {
     const { match } = this.props;
     const promiseMovie = await movieAPI.getMovie(match.params.id);
-    this.setState({ movie: promiseMovie, loading: false });
+    await this.setState({ movie: promiseMovie, loading: false });
+  }
+  
+  componentDidMount() {
+    this.fetchGetMovie();
   }
 
   render() {
@@ -25,7 +30,7 @@ class MovieDetails extends Component {
 
     return (
       <div data-testid="movie-details">
-      {this.state.loading === true ?
+        {this.state.loading === true ?
         <Loading /> :
         <div>
           <img alt="Movie Cover" src={`../${imagePath}`} />

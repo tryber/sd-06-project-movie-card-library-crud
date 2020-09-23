@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes, { objectOf } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
@@ -7,7 +8,7 @@ class MovieCard extends React.Component {
     const { id, title, storyline, imagePath } = movie;
 
     return (
-      <div className="movie-card" data-testid='movie-card'>
+      <div className="movie-card" data-testid="movie-card">
         <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
         <div className="movie-card-body">
           <h4 data-testid="movie-card-title" className="movie-card-title">{title}</h4>
@@ -18,5 +19,7 @@ class MovieCard extends React.Component {
     );
   }
 }
+
+MovieCard.propTypes = { movie: PropTypes.arrayOf(objectOf).isRequired };
 
 export default MovieCard;

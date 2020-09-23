@@ -7,23 +7,29 @@ class MovieList extends Component {
   constructor() {
     super();
 
+    this.fetchGetMovies = this.fetchGetMovies.bind(this);
+
     this.state = {
       movies: [],
       loading: true,
     }
   }
 
-  async componentDidMount() {
-    const promiseMovies = await movieAPI.getMovies()
-    this.setState({
+  async fetchGetMovies() {
+    const promiseMovies = await movieAPI.getMovies();
+    await this.setState({
       movies: promiseMovies,
       loading: false,
     });
   }
 
+  componentDidMount() {
+    this.fetchGetMovies();
+  }
+
   render() {
     const { movies, loading } = this.state;
-    
+
     return (
       <div data-testid="movie-list">
         {loading === true ?
