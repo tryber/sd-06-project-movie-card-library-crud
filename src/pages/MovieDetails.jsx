@@ -24,7 +24,7 @@ class MovieDetails extends Component {
   }
 
   async componentDidMount() {
-    const { params: { id } } = this.props.match;
+    const { id } = this.props.match.params;
 
     const movie = await movieAPI.getMovie(id);
 
@@ -83,6 +83,10 @@ class MovieDetails extends Component {
 export default MovieDetails;
 
 MovieDetails.propTypes = {
-  match: PropTypes.shape(match).isRequired,
+  match: PropTypes.shape(match),
   history: PropTypes.shape(history).isRequired,
+};
+
+MovieDetails.defaultProps = {
+  match: PropTypes.shape(match),
 };

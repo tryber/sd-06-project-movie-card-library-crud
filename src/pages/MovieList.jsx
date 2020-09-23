@@ -12,6 +12,8 @@ class MovieList extends Component {
   constructor() {
     super();
 
+    this.saveState = this.saveState.bind(this);
+
     this.state = {
       movies: [],
       loading: true,
@@ -21,6 +23,10 @@ class MovieList extends Component {
   async componentDidMount() {
     const movies = await movieAPI.getMovies();
 
+    this.saveState(movies);
+  }
+
+  saveState(movies) {
     this.setState({
       movies,
       loading: false,

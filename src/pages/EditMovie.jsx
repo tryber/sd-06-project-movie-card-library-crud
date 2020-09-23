@@ -18,14 +18,14 @@ class EditMovie extends Component {
   }
 
   async componentDidMount() {
-    const { params: { id } } = this.props.match;
+    const { id } = this.props.match.params;
 
-    const movie = await movieAPI.getMovie(id);
-
-    this.saveState(movie);
+    this.saveState(id);
   }
 
-  saveState(movie) {
+  async saveState(id) {
+    const movie = await movieAPI.getMovie(id);
+
     this.setState({
       movie,
       apiLoading: false,
@@ -55,6 +55,10 @@ class EditMovie extends Component {
 export default EditMovie;
 
 EditMovie.propTypes = {
-  match: PropTypes.shape(match).isRequired,
+  match: PropTypes.shape(match),
   history: PropTypes.shape(history).isRequired,
+};
+
+EditMovie.defaultProps = {
+  match: PropTypes.shape(match),
 };
