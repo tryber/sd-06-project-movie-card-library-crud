@@ -11,9 +11,8 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
-      loading: true
+      loading: true,
     }
-
   }
 
   componentDidMount() {
@@ -29,8 +28,8 @@ class MovieList extends Component {
     const { movies } = this.state;
 
     // Render Loading here if the request is still happening
-    console.log(this.state.loading)
     if (this.state.loading === true) { return <Loading /> }
+
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
