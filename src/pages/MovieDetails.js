@@ -10,13 +10,13 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
     this.movieById();
   }
-  
+
   async movieById() {
     this.setState(
       { loading: true },
@@ -28,7 +28,7 @@ class MovieDetails extends Component {
           movie: movieObj,
           loading: false,
         });
-      }
+      },
     );
   }
 
