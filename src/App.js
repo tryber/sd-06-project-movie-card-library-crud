@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   return (
-    <div>  
+    <div>
       <div>Movie Card Library CRUD</div>
       <Router>
         <Switch>
