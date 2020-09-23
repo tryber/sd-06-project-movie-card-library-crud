@@ -6,19 +6,19 @@ import { Link, Redirect } from 'react-router-dom';
 class MovieDetails extends Component {
   constructor() {
     super();
-    this.handleDelete = this.handleDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this);
     this.state = {
       movie: '',
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
-    const movie = async () => {
+    const movieP = async () => {
       const movie = await movieAPI.getMovie(this.props.match.params.id);
-      this.setState(({ movie, loading: false }))
-    }
-    movie()
+      this.setState(({ movie, loading: false }));
+    };
+    movieP();
   }
 
   handleDelete() {
@@ -51,7 +51,6 @@ class MovieDetails extends Component {
             <Link to="/" onClick={this.handleDelete}>DELETAR</Link>
           </div>
         </div>
-        
       </div>
     );
   }
