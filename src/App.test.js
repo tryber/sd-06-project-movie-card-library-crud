@@ -91,7 +91,7 @@ const renderPath = (path) => {
   return { ...resources }
 };
 
-describe.only('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
+describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
   test('a rota "/" deve renderizar MovieList', async () => {
     const { unmount, getByTestId } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
@@ -162,7 +162,7 @@ describe('3 - MovieCard: deve possuir um link para a página de detalhes de um f
   })
 })
 
-describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que deverá ser renderizado', () => {
+describe.only('4 - MovieDetails: deve fazer uma requisição para buscar o filme que deverá ser renderizado', () => {
 
   it('deverá exibir o texto "Carregando..." enquanto estiver fazendo a requisição', () => {
     readMovies().forEach(async (movie) => {
