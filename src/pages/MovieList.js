@@ -14,6 +14,12 @@ class MovieList extends Component {
     }
   }
 
+  componentDidMount() {
+    this.isLoadingStateFunc();
+  }
+  // chamamos a funcao isLoadingStateFunc dentro de componentDidMount
+  // pois esta ultima nao aceita usarmos o setState dentro dela
+
   isLoadingStateFunc() {
     this.setState({
       isLoading: true,
@@ -32,20 +38,14 @@ class MovieList extends Component {
   // trouxer a sua resposta o isLoading sera falso e nao
   // sera renderizado, devido ao ternario colocado na funcao render
 
-  componentDidMount() {
-    this.isLoadingStateFunc();
-  }
-
-  // chamamos a funcao isLoadingStateFunc dentro de componentDidMount
-  // pois esta ultima nao aceita usarmos o setState dentro dela
-
   render() {
     const { movies } = this.state;
     const { isLoading } = this.state;
 
     return (
       <div data-testid="movie-list">
-        { isLoading ? <Loading /> : movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        { isLoading ? <Loading /> : movies
+        .map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
     );
   }
