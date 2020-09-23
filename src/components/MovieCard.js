@@ -5,7 +5,7 @@ import './MovieCard.css';
 
 class MovieCard extends React.Component {
   render() {
-    const { title, storyline, rating, imagePath } = this.props.movie;
+    const { title, storyline, rating, imagePath, id } = this.props.movie;
     return (
       <div data-testid="movie-card" className="movie-card">
         <div className="movie-card-header">
@@ -17,7 +17,7 @@ class MovieCard extends React.Component {
           <div>{rating}</div>
         </div>
         <div className="movie-card-footer">
-          <Link to="/movies/:id">VER DETALHES</Link>
+          <Link to={`movies/${id}`}>VER DETALHES</Link>
         </div>
       </div>
     );
@@ -29,8 +29,9 @@ MovieCard.propTypes = {
     title: PropTypes.string,
     storyline: PropTypes.string,
     rating: PropTypes.number,
+    id: PropTypes.number,
     imagePath: PropTypes.string,
-  }).isRequired
+  }).isRequired,
 };
 
 export default MovieCard;
