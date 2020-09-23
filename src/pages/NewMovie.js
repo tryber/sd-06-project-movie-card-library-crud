@@ -10,6 +10,10 @@ class NewMovie extends Component {
   }
 
   handleSubmit(newMovie) {
+    return(
+      <div>
+      </div>
+    )
   }
 
   render() {

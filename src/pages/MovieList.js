@@ -7,6 +7,7 @@ import { Loading } from '../components'
 class MovieList extends Component {
   constructor() {
     super();
+    this.isLoadingStateFunc = this.isLoadingStateFunc.bind(this);
 
     this.state = {
       movies: [],
