@@ -1,23 +1,23 @@
 import React from 'react';
-import { BrowserRouter, Router, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import MovieList from './pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
-import NewMovie from'./pages/NewMovie';
+import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
 
 function App() {
   return (
-      <BrowserRouter>
+    <BrowserRouter>
       <Switch>
-        <Router path="movies/new" component={NewMovie} />
-        <Router path="movies/:id" component={MovieDetails} />
-        <Router path="movies/:id/edit" component={EditMovie} />
-        <Router path="/" component={MovieList} />
-        <Router path="*" component={NotFound} />
+        <Route exact path="/" component={MovieList} />
+        <Route path="/movies/new" component={NewMovie} />
+        <Route path="/movies/:id/edit" component={EditMovie} />
+        <Route path="/movies/:id" component={MovieDetails} />
+        <Route path="*" component={NotFound} />
       </Switch>
-      </BrowserRouter>
+    </BrowserRouter>
   );
 }
 
