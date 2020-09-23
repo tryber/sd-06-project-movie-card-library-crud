@@ -15,19 +15,24 @@ class EditMovie extends Component {
       shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.fetchMovie = this.fetchMovie.bind(this);
   }
 
-  componentDidMount() {
-    const { id } = this.props.match.params;
-    this.setState( { loading: true },
+  fetchMovie(id) {
+    this.setState({ loading: true },
       async () => {
-        this.setState({ 
+        this.setState({
           movie: await movieAPI.getMovie(id),
           loading: false,
           shouldRedirect: false,
         });
-      }
+      },
     );
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    this.fetchMovie(id);
   }
 
   async handleSubmit(updatedMovie) {
@@ -59,6 +64,6 @@ EditMovie.propTypes = {
   match: PropTypes.shape({
     params: {
       id: PropTypes.number,
-    }
+    },
   }).isRequired,
 };

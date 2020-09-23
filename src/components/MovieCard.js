@@ -18,7 +18,7 @@ class MovieCard extends React.Component {
         </div>
         <Link to={`/movies/${id}`}>VER DETALHES</Link>
       </div>
-    )
+    );
   }
 }
 
