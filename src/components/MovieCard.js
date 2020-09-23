@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import * as movieAPI from '../services/movieAPI';
 
-
-
 class MovieCard extends React.Component {
   render() {
     const { imagePath = '', rating = 0, title = '', subtitle = '' } = this.props.movie;
