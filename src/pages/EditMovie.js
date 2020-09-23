@@ -32,13 +32,12 @@ class EditMovie extends Component {
   handleSubmit(updatedMovie) {
     movieAPI.updateMovie(updatedMovie).then(
       this.setState({
-        shouldRedirect: true
-      })
-    )
+        shouldRedirect: true,
+      }),
+    );
   }
 
   render() {
-    console.log(this.props.history);
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       return <Redirect to="/"/>;
