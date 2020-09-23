@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MovieList from './pages/MovieList';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import MovieList from './pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
