@@ -119,7 +119,7 @@ describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
       unmount();
     }
   })
-  test('qualquer rota não declarada deve renderizar NotFound', () => {
+  test.only('qualquer rota não declarada deve renderizar NotFound', () => {
     const { unmount, getByTestId } = renderPath('/' + Math.random());
     expect.anything(getByTestId('404-error'));
     unmount();
