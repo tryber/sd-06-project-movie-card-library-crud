@@ -9,29 +9,29 @@ class MovieList extends Component {
     this.state = {
       loading: true,
       movies: [],
-    }
+    };
     this.fetchMovie = this.fetchMovie.bind(this);
-  }
-
-  async fetchMovie() {
-    this.setState(
-      {loading:true},
-      async () => {
-        const moviesData = await movieAPI.getMovies()
-        this.setState({
-          loading: false,
-          movies: moviesData
-        })
-      }
-    )
-  }
-
-  renderMovies() {
-    return this.state.movies.map((movie) => <MovieCard key={movie.title} movie={movie} />);
   }
 
   componentDidMount() {
     this.fetchMovie();
+  }
+
+  async fetchMovie() {
+    this.setState(
+      { loading: true },
+      async () => {
+        const moviesData = await movieAPI.getMovies();
+        this.setState({
+          loading: false,
+          movies: moviesData,
+        });
+      },
+    );
+  }
+
+  renderMovies() {
+    return this.state.movies.map((movie) => <MovieCard key={movie.title} movie={movie} />);
   }
 
   render() {
