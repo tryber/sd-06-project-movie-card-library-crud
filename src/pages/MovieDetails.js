@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -12,11 +13,11 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
-    this.fetchMovie()
+    this.fetchMovie();
   }
 
   async fetchMovie() {
@@ -51,6 +52,10 @@ class MovieDetails extends Component {
       </div>
     );
   }
+}
+
+MovieDetails.propTypes = {
+  id: propTypes.number,
 }
 
 export default MovieDetails;
