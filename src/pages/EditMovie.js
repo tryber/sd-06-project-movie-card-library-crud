@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
@@ -28,7 +29,7 @@ class EditMovie extends Component {
   }
 
   handleSubmit(updatedMovie) {
-
+    console.log(updatedMovie);
   }
 
   render() {
@@ -49,5 +50,9 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: propTypes.objectOf(propTypes.any).isRequired,
+};
 
 export default EditMovie;
