@@ -17,7 +17,7 @@ class EditMovie extends Component {
   }
 
   componentDidMount() {
-  this.fetchGetMovie();
+    this.fetchGetMovie();
   }
 
   async fetchGetMovie() {
