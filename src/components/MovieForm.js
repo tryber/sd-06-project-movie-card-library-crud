@@ -165,5 +165,4 @@ MovieForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-
 export default MovieForm;

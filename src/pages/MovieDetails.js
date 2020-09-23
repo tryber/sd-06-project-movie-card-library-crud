@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -13,6 +14,7 @@ class MovieDetails extends Component {
     };
     this.fetchMovie = this.fetchMovie.bind(this);
     this.renderMovie = this.renderMovie.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +35,11 @@ class MovieDetails extends Component {
     );
   }
 
+  async handleClick() {
+    const { id } = this.props.match.params;
+    await movieAPI.deleteMovie(id);
+  }
+
   renderMovie(movie) {
     return (
       <div data-testid="movie-details">
@@ -44,15 +51,21 @@ class MovieDetails extends Component {
         <p>{`Rating: ${movie.rating}`}</p>
         <button><Link to="">VOLTAR</Link></button>
         <button><Link to={`/movies/${movie.id}/edit`}>EDITAR</Link></button>
+        <button type="button" onClick={this.handleClick}><Link to="">DELETAR</Link></button>
       </div>
     );
   }
 
   render() {
     const { movie } = this.state;
-
     return this.state.loading ? <Loading /> : this.renderMovie(movie);
   }
 }
+
+MovieDetails.propTypes = {
+  match: propTypes.shape({
+    id: propTypes.number,
+  }).isRequired,
+};
 
 export default MovieDetails;
