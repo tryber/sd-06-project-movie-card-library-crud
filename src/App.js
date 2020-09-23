@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import MovieList from './pages/MovieList';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   render() {
