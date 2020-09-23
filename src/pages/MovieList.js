@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
+import '../App.css';
 
 import * as movieAPI from '../services/movieAPI';
 
@@ -13,6 +14,7 @@ class MovieList extends Component {
     }
 
     this.renderMovies = this.renderMovies.bind(this);
+    this.fetchMovies = this.fetchMovies.bind(this);
   }
 
   async fetchMovies() {
@@ -25,7 +27,7 @@ class MovieList extends Component {
           loading: false,
           movies: moviesJson,
         });
-      }
+      },
     );
   }
 
@@ -44,7 +46,7 @@ class MovieList extends Component {
 
     // Render Loading here if the request is still happening
     return (
-      <div data-testid="movie-list">
+      <div class="movie-list" data-testid="movie-list">
         {this.state.loading ? loadingElement : this.renderMovies()}
       </div>
     );

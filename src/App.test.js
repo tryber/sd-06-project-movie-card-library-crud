@@ -141,26 +141,26 @@ describe('2 - Movie list: Ao ser montado, MovieList deve fazer uma requisição 
   })
 });
 
-// describe('3 - MovieCard: deve possuir um link para a página de detalhes de um filme', () => {
-//   test('deve exibir pelo menos o título e a sinopse de seu respectivo filme', async () => {
-//     const { unmount, getAllByText } = renderPath('/');
-//     await waitFor(() => movieAPI.getMovies());
-//     expect(screen.getAllByTestId('movie-card').length).toBe(5);
-//     readMovies().forEach((movie) => {
-//       expect(getAllByText(movie.title).length).toBeGreaterThanOrEqual(1);
-//       expect(getAllByText(movie.storyline).length).toBeGreaterThanOrEqual(1);
-//     })
-//     unmount();
-//   })
-//   test('deve conter um link com o texto "VER DETALHES" que redireciona para a página de detalhes do filme', async () => {
-//     const { unmount, getAllByText } = renderPath('/');
-//     await waitFor(() => movieAPI.getMovies());
-//     getAllByText('VER DETALHES').forEach((link, index) => {
-//       expect(link.href).toBe('http://localhost/movies/' + (index + 1));
-//     })
-//     unmount();
-//   })
-// })
+describe('3 - MovieCard: deve possuir um link para a página de detalhes de um filme', () => {
+  test('deve exibir pelo menos o título e a sinopse de seu respectivo filme', async () => {
+    const { unmount, getAllByText } = renderPath('/');
+    await waitFor(() => movieAPI.getMovies());
+    expect(screen.getAllByTestId('movie-card').length).toBe(5);
+    readMovies().forEach((movie) => {
+      expect(getAllByText(movie.title).length).toBeGreaterThanOrEqual(1);
+      expect(getAllByText(movie.storyline).length).toBeGreaterThanOrEqual(1);
+    })
+    unmount();
+  })
+  test('deve conter um link com o texto "VER DETALHES" que redireciona para a página de detalhes do filme', async () => {
+    const { unmount, getAllByText } = renderPath('/');
+    await waitFor(() => movieAPI.getMovies());
+    getAllByText('VER DETALHES').forEach((link, index) => {
+      expect(link.href).toBe('http://localhost/movies/' + (index + 1));
+    })
+    unmount();
+  })
+})
 
 // describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que deverá ser renderizado', () => {
 
