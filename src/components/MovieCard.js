@@ -28,7 +28,7 @@ MovieCard.propTypes = {
     imagePath: PropTypes.string,
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
-  },)
+  }),
 };
 
 MovieCard.defaultProps = { movie: '' };
