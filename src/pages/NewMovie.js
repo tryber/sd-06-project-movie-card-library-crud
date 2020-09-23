@@ -16,7 +16,7 @@ class NewMovie extends Component {
     this.setState(({ redirect: true }));
   }
 
-  render() { 
+  render() {
     if (this.state.redirect) {
       return (
         <Redirect to="/" />
