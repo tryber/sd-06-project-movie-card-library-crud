@@ -12,10 +12,10 @@ function App() {
       Movie Card Library CRUD
       <BrowserRouter>
         <Route exact path="/" component={MovieList} />
-        <Route path="/movies/:id" component={MoviesDetails} />
+        <Route path="/movies/:id" render={(props) => <MoviesDetails {...props}/>} />
         <Route path="/movies/:id/edit" component={EditMovie} />
         <Route path="/movies/new" component={NewMovie} />
-        <Route exact component={NotFound} />
+        <Route component={NotFound} />
       </BrowserRouter>
     </div>
   );
