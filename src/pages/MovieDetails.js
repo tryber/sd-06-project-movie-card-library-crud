@@ -19,7 +19,7 @@ class MovieDetails extends Component {
     movieAPI.getMovie(id).then((r) => (
       this.setState({
         loading: false,
-        movie: r, 
+        movie: r,
       })
     ));
   }
@@ -34,15 +34,21 @@ class MovieDetails extends Component {
           this.state.loading ? <Loading /> :
           <div>
             <img alt="Movie Cover" src={`../${this.state.movie.imagePath}`} />
+            <p>{`Title: ${this.state.movie.title}`}</p>
             <p>{`Subtitle: ${this.state.movie.subtitle}`}</p>
             <p>{`Storyline: ${this.state.movie.storyline}`}</p>
             <p>{`Genre: ${this.state.movie.genre}`}</p>
             <p>{`Rating: ${this.state.movie.rating}`}</p>
             <div>
-              <Link to={`/movies/${this.props.match.params}/edit`}>
-                Editar
-              </Link>
-              <Link to='/'>Voltar</Link>
+              <button>
+                <Link to={`/movies/${this.state.movie.id}/edit`}>
+                  EDITAR
+                </Link>
+              </button>
+              <button>
+                <Link to="/">VOLTAR</Link>
+              </button>
+              
             </div>
           </div>
         }
