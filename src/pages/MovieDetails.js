@@ -1,14 +1,40 @@
 import React, { Component } from 'react';
-
-// import * as movieAPI from '../services/movieAPI';
-// import { Loading } from '../components';
+import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
 
 class MovieDetails extends Component {
+  constructor() {
+    super();
+    this.updateStateMovie = this.updateStateMovie.bind(this);
+    this.state = {
+      movie: [],
+      loading: true,
+    };
+  }
+
+  componentDidMount() {
+    this.updateStateMovie();
+  }
+   
+  updateStateMovie(id) {
+    this.setState(
+      { loading: true },
+      async () => {
+        const myMovie = await movieAPI.getMovie(id);
+        this.setState({
+          loading: false,
+          movie: myMovie,
+        });
+      },
+    );
+  }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    const { id } = this.props;
+    const { movie, loading } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle } = {movie};
 
     return (
       <div data-testid="movie-details">
