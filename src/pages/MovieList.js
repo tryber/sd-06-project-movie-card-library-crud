@@ -15,14 +15,15 @@ class MovieList extends Component {
     }
   }
 
+
+  componentDidMount() {
+    this.fetchMoviesArray();
+  }
+
   async fetchMoviesArray() {
     this.setState({
       movies: await movieAPI.getMovies(),
     });
-  }
-
-  componentDidMount() {
-    this.fetchMoviesArray();
   }
 
   render() {
