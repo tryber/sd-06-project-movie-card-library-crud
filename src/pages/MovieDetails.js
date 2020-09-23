@@ -5,16 +5,16 @@ import { Loading } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
-    super()
+    super();
     this.fetchMovie = this.fetchMovie.bind(this);
     this.state = {
       loading: false,
       movie: {},
-    }
+    };
   }
 
   componentDidMount() {
-    this.fetchMovie()
+    this.fetchMovie();
   }
 
   async fetchMovie() {
