@@ -6,18 +6,27 @@ class MovieList extends Component {
   constructor() {
     super();
 
+    this.renderMovies = this.renderMovies.bind(this);
+    this.disableLoadingMessage = this.disableLoadingMessage.bind(this);
+
     this.state = {
       movies: [],
-      isLoading: true
-    }
+      isLoading: true,
+    };
   }
 
   async componentDidMount() {
     const movies = await movieAPI.getMovies();
-    this.setState({ 
-      isLoading: false,
-      movies
-    });
+    this.disableLoadingMessage();
+    this.renderMovies(movies);
+  }
+
+  disableLoadingMessage() {
+    this.setState({ isLoading: false });
+  }
+
+  renderMovies(movies) {
+    this.setState({ movies });
   }
 
   render() {
