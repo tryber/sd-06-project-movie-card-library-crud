@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components'
+import { Loading } from '../components';
 
 
 class MovieList extends Component {
@@ -13,14 +13,14 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
-    }
+    };
   }
-  
+
   async componentDidMount() {
     const response = await movieAPI.getMovies();
     this.changeSetState(response);
   }
-  
+
   changeSetState(componentResponse) {
     this.setState({ movies: componentResponse });
   }
