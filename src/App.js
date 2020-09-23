@@ -1,9 +1,23 @@
 import React from 'react';
-import { Loading, MovieCard, MovieForm } from './components';
+// import { Loading, MovieCard, MovieForm } from './components';
+import { EditMovie, MovieDetails, MovieList, NewMovie, NotFound } from './pages';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div>Movie Card Library CRUD</div>
+    <div>
+      <h1>Movie Card Library CRUD</h1>
+      <BrowserRouter>
+        {/* <Link to="/" > Home </Link> */}
+        <Switch>
+          <Route exact path="/" component={MovieList} />
+          <Route exact path="/movies/new" component={NewMovie} />
+          <Route exact path="/movies/:id" component={MovieDetails} />
+          <Route exact path="/movies/:id/edit" component={EditMovie} />          
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </BrowserRouter>
+    </div>
   );
 }
 
