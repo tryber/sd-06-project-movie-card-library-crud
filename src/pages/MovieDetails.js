@@ -23,6 +23,7 @@ class MovieDetails extends Component {
       isLoading: false,
     }));
   }
+
   render() {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movies;
     const { isLoading } = this.state;
@@ -37,8 +38,11 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <Link to="/">VOLTAR</Link>
-        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+        <Link to="/">VOLTAR</Link><br></br>
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link><br></br>
+        <Link to="/" onClick={() => { movieAPI.deleteMovie(id) }}>
+          DELETAR
+        </Link>
       </div>
     );
   }
