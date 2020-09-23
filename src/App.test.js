@@ -98,7 +98,7 @@ describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
     expect.anything(getByTestId('movie-list'));
     unmount();
   })
-  test('a rota "/movies/:id" deve renderizar MovieDetails', async () => {
+  test.only('a rota "/movies/:id" deve renderizar MovieDetails', async () => {
     for (const movie of readMovies()) {
       const { unmount, getByTestId } = renderPath('/movies/' + movie.id);
       await waitFor(() => movieAPI.getMovies());
@@ -106,12 +106,12 @@ describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
       unmount();
     }
   })
-  test('a rota "/movies/new" deve renderizar NewMovie', () => {
+  test.only('a rota "/movies/new" deve renderizar NewMovie', () => {
     const { unmount, getByTestId } = renderPath('/movies/new');
     expect.anything(getByTestId('new-movie'));
     unmount();
   })
-  test('a rota "/movies/:id/edit" deve renderizar EditMovie', async () => {
+  test.only('a rota "/movies/:id/edit" deve renderizar EditMovie', async () => {
     for (const movie of readMovies()) {
       const { unmount, getByTestId } = renderPath('/movies/' + movie.id + '/edit');
       await waitFor(() => movieAPI.getMovies());
