@@ -125,7 +125,7 @@ class MovieForm extends React.Component {
             value={rating}
             onChange={(event) => this.updateMovie('rating', event.target.value)}
           />
-       </label>
+        </label>
       </div>
     );
   }

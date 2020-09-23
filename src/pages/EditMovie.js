@@ -17,18 +17,18 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    movieAPI.getMovie(id).then((myFetchMovie) =>
+    this.setState({
+      isLoading: false,
+      movie: myFetchMovie,
+    }));
+  }
+
   async handleSubmit(updatedMovie) {
     const myMovie = await movieAPI.updateMovie(updatedMovie);
     if (myMovie === 'OK') this.setState({ shouldRedirect: true });
-  }
-
-  componentDidMount() {
-    const { id } = this.props.match.params;
-    movieAPI.getMovie(id).then((myFetchMovie) => 
-    this.setState({
-      isLoading: false,
-      movie: myFetchMovie,  
-    }));
   }
 
   render() {
