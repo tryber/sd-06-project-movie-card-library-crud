@@ -21,12 +21,12 @@ class MovieList extends Component {
 
   async getMyMovies() {
     this.setState(
-      { load: true },  // primeiro parametro
+      { load: true },     // primeiro parametro por causa do Loading
       async () => {       // segundo parametro
-        const myMovies = await movieAPI.getMovies();
+        const movies = await movieAPI.getMovies();
         this.setState({
           load: false,
-          movies: myMovies,
+          movies,
         });
       });
   }
