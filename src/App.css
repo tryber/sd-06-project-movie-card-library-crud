@@ -10,8 +10,8 @@ body {
 
 .movie-card {
   border: 1px solid;
-  width: 250px;
   margin: 10px;
+  width: 250px;
 }
 
 img {
