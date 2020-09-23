@@ -18,8 +18,8 @@ class MovieList extends Component {
   async fetchMovies() {
     const movies = await movieAPI.getMovies();
     this.setState({
-      movies
-    })
+      movies,
+    });
   }
 
   render() {
