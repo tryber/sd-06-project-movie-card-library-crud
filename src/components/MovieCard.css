@@ -1,0 +1,20 @@
+.movie-card {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  max-width: 500px;
+}
+
+.movie-card-header {
+  height: 50%;
+  position: relative;
+}
+
+.movie-card-header img {
+  width: 100%;
+}
+
+.movie-card-description {
+  padding: 15px;
+}

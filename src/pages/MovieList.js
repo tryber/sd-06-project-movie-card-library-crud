@@ -14,7 +14,7 @@ class MovieList extends Component {
 
   componentDidMount() {
     const moviesList = movieAPI.getMovies();
-    moviesList.then(r => this.setState({ movies: r}));
+    moviesList.then((r) => this.setState({ movies: r }));
   }
 
   render() {
@@ -29,8 +29,8 @@ class MovieList extends Component {
             <MovieCard
               key={movie.title}
               movie={movie}
-            />)
-          ) : <Loading />
+            />
+          )) : <Loading />
         }
       </div>
     );
