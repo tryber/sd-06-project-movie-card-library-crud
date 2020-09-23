@@ -17,16 +17,16 @@ class MovieList extends Component {
     this.fetchMovies = this.fetchMovies.bind(this);
   }
 
+  componentDidMount() { 
+    this.fetchMovies();
+  }
+
   fetchMovies() {
     this.setState({ loading: true },
       async () => {
         this.setState({ movies: await movieAPI.getMovies(), loading: false });
-      }
+      },
     );
-  }
-
-  componentDidMount() { 
-    this.fetchMovies();
   }
 
   render() {

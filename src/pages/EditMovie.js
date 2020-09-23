@@ -18,6 +18,11 @@ class EditMovie extends Component {
     this.fetchMovie = this.fetchMovie.bind(this);
   }
 
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    this.fetchMovie(id);
+  }
+
   fetchMovie(id) {
     this.setState({ loading: true },
       async () => {
@@ -28,11 +33,6 @@ class EditMovie extends Component {
         });
       },
     );
-  }
-
-  componentDidMount() {
-    const { id } = this.props.match.params;
-    this.fetchMovie(id);
   }
 
   async handleSubmit(updatedMovie) {
