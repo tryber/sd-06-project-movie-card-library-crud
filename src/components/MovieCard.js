@@ -6,7 +6,7 @@ class MovieCard extends React.Component {
   render() {
     const { title, storyline, id } = this.props.movie;
     return (
-      <div data-testid="movie-card">        
+      <div data-testid="movie-card">
         <div className="movie-card-body">
           <h4 className="movie-card-title">{title}</h4>
           <p className="movie-card-storyline">{storyline}</p>
@@ -18,9 +18,9 @@ class MovieCard extends React.Component {
 }
 
 MovieCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  movie: PropTypes.shape({title: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired}).isRequired
 };
 
 export default MovieCard;

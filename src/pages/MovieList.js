@@ -11,7 +11,7 @@ class MovieList extends Component {
     this.state = {
       movies: [],
     }
-  }  
+  }
 
   componentDidMount() {
     this.fetchMovies();
