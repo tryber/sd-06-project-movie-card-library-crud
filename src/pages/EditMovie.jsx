@@ -11,20 +11,24 @@ class EditMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
+      apiLoading: true,
       movie: {},
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async componentDidMount() {
-    const { id } = this.props.match.params;
+    const { params: { id } } = this.props.match;
 
     const movie = await movieAPI.getMovie(id);
 
+    this.saveState(movie);
+  }
+
+  saveState(movie) {
     this.setState({
       movie,
-      loading: false,
+      apiLoading: false,
     });
   }
 
@@ -36,9 +40,9 @@ class EditMovie extends Component {
   }
 
   render() {
-    const { loading, movie } = this.state;
+    const { apiLoading, movie } = this.state;
 
-    if (loading) return <Loading />;
+    if (apiLoading) return <Loading />;
 
     return (
       <div data-testid="edit-movie">

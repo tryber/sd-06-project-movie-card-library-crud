@@ -15,6 +15,7 @@ class MovieDetails extends Component {
     super();
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.saveState = this.saveState.bind(this);
 
     this.state = {
       movie: {},
@@ -23,10 +24,14 @@ class MovieDetails extends Component {
   }
 
   async componentDidMount() {
-    const { id } = this.props.match.params;
+    const { params: { id } } = this.props.match;
 
     const movie = await movieAPI.getMovie(id);
 
+    this.saveState(movie);
+  }
+
+  saveState(movie) {
     this.setState({
       movie,
       loading: false,
