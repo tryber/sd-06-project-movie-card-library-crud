@@ -1,0 +1,53 @@
+.movie-details-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-content: center;
+}
+
+.movie-container {
+  display: flex;
+  padding: 12px;
+}
+
+.movie-container .movie-details {
+  align-items: stretch;
+  border: 1px solid thistle;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.movie-container .movie-details img {
+  flex: 1 1 350px;
+}
+
+.movie-container .movie-details .info {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 350px;
+  justify-content: space-around;
+  padding: 12px;
+}
+
+.movie-container .movie-details .info p {
+  font-size: 90%;
+  padding-top: 20px;
+}
+
+.movie-container .movie-details .info .links {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+.movie-container .movie-details .info .links a {
+  color: rgb(98, 40, 98);
+  font-size: 80%;
+  font-weight: 700;
+}
+
+
+.movie-container .movie-details .info .links a:hover {
+  color: rgb(46, 19, 46);
+}
