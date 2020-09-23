@@ -2,12 +2,41 @@ import React from 'react';
 
 class MovieCard extends React.Component {
   render() {
+    const { imagePath, rating, storyline, title, subtitle } = this.props.movie;
     return (
-      <div data-testid="movie-card">
-        Movie Card
+      <div data-testid="movie-card" className="movie-card">
+        <img src={imagePath} alt={`${title} image`} />
+        <section className="movie-card-body">
+          <h1 className="movie-card-title">{title}</h1>
+          <h2 className="movie-card-subtitle">{subtitle}</h2>
+        </section>
       </div>
     );
   }
 }
 
 export default MovieCard;
+
+/*
+​
+bookmarked: true
+​
+genre: "action"
+​
+id: 1
+​
+imagePath: "images/Kingsglaive_Final_Fantasy_XV.jpg"
+​
+rating: 4.5
+​
+storyline: "King Regis, who oversees the land of Lucis, commands his army of soldiers to protect the kingdom from the Niflheim empire's plans to steal the sacred crystal."
+​
+subtitle: "Final Fantasy XV"
+​
+title: "Kingsglaive"
+​
+<prototype>: Object { … }
+MovieCard.js:6
+
+
+*/
