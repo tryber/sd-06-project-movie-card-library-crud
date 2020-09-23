@@ -9,7 +9,7 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
-    }
+    };
   }
 
   render() {
@@ -20,6 +20,7 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        <p>Teste</p>
       </div>
     );
   }
