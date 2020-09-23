@@ -24,8 +24,7 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    this.fetchMovies();
-    // this.setState({loading: false});
+    this.fetchMovies();    
   }
 
   render() {
