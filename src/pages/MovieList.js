@@ -15,7 +15,6 @@ class MovieList extends Component {
     }
   }
 
-
   componentDidMount() {
     this.fetchMoviesArray();
   }
