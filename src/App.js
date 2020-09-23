@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
-import { Loading, MovieCard, MovieForm } from './components';
-import { MovieDetails, NewMovie, EditMovie, MovieList, NotFound } from './pages'
+// import { Loading, MovieCard, MovieForm } from './components';
+import { MovieDetails, NewMovie, EditMovie, MovieList, NotFound } from './pages';
 
 function App() {
   return (
