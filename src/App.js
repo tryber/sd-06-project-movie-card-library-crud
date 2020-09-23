@@ -8,10 +8,10 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path='/movies/new' render={() => <NewMovie />} />
-        <Route path='/movies/:id/edit' render={() => <EditMovie />} />
-        <Route path='/movies/:id' render={() => <MovieDetails />} />
-        <Route exact path='/' render={() => <MovieList />} />
+        <Route path="/movies/new" render={() => <NewMovie />} />
+        <Route path="/movies/:id/edit" render={() => <EditMovie />} />
+        <Route path="/movies/:id" render={() => <MovieDetails />} />
+        <Route exact path="/" render={() => <MovieList />} />
         <Route component={NotFound} />
       </Switch>
     </Router>
