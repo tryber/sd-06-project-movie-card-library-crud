@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { MovieCard, Loading } from '../components';
-import { Redirect, Route } from 'react-router-dom';
+// import { MovieCard, Loading } from '../components';
+// import { Redirect, Route } from 'react-router-dom';
 
 import MovieForm from '../components/MovieForm';
-import * as movieAPI from '../services/movieAPI';
+// import * as movieAPI from '../services/movieAPI';
 
 class NewMovie extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class NewMovie extends Component {
       shouldRedirect: false,
       isLoading: true,
       movie: {},
-    }
+    };
   }
 
   async handleSubmit(newMovie) {
@@ -41,8 +41,7 @@ class NewMovie extends Component {
     //   </Route>
     //   )
     // }
- 
-    
+
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
