@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
-    const { movie } = this.props
+    const { movie } = this.props;
     return (
       <div data-testid="movie-card" className="movie-card">
-        <img src={movie.imagePath}/>
+        <img src={movie.imagePath} alt={movie.name} />
         <div className="movie-card-info">
           <h1>{movie.title}</h1>
           <p>{movie.storyline}</p>
