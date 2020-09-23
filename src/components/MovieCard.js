@@ -11,10 +11,10 @@ class MovieCard extends React.Component {
         <section className="movie-card-body">
           <h1 className="movie-card-title">{title}</h1>
           <h2 className="movie-card-subtitle">{subtitle}</h2>
-          <p className="movie-card-storyline">{`${storyline.substr(0, 60)}...`}</p>
+          <p className="movie-card-storyline">{storyline}</p>
         </section>
         <div className="movie-card-rating" data-testid="rating">
-          <Link to={`/movies/:${id}`} className="movie-details">Ver detalhes</Link>
+          <Link to={`/movies/:${id}`} className="movie-details">VER DETALHES</Link>
           <span className="rating">{rating}</span>
         </div>
       </div>
