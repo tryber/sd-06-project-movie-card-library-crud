@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const match = {
+export const match = {
   params: PropTypes.shape({
     id: PropTypes.string,
   }),
@@ -9,4 +9,6 @@ const match = {
   isExact: PropTypes.bool,
 };
 
-export default match;
+export const history = {
+  push: PropTypes.func,
+};

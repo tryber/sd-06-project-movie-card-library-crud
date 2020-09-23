@@ -6,13 +6,15 @@ import { Loading } from '../components';
 
 import * as movieAPI from '../services/movieAPI';
 
-import match from '../types/movieDetails';
+import { match, history } from '../types/movieDetails';
 
 import './styles/movieDetails.css';
 
 class MovieDetails extends Component {
   constructor() {
     super();
+
+    this.handleDelete = this.handleDelete.bind(this);
 
     this.state = {
       movie: {},
@@ -25,12 +27,19 @@ class MovieDetails extends Component {
 
     const movie = await movieAPI.getMovie(id);
 
-    console.log(movie);
-
     this.setState({
       movie,
       loading: false,
     });
+  }
+
+  async handleDelete() {
+    const { id } = this.props.match.params;
+    const { push } = this.props.history;
+
+    await movieAPI.deleteMovie(id);
+
+    push('/');
   }
 
   render() {
@@ -55,6 +64,7 @@ class MovieDetails extends Component {
               <p>{`Rating: ${rating}`}</p>
               <div className="links">
                 <Link to="/">VOLTAR</Link>
+                <button type="button" onClick={this.handleDelete}>DELETAR</button>
                 <Link to={`/movies/${id}/edit`}>EDITAR</Link>
               </div>
             </div>
@@ -69,4 +79,5 @@ export default MovieDetails;
 
 MovieDetails.propTypes = {
   match: PropTypes.shape(match).isRequired,
+  history: PropTypes.shape(history).isRequired,
 };

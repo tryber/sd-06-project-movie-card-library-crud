@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import MovieForm from '../components/MovieForm';
+
+import { history } from '../types/movieDetails';
+
 import * as movieAPI from '../services/movieAPI';
 
 class NewMovie extends Component {
@@ -9,7 +13,11 @@ class NewMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(newMovie) {
+  async handleSubmit(newMovie) {
+    await movieAPI.createMovie(newMovie);
+    const { push } = this.props.history;
+
+    push('/');
   }
 
   render() {
@@ -21,3 +29,7 @@ class NewMovie extends Component {
   }
 }
 export default NewMovie;
+
+NewMovie.propTypes = {
+  history: PropTypes.shape(history).isRequired,
+};
