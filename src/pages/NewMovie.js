@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import { MovieCard, Loading } from '../components';
-// import { Redirect, Route } from 'react-router-dom';
+import { MovieCard, Loading } from '../components';
+import { Redirect, Route } from 'react-router-dom';
 
 import MovieForm from '../components/MovieForm';
-// import * as movieAPI from '../services/movieAPI';
+import * as movieAPI from '../services/movieAPI';
 
 class NewMovie extends Component {
   constructor(props) {
@@ -13,34 +13,25 @@ class NewMovie extends Component {
     this.state = {
       shouldRedirect: false,
       isLoading: true,
-      movie: {},
+      movie: [],
     };
   }
 
   async handleSubmit(newMovie) {
-    // const myMovie = await movieAPI.createMovie(newMovie);
-    // if (myMovie === 'OK') {
-    //   this.setState({
-    //     shouldRedirect: true,
-    //     isLoading: false,
-    //     movie: newMovie,
-    //   });
-    // }
+    const myMovie = await movieAPI.createMovie(newMovie);
+    if (myMovie === 'OK') {
+      this.setState({
+        shouldRedirect: true,
+        isLoading: false,
+        movie: newMovie,
+      });
+    }
   }
 
   render() {
-    // const { isLoading, shouldRedirect, movie } = this.state;
+    const { shouldRedirect } = this.state;
 
-    // if (isLoading) return <Loading />;
-
-    // if (shouldRedirect) {
-    //   return (
-    //   <Route>
-    //     <MovieCard movie={movie}/>
-    //     <Redirect to="/" />
-    //   </Route>
-    //   )
-    // }
+    if (shouldRedirect) return <Redirect to="/" />
 
     return (
       <div data-testid="new-movie">
