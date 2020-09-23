@@ -27,9 +27,9 @@ class MovieList extends Component {
           loading: false,
           movies: movArray,
         });
-      }
+      },
     );
-  };
+  }
 
 
   render() {
