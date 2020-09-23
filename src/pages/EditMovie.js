@@ -43,8 +43,22 @@ class EditMovie extends Component {
   }
 }
 
-EditMovie.propTypes = { match: PropTypes.object };
+EditMovie.propTypes = {
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.object,
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }),
+};
 
-EditMovie.defaultProps = { match: {} };
+EditMovie.defaultProps = {
+  match: {
+    isExact: false,
+    params: '',
+    path: '',
+    url: '',
+  },
+};
 
 export default EditMovie;
