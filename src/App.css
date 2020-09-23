@@ -4,7 +4,6 @@ body {
 }
 
 /* Aproveitando css do projeto movie card library stateful. Me julguem. :P */
-
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
