@@ -21,7 +21,7 @@ class MovieCard extends React.Component {
 
 MovieCard.propTypes = {
   movie: PropTypes.arrayOf(
-    PropTypes.objectOf(PropTypes.oneOf([PropTypes.string, PropTypes.number]))
+    PropTypes.objectOf(PropTypes.oneOf([PropTypes.string, PropTypes.number])),
   ).isRequired,
 };
 
