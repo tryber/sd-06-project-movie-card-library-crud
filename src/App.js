@@ -1,13 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      <div>Movie Card Library CRUD</div>
-    </Router>
+    <BrowserRouter>
+      <Switch>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
-export default App
+export default App;
