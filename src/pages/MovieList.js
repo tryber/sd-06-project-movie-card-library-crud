@@ -9,19 +9,25 @@ class MovieList extends Component {
   constructor() {
     super();
 
+    this.changeSetState = this.changeSetState.bind(this);
+
     this.state = {
       movies: [],
     }
   }
 
+  changeSetState(componentResponse) {
+    this.setState({ movies: componentResponse });
+  }
+
   async componentDidMount() {
     const response = await movieAPI.getMovies();
-    this.setState({ movies: response });
+    this.changeSetState(response);
   }
 
   render() {
     const { movies } = this.state;
-   if (movies.length === 0) return <Loading />;
+    if (movies.length === 0) return <Loading />;
 
     return (
       <div data-testid="movie-list">
