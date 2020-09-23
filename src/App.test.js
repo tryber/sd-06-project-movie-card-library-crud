@@ -142,7 +142,7 @@ describe('2 - Movie list: Ao ser montado, MovieList deve fazer uma requisição 
 });
 
 describe('3 - MovieCard: deve possuir um link para a página de detalhes de um filme', () => {
-  test('deve exibir pelo menos o título e a sinopse de seu respectivo filme', async () => {
+  test.only('deve exibir pelo menos o título e a sinopse de seu respectivo filme', async () => {
     const { unmount, getAllByText } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
     expect(screen.getAllByTestId('movie-card').length).toBe(5);
@@ -152,7 +152,7 @@ describe('3 - MovieCard: deve possuir um link para a página de detalhes de um f
     })
     unmount();
   })
-  test('deve conter um link com o texto "VER DETALHES" que redireciona para a página de detalhes do filme', async () => {
+  test.only('deve conter um link com o texto "VER DETALHES" que redireciona para a página de detalhes do filme', async () => {
     const { unmount, getAllByText } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
     getAllByText('VER DETALHES').forEach((link, index) => {
