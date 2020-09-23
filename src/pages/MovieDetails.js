@@ -5,7 +5,7 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  constructor(props){
+  constructor(props) {
     super();
 
     this.state = {
@@ -13,7 +13,6 @@ class MovieDetails extends Component {
       loading: true,
       movie: {},
     }
-
   }
   
   componentDidMount(){
@@ -22,7 +21,7 @@ class MovieDetails extends Component {
       this.setState({
         loading: false,
         movie: result,
-      })
+      });
     });
   }
 

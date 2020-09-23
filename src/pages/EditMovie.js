@@ -11,22 +11,24 @@ class EditMovie extends Component {
       movieId: props.match.params.id,
       status: 'loading',
       movie: {},
-    }
+      shouldRedirect: false,
+    };
 
-    this.handleSubmit = this.handleSubmit.bind(this);   
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const { movieId } = this.state;
     movieAPI.getMovie(movieId).then((result) => {
       this.setState({
         status: 'API returned',
         movie: result,
-      })
+      });
     });
   }
 
   handleSubmit(updatedMovie) {
+
   }
 
   render() {
@@ -36,7 +38,7 @@ class EditMovie extends Component {
     }
 
     if (status === 'loading') {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
