@@ -1,8 +1,16 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import MovieList from './pages/MovieList';
+import './App.css';
 
 function App() {
   return (
-    <div>Movie Card Library CRUD</div>
+    <BrowserRouter>
+      <div>Movie Card Library CRUD</div>
+      <Switch>
+        <Route path='/' component={MovieList} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
