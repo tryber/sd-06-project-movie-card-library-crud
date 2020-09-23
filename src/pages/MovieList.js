@@ -18,6 +18,10 @@ class MovieList extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
+  componentDidMount() {
+    this.fetchMovies();
+  }
+
   async fetchMovies() {
     this.setState(
       { loading: true },
@@ -30,10 +34,6 @@ class MovieList extends Component {
         });
       },
     );
-  }
-
-  componentDidMount() {
-    this.fetchMovies();
   }
 
   renderMovies() {
