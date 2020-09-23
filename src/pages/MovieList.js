@@ -13,20 +13,19 @@ class MovieList extends Component {
     }
   }
 
+  componentDidMount() {
+    this.fetchMovie()
+  }
+
   async fetchMovie() {
     const movies = await movieAPI.getMovies();
     this.setState({ movies });
-  }
-
-  componentDidMount() {
-    this.fetchMovie()
   }
 
   render() {
     const { movies } = this.state;
 
     // Render Loading here if the request is still happening
-
 
     return (
       <div data-testid="movie-list">
