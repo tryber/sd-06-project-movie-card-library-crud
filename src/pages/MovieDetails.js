@@ -12,6 +12,8 @@ class MovieDetails extends Component {
       movie: [],
       isLoading: true,
     };
+
+    this.fetchMovie = this.fetchMovie.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +30,7 @@ class MovieDetails extends Component {
   }
 
   render() {
+    
     const { isLoading, movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
@@ -50,15 +53,18 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  movie: propTypes.shape({
-    title: propTypes.string,
-    storyline: propTypes.string,
-    imagePath: propTypes.string,
-    genre: propTypes.string,
+    match: {
+      params: {
+        id: propTypes.string,
+      }
+    },
+    title: propTypes.string.isRequired,
+    storyline: propTypes.string.isRequired,
+    imagePath: propTypes.string.isRequired,
+    genre: propTypes.string.isRequired,
     rating: propTypes.number,
     subtitle: propTypes.string,
     id: propTypes.string,
-  }).isRequired,
-};
+  }
 
 export default MovieDetails;
