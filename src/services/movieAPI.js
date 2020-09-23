@@ -66,3 +66,5 @@ export const deleteMovie = (movieId) => {
     }, 1000);
   });
 };
+
+export default getMovies
