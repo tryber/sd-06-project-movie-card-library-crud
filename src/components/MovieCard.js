@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class MovieCard extends React.Component {
   render() {
@@ -8,7 +9,7 @@ class MovieCard extends React.Component {
     return (
       <div data-testid="movie-card" id={id}>
         <p className="movie-card-title">{title}</p>
-        <img src={imagePath} alt={`${title} movie poster`} className="movie-card-image"/>
+        <img src={imagePath} alt={`${title} movie poster`} className="movie-card-image" />
         <p className="movie-card-story">{storyline}</p>
         <Link to={`/movies/${id}`}>VER DETALHES</Link>
       </div>
@@ -18,12 +19,11 @@ class MovieCard extends React.Component {
 
 export default MovieCard;
 
-
-// id: 1,
-// title: 'Kingsglaive',
-// subtitle: 'Final Fantasy XV',
-// storyline: "King Regis, who oversees the land of Lucis, commands his army of soldiers to protect the kingdom from the Niflheim empire's plans to steal the sacred crystal.",
-// rating: 4.5,
-// imagePath: 'images/Kingsglaive_Final_Fantasy_XV.jpg',
-// bookmarked: true,
-// genre: 'action',
+MovieCard.PropTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired,
+  }),
+};
