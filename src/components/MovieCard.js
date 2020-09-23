@@ -1,6 +1,7 @@
 import React from 'react';
-import * as movieAPI from '../services/movieAPI';
 import PropTypes from 'prop-types';
+// import * as movieAPI from '../services/movieAPI';
+
 
 
 class MovieCard extends React.Component {
@@ -14,7 +15,7 @@ class MovieCard extends React.Component {
           <h2 className="movie-card-subtitle">{subtitle}</h2>
         </section>
         <div className="movie-card-rating" data-testid="rating">
-          <p> className="rating">{rating}</p>
+          <p className="rating">{rating}</p>
         </div>
       </div>
     );
