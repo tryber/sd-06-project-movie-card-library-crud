@@ -14,7 +14,6 @@ class MovieList extends Component {
     };
 
     this.fetchMovies = this.fetchMovies.bind(this);
-
   }
 
   componentDidMount() {
