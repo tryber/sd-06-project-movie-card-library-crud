@@ -3,8 +3,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Aproveitando css do projeto movie card library stateful. Sim, isso mesmo. Me julguem. :P */
-
+/* Aproveitando css do projeto movie card library stateful. Me julguem. :P */
 
 .movie-card-header {
   align-items: center;

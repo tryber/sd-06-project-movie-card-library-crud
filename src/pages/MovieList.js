@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
-import { getMovies, getMovie, readMovie, updateMovie, deleteMovie, createMovie } from '../services/movieAPI';
+/* import {
+  getMovies, getMovie, readMovie, updateMovie, deleteMovie, createMovie
+  } from '../services/movieAPI'; */
+import { getMovies } from '../services/movieAPI';
 import Loading from '../components/Loading';
 
 class MovieList extends Component {
@@ -10,12 +13,12 @@ class MovieList extends Component {
     this.state = {
       movies: [],
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
     getMovies()
-      .then(movies => this.setState({ movies, loading: false }));
+      .then((movies) => this.setState({ movies, loading: false }));
   }
 
   render() {
