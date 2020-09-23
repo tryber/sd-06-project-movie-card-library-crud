@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
-    const { imagePath = '', rating = 0, title = '', subtitle = '' } = this.props.movie;
+    const { id = 0, imagePath = '', storyline = '', rating = 0, title = '', subtitle = '' } = this.props.movie;
     return (
       <div data-testid="movie-card" className="movie-card">
         <img src={imagePath} alt={title} />
         <section className="movie-card-body">
           <h1 className="movie-card-title">{title}</h1>
           <h2 className="movie-card-subtitle">{subtitle}</h2>
+          <p className="movie-card-storyline">{`${storyline.substr(0, 60)}...`}</p>
         </section>
         <div className="movie-card-rating" data-testid="rating">
+          <Link to={`/movies/:${id}`} className="movie-details">Ver detalhes</Link>
           <span className="rating">{rating}</span>
         </div>
       </div>
@@ -21,11 +24,13 @@ class MovieCard extends React.Component {
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     imagePath: PropTypes.string.isRequired,
     bookmarked: PropTypes.bool.isRequired,
     rating: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
   }),
 };
 

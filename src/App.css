@@ -1,6 +1,7 @@
 body {
   background-color: whitesmoke;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 /* Aproveitando css do projeto movie card library stateful. Me julguem. :P */
@@ -76,24 +77,28 @@ body {
 
 .movie-card-body {
   flex: 1 1 auto;
-  padding: 20px;
+  overflow: hidden;
+  padding: 2px 20px;
 }
 
 .movie-card-title {
-  font-size: 24px;
+  font-size: 1.4em;
   font-weight: 500;
-  margin: 0 0 12px;
+  margin: 2px 0 0;
 }
 
 .movie-card-subtitle {
   color: #6c757d;
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0 0 8px;
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: 400;
+  margin: 0 0 11px;
 }
 
 .movie-card-storyline {
-  font-size: 14px;
+  color: rgb(20, 22, 15);
+  font-size: 1em;
+  margin: 2px 0;
   text-align: justify;
 }
 
@@ -110,6 +115,10 @@ body {
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 12px 20px;
+}
+
+.movie-details {
+  font-style: italic;
 }
