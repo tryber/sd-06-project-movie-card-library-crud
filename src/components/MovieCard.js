@@ -1,20 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import * as movieAPI from '../services/movieAPI';
+import { Link } from 'react-router-dom';
+
 
 class MovieCard extends React.Component {
   render() {
-    const { imagePath = '', rating = 0, title = '', subtitle = '' } = this.props.movie;
+    const { movie } = this.props;
     return (
       <div data-testid="movie-card" className="movie-card">
-        <img src={imagePath} alt={title} />
-        <section className="movie-card-body">
-          <h1 className="movie-card-title">{title}</h1>
-          <h2 className="movie-card-subtitle">{subtitle}</h2>
-        </section>
-        <div className="movie-card-rating" data-testid="rating">
-          <p className="rating">{rating}</p>
+        <img src={movie.imagePath} alt={movie.title} />
+        <div className="movie-card-body">
+          <h1 className="movie-card-title">{movie.title}</h1>
+          <h2 className="movie-card-subtitle">{movie.subtitle}</h2>
+          <p>{movie.storyline}</p>
         </div>
+        <div className="movie-card-rating" data-testid="rating">
+          <span className="rating">{movie.rating}</span>
+        </div>
+        <Link to={`/movies/${movie.id}`}>VER DETALHES</Link>
       </div>
     );
   }
@@ -22,16 +25,23 @@ class MovieCard extends React.Component {
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     imagePath: PropTypes.string.isRequired,
     bookmarked: PropTypes.bool.isRequired,
     rating: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
 };
 
 MovieCard.defaultProps = {
-  movie: {},
+  movie: {
+    id: 0,
+    imagePath:'',
+    rating: 0,
+    title: '',
+    subtitle: '',
+  },
 };
 
 export default MovieCard;
