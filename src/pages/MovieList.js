@@ -18,11 +18,13 @@ class MovieList extends Component {
 
     if (loading) return <Loading />;
 
-    return (
+    const movieList = (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
     );
+
+    return ((!movies) ? <Loading /> : movieList);
   }
 }
 
