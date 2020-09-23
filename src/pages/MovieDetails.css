@@ -1,0 +1,10 @@
+.movie-details {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.movie-info {
+  width: 650px;
+}

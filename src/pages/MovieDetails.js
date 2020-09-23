@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import './MovieDetails.css';
 
 class MovieDetails extends Component {
   constructor() {
@@ -42,16 +43,18 @@ class MovieDetails extends Component {
 
   renderMovie(movie) {
     return (
-      <div data-testid="movie-details">
+      <div data-testid="movie-details" className="movie-details">
         <img alt="Movie Cover" src={`../${movie.imagePath}`} />
-        <p>{`Title: ${movie.title}`}</p>
-        <p>{`Subtitle: ${movie.subtitle}`}</p>
-        <p>{`Storyline: ${movie.storyline}`}</p>
-        <p>{`Genre: ${movie.genre}`}</p>
-        <p>{`Rating: ${movie.rating}`}</p>
-        <button><Link to="">VOLTAR</Link></button>
-        <button><Link to={`/movies/${movie.id}/edit`}>EDITAR</Link></button>
-        <button type="button" onClick={this.handleClick}><Link to="">DELETAR</Link></button>
+        <div className="movie-info">
+          <p>{`Title: ${movie.title}`}</p>
+          <p>{`Subtitle: ${movie.subtitle}`}</p>
+          <p>{`Storyline: ${movie.storyline}`}</p>
+          <p>{`Genre: ${movie.genre}`}</p>
+          <p>{`Rating: ${movie.rating}`}</p>
+          <button><Link to="">VOLTAR</Link></button>
+          <button><Link to={`/movies/${movie.id}/edit`}>EDITAR</Link></button>
+          <button type="button" onClick={this.handleClick}><Link to="">DELETAR</Link></button>
+        </div>
       </div>
     );
   }

@@ -16,7 +16,7 @@ class NewMovie extends Component {
     this.setState(
       { shouldRedirect: false },
       async () => {
-        movieAPI.createMovie(newMovie);
+        await movieAPI.createMovie(newMovie);
         this.setState({
           shouldRedirect: true,
         });

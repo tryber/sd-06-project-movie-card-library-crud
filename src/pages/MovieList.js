@@ -39,7 +39,9 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list" className="movie-list">
         {this.state.loading ? <Loading /> : this.renderMovies() }
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        <div className="add-card">
+          <button><Link to="/movies/new">ADICIONAR CARTÃO</Link></button>
+        </div>
       </div>
     );
   }
