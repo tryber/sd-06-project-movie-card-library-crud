@@ -12,6 +12,10 @@ class MovieList extends Component {
     }
   }
 
+  componentDidMount() {
+    this.fetchMovies();
+  }
+
   async fetchMovies() {
     this.setState(
       { loading: true },
@@ -28,10 +32,6 @@ class MovieList extends Component {
   renderMovieElement() {
     const { movies } = this.state;
     return movies.map((movie) => <MovieCard key={movie.title} movie={movie} />);
-  }
-
-  componentDidMount() {
-    this.fetchMovies();
   }
 
   render() {
