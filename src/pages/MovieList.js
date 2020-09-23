@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components'
 
 class MovieList extends Component {
   constructor() {
@@ -9,17 +10,42 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
+      isLoading: true,
     }
   }
 
+  isLoadingStateFunc() {
+    this.setState({
+      isLoading: true,
+    }, async () => {
+      const requestMovies = await movieAPI.getMovies();
+
+      this.setState({
+        movies: requestMovies,
+        isLoading: false,
+      })
+    })
+  }
+  // Na funcao isLoadingStateFunc alteramos o state de
+  // isLoading para true, antes de chamar a funcao
+  // movieAPI.getMovies. Apos chamarmos a funcao, quando ela
+  // trouxer a sua resposta o isLoading sera falso e nao
+  // sera renderizado, devido ao ternario colocado na funcao render
+
+  componentDidMount() {
+    this.isLoadingStateFunc();
+  }
+
+  // chamamos a funcao isLoadingStateFunc dentro de componentDidMount
+  // pois esta ultima nao aceita usarmos o setState dentro dela
+
   render() {
     const { movies } = this.state;
-
-    // Render Loading here if the request is still happening
+    const { isLoading } = this.state;
 
     return (
       <div data-testid="movie-list">
-        {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        { isLoading ? <Loading /> : movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
     );
   }
