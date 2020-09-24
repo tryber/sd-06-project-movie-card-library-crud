@@ -42,7 +42,7 @@ class MovieDetails extends Component {
     if (deletedMovie.status === 'OK') {
       this.setState({
         shouldRedirect: true,
-      })
+      });
     }
   }
 
