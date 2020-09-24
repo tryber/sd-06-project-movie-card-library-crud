@@ -44,9 +44,10 @@ export default class MovieDetails extends Component {
           <p>{`Subtitle: ${subtitle}`}</p>
           <p>{`Storyline: ${storyline}`}</p>
           <p>{`Genre: ${genre}`}</p>
-          <p>{`Rating: ${rating}`}</p>;
+          <p>{`Rating: ${rating}`}</p>
           <div>
-            <Link to="/">VOLTAR</Link><Link to={`/movies/${id}/edit`}>EDITAR</Link>
+            <button><Link to="/">VOLTAR</Link></button>
+            <button><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
           </div>
         </div>);
     }
