@@ -31,8 +31,8 @@ class EditMovie extends Component {
     }));
   }
 
-  handleSubmit(updatedMovie) {
-    movieAPI.updateMovie(updatedMovie);
+  async handleSubmit(updatedMovie) {
+    await movieAPI.updateMovie(updatedMovie);
     this.setState({ shouldRedirect: true });
   }
 
