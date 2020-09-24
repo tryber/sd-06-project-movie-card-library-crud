@@ -11,16 +11,16 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" component={MovieList} />
+        <Route path="/" component={ MovieList } />
       </Switch>
       <Switch>
-        <Route path="/movies/:id" component={MovieDetails} />
+        <Route path="/movies/:id" component={ MovieDetails } />
       </Switch>
       <Switch>
-        <Route path="/movies/new" component={NewMovie} />
+        <Route path="/movies/new" component={ NewMovie } />
       </Switch>
       <Switch>
-        <Route path="/movies/:id/edit" component={EditMovie}/>
+        <Route path="/movies/:id/edit" component={ EditMovie }/>
       </Switch>
       <Switch>
         <Route path="*" component={NotFound}/>
