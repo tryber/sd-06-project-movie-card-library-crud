@@ -13,14 +13,14 @@ class MovieDetails extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
+ 
+  componentDidMount() {
+    this.fetchMovie();
+  }
 
   handleClick() {
     const id = this.props.match.params.id;
     movieAPI.deleteMovie(id);
-  }
-
-  componentDidMount() {
-    this.fetchMovie();
   }
 
   async fetchMovie() {

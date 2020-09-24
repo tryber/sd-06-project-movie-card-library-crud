@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Redirect } from 'react-router-dom';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -11,9 +11,13 @@ class EditMovie extends Component {
     this.state = {
       movie: {},
       status: 'loading',
-      shouldRedirect: false
+      shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchMovie();
   }
 
   handleSubmit(updatedMovie) {
@@ -21,23 +25,19 @@ class EditMovie extends Component {
     this.setState({ shouldRedirect: true });
   }
 
-  componentDidMount() {
-    this.fetchMovie();
-  }
-
   async fetchMovie() {
     const id = this.props.match.params.id;
     const movie = await movieAPI.getMovie(id);
     this.setState({
       movie,
-      status: 'loaded'
+      status: 'loaded',
     });
   }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
 
     if (status === 'loading') {
