@@ -8,7 +8,7 @@ class MovieDetails extends Component {
   constructor() {
     super();
 
-    this.fetchMovie = this.fetchMovie.bind(this);
+    this.fetchMovies = this.fetchMovies.bind(this);
 
     this.state = {
       movie: {},
@@ -17,10 +17,10 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    this.fetchMovie();
+    this.fetchMovies();
   }
 
-  async fetchMovie() {
+  async fetchMovies() {
     const { id } = this.props.match.params;
 
     this.setState({
