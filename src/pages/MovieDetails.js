@@ -6,7 +6,7 @@ import Loading from '../components/Loading';
 class MovieDetails extends Component {
   constructor() {
     super();
-
+    this.att = this.att.bind(this);
     this.state = {
       movies: [],
       loading: true,
@@ -14,10 +14,15 @@ class MovieDetails extends Component {
   }
 
   async componentDidMount() {
+    this.att();
+  }
+
+  async att() {
     const { match } = this.props;
     const request = await movieAPI.getMovie(match.params.id);
     this.setState({ movies: request, loading: false });
   }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;

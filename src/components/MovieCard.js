@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes, { objectOf } from 'prop-types';
 import { Link } from 'react-router-dom';
-import MovieData from '../services/movieData';
 
 class MovieCard extends React.Component {
   render() {
@@ -9,7 +8,7 @@ class MovieCard extends React.Component {
     const { imagePath, title, storyline, id } = movies.movie;
     return (
       <div data-testid="movie-card">
-        <img src={imagePath}></img>
+        <img src={imagePath} alt={`${title}`}/>
         <h1>{title}</h1>
         <p>{storyline}</p>
         <Link to={`/movies/${id}`}>VER DETALHES</Link>
@@ -18,6 +17,6 @@ class MovieCard extends React.Component {
   }
 }
 
-MovieCard.propTypes = { movie: PropTypes.arrayOf(objectOf).isRequired };
+MovieCard.propTypes = { movies: PropTypes.arrayOf(objectOf).isRequired };
 
 export default MovieCard;

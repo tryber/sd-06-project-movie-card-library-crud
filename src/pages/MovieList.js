@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import Loading from '../components/Loading';
-import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
   constructor() {
     super();
-
+    this.att = this.att.bind(this);
     this.state = {
       movies: [],
       loading: true,
     };
   }
+
   async componentDidMount() {
+    this.att();
+  }
+
+  async att() {
     const filme = await movieAPI.getMovies();
     this.setState({
       movies: filme,
