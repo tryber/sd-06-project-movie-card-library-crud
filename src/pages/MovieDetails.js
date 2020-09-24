@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
+
 
 class MovieDetails extends Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       movies: [],
       loading: true,
-    }
+    };
   }
-   
+
   componentDidMount() {
     this.fetchMovies();
   }
@@ -23,12 +25,12 @@ class MovieDetails extends Component {
     this.setState({
       movies: filmes,
       loading: false,
-    })
+    });
   }
 
   render() {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movies;
-    const { loading } = this.state
+    const { loading } = this.state;
 
     return (
       <div>
@@ -41,10 +43,10 @@ class MovieDetails extends Component {
           <p>{`Genre: ${genre}`}</p>
           <p>{`Rating: ${rating}`}</p>
           <div>
-              <Link to={`/`}>VOLTAR</Link>
-            </div>
-            <div>
-              <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+            <Link to={`/`}>VOLTAR</Link>
+          </div>
+          <div>
+            <Link to={`/movies/${id}/edit`}>EDITAR</Link>
           </div>
         </div>
         }
@@ -52,5 +54,7 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = { match: propTypes.objectOf(Array).isRequired };
 
 export default MovieDetails;

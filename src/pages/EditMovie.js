@@ -24,14 +24,14 @@ class EditMovie extends Component {
     if (status === 'loading') {
       // render Loading
     }
-    
+
     return (
       <div data-testid="edit-movie">
         {(loading) ? <Loading /> :
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
         }
       </div>
-    
+
     );
   }
 }
