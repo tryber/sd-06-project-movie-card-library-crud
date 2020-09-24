@@ -6,7 +6,7 @@ import * as movieAPI from '../services/movieAPI';
 class MovieList extends Component {
   constructor() {
     super();
-    
+
     this.fetchGetMovies = this.fetchGetMovies.bind(this);
 
     this.state = {
@@ -33,12 +33,11 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         {loading === true ?
-        <Loading /> :
-        movies
-        .map((movie) => <MovieCard key={movie.title} movie={movie} />)
+          <Loading /> :
+          movies
+            .map((movie) => <MovieCard key={movie.title} movie={movie} />)
             };
-
-<Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </div>
     );
   }
