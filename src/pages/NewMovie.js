@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import propTypes from 'prop-types';
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
 
 class NewMovie extends Component {
   constructor(props) {
     super(props);
+    const movie = {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: '',
+    };
     this.state = {
-      ...props.movie,
+      ...props.movie || movie,
       shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,5 +42,9 @@ class NewMovie extends Component {
     );
   }
 }
+
+NewMovie.propTypes = {
+  movie: propTypes.instanceOf(propTypes.object, propTypes.string).isRequired,
+};
 
 export default NewMovie;
