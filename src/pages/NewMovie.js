@@ -6,13 +6,13 @@ import * as movieAPI from '../services/movieAPI';
 class NewMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = { shouldRedirect: false }
+    this.state = { shouldRedirect: false };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(newMovie) {
     movieAPI.createMovie(newMovie);
-    this.setState({ shouldRedirect: true })
+    this.setState({ shouldRedirect: true });
   }
 
   render() {

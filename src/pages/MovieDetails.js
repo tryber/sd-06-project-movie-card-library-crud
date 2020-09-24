@@ -13,7 +13,7 @@ class MovieDetails extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
- 
+
   componentDidMount() {
     this.fetchMovie();
   }
