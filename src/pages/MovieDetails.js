@@ -6,7 +6,7 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.fetchMovieInfo = this.fetchMovieInfo.bind(this);
@@ -14,7 +14,7 @@ class MovieDetails extends Component {
     this.state = {
       loading: true,
       movie: {},
-    }
+    };
   }
 
   componentDidMount() {
@@ -53,7 +53,5 @@ class MovieDetails extends Component {
 export default MovieDetails;
 
 MovieDetails.propTypes = {
-  history: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
-}
+};
