@@ -1,25 +1,55 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Loading from '../components/Loading';
+import { getMovie } from '../services/movieAPI';
 
-import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
+class MovieDetails extends React.Component {
+  constructor() {
+    super();
 
-class MovieDetails extends Component {
+    this.state = {
+      movie: [],
+      isLoading: true,
+    };
+    this.fetchMovie = this.fetchMovie.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchMovie();
+  }
+
+  async fetchMovie() {
+    const numberId = this.props.match.params.id;
+    const movie = await getMovie(numberId);
+    this.setState({
+      movie,
+      isLoading: false,
+    });
+  }
+
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
 
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
+        {this.state.isLoading ? <Loading /> : <div>
+          <img alt="Movie Cover" src={`../${imagePath}`} />
+          <p>{`Title: ${title}`}</p>
+          <p>{`Subtitle: ${subtitle}`}</p>
+          <p>{`Storyline: ${storyline}`}</p>
+          <p>{`Genre: ${genre}`}</p>
+          <p>{`Rating: ${rating}`}</p>
+          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+          <Link to="/">VOLTAR</Link>
+        </div>}
       </div>
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.objectOf.isRequired,
+};
 
 export default MovieDetails;
