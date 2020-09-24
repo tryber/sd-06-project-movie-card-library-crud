@@ -138,6 +138,7 @@ class MovieForm extends React.Component {
   }
 
   render() {
+    
     return (
       <div>
         <form>
