@@ -10,6 +10,7 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
+      isLoading: true,
     }
   }
 
@@ -19,17 +20,21 @@ class MovieList extends Component {
 
   async fetchMovie() {
     const movies = await movieAPI.getMovies();
-    this.setState({ movies });
+    this.setState({
+      movies,
+      isLoading: false,
+    });
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, isLoading } = this.state;
 
     // Render Loading here if the request is still happening
-
+    if (isLoading === true) {
+      return <Loading />;
+    }
     return (
       <div data-testid="movie-list">
-        <Loading />
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
     );
