@@ -46,7 +46,7 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Title: ${title}`}</p>
+        <h4>{`Title: ${title}`}</h4>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
@@ -63,7 +63,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: Proptypes.shape({
     params: Proptypes.shape({
-      id: Proptypes.number.isRequired,
+      id: Proptypes.string.isRequired,
     }).isRequired,
   }).isRequired,
 };
