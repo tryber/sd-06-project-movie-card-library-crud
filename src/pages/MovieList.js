@@ -6,7 +6,7 @@ class MovieList extends Component {
   constructor() {
     super();
 
-    this.renderMovies = this.renderMovies.bind(this);
+    this.fetchMovie = this.fetchMovie.bind(this);
     this.disableLoadingMessage = this.disableLoadingMessage.bind(this);
 
     this.state = {
@@ -18,14 +18,14 @@ class MovieList extends Component {
   async componentDidMount() {
     const movies = await movieAPI.getMovies();
     this.disableLoadingMessage();
-    this.renderMovies(movies);
+    this.fetchMovie(movies);
   }
 
   disableLoadingMessage() {
     this.setState({ isLoading: false });
   }
 
-  renderMovies(movies) {
+  fetchMovie(movies) {
     this.setState({ movies });
   }
 
