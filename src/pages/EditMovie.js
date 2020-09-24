@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
@@ -30,7 +31,7 @@ class EditMovie extends Component {
     const filmes = await movieAPI.getMovie(id);
     this.setState({
       movie: filmes,
-      status: '';
+      status: ''
     });
   }
 
