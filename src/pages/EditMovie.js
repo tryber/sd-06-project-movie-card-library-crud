@@ -15,6 +15,10 @@ class EditMovie extends Component {
     this.fetchMovie = this.fetchMovie.bind(this);
   }
 
+  componentDidMount() {
+    this.fetchMovie();
+  }
+
   async fetchMovie() {
     const result = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({ movie: result, loading: false });
@@ -23,11 +27,6 @@ class EditMovie extends Component {
   async handleSubmit(updatedMovie) {
     await movieAPI.updateMovie(updatedMovie);
     this.setState({ redirect: true, loading: false });
-
-  }
-
-  componentDidMount() {
-    this.fetchMovie();
   }
 
   render() {
