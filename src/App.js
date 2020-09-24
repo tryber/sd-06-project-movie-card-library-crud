@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-// import { Loading, MovieCard, MovieForm } from './components';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import { EditMovie, MovieDetails, MovieList, NewMovie, NotFound } from './pages';
 
 
