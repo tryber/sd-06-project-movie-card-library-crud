@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
+import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link, Redirect } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie : ''
-    }
+      movie: '',
+    };
     this.fetchMovie = this.fetchMovie.bind(this);
   }
 
@@ -19,22 +19,24 @@ class MovieDetails extends Component {
 
   async handleClick(id) {
     await movieAPI.deleteMovie(id);
-    <Redirect to="/" />
+    return <Redirect to="/" />;
   }
 
   async fetchMovie() {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
-    this.setState({ movie })
+    this.setState({ movie });
   }
 
   render() {
     const { id } = this.props.match.params;
     const { movie } = this.state;
     if (movie === '') {
-      return <Loading />
-    } 
+      return <Loading />;
+    }
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const {
+      title, storyline, imagePath, genre, rating, subtitle,
+    } = movie;
 
     return (
       <div data-testid="movie-details">

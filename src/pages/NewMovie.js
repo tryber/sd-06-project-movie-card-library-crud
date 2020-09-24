@@ -8,20 +8,19 @@ class NewMovie extends Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      movie:''
-    }
+      movie: '',
+    };
   }
 
   async handleSubmit(newMovie) {
     const movie = await movieAPI.createMovie(newMovie);
-    this.setState({ movie })
-   
+    this.setState({ movie });
   }
 
   render() {
     const { movie } = this.state;
     if (movie) {
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
 
     return (
