@@ -24,9 +24,9 @@ class MovieDetails extends Component {
 
   async fetchMovie() {
     const { id } = this.props.match.params;
-    const movie = await movieAPI.getMovie(id);
+    const fetchedMovie = await movieAPI.getMovie(id);
     this.setState(() => ({
-      movie: movie,
+      movie: fetchedMovie,
       isLoading: false,
     }));
   }
@@ -56,7 +56,7 @@ MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.number.isRequired,
-    }).isRequired,  
+    }).isRequired,
   }).isRequired,
 };
 
