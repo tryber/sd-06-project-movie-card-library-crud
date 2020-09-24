@@ -50,10 +50,4 @@ class EditMovie extends Component {
   }
 }
 
-EditMovie.propTypes = {
-
-  id: PropTypes.number.isRequired,
-
-};
-
 export default EditMovie;
