@@ -12,7 +12,7 @@ class MovieCard extends React.Component {
         <h4>{title}</h4>
         <p>{storyline}</p>
         <Redirect
-        to={`/movies/${id}`} render={(props) => <MovieDetails {...props} />}
+          to={`/movies/${id}`} render={(props) => <MovieDetails {...props} />}
         >VER DETALHES</Redirect>
       </div>
     );
