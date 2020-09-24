@@ -12,7 +12,7 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       isLoading: true,
-    }
+    };
   }
 
   componentDidMount() {
@@ -25,13 +25,14 @@ class MovieDetails extends Component {
     this.setState({
       isLoading: true,
     }, async () => {
-      const requestMovie = await movieAPI.getMovie();
+      const { match } = this.props;
+      const requestMovie = await movieAPI.getMovie(match.params.id);
 
       this.setState({
         movie: requestMovie,
         isLoading: false,
-      })
-    })
+      });
+    });
   }
   // Na funcao isLoadingStateFunc alteramos o state de
   // isLoading para true, antes de chamar a funcao
@@ -40,12 +41,8 @@ class MovieDetails extends Component {
   // sera renderizado, devido ao ternario colocado na funcao render
 
   render() {
-
-    const { id, title, storyline, imagePath, genre, rating, subtitle } = {};
-    const { movie } = this.state;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
     const { isLoading } = this.state;
-
-
     return (
       <div data-testid="movie-details">
         { isLoading ? <Loading /> : <div>
