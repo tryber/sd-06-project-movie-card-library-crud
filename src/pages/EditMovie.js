@@ -10,7 +10,7 @@ class EditMovie extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.fetchMovieInfo = this.fetchMovieInfo.bind(this);
+    this.retrieveMovieInfo = this.retrieveMovieInfo.bind(this);
 
     this.state = {
       loading: true,
@@ -20,7 +20,7 @@ class EditMovie extends Component {
   }
 
   componentDidMount() {
-    this.fetchMovieInfo();
+    this.retrieveMovieInfo();
   }
 
   async handleSubmit(updatedMovie) {
