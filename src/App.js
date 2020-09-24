@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/movies/new"><NewMovie /></Route>
+        <Route exact path="/movies/new"><NewMovie /></Route>
         <Route exact path="/movies/:id" render={(props) => <MovieDetails {...props} />} />
         <Route exact path="/movies/:id/edit" render={(props) => <EditMovie {...props} />} />
         <Route exact path="/"><MovieList /></Route>
