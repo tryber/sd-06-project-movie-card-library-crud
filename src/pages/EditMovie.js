@@ -9,20 +9,20 @@ class EditMovie extends Component {
     this.state = {
       movie: [],
       status: 'loading',
-      shouldRedirect: 'false'
+      shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchMovies();
   }
 
   handleSubmit(updatedMovie) {
     movieAPI.updateMovie(updatedMovie);
     this.setState({
-      shouldRedirect: 'true'
-    })
-  }
-
-  componentDidMount() {
-    this.fetchMovies();
+      shouldRedirect: 'true',
+    });
   }
 
   async fetchMovies() {
@@ -30,18 +30,18 @@ class EditMovie extends Component {
     const filmes = await movieAPI.getMovie(id);
     this.setState({
       movie: filmes,
-      status: ''
+      status: '';
     });
   }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
-    if (shouldRedirect === 'true') {
+    if (shouldRedirect) {
       return <Redirect to={'/'} />
     }
 
     if (status === 'loading') {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
@@ -51,5 +51,7 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = { match: propTypes.objectOf(Array).isRequired };
 
 export default EditMovie;
