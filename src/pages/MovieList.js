@@ -31,7 +31,7 @@ class MovieList extends Component {
     this.setState(
       { loading: true },
       async () => {
-        const movie = await getMovies().then((resultado) => resultado);
+        const movie = await getMovies();
         this.setState({
           movies: movie,
           loading: false,
