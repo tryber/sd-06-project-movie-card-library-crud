@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -15,6 +15,11 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     this.fetchMovie();
+  }
+
+  async handleClick(id) {
+    await movieAPI.deleteMovie(id);
+    <Redirect to="/" />
   }
 
   async fetchMovie() {
@@ -41,6 +46,7 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <button><Link to="/">VOLTAR</Link></button>
         <button><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
+        <button onClick={() => this.handleClick(id)}><Link to="/">DELETAR</Link></button>
       </div>
     );
   }
