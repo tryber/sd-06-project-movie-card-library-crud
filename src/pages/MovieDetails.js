@@ -37,6 +37,7 @@ class MovieDetails extends Component {
   }
 
   render() {
+    console.log(this.props.match)
     if (this.state.loading) {
       return <Loading />;
     }
@@ -59,12 +60,13 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.PropTypes = {
+MovieDetails.propTypes = {
+  match: PropTypes.object,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.number.isRequired,
-    })
-  })
+    }),
+  }),
 };
 
 export default MovieDetails;
