@@ -14,16 +14,16 @@ class MovieDetails extends Component {
       title: '',
       subtitle: '',
       storyline: '',
-      gente: '',
+      genre: '',
       rating: '',
     };
   }
 
   componentDidMount() {
-    this.handleFetMovieApi();
+    this.handleFetchMovieApi();
   }
 
-  async handleFetMovieApi() {
+  async handleFetchMovieApi() {
     const { id } = this.props.match.params;
     const movieApi = await getMovie(id);
     this.setState({
