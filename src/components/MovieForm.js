@@ -13,6 +13,7 @@ class MovieForm extends React.Component {
     onSubmit(this.state);
   }
 
+  // Atualiza o state
   updateMovie(field, newValue) {
     this.setState({ [field]: newValue });
   }
