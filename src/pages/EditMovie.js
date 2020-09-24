@@ -30,7 +30,7 @@ class EditMovie extends Component {
     });
   }
 
-  async fetchMovieInfo() {
+  async retrieveMovieInfo() {
     const { id } = this.props.match.params;
     this.setState({
       loading: false,
