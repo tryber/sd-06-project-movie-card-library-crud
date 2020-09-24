@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import MovieCard from '../components/MovieCard';
+import { MovieCard, Loading } from '../components';
 /* import {
   getMovies, getMovie, readMovie, updateMovie, deleteMovie, createMovie
   } from '../services/movieAPI'; */
 import { getMovies } from '../services/movieAPI';
-import Loading from '../components/Loading';
 
 class MovieList extends Component {
   constructor() {

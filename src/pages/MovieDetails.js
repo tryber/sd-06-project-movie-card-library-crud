@@ -32,8 +32,8 @@ class MovieDetails extends Component {
       <div data-testid="movie-list" className="movie-list">
         <div data-testid="movie-details" className="movie-details">
           <img alt="Movie Cover" src={`../${imagePath}`} />
+          <span className="movie-details-title">{title}</span>
           <section className="movie-card-body">
-            <h1>{`Title: ${title}`}</h1>
             <p>{`Subtitle: ${subtitle}`}</p>
             <p>{`Storyline: ${storyline}`}</p>
             <p>{`Genre: ${genre}`}</p>
