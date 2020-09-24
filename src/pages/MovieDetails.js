@@ -9,6 +9,7 @@ class MovieDetails extends Component {
     super();
 
     this.movieFetch = this.movieFetch.bind(this);
+    this.movieDelete = this.movieDelete.bind(this);
 
     this.state = {
       loading: false,
@@ -18,6 +19,11 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     this.movieFetch();
+  }
+
+  async movieDelete() {
+    const { id } = this.props.match.params;
+    await movieAPI.deleteMovie(id);
   }
 
   async movieFetch() {
@@ -35,9 +41,6 @@ class MovieDetails extends Component {
   }
 
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
 
     return (
@@ -55,6 +58,7 @@ class MovieDetails extends Component {
           <section>
             <Link to={`${id}/edit`}>EDITAR</Link>
             <Link to={'/'}>VOLTAR</Link>
+            <button type="button" onClick={this.movieDelete}><Link to="/">DELETAR</Link></button>
           </section>
         </div>
         }
