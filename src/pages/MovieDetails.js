@@ -10,6 +10,7 @@ class MovieDetails extends Component {
 
     this.getMyMovie = this.getMyMovie.bind(this);
     this.showDetails = this.showDetails.bind(this);
+    this.handleSubmitDelete = this.handleSubmitDelete.bind(this);
 
     this.state = {
       myMovie: undefined,
@@ -34,6 +35,11 @@ class MovieDetails extends Component {
       });
   }
 
+  async handleSubmitDelete() {
+    const { id } = this.state.myMovie;
+    await movieAPI.deleteMovie(id);
+  }
+
   showDetails() {
     const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.myMovie;
     return (
@@ -47,13 +53,14 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <h5><Link to={`/movies/${id}/edit`}>EDITAR</Link></h5>
         <h5><Link to={'/'}>VOLTAR</Link></h5>
+        <button onClick={this.handleSubmitDelete}>
+          <Link to={'/'}>DELETAR</Link>
+        </button>
       </div>
     );
   }
 
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
     const { load } = this.state;
     return (
       <div data-testid="movie-details">
