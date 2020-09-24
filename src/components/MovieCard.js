@@ -20,3 +20,6 @@ class MovieCard extends React.Component {
 }
 
 export default MovieCard;
+
+MovieCard.defaultProps = { movie: {} };
+MovieCard.propTypes = { movie: PropTypes.object };
