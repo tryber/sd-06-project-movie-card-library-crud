@@ -16,10 +16,11 @@ class MovieList extends Component {
     const { movies } = this.state;
 
     // Render Loading here if the request is still happening
+    // {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
 
     return (
       <div data-testid="movie-list">
-        {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        <p>teste</p>
       </div>
     );
   }
