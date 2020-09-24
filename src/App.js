@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { EditMovie, NewMovie, MovieDetails, MovieList, NotFound } from './pages';
 import './App.css';
+import './MovieCard.css';
 
 function App() {
   return (
