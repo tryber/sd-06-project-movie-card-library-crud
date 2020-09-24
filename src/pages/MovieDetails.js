@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class MovieDetails extends Component {
     };
     this.updateStateMovie = this.updateStateMovie.bind(this);
   }
-  
+
   componentDidMount() {
     const { id } = this.props.match.params;
     this.updateStateMovie(id);
