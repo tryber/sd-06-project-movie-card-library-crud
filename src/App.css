@@ -101,7 +101,6 @@ body {
   height: 68px;
   line-height: 110%;
   margin: 2px 0;
-  mask-image: linear-gradient(to bottom, black 50%, transparent 88%);
 }
 
 .rating {
