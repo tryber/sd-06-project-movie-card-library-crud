@@ -14,11 +14,15 @@ class MovieList extends Component {
   }
 
   async componentDidMount() {
+    fetchMovie();
+  }
+
+  async fetchMovie() {
     const arrayMovies = await movieAPI.getMovies();
     this.setState({
       movies: arrayMovies,
       loading: false,
-    });
+    })
   }
 
   render() {
