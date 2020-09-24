@@ -9,17 +9,18 @@ class MovieList extends Component {
   constructor() {
     super();
     this.state = {
-      movies: '',
-      // isLoading: true,
+      movies: [],
+      isLoading: true,
     }
   }
 
-  // async fetchMovie() {
-  //   const movies = await movieAPI.getMovies();
-  //   this.setState({
-  //     movies: movies,
-  //     isLoading: false,
-  //   });
+  async fetchMovie() {
+    const movies = await movieAPI.getMovies();
+    this.setState({
+      movies: movies,
+      isLoading: false,
+    });
+  }
   // fetchMovie {
   //   movieAPI.getMovie()
   //   .then((data) => this.setState({
@@ -27,9 +28,9 @@ class MovieList extends Component {
   //     isLoading: false,
   //   }));
   // }
-  // componentDidMount() {
-  //   this.fetchMovie
-  // }
+  componentDidMount() {
+    this.fetchMovie()
+  }
 
   render() {
     const { movies } = this.state;
