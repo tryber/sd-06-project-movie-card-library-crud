@@ -53,11 +53,10 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  path: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  isExact: PropTypes.bool.isRequired,
-  params: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,  
   }).isRequired,
 };
 
