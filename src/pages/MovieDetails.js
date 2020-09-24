@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import propTypes from 'prop-types';
+
 
 
 class MovieDetails extends Component {
@@ -43,7 +44,7 @@ class MovieDetails extends Component {
           <p>{`Genre: ${genre}`}</p>
           <p>{`Rating: ${rating}`}</p>
           <div>
-            <Link to={`/`}>VOLTAR</Link>
+            <Link to={'/'}>VOLTAR</Link>
           </div>
           <div>
             <Link to={`/movies/${id}/edit`}>EDITAR</Link>
