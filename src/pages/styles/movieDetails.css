@@ -46,16 +46,3 @@
 .info .links a:hover {
   color: rgb(46, 19, 46);
 }
-
-.info .links button {
-  background-color: transparent;
-  border: none;
-  color: rgb(98, 40, 98);
-  cursor: pointer;
-  font-size: 80%;
-  font-weight: 700;
-}
-
-.info .links button:hover {
-  color: rgb(46, 19, 46);
-}

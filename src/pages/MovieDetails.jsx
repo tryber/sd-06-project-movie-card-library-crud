@@ -42,7 +42,8 @@ class MovieDetails extends Component {
     });
   }
 
-  async handleDelete() {
+  async handleDelete(event) {
+    event.preventDefault();
     const { id } = this.props.match.params;
     const { push } = this.props.history;
 
@@ -73,7 +74,7 @@ class MovieDetails extends Component {
               <p>{`Rating: ${rating}`}</p>
               <div className="links">
                 <Link to="/">VOLTAR</Link>
-                <button type="button" onClick={this.handleDelete}>DELETAR</button>
+                <Link to="/" onClick={this.handleDelete}>DELETAR</Link>
                 <Link to={`/movies/${id}/edit`}>EDITAR</Link>
               </div>
             </div>
