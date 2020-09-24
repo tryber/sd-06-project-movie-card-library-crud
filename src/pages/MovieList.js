@@ -13,6 +13,10 @@ class MovieList extends Component {
   }
 
   async componentDidMount() {
+    this.fetchMovies();
+  }
+  
+  async fetchMovies() {
     const filmes = await movieAPI.getMovies();
     this.setState({
       movies: filmes,
@@ -24,8 +28,8 @@ class MovieList extends Component {
     const loadingElement = <span>Carregando...</span>
     return (
       <div data-testid="movie-list">
-        {movies.length === 0 ? loadingElement : movies.map((movie) => 
-          <MovieCard key={movie.title} movie={movie} />
+        {movies.length === 0 ? loadingElement : movies.map((movie) =>
+          <MovieCard key={movie.title} movie={movie} />,
         )}
       </div>
 
