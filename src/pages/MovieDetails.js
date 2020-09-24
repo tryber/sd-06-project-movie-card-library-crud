@@ -44,7 +44,6 @@ class MovieDetails extends Component {
     );
   }
 
-
   render() {
     const { title, storyline, imagePath, genre, rating, subtitle, loading } = this.state;
     const { id } = this.props.match.params;
@@ -59,6 +58,7 @@ class MovieDetails extends Component {
           <p>{`Storyline: ${storyline}`}</p>
           <p>{`Genre: ${genre}`}</p>
           <p>{`Rating: ${rating}`}</p>
+          <Link to="" onClick={() => movieAPI.deleteMovie(id)}>DELETAR</Link>
           <Link to={`/movies/${id}/edit`}>EDITAR</Link>
           <Link to="/">VOLTAR</Link>
         </div>
