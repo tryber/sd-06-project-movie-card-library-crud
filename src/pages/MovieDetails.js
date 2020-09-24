@@ -7,20 +7,22 @@ import { Loading } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       movie: {},
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
     movieAPI.getMovie(this.props.match.params.id)
-    .then((movie) => {this.setState({
-      movie,
-      loading: false,
-    })})
+    .then((movie) => {
+      this.setState({
+        movie,
+        loading: false,
+      });
+    });
   }
 
   render() {
