@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import * as movieAPI from '../services/movieAPI';
+
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
@@ -16,8 +18,12 @@ class MovieDetails extends Component {
     this.state = {
       isLoading: true,
       movieId,
-      movie: {}
-    }
+      movie: {},
+    };
+  }
+
+  componentDidMount() {
+    this.fetchAPI();
   }
 
   async handleDelete(movieId) {
@@ -39,17 +45,13 @@ class MovieDetails extends Component {
     ));
   }
 
-  componentDidMount() {
-    this.fetchAPI();
-  }
 
   render() {
     const { isLoading } = this.state;
-    console.log(this.state)
 
     if (isLoading) return <Loading />;
 
-    const { id ,title, storyline, imagePath, genre, subtitle } = this.state.movie;
+    const { id, title, storyline, imagePath, genre, subtitle } = this.state.movie;
 
     return (
       <div data-testid="movie-details">
@@ -65,5 +67,13 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default MovieDetails;
