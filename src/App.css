@@ -31,7 +31,6 @@ h2 {
 }
 
 /* Aproveitando css do projeto movie card library stateful. Me julguem. :P */
-
 .movie-list {
   display: flex;
   flex-flow: row wrap;
