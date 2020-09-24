@@ -13,6 +13,7 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: undefined,
+      loading: true,
     }
   }
 
@@ -20,6 +21,7 @@ class MovieDetails extends Component {
     const details = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({
       movie: details,
+      loading: false,
     })
   }
 
@@ -29,10 +31,9 @@ class MovieDetails extends Component {
 
   render() {
     // Change the condition to check the state
-    if (!this.state.movie) return <Loading />;
+    if (this.state.loading === true) return <Loading />;
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
-    const { id } = this.props.match.params;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
     return (
       <div data-testid="movie-details">
@@ -42,8 +43,8 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <Link to={`/movies/${id}/edit`}>EDITAR</Link><br />
-        <Link to='/'>VOLTAR</Link>
+        <Link to='/'>VOLTAR</Link><br /><br />
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
       </div>
     );
   }
