@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor() {
@@ -11,10 +11,10 @@ class MovieDetails extends Component {
     this.fatchMovie = this.fatchMovie.bind(this);
 
     this.state = {
-      id: 0,
+      idMovie: 0,
       movie: {},
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
@@ -26,8 +26,8 @@ class MovieDetails extends Component {
     this.setState({
       movie: await movieAPI.getMovie(id),
       loading: false,
-      id: id,
-    })
+      idMovie: id,
+    });
   }
 
 
@@ -39,7 +39,7 @@ class MovieDetails extends Component {
 
     const { loading } = this.state;
 
-    if (loading === true) return <Loading />
+    if (loading === true) return <Loading />;
 
     return (
       <div>
@@ -52,7 +52,7 @@ class MovieDetails extends Component {
           <p>{`Rating: ${rating}`}</p>
           <div>
             <button><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
-            <button><Link to=''>VOLTAR</Link></button>
+            <button><Link to="A">VOLTAR</Link></button>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  id: PropTypes.number.isRequired,
+  match: PropTypes.number.isRequired,
 };
 
 export default MovieDetails;
