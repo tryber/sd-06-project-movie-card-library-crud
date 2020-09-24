@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Loading, MovieCard } from '../components';
-import * as movieAPI from '../services/movieAPI';
+import { getMovies } from '../services/movieAPI';
 
 class MovieList extends Component {
   constructor() {
@@ -20,12 +20,12 @@ class MovieList extends Component {
     this.setState(
       { loading: true },
       async () => {
-        const allMovies = await movieAPI.getMovies();
+        const allMovies = await getMovies();
         this.setState({
           loading: false,
           movies: allMovies,
         })
-      }
+      },
     )
   }
 
