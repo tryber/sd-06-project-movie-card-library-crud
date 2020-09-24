@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import * as movieAPI from '../services/movieAPI';
 
 class MovieDetails extends Component {
   constructor() {
     super();
 
     this.state = {
-      movies: {},
+      movie: {},
       requisition: false,
     };
   }
@@ -23,19 +23,20 @@ class MovieDetails extends Component {
 
   setNewState(newState) {
     this.setState({
-      movies: newState,
+      movie: newState,
       requisition: true,
     });
   }
 
   render() {
-    const { movies, requisition } = this.state;
+    const { movie, requisition } = this.state;
     const { id } = this.props.match.params;
+    const { deleteMovie } = movieAPI;
     // Change the condition to check the state
     // if (true) return <Loading />;
     if (requisition === false) return <Loading />;
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = movies;
+    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return (
       <div data-testid="movie-details">
@@ -48,6 +49,7 @@ class MovieDetails extends Component {
         <div>
           <Link to={`/movies/${id}/edit`}>EDITAR</Link>
           <Link to="/">VOLTAR</Link>
+          <Link to="/" onClick={() => deleteMovie(id)}>DELETAR</Link>
         </div>
       </div>
     );
