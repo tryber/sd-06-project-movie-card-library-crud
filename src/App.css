@@ -139,10 +139,22 @@ body {
   text-decoration-line: none;
 }
 
-.movie-card-link:hover , 
-.add-movie:hover , 
-.view-details:hover , 
 .form-button-back:hover {
+  background-color: green;
+  text-decoration-line: none;
+}
+
+.movie-card-link:hover {
+  background-color: green;
+  text-decoration-line: none;
+}
+
+.add-movie:hover {
+  background-color: green;
+  text-decoration-line: none;
+}
+
+.view-details:hover {
   background-color: green;
   text-decoration-line: none;
 }
