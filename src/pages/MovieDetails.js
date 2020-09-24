@@ -39,11 +39,11 @@ class MovieDetails extends Component {
   }
 
   deleteMovie() {
-    const { id } = this.props.match.params;    
+    const { id } = this.props.match.params;
     this.setState({ loading: true, shouldRedirect: false }, () => {
       movieAPI.deleteMovie(id)
         .then(() => this.setState({ shouldRedirect: true, loading: false }));
-    })
+    });
   }
 
   render() {
@@ -54,7 +54,7 @@ class MovieDetails extends Component {
 
     if (loading) return <Loading />;
 
-    if (shouldRedirect) return <Redirect to="" />
+    if (shouldRedirect) return <Redirect to="" />;
 
     return (
       <div data-testid="movie-details">
