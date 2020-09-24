@@ -7,7 +7,8 @@ import { Loading } from '../components';
 class MovieList extends Component {
   constructor() {
     super();
-
+    this.renderizar = this.renderizar.bind(this);
+    this.imprimir = this.imprimir.bind(this);
     this.state = {
       movies: [],
       loading: false,
@@ -31,16 +32,20 @@ class MovieList extends Component {
     );
   }
 
-  render() {
+  imprimir() {
     const { movies, loading } = this.state;
+    if (loading) {
+      return <Loading />;
+    }
+    return movies.map((movie) => <MovieCard key={movie.title} movie={movie} />);
+  }
 
+  render() {
     // Render Loading here if the request is still happening
 
     return (
       <div data-testid="movie-list">
-        {loading ? <Loading /> : movies.map((movie) => {
-          return <MovieCard key={movie.title} movie={movie} />;
-        })}
+        {this.imprimir()}
       </div>
     );
   }
