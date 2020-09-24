@@ -141,7 +141,7 @@ describe.only('2 - Movie list: Ao ser montado, MovieList deve fazer uma requisi�
   })
 });
 
-describe('3 - MovieCard: deve possuir um link para a página de detalhes de um filme', () => {
+describe.only('3 - MovieCard: deve possuir um link para a página de detalhes de um filme', () => {
   test('deve exibir pelo menos o título e a sinopse de seu respectivo filme', async () => {
     const { unmount, getAllByText } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
@@ -162,7 +162,7 @@ describe('3 - MovieCard: deve possuir um link para a página de detalhes de um f
   })
 })
 
-describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que deverá ser renderizado', () => {
+describe.only('4 - MovieDetails: deve fazer uma requisição para buscar o filme que deverá ser renderizado', () => {
 
   it('deverá exibir o texto "Carregando..." enquanto estiver fazendo a requisição', () => {
     readMovies().forEach(async (movie) => {
