@@ -28,9 +28,9 @@ class MovieDetails extends Component {
     });
   }
 
-  async handleDeleteClick() {
+  handleDeleteClick() {
     const { id } = this.props.match.params;
-    const deleted = await movieAPI.deleteMovie(id);
+    const deleted = movieAPI.deleteMovie(id);
     if (deleted.status === 'OK') return <Redirect to="/" />;
   }
 
