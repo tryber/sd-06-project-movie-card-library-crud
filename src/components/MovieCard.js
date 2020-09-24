@@ -24,6 +24,7 @@ const { string } = PropTypes;
 const { number } = PropTypes;
 const { bool } = PropTypes;
 const obj = {
+  id: number,
   title: string,
   subtitle: string,
   storyline: string,

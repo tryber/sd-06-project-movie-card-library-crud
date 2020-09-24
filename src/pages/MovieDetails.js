@@ -9,6 +9,7 @@ class MovieDetails extends Component {
   constructor() {
     super();
     this.renderizar1 = this.renderizar1.bind(this);
+    this.requisitionAndLoading = this.requisitionAndLoading.bind(this);
     this.state = {
       movie: {},
       loading: false,
@@ -16,6 +17,10 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
+    this.requisitionAndLoading();
+  }
+
+  requisitionAndLoading() {
     this.setState(
       { loading: true },
       async () => {
@@ -63,7 +68,11 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  match: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.object, PropTypes.string])).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default MovieDetails;
