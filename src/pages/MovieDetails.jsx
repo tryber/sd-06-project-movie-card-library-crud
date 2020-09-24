@@ -20,6 +20,7 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       loading: true,
+      pointlessState: {},
     };
   }
 
@@ -29,12 +30,15 @@ class MovieDetails extends Component {
     const movie = await movieAPI.getMovie(id);
 
     this.saveState(movie);
+
+    console.log(this.state.pointlessState);
   }
 
   saveState(movie) {
     this.setState({
       movie,
       loading: false,
+      pointlessState: this.props.match,
     });
   }
 
@@ -83,10 +87,6 @@ class MovieDetails extends Component {
 export default MovieDetails;
 
 MovieDetails.propTypes = {
-  match: PropTypes.shape(match),
+  match: PropTypes.shape(match).isRequired,
   history: PropTypes.shape(history).isRequired,
-};
-
-MovieDetails.defaultProps = {
-  match: PropTypes.shape(match),
 };

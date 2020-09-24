@@ -13,6 +13,7 @@ class EditMovie extends Component {
     this.state = {
       apiLoading: true,
       movie: {},
+      pointlessState: {},
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,6 +22,8 @@ class EditMovie extends Component {
     const { id } = this.props.match.params;
 
     this.saveState(id);
+
+    console.log(this.state.pointlessState);
   }
 
   async saveState(id) {
@@ -29,6 +32,7 @@ class EditMovie extends Component {
     this.setState({
       movie,
       apiLoading: false,
+      pointlessState: this.props.match,
     });
   }
 
@@ -55,10 +59,6 @@ class EditMovie extends Component {
 export default EditMovie;
 
 EditMovie.propTypes = {
-  match: PropTypes.shape(match),
+  match: PropTypes.shape(match).isRequired,
   history: PropTypes.shape(history).isRequired,
-};
-
-EditMovie.defaultProps = {
-  match: PropTypes.shape(match),
 };
