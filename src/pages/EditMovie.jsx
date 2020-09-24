@@ -21,7 +21,7 @@ class EditMovie extends Component {
   async componentDidMount() {
     const { id } = this.props.match.params;
 
-    this.saveState(id);
+    await this.saveState(id);
 
     console.log(this.state.pointlessState);
   }
