@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-// import MovieDetails from '../pages/MovieDetails';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 class MovieCard extends React.Component {
 
   render() {
@@ -16,9 +17,14 @@ class MovieCard extends React.Component {
   }
 }
 
+MovieCard.PropTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    storyline: PropTypes.string,
+    id: PropTypes.number,
+  })
+
+}
+
 export default MovieCard;
 
-
-// 3 - MovieCard: deve possuir um link para a página de detalhes de um filme
-// ✕ deve exibir pelo menos o título e a sinopse de seu respectivo filme (65ms)
-// ✕ deve conter um link com o texto "VER DETALHES" que redireciona para a página de detalhes do filme (12ms)
