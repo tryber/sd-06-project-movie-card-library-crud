@@ -21,29 +21,29 @@ class MovieDetails extends Component {
   }
 
   async fetchMovieDetails() {
-    const { id } = this.props;
-    const movie = await movieAPI.getMovie(id.id);
+    const { id } = this.props.match.params;
+    const movie = await movieAPI.getMovie(id);
     await this.setState({ movie: movie, loading: false });
   }
-  
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
-    //console.log(this.props);
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
+
     return (
       <div data-testid="movie-details">
         {this.state.loading === true ? <Loading /> :
         <div>
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Title: ${title}`}</p>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
-        <Link to="/">VOLTAR</Link>
-        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-      </div>}
+          <img alt="Movie Cover" src={`../${imagePath}`} />
+          <p>{`Title: ${title}`}</p>
+          <p>{`Subtitle: ${subtitle}`}</p>
+          <p>{`Storyline: ${storyline}`}</p>
+          <p>{`Genre: ${genre}`}</p>
+          <p>{`Rating: ${rating}`}</p>
+          <Link to="/">VOLTAR</Link>
+          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+        </div>}
       </div>
     );
   }

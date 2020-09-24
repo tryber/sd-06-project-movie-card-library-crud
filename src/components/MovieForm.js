@@ -154,8 +154,5 @@ class MovieForm extends React.Component {
   }
 }
 
-MovieForm.propTypes = {
-  
-}
 
 export default MovieForm;
