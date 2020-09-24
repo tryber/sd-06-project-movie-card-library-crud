@@ -23,7 +23,7 @@ class NewMovie extends Component {
   render() {
     if (this.state.submitMovie) {
       return <Redirect to="/" />;
-    }  
+    }
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
