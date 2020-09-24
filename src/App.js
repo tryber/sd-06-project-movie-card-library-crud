@@ -10,7 +10,7 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
-      <div>Movie Card Library CRUD</div>
+      {/* <div>Movie Card Library CRUD</div> */}
       <Switch>
         <Route path="/movies/:id/edit" component={EditMovie} />
         <Route path="/movies/new" component={NewMovie} />

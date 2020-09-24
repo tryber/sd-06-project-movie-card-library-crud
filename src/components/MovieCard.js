@@ -16,23 +16,19 @@ class MovieCard extends React.Component {
 }
 
 MovieCard.propTypes = {
-  movie: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      storyline: PropTypes.string,
-      id: PropTypes.number,
-    }),
-  ),
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    storyline: PropTypes.string,
+    id: PropTypes.string,
+  }),
 };
 
 MovieCard.defaultProps = {
-  movie: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: 'V for Vendetta',
-      storyline: 'Remember, remember..',
-      id: 3,
-    }),
-  ),
+  movie: PropTypes.shape({
+    title: 'V for Vendetta',
+    storyline: 'Remember, remember..',
+    id: '3',
+  }),
 };
 
 export default MovieCard;

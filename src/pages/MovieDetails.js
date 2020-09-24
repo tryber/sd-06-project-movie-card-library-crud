@@ -71,7 +71,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
     }),
   }),
 };
@@ -79,7 +79,7 @@ MovieDetails.propTypes = {
 MovieDetails.defaultProps = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: 3,
+      id: '3',
     }),
   }),
 };
