@@ -19,14 +19,14 @@ class EditMovie extends Component {
   }
 
   componentDidMount() {
-    this.requisitionAndLoading();
+    const { id } = this.props.match.params;
+    this.requisitionAndLoading(id);
   }
 
-  async requisitionAndLoading() {
+  async requisitionAndLoading(id) {
     this.setState(
       { loading: true },
       async () => {
-        const { id } = this.props.match.params;
         const movie = await getMovie(id);
         this.setState({
           movie,
