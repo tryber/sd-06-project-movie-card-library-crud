@@ -6,7 +6,9 @@ import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
   constructor() {
-    super();    
+    super();
+
+    this.fetchMovie = this.fetchMovie.bind(this);
 
     this.state = {
       movies: [],
@@ -14,7 +16,7 @@ class MovieList extends Component {
     }
   }
 
-  async componentDidMount() {
+  async fetchMovie() {
     const moviesList = await movieAPI.getMovies();
 
     this.setState({
@@ -23,14 +25,18 @@ class MovieList extends Component {
     })
   }
 
+  componentDidMount() {
+    fetchMovie();
+  }
+
   render() {
     const { movies, loading } = this.state;
 
     return (
       <div data-testid="movie-list">
         <button><Link to="/movies/new">ADICIONAR CARTÃO</Link></button>
-        {loading ?
-        <Loading /> : movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}        
+        {loading ? <Loading /> :
+          movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
     );
   }
