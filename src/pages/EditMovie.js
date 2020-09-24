@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { MovieForm, Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
@@ -57,8 +57,8 @@ class EditMovie extends Component {
 }
 
 EditMovie.propTypes = {
-  match: propTypes.shape({
-    params: propTypes.shape({ id: propTypes.number.isRequired }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({ id: PropTypes.number.isRequired }).isRequired,
   }).isRequired,
 };
 
