@@ -16,6 +16,10 @@ class MovieList extends Component {
     }
   }
 
+  componentDidMount() {
+    this.fetchMovie();
+  }
+
   async fetchMovie() {
     const moviesList = await movieAPI.getMovies();
 
@@ -23,10 +27,6 @@ class MovieList extends Component {
       movies: moviesList,
       loading: false,
     })
-  }
-
-  componentDidMount() {
-    fetchMovie();
   }
 
   render() {
