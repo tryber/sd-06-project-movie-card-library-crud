@@ -29,10 +29,10 @@ class EditMovie extends Component {
 
   async fetchMoviesId() {
     const { id } = this.props.match.params;
-    const movie = await movieAPI.getMovie(id);
+    const movieById = await movieAPI.getMovie(id);
     this.setState({
       loading: false,
-      movie: movie,
+      movie: movieById,
       updatedMovie: [],
     });
   }
@@ -56,6 +56,6 @@ class EditMovie extends Component {
   }
 }
 
-EditMovie.propTypes = {match: PropTypes.object.isRequired}
+EditMovie.propTypes = { match: PropTypes.objectOf(PropTypes.object).isRequired };
 
 export default EditMovie;
