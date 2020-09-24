@@ -19,7 +19,7 @@ class MovieForm extends React.Component {
 
   renderTitleInput() {
     const { title } = this.state;
-
+    
     return (
       <div>
         <input

@@ -12,8 +12,10 @@ class EditMovie extends Component {
     this.disableLoadingMessage = this.disableLoadingMessage.bind(this);
 
     this.state = {
+      receivedMovieId: props.match.params.id,
       isLoading: true,
       shouldRedirect: false,
+      movie: {},
     };
   }
 
@@ -36,6 +38,7 @@ class EditMovie extends Component {
 
   render() {
     const { isLoading, shouldRedirect, movie } = this.state;
+    
     if (shouldRedirect) {
       // Redirect
     }
