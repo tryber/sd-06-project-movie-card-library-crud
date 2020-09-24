@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-
+import { Redirect } from 'react-router-dom';
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
-import { Redirect } from 'react-router-dom';
 import { Loading } from '../components';
 
 class NewMovie extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
       shouldRedirect: false,
-      isLoading: false
+      isLoading: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,15 +22,15 @@ class NewMovie extends Component {
     await movieAPI.createMovie(newMovie);
     this.setState({
       shouldRedirect: true,
-      isLoading: false
-    })
+      isLoading: false,
+    });
   }
 
   render() {
     const { shouldRedirect, isLoading } = this.state;
 
     if (shouldRedirect) {
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
 
     if (isLoading) {
