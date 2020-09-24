@@ -10,8 +10,9 @@ class NewMovie extends Component {
     super(props);
     this.state = {
       loading: false,
-      shouldRedirect: false
-    }
+      shouldRedirect: false,
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -19,18 +20,18 @@ class NewMovie extends Component {
     this.setState({ loading: true }, () => {
       movieAPI.createMovie(newMovie)
         .then(() => this.setState({ loading: false, shouldRedirect: true }));
-    })
+    });
   }
 
   render() {
     const { shouldRedirect, loading } = this.state;
 
     if (shouldRedirect) {
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
 
     if (loading) {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
