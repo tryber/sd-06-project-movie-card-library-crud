@@ -17,12 +17,11 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    console.table(this.props.match);
-    this.fetchMovie();
+    const { id } = this.props.match.params;
+    this.fetchMovie(id);
   }
 
-  async fetchMovie() {
-    const { id } = this.props.match.params;
+  async fetchMovie(id) {
     const fetchedMovie = await movieAPI.getMovie(id);
     this.setState(() => ({
       movie: fetchedMovie,
@@ -35,8 +34,7 @@ class MovieDetails extends Component {
     const { title, storyline, imagePath, genre, subtitle } = movie;
     const { id } = this.props.match.params;
 
-    return (
-      (isLoading === true)
+    return isLoading
       ? <Loading />
       : (<div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
@@ -47,7 +45,6 @@ class MovieDetails extends Component {
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
       </div>)
-    );
   }
 }
 
