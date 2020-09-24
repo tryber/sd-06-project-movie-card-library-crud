@@ -13,7 +13,7 @@ class MovieList extends Component {
       loading: true,
     };
   }
-//https://ui.dev/react-router-v4-url-parameters/ sitereferencia
+//  https://ui.dev/react-router-v4-url-parameters/ sitereferencia
   componentDidMount() {
     movieAPI.getMovies().then((movies) =>
       this.setState({
