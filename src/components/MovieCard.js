@@ -8,7 +8,7 @@ class MovieCard extends React.Component {
     return (
       <div data-testid="movie-card" className="movie-card" >
         <h4>{title}</h4>
-        <img width="100%" src={imagePath}></img>
+        <img width="100%" src={imagePath} alt="movie" />
         <p>{storyline}</p>
         <Link className="view-details" to={`/movies/${id}`}>VER DETALHES</Link>
       </div>
@@ -21,6 +21,7 @@ MovieCard.propTypes = {
     title: PropTypes.string.isRequired,
     storyline: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
   }).isRequired,
 };
 

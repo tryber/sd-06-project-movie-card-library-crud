@@ -4,8 +4,8 @@ class Loading extends Component {
   render() {
     return (
       <div>
-      <p className="spinner"></p>
-      <p className="spinner-text">Carregando...</p>
+        <p className="spinner" />
+        <p className="spinner-text">Carregando...</p>
       </div>
     );
   }
