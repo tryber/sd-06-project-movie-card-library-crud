@@ -8,8 +8,8 @@ class EditMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shouldRedirect: false,
       movie: [],
+      shouldRedirect: false,
       loading: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
