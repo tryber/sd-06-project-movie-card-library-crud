@@ -8,7 +8,7 @@ import '../App.css';
 class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
-    const movieLink = "/movies/:" + movie.id;
+    const movieLink = `/movies/${movie.id}`;
     return (
       <div className="movie-card" data-testid="movie-card" alt="Movie image">
         <img src={movie.imagePath} alt="" />
