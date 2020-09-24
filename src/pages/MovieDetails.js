@@ -15,7 +15,7 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    this.fetchMovie()
+    this.fetchMovie();
   }
 
   async fetchMovie() {
@@ -53,8 +53,9 @@ MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.number.isRequired,
-    })
+    }),
   }),
-}
+};
 
 export default MovieDetails;
+
