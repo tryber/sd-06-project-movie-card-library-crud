@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -10,17 +10,17 @@ class MovieDetails extends Component {
     this.state = {
       estado: false,
       movie: {},
-    }
-    this.deleteCard = this.deleteCard.bind(this)
+    };
+    this.deleteCard = this.deleteCard.bind(this);
   }
 
 
   async componentDidMount() {
-    const movie = await movieAPI.getMovie(this.props.match.params.id)
+    const movie = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({
       estado: true,
       movie: movie,
-    })
+    });
   }
 
   async deleteCard() {
@@ -46,7 +46,7 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <span><Link to='/'>VOLTAR</Link></span>
+        <span><Link to="/">VOLTAR</Link></span>
         <span><Link to={`/movies/${id}/edit`} >EDITAR</Link></span>
         <button onClick={this.deleteCard}><Link to="/">DELETAR</Link></button>
       </div>
