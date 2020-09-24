@@ -5,12 +5,14 @@ import Loading from '../components/Loading';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       movies: [],
+      loading: true,
     }
+    this.fetchMovies = this.fetchMovies.bind(this);
   }
 
   componentDidMount() {
@@ -19,21 +21,19 @@ class MovieList extends Component {
 
   async fetchMovies() {
     const newMovie = await movieAPI.getMovies();
-    this.setState({ movies: newMovie });
+    await this.setState({
+      movies: newMovie,
+      loading: false });
   }
 
 
   render() {
-    const { movies } = this.state;
-    if (movies.length === 0) {
-      return (
-        <Loading />
-      )
-    }
+    const { movies, loading } = this.state;
 
     return (
       <div data-testid="movie-list">
-        {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        {loading === true ? <Loading /> :
+        movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)};
       </div>
     );
   }
