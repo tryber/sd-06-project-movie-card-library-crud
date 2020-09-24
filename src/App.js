@@ -10,6 +10,9 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+      <header className="header">
+      <Link to={'/'}>PROJECT MOVIE CARD LIBRARY CRUD</Link>
+      </header>
         <Switch>
           <Route exact path="/movies/:id/edit" component={EditMovie} />
           <Route exact path="/movies/new" component={NewMovie} />
@@ -17,7 +20,9 @@ class App extends Component {
           <Route exact path="/" component={MovieList} />
           <Route exact path="*" component={NotFound} />
         </Switch>
-        <Link to={'/movies/new'} >ADICIONAR CARTÃO</Link>
+        <div className="link">
+          <Link to={'/movies/new'} >ADICIONAR CARTÃO</Link>
+        </div>
       </BrowserRouter>
     );
   }
