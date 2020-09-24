@@ -14,6 +14,10 @@ class MovieList extends Component {
     }
   }
 
+  componentDidMount() {
+    this.getMovies();
+  }
+
   async getMovies() {
     const movies = await movieAPI.getMovies();
     this.setState({
@@ -22,13 +26,9 @@ class MovieList extends Component {
     });
   }
 
-  componentDidMount() {
-    this.getMovies();
-  }
-
   render() {
     const { movies, loading } = this.state;
-    
+
     if (loading) return <Loading />;
 
     return (
