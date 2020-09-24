@@ -143,6 +143,7 @@ class MovieForm extends React.Component {
     return (
       <div>
         <form className="edit-movie-form">
+          <h2>{this.props.formTitle}</h2>
           {this.renderTitleInput()}
           {this.renderSubtitleInput()}
           {this.renderImagePathInput()}
@@ -156,21 +157,6 @@ class MovieForm extends React.Component {
   }
 }
 
-// MovieForm.propTypes = {
-//   movie: PropTypes.shape({
-//     imagePath: PropTypes.string,
-//     bookmarked: PropTypes.bool,
-//     rating: PropTypes.oneOfType([
-//       PropTypes.string,
-//       PropTypes.number,
-//     ]),
-//     title: PropTypes.string,
-//     subtitle: PropTypes.string,
-//     storyline: PropTypes.string,
-//   }).isRequired,
-//   onSubmit: PropTypes.func.isRequired,
-// };
-
 MovieForm.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string,
@@ -180,9 +166,11 @@ MovieForm.propTypes = {
     rating: PropTypes.number,
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
+  formTitle: PropTypes.string.isRequired,
 };
 
 MovieForm.defaultProps = {
+  formTitle: "",
   movie: {},
 };
 
