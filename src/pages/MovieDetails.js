@@ -30,8 +30,7 @@ class MovieDetails extends Component {
 
   handleDeleteClick() {
     const { id } = this.props.match.params;
-    const deleted = movieAPI.deleteMovie(id);
-    if (deleted.status === 'OK') return <Redirect to="/" />;
+    movieAPI.deleteMovie(id);
   }
 
   render() {
