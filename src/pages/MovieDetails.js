@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -52,5 +53,18 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: propTypes.shape({
+    isExact: propTypes.bool,
+    params: propTypes.shape({
+      id: propTypes.string,
+      path: propTypes.string,
+      url: propTypes.string,
+    }),
+    path: propTypes.string,
+    url: propTypes.string,
+  }).isRequired,
+};
 
 export default MovieDetails;
