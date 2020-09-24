@@ -16,15 +16,6 @@ class EditMovie extends Component {
     this.fetchNewMovie = this.fetchNewMovie.bind(this);
   }
 
-  async fetchNewMovie() {
-    const { id } = this.props.match.params;
-    const movie = await movieAPI.getMovie(id);
-    this.setState({
-      movie,
-      isLoading: false,
-    });
-  }
-
   async handleSubmit(updatedMovie) {
     await movieAPI.updateMovie(updatedMovie);
     this.setState({
@@ -37,15 +28,24 @@ class EditMovie extends Component {
     this.fetchNewMovie();
   }
 
+  async fetchNewMovie() {
+    const { id } = this.props.match.params;
+    const movie = await movieAPI.getMovie(id);
+    this.setState({
+      movie,
+      isLoading: false,
+    });
+  }
+
   render() {
     const { isLoading, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       return <Redirect to="/" />
-    }
+    };
 
     if (isLoading) {
       return <Loading />
-    }
+    };
 
     return (
       <div data-testid="edit-movie">
