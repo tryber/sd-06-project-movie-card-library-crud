@@ -8,6 +8,8 @@ class MovieForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  
+
   handleSubmit() {
     const { onSubmit } = this.props;
     onSubmit(this.state);

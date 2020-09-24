@@ -1,12 +1,12 @@
 import React from 'react';
+import PropTypes, { objectOf } from 'prop-types';
 import { Link } from 'react-router-dom';
-import MovieData from '../services/movieData'
-
+import MovieData from '../services/movieData';
 
 class MovieCard extends React.Component {
   render() {
-    const movies = this.props
-    const { imagePath, title, storyline, id } = movies.movie
+    const movies = this.props;
+    const { imagePath, title, storyline, id } = movies.movie;
     return (
       <div data-testid="movie-card">
         <img src={imagePath}></img>
@@ -17,5 +17,7 @@ class MovieCard extends React.Component {
     );
   }
 }
+
+MovieCard.propTypes = { movie: PropTypes.arrayOf(objectOf).isRequired };
 
 export default MovieCard;
