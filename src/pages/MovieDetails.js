@@ -1,22 +1,64 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+  constructor() {
+    super();
+    this.isLoadingStateFunc = this.isLoadingStateFunc.bind(this);
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    this.state = {
+      movie: {},
+      isLoading: true,
+    }
+  }
+
+  componentDidMount() {
+    this.isLoadingStateFunc();
+  }
+  // chamamos a funcao isLoadingStateFunc dentro de componentDidMount
+  // pois esta ultima nao aceita usarmos o setState dentro dela
+
+  isLoadingStateFunc() {
+    this.setState({
+      isLoading: true,
+    }, async () => {
+      const requestMovie = await movieAPI.getMovie();
+
+      this.setState({
+        movie: requestMovie,
+        isLoading: false,
+      })
+    })
+  }
+  // Na funcao isLoadingStateFunc alteramos o state de
+  // isLoading para true, antes de chamar a funcao
+  // movieAPI.getMovies. Apos chamarmos a funcao, quando ela
+  // trouxer a sua resposta o isLoading sera falso e nao
+  // sera renderizado, devido ao ternario colocado na funcao render
+
+  render() {
+
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = {};
+    const { movie } = this.state;
+    const { isLoading } = this.state;
+
 
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
+        { isLoading ? <Loading /> : <div>
+          <img alt="Movie Cover" src={`../${imagePath}`} />
+          <h1>{`Title: ${title}`}</h1>
+          <p>{`Subtitle: ${subtitle}`}</p>
+          <p>{`Storyline: ${storyline}`}</p>
+          <p>{`Genre: ${genre}`}</p>
+          <p>{`Rating: ${rating}`}</p>
+          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+          <Link to="/">VOLTAR</Link>
+        </div>
+        }
       </div>
     );
   }
