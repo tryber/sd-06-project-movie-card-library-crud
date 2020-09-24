@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -11,6 +11,8 @@ class MovieDetails extends Component {
       movie: {},
       loading: true,
     };
+
+    this.eraseMovie = this.eraseMovie.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +34,12 @@ class MovieDetails extends Component {
     );
   }
 
+  eraseMovie() {
+    const { id } = this.props.match.params;
+
+    movieAPI.deleteMovie(id);
+  }
+
   render() {
     if (this.state.loading === true) {
       return (<Loading />);
@@ -50,6 +58,7 @@ class MovieDetails extends Component {
         <div>
           <Link to={`/movies/${id}/edit`}>EDITAR</Link>
           <Link to="/">VOLTAR</Link>
+          <Link to="/" onClick={this.eraseMovie} >DELETAR</Link>
         </div>
       </div>
     );
