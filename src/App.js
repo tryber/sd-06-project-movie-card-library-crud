@@ -10,9 +10,9 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-      <header className="header">
-      <Link to={'/'}>PROJECT MOVIE CARD LIBRARY CRUD</Link>
-      </header>
+        <header className="header">
+          <Link to={'/'}>PROJECT MOVIE CARD LIBRARY CRUD</Link>
+        </header>
         <Switch>
           <Route exact path="/movies/:id/edit" component={EditMovie} />
           <Route exact path="/movies/new" component={NewMovie} />

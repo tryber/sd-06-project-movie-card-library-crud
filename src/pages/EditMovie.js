@@ -12,20 +12,31 @@ class EditMovie extends Component {
       loading: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.fetchMovie = this.fetchMovie.bind(this);
+  }
+
+  async fetchMovie() {
+    const result = await movieAPI.getMovie(this.props.match.params.id);
+    this.setState({ movie: result, loading: false });
   }
 
   async handleSubmit(updatedMovie) {
     await movieAPI.updateMovie(updatedMovie);
     this.setState({ redirect: true, loading: false });
+
+  }
+
+  componentDidMount() {
+    this.fetchMovie();
   }
 
   render() {
-    const { status, shouldRedirect, movie } = this.state;
-    if (shouldRedirect) {
+    const { loading, redirect, movie } = this.state;
+    if (redirect === true) {
       return <Redirect to="/" />;
     }
 
-    if (status === 'loading') {
+    if (loading === true) {
       return <Loading />;
     }
 
