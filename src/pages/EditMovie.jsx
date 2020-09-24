@@ -21,9 +21,7 @@ class EditMovie extends Component {
   async componentDidMount() {
     const { id } = this.props.match.params;
 
-    await this.saveState(id);
-
-    console.log(this.state.pointlessState);
+    this.saveState(id);
   }
 
   async saveState(id) {
@@ -45,6 +43,7 @@ class EditMovie extends Component {
 
   render() {
     const { apiLoading, movie } = this.state;
+    console.log(this.props.match, this.state.pointlessState);
 
     if (apiLoading) return <Loading />;
 
