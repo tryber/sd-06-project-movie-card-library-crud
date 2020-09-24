@@ -13,7 +13,7 @@ class EditMovie extends Component {
       status: 'loading',
       shouldRedirect: false,
     };
-  
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -34,9 +34,8 @@ class EditMovie extends Component {
         this.setState({
           shouldRedirect: true,
         });
-      }
-    );
-  };
+      });
+  }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
