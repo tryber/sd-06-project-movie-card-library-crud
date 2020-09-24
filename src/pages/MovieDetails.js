@@ -37,8 +37,8 @@ class MovieDetails extends Component {
 
   render() {
     const { loading, id, movie:
-      { title, storyline, imagePath, genre, rating, subtitle 
-      }
+      { title, storyline, imagePath, genre, rating, subtitle,
+      },
     } = this.state;
 
     if (loading) return <Loading />;
@@ -57,15 +57,15 @@ class MovieDetails extends Component {
         </div>
       </div>
     );
-  } 
+  }
 }
 
 MovieDetails.propTypes = {
   match: Proptypes.shape({
-    params : Proptypes.shape({
+    params: Proptypes.shape({
       id: Proptypes.number.isRequired,
     }).isRequired,
   }).isRequired,
-}
+};
 
 export default MovieDetails;
