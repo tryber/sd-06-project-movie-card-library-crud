@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
-import Loading from '../components/Loading';
+// import Loading from '../components/Loading';
 
 class MovieList extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class MovieList extends Component {
     const response = await movieAPI.getMovies()
     this.setState({
       movies: response,
-    });
+    })
   };
 
   render() {
