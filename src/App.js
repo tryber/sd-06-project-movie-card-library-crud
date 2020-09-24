@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/" component={MovieList} />
           <Route path="/:error" component={NotFound} />
         </Switch>
-    </BrowserRouter>
+      </BrowserRouter>
     </div>
   );
 }
