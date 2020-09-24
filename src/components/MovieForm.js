@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 // import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
@@ -19,15 +20,11 @@ class MovieForm extends React.Component {
 
   renderTitleInput() {
     const { title } = this.state;
-
     return (
       <div>
         <input
-          placeholder="Insira o título"
-          id="movie_title"
-          type="text"
-          className="validate"
-          value={title}
+          placeholder="Insira o título" id="movie_title"
+          type="text" className="validate" value={title}
           onChange={(event) => this.updateMovie('title', event.target.value)}
         />
         <label htmlFor="movie_title">Título</label>
@@ -127,12 +124,14 @@ class MovieForm extends React.Component {
   renderSubmitButton() {
     return (
       <div>
-        <button
-          type="button"
-          onClick={this.handleSubmit}
-        >
-          Submit
-        </button>
+        {/* <Link to="/"> */}
+          <button
+            type="button"
+            onClick={this.handleSubmit}
+          >
+            Submit
+          </button>
+        {/* </Link> */}
       </div>
     );
   }
