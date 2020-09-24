@@ -11,10 +11,10 @@ class MovieList extends Component {
       movies: [],
     }
   }
-
+  
   render() {
     const { movies } = this.state;
-
+    
     // Render Loading here if the request is still happening
 
     return (
