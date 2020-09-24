@@ -10,7 +10,7 @@ class MovieList extends Component {
     super();
     this.state = {
       movies: [],
-      isLoading: true,
+      Loading: true,
     }
   }
   // fetchMovie {
@@ -27,13 +27,13 @@ class MovieList extends Component {
     const movies = await movieAPI.getMovies();
     this.setState({
       movies,
-      isLoading: false,
+      Loading: false,
     });
   }
 
   render() {
     const { movies } = this.state;
-    if (isLoading) return (<Loading />);
+    if (Loading) return (<Loading />);
 
     // Render Loading here if the request is still happening
 
