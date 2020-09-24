@@ -184,6 +184,6 @@ MovieForm.propTypes = {
 
 MovieForm.defaultProps = {
   movie: {},
-}
+};
 
 export default MovieForm;
