@@ -71,7 +71,6 @@ body {
   width: 300px;
 }
 
-
 .movie-card img {
   width: 100%;
 }
@@ -98,9 +97,11 @@ body {
 
 .movie-card-storyline {
   color: rgb(20, 22, 15);
-  font-size: 1em;
+  font-size: 0.95em;
+  height: 68px;
+  line-height: 110%;
   margin: 2px 0;
-  text-align: justify;
+  mask-image: linear-gradient(to bottom, black 50%, transparent 88%);
 }
 
 .rating {
