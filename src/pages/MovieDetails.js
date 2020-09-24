@@ -45,7 +45,7 @@ class MovieDetails extends Component {
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
-        <Redirect to={`/movies/${id}/edit`} render={(props) => <EditMovie {...props} />}>EDITAR</Redirect>
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
       </div>)
     );
