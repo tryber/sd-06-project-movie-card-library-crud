@@ -16,14 +16,14 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.movieById();
+  }
+
   handleSubmit(updatedMovie) {
     movieAPI.updateMovie(updatedMovie);
 
     this.setState({ shouldRedirect: true });
-  }
-
-  componentDidMount() {
-    this.movieById();
   }
 
   async movieById() {
@@ -58,6 +58,12 @@ class EditMovie extends Component {
     );
   }
 }
+
+  EditMovie.defaultProps = {
+    movie: {},
+    shouldRedirect: false,
+    status: 'loading',
+  };
 
 EditMovie.propTypes = {
   movie: PropTypes.shape({
