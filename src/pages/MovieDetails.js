@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -8,6 +8,7 @@ class MovieDetails extends Component {
   constructor() {
     super();
     this.fetchMovie = this.fetchMovie.bind(this);
+    this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.state = {
       movie: [],
       loading: true,
@@ -25,6 +26,12 @@ class MovieDetails extends Component {
       movie,
       loading: false,
     });
+  }
+
+  async handleDeleteClick() {
+    const { id } = this.props.match.params;
+    const deleted = await movieAPI.deleteMovie(id);
+    if (deleted.status === 'OK') return <Redirect to="/" />;
   }
 
   render() {
@@ -47,6 +54,7 @@ class MovieDetails extends Component {
         <div>
           <Link to="/">VOLTAR</Link>
           <Link to={editLink}>EDITAR</Link>
+          <Link to="/" onClick={this.handleDeleteClick}>DELETAR</Link>
         </div>
       </div>
     );
