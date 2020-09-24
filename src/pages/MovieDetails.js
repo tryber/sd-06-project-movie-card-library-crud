@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import './MovieDetails.css'
+import './MovieDetails.css';
 
 class MovieDetails extends Component {
   constructor() {
