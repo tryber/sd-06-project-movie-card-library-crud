@@ -34,7 +34,7 @@ class MovieDetails extends Component {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
     if (isLoading) {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
