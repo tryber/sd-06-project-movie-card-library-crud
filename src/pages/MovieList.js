@@ -43,7 +43,7 @@ class MovieList extends Component {
         {/* {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)} */}
         {this.state.loading ? <Loading /> : this.renderMovies()}
         <div className="addMovieCard">
-          <button><Link to="/movies/new">ADICIONAR CARTÃO</Link></button> 
+          <button><Link to="/movies/new">ADICIONAR CARTÃO</Link></button>
         </div>
       </div>
     );
