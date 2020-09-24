@@ -32,7 +32,7 @@ class MovieDetails extends Component {
 
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
-    if (loading === true) { return <Loading /> };
+    if (loading === true) return <Loading />
 
     return (
       <div data-testid="movie-details">
@@ -52,9 +52,9 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired
-    }).isRequired
+      id: PropTypes.number.isRequired,
+    }).isRequired,
   }).isRequired,
-}
+};
 
 export default MovieDetails;
