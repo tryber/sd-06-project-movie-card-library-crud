@@ -19,6 +19,14 @@ class MovieList extends Component {
     this.renderizar();
   }
 
+  imprimir() {
+    const { movies, loading } = this.state;
+    if (loading) {
+      return <Loading />;
+    }
+    return movies.map((movie) => <MovieCard key={movie.title} movie={movie} />);
+  }
+
   async renderizar() {
     this.setState(
       { loading: true },
@@ -32,13 +40,6 @@ class MovieList extends Component {
     );
   }
 
-  imprimir() {
-    const { movies, loading } = this.state;
-    if (loading) {
-      return <Loading />;
-    }
-    return movies.map((movie) => <MovieCard key={movie.title} movie={movie} />);
-  }
 
   render() {
     // Render Loading here if the request is still happening
