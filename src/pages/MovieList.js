@@ -12,21 +12,17 @@ class MovieList extends Component {
       movies: [],
       loading: true,
     };
-    this.updateState = this.updateState.bind(this);
   }
-
+  // https://ui.dev/react-router-v4-url-parameters/ site referencia 
   componentDidMount() {
-    this.updateState();
+    movieAPI.getMovies().then((movies) =>
+      this.setState({
+        movies: movies,
+        loading: false,
+      })
+    );
   }
-
-  async updateState() {
-    const api = await movieAPI.getMovies();
-    this.setState({
-      movies: api,
-      loading: false,
-    });
-  }
-
+  
   render() {
     const { movies, loading } = this.state;
     if (loading) return <Loading />;
