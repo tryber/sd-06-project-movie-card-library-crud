@@ -17,7 +17,7 @@ class NewMovie extends Component {
     movieAPI.createMovie(newMovie).then(() =>
       this.setState({
         shouldRedirect: true,
-      })
+      }),
     );
   }
 
@@ -35,7 +35,7 @@ class NewMovie extends Component {
   }
 }
 
-NewMovie.prototype = {
+NewMovie.proptypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
