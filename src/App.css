@@ -202,7 +202,15 @@ body {
   padding: 8px 18px;
 }
 
+.movie-edit-button button:hover {
+  background-color: rgb(146, 189, 76);
+}
+
 .movie-edit-button button:focus {
   background-color: rgb(100, 140, 20);
   outline: none;
+}
+
+.movie-edit-button button:active {
+  background-color: rgb(153, 211, 60);
 }
