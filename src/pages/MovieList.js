@@ -11,10 +11,11 @@ class MovieList extends Component {
       movies: [],
       loading: true,
     }
+    this.fetchMovie = this.fetchMovie.bind(this);
   }
 
-  async componentDidMount() {
-    fetchMovie();
+  componentDidMount() {
+    this.fetchMovie();
   }
 
   async fetchMovie() {
