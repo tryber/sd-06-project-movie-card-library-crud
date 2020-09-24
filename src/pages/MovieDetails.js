@@ -11,6 +11,12 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const id = this.props.match.params.id;
+    movieAPI.deleteMovie(id);
   }
 
   componentDidMount() {
@@ -43,6 +49,7 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <button><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
         <button><Link to="/">VOLTAR</Link></button>
+        <Link to="/" onClick={this.handleClick}>DELETAR</Link>
       </div>
     );
   }

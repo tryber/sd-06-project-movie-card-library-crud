@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Redirect } from 'react';
 
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
@@ -10,6 +10,7 @@ class NewMovie extends Component {
   }
 
   handleSubmit(newMovie) {
+    movieAPI.createMovie(newMovie);
   }
 
   render() {
