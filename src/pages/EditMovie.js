@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
@@ -58,26 +57,5 @@ class EditMovie extends Component {
     );
   }
 }
-
-  EditMovie.defaultProps = {
-    movie: {},
-    shouldRedirect: false,
-    status: 'loading',
-  };
-
-EditMovie.propTypes = {
-  movie: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    bookmarked: PropTypes.bool.isRequired,
-    genre: PropTypes.string.isRequired,
-  }),
-  shouldRedirect: PropTypes.bool,
-  status: PropTypes.string,
-};
 
 export default EditMovie;
