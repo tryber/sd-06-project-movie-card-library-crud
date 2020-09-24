@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { MovieList, EditMovie, MovieDetails, NewMovie, NotFound } from './pages';
+import {
+  MovieList, EditMovie, MovieDetails, NewMovie, NotFound,
+} from './pages';
 
 class App extends React.Component {
   render() {

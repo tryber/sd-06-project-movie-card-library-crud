@@ -9,7 +9,7 @@ class MovieList extends Component {
     this.state = {
       loading: true,
       movies: [],
-    }
+    };
   }
 
   componentDidMount() {
@@ -24,9 +24,9 @@ class MovieList extends Component {
         this.setState({
           loading: false,
           movies: allMovies,
-        })
+        });
       },
-    )
+    );
   }
 
   renderMovieElement() {
