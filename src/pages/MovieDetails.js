@@ -11,6 +11,7 @@ class MovieDetails extends Component {
     super();
 
     this.changeSetState = this.changeSetState.bind(this);
+    this.delMovie = this.delMovie.bind(this);
 
     this.state = {
       movieDetailsSelected: '',
@@ -25,6 +26,11 @@ class MovieDetails extends Component {
 
   changeSetState(componentResponse) {
     this.setState({ movieDetailsSelected: componentResponse });
+  }
+
+  async delMovie() {
+    const { id } = this.props.match.params;
+    await movieAPI.deleteMovie(id);
   }
 
   render() {
@@ -49,6 +55,7 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={this.delMovie}>DELETAR</Link>
       </div>
     );
   }
@@ -57,7 +64,7 @@ class MovieDetails extends Component {
 export default MovieDetails;
 
 MovieDetails.propTypes = {
-  match: PropTypes.objectOf({
+  match: PropTypes.shape({
     params: PropTypes.object.isRequired,
   }).isRequired,
 };
