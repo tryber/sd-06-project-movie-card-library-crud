@@ -62,9 +62,10 @@ class EditMovie extends Component {
 }
 
 EditMovie.propTypes = {
-  match: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.bool, PropTypes.object, PropTypes.string]),
-  ).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number.isRequired }).isRequired,
+  }).isRequired,
 };
 
 export default EditMovie;
