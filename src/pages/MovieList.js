@@ -14,15 +14,15 @@ class MovieList extends Component {
       loading: true,
     }
 
-    this.fetchMovie = this.fetchMovie.bind(this);
+    this.fetchMovies = this.fetchMovies.bind(this);
     this.renderMovies = this.renderMovies.bind(this);
   }
 
   componentDidMount() {
-    this.fetchMovie();
+    this.fetchMovies();
   }
 
-  fetchMovie() {
+  fetchMovies() {
     this.setState({ loading: true }, () => {
       movieAPI.getMovies()
         .then((response) => this.setState({ movies: response, loading: false }));

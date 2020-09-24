@@ -14,7 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/movies/new"><NewMovie /></Route>
         <Route exact path="/movies/:id/edit"><EditMovie /></Route>
-        <Route exact path="/movies/:id"><MovieDetails /></Route>
+        <Route exact path="/movies/:id" render={(props) => <MovieDetails {...props} />} />
         <Route exact path="/"><MovieList /></Route>
         <Route path="*"><NotFound /></Route>
       </Switch>
