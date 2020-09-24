@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Loading } from '../components';
 import { Link } from 'react-router-dom';
+import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieDetails extends Component {
@@ -42,7 +42,7 @@ class MovieDetails extends Component {
         <Link to="/">VOLTAR</Link>
       </div>
     );
-    
+
     if (movie.length === 0) {
       return <Loading />;
     } return movieDetails;
