@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Link from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { MovieForm, Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
-  constructor(props) {
+  constructor() {
     super();
-    this.state = { 
+    this.state = {
       isLoading: true,
       shouldRedirect: false,
       movie: [],
@@ -22,7 +22,7 @@ class EditMovie extends Component {
     const movie = await movieAPI.updateMovie();
     this.setState({
       movie,
-      isLoading: false
+      isLoading: false,
     });
   }
 
@@ -33,7 +33,7 @@ class EditMovie extends Component {
       <div>
         <button type="submit" onClick={this.fetchNewMovie}><Link to={`/movies/${id}/edit`} >Submit</Link>t</button>
       </div>
-    )
+    );
   }
 
   render() {
