@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import MovieDetails from '../pages/MovieDetails';
 
 class MovieCard extends React.Component {
   render() {
@@ -10,7 +11,9 @@ class MovieCard extends React.Component {
         <img src={imagePath} alt={title} />
         <h4>{title}</h4>
         <p>{storyline}</p>
-        <Link to={`/movies/${id}`}>VER DETALHES</Link>
+        <Redirect
+        to={`/movies/${id}`} render={(props) => <MovieDetails {...props} />}
+        >VER DETALHES</Redirect>
       </div>
     );
   }
