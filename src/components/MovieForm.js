@@ -170,7 +170,7 @@ MovieForm.propTypes = {
 };
 
 MovieForm.defaultProps = {
-  formTitle: "",
+  formTitle: '',
   movie: {},
 };
 
