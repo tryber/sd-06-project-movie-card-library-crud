@@ -8,7 +8,7 @@ class EditMovie extends Component {
     super(props);
     this.state = {};
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.att = this.att.bind(this);
+    this.atta = this.atta.bind(this);
     this.state = {
       movie: [],
       status: 'loading',
@@ -17,10 +17,10 @@ class EditMovie extends Component {
   }
 
   componentDidMount() {
-    this.att();
+    this.atta();
   }
 
-  async att() {
+  async atta() {
     const { match } = this.props;
     const request = await movieAPI.getMovie(match.params.id);
     this.setState({ movie: request, status: false });

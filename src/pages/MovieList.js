@@ -7,7 +7,7 @@ import * as movieAPI from '../services/movieAPI';
 class MovieList extends Component {
   constructor() {
     super();
-    this.att = this.att.bind(this);
+    this.atte = this.atte.bind(this);
     this.state = {
       movies: [],
       loading: true,
@@ -15,10 +15,10 @@ class MovieList extends Component {
   }
 
   async componentDidMount() {
-    this.att();
+    this.atte();
   }
 
-  async att() {
+  async atte() {
     const filme = await movieAPI.getMovies();
     this.setState({
       movies: filme,
