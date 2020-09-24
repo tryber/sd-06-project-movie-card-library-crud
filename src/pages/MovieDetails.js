@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 import EditMovie from './EditMovie';
@@ -45,7 +45,7 @@ class MovieDetails extends Component {
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
-        <Link to={`/movies/${id}/edit`} render={(props) => <EditMovie {...props} />}>EDITAR</Link>
+        <Redirect to={`/movies/${id}/edit`} render={(props) => <EditMovie {...props} />}>EDITAR</Redirect>
         <Link to="/">VOLTAR</Link>
       </div>)
     );
