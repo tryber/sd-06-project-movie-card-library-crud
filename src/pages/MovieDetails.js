@@ -15,7 +15,7 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    this.fetchMovie(),
+    this.fetchMovie()
   }
 
   async fetchMovie() {
