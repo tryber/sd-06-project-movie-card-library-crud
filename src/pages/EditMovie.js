@@ -31,14 +31,14 @@ class EditMovie extends Component {
     const filmes = await movieAPI.getMovie(id);
     this.setState({
       movie: filmes,
-      status: ''
+      status: '',
     });
   }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-      return <Redirect to={'/'} />
+      return <Redirect to={'/'} />;
     }
 
     if (status === 'loading') {
