@@ -8,6 +8,8 @@ class MovieDetails extends Component {
   constructor() {
     super();
 
+    this.getMovieDetails = this.getMovieDetails.bind(this);
+
     this.state = {
       load: true,
       movie: {},
@@ -15,13 +17,12 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    this.getMovieDetails();
+    const movieID = this.props.match.params.id;
+    this.getMovieDetails(movieID);
   }
 
-  async getMovieDetails() {
+  async getMovieDetails(movieID) {
     this.setState({ load: true }, async () => {
-      const { id } = this.props.match.params;
-      const movieID = id;
       const movie = await movieAPI.getMovie(movieID);
       this.setState({ load: false, movie });
     });
