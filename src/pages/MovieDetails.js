@@ -10,6 +10,7 @@ class MovieDetails extends Component {
     super();
 
     this.handleMovieDetailsElement = this.handleMovieDetailsElement.bind(this);
+    this.fetchMovie = this.fetchMovie.bind(this);
     this.deleteMovie = this.deleteMovie.bind(this);
 
     this.state = {
@@ -18,7 +19,11 @@ class MovieDetails extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    fetchMovie()
+  }
+
+  fetchMovie() {
     const { id } = this.props.match.params;
 
     this.setState(
