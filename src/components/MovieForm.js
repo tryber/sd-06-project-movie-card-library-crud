@@ -146,14 +146,14 @@ class MovieForm extends React.Component {
   render() {
     return (
       <div>
-        <form>
-          {this.renderTitleInput()}
-          {this.renderSubtitleInput()}
-          {this.renderImagePathInput()}
-          {this.renderStorylineInput()}
-          {this.renderGenreSelection()}
-          {this.renderRatingInput()}
-          {this.renderSubmitButton()}
+        <form className="form-body">
+          {this.renderTitleInput()}<br />
+          {this.renderSubtitleInput()}<br />
+          {this.renderImagePathInput()}<br />
+          {this.renderStorylineInput()}<br />
+          {this.renderGenreSelection()}<br />
+          {this.renderRatingInput()}<br />
+          {this.renderSubmitButton()}<br />
         </form>
       </div>
     );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
@@ -33,8 +33,9 @@ class NewMovie extends Component {
     if (shouldRedirect) return <Redirect to="/" />;
 
     return (
-      <div data-testid="new-movie">
-        <MovieForm onSubmit={this.handleSubmit} />;
+      <div data-testid="new-movie" className="my-form">
+        <MovieForm onSubmit={this.handleSubmit} />
+        <Link className="form-button-back" to="/">VOLTAR</Link>
       </div>
     );
   }

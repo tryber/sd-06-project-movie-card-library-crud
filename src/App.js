@@ -6,7 +6,6 @@ import { EditMovie, MovieDetails, MovieList, NewMovie, NotFound } from './pages'
 function App() {
   return (
     <BrowserRouter>
-      <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       <Switch>
         <Route exact path="/" component={MovieList} />
         <Route path="/movies/:id/edit" component={EditMovie} />
