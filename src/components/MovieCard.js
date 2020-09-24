@@ -4,13 +4,26 @@ import PropTypes from 'prop-types';
 import './MovieCard.css';
 
 class MovieCard extends React.Component {
+  constructor(props) {
+    super();
+
+    this.state = {
+      movieDetails: {
+        id: props.movie.id,
+        title: props.movie.title,
+        storyline: props.movie.storyline,
+        imagePath: props.movie.imagePath,
+      },
+    };
+  }
+
   render() {
     const {
       id,
       title,
       storyline,
       imagePath,
-    } = this.props.movie;
+    } = this.state.movieDetails;
 
     return (
       <div className="movie-card" data-testid="movie-card">
