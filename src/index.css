@@ -63,3 +63,50 @@ a {
 .header h1 {
   margin: 0;
 }
+
+.form {
+  font: 95% Arial, Helvetica, sans-serif;
+	max-width: 400px;
+	margin: 10px auto;
+	padding: 16px;
+	background: whitesmoke;
+}
+
+.form select{
+	outline: none;
+	box-sizing: border-box;
+	width: 100%;
+	background: white;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+}
+
+.form input{
+	box-sizing: border-box;
+	width: 100%;
+	padding: 3%;
+	background: white;
+	border-top-style: none;
+	border-right-style: none;
+  border-left-style: none;	
+  margin-bottom: 15px;
+}
+
+.form textarea {
+  outline: none;
+}
+
+.form label {
+  font-size: 16px;
+}
+
+.form button {
+  border: 0;
+  padding:5px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  background-color: #f5c518;
+  margin-top: 10px;
+}
