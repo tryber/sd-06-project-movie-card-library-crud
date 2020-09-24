@@ -9,6 +9,8 @@ class MovieDetails extends Component {
   constructor() {
     super();
 
+    this.deleteCard = this.deleteCard.bind(this);
+
     this.state = {
       movies: [],
       loading: true,
@@ -23,6 +25,11 @@ class MovieDetails extends Component {
         loading: false,
       });
     });
+  }
+
+  deleteCard() {
+    const { id } = this.props.match.params;
+    movieAPI.deleteMovie(id);
   }
 
   render() {
@@ -41,6 +48,7 @@ class MovieDetails extends Component {
 
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={this.deleteCard}>DELETAR</Link>
       </div>
     );
   }
