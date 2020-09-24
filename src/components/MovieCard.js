@@ -10,7 +10,7 @@ class MovieCard extends React.Component {
     console.log(movie);
     return (
       <div className="movie-card" data-testid="movie-card" alt="Movie image">
-        <img src={movie.imagePath} alt='' />
+        <img src={movie.imagePath} alt="" />
         <h1>{movie.title}</h1>
         <h2>{movie.subtitle}</h2>
         <p>{movie.storyline}</p>
@@ -21,8 +21,8 @@ class MovieCard extends React.Component {
   }
 }
 
-MovieCard.PropTypes = {
-  movie: PropTypes.arrayOf(PropTypes.object).isRequired,
+MovieCard.propTypes = {
+  movie: PropTypes.object
 };
 
 export default MovieCard;
