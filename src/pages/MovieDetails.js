@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { getMovie } from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -17,11 +18,11 @@ class MovieDetails extends Component {
   }
 
   async fetchMovie() {
-    const { match } = this.props;
+    const { id } = this.props.match.params;
     this.setState(
       { loading: true },
       async () => {
-        const theMovie = await getMovie(match.params.id);
+        const theMovie = await getMovie(id);
         this.setState({
           movie: theMovie,
           loading: false,
@@ -33,6 +34,7 @@ class MovieDetails extends Component {
   render() {
     const { loading } = this.state;
     const {
+      id,
       title,
       storyline,
       imagePath,
@@ -40,6 +42,7 @@ class MovieDetails extends Component {
       rating,
       subtitle,
     } = this.state.movie;
+
     return (
       <div data-testid="movie-details">
         { loading ? <Loading /> : (
@@ -50,6 +53,8 @@ class MovieDetails extends Component {
             <p>{`Storyline: ${storyline}`}</p>
             <p>{`Genre: ${genre}`}</p>
             <p>{`Rating: ${rating}`}</p>
+            <Link to="/">VOLTAR</Link>
+            <Link to={`/movies/${id}/edit`}>EDITAR</Link>
           </div>
         )}
       </div>
