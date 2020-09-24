@@ -15,7 +15,7 @@ function App() {
         <Route path="/movies/new" component={NewMovie} />
         <Route path="/movies/:id" render={() => <MovieDetails />} />
         <Route path="/" render={() => <MovieList />} />
-				<Route path="*" component={NotFound} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </Router>
   );
