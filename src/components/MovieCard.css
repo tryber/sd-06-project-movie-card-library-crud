@@ -1,0 +1,21 @@
+.movie-card {
+  background-color: rgb(66, 67, 83);
+  border: 2px solid gray;
+  color: rgb(233, 233, 238);
+  margin-bottom: 20px;
+  max-width: 300px;
+  padding: 6px;
+}
+
+p {
+  text-align: justify;
+}
+
+a {
+  background-color: gray;
+  border: 3px solid gray;
+  border-radius: 5px;
+  color: rgb(255, 197, 58);
+  padding: 2px;
+  text-decoration: none;
+}

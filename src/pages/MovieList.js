@@ -4,6 +4,7 @@ import MovieCard from '../components/MovieCard';
 import Loading from '../components/Loading'
 
 import * as movieAPI from '../services/movieAPI';
+import './MovieList.css';
 
 class MovieList extends Component {
   constructor() {
@@ -32,10 +33,15 @@ class MovieList extends Component {
 
     return (
       <div>
-        <div data-testid="movie-list">
+        <div className="title">
+          <h1>MOVIE LIBRARY</h1>
+        </div><br />
+        <div data-testid="movie-list" className="movie-list">
           {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        </div><br />
+        <div className="add-card">
+          <Link to="/movies/new">ADICIONAR CARTÃO</Link>
         </div>
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </div>
     );
   }
