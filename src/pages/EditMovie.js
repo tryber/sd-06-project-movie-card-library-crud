@@ -58,6 +58,6 @@ EditMovie.propTypes = {
       id: PropTypes.string,
     }),
   }),
-};
+}.isRequired;
 
 export default EditMovie;
