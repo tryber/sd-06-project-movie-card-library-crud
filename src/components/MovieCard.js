@@ -26,6 +26,6 @@ MovieCard.propTypes = { movie: PropTypes.shape({
   imagePath: PropTypes.string,
   bookmarked: PropTypes.bool,
   genre: PropTypes.string,
-})}.isRequired;
+}) }.isRequired;
 
 export default MovieCard;
