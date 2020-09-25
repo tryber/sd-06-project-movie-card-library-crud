@@ -8,7 +8,7 @@ class App extends React.Component {
       <BrowserRouter>
         <MovieList />
       </BrowserRouter>
-    )
+    );
   }
 }
 
