@@ -44,7 +44,7 @@ class EditMovie extends Component {
             <MovieForm movie={movie} onSubmit={this.handleSubmit} />
           </div>
         )}
-        {redirect ? <Redirect to="/" /> : ""}
+        {redirect ? <Redirect to="/" /> : ''}
       </div>
     );
   }

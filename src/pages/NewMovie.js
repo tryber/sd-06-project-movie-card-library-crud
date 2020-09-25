@@ -7,7 +7,7 @@ class NewMovie extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state= {
+    this.state = {
       redirect: false,
     };
   }
@@ -22,7 +22,7 @@ class NewMovie extends Component {
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
-        { redirect ? <Redirect to='/' /> : ''}
+        { redirect ? <Redirect to="/" /> : ''}
       </div>
     );
   }
