@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Redirect } from 'react-router-dom';
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
 
@@ -7,30 +7,25 @@ class NewMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: '',
+      redirect: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.fatchMovie = this.fatchMovie.bind(this);
   }
 
-  handleSubmit(newMovie) {
+  async handleSubmit(newMovie) {
+    await movieAPI.createMovie(newMovie);
     this.setState({
-      movie: newMovie,
+      redirect: true,
     })
   }
 
-  componentDidMount() {
-    this.fatchMovie();
-  }
-
-  async fatchMovie() {
-    const { id } = this.props.match.params;
-    this.setState({
-      movie: await movieAPI.createMovie(id),
-    });
-  }
-
   render() {
+    const { redirect } = this.state;
+
+    if (redirect === true) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
