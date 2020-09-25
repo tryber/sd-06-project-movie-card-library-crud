@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -19,7 +18,7 @@ class MovieForm extends React.Component {
 
   renderTitleInput() {
     const { title } = this.state;
-    
+
     return (
       <div>
         <input
