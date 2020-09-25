@@ -1,5 +1,16 @@
 body {
   background-color: whitesmoke;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
+.linkDown {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 25px;
+  color: rgba(43, 147, 72);
+  margin-left: 40px;
+  text-decoration-line: none;
+  font-weight: 500;
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}

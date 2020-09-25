@@ -10,6 +10,7 @@ class EditMovie extends React.Component {
     this.state = {
       isLoading: true,
       shouldRedirect: false,
+      movie: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fetchMovie = this.fetchMovie.bind(this);
