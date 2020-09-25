@@ -11,40 +11,46 @@ h2 {
 }
 
 .add-movie {
-  background-color: rgb(210, 220, 230);
+  background-color: rgb(235, 223, 148);
   border-radius: 3px;
   box-shadow: inset -2px -2px 3px 0 rgba(10, 14, 22, 0.5);
   color: rgb(10, 20, 30);
-  padding: 1px 3px 1px 5px;
+  padding: 4px 10px 7px 9px;
   position: absolute;
   text-decoration: none;
   text-transform: lowercase;
-  top: 1%;
+  top: 2%;
 }
 
 .add-movie:hover {
-  background-color: rgb(180, 200, 210);
+  background-color: rgb(226, 219, 176);
 }
 
 .add-movie:active {
-  background-color: rgb(220, 230, 240);
+  background-color: rgb(250, 238, 144);
   box-shadow: inset 1px 2px 3px 0 rgba(10, 14, 22, 0.5);
-}
-
-.fa-plus-square {
-  font-size: 2em;
-  margin: 0;
-  vertical-align: middle;
 }
 
 .delete-movie {
   background-color: rgb(209, 43, 21);
   border: 0;
   border-radius: 6px;
+}
+
+.loading {
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.delete-movie a {
   color: rgb(240, 240, 230);
-  font-size: 0.9em;
-  font-weight: 500;
-  padding: 4px 8px 3px;
+  font-size: 1.1em;
+  font-weight: 700;
   text-decoration: none;
 }
 
