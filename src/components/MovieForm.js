@@ -133,6 +133,7 @@ class MovieForm extends React.Component {
       <div>
         <label htmlFor="btn_submit" className="btn-submit">ENVIAR
           <button
+            className="btn"
             id="btn_submit"
             type="button"
             onClick={this.handleSubmit}

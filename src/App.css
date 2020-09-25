@@ -125,9 +125,9 @@ body {
   border-radius: 25px;
   color: white;
   display: inline-flex;
+  float: left;
   font-family: monospace;
   font-size: 0.7em;
-  float: left;
   padding: 8px 15px;
   text-decoration-line: none;
 }
@@ -199,10 +199,19 @@ body {
   width: 100%;
 }
 
-.form-body button {
+.btn {
   background-color: transparent;
   border-color: transparent;
+  color: transparent;
+  outline: none;
   position: absolute;
+}
+
+.btn:focus {
+  background-color: transparent;
+  border-color: transparent;
+  color: transparent;
+  outline: none;
 }
 
 .movie_rating , .movie_genre {
@@ -219,8 +228,8 @@ body {
   font-family: monospace;
   font-size: 0.7em;
   padding: 1px 15px;
-  width: min-content;
   text-decoration-line: none;
+  width: min-content;
 }
 
 .btn-submit:hover {
