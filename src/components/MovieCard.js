@@ -19,9 +19,9 @@ class MovieCard extends React.Component {
             <Link to={`/movies/${id}`}>VER DETALHES</Link>
           </div>
         </div>
-          <div>
-            <Rating key={movie.title} rating={movie.rating} />
-          </div>
+        <div>
+          <Rating key={movie.title} rating={movie.rating} />
+        </div>
       </div>
     );
   }

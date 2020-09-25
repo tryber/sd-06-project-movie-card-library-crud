@@ -12,13 +12,13 @@ class NewMovie extends Component {
 
   handleSubmit(newMovie) {
     movieAPI.createMovie(newMovie);
-    this.setState({ redirect: true })
+    this.setState({ redirect: true });
   }
 
   render() {
     const { redirect } = this.state;
     if (redirect) {
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
     return (
       <div data-testid="new-movie">
