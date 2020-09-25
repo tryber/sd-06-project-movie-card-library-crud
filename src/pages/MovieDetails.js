@@ -64,7 +64,7 @@ MovieDetails.propTypes = {
     params: {
       id: PropTypes.number.isRequired,
     },
-  },
+  }.isRequired,
 };
 
 export default MovieDetails;
