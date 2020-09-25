@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import PropTypes from 'prop-types';
+
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -29,25 +30,24 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    console.log(this.state.movie, this.state.loading);
     if (this.state.loading === true) {
       return (
         <Loading />
-      )
+      );
     }
     const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
     return (
       <div data-testid="movie-details">
-          <img alt="Movie Cover" src={`../${imagePath}`} />
-          <p>{`Title: ${title}`}</p>
-          <p>{`Subtitle: ${subtitle}`}</p>
-          <p>{`Storyline: ${storyline}`}</p>
-          <p>{`Genre: ${genre}`}</p>
-          <p>{`Rating: ${rating}`}</p>
-          <Link to="/">VOLTAR</Link>
-          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-          <Link to="/" onClick={() => movieAPI.deleteMovie(id)}>DELETAR</Link>
+        <img alt="Movie Cover" src={`../${imagePath}`} />
+        <p>{`Title: ${title}`}</p>
+        <p>{`Subtitle: ${subtitle}`}</p>
+        <p>{`Storyline: ${storyline}`}</p>
+        <p>{`Genre: ${genre}`}</p>
+        <p>{`Rating: ${rating}`}</p>
+        <Link to="/">VOLTAR</Link>
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+        <Link to="/" onClick={() => movieAPI.deleteMovie(id)}>DELETAR</Link>
       </div>
     );
   }

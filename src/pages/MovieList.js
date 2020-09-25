@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import Loading from '../components/Loading';
-import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
@@ -21,8 +21,8 @@ class MovieList extends Component {
 
   async fetchMovies() {
     const newMovie = await movieAPI.getMovies();
-    if(newMovie){
-    this.setState({ movies: newMovie, loading: false });
+    if (newMovie) {
+      this.setState({ movies: newMovie, loading: false });
     }
   }
 
