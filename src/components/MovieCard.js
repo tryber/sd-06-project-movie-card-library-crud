@@ -33,7 +33,7 @@ MovieCard.defaultProps = {
 };
 
 MovieCard.propTypes = {
-  movie: PropTypes.objectOf(PropTypes.string),
+  movie: PropTypes.object,
   title: PropTypes.string,
   imagePath: PropTypes.string,
   storyline: PropTypes.string,
