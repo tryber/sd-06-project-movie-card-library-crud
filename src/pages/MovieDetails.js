@@ -7,7 +7,7 @@ import { Loading } from '../components';
 
 class MovieDetails extends Component {
 
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       movie: {},
@@ -16,7 +16,7 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    this.fetchMovie()
+    this.fetchMovie();
   }
 
   async fetchMovie() {
