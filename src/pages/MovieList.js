@@ -20,11 +20,10 @@ class MovieList extends Component {
   //  Criar uma função para a requisição obtida atraves do movieAPI
 
   async fetchList() {
-    const _movies = await movieAPI.getMovies();
-    this.setState(
-      {
-        movies: _movies,
-        loading: false,
+    const listOfMovies = await movieAPI.getMovies();
+    this.setState({
+      movies: listOfMovies,
+      loading: false,
       }
     )
   }
