@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -11,7 +11,10 @@ class MovieDetails extends Component {
     this.state = {
       loading: true,
       movie: {},
+      shouldRedirect: false,
     };
+
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -20,11 +23,20 @@ class MovieDetails extends Component {
       .then((movie) => this.setState({ movie, loading: false }));
   }
 
+  async handleDelete() {
+    await movieAPI.deleteMovie(this.state.movie.id);
+    this.setState({ shouldRedirect: true });
+  }
+
   render() {
-    const { loading, movie } = this.state;
+    const { loading, movie, shouldRedirect } = this.state;
     const { id } = this.props.match.params;
 
     if (loading) return (<Loading />);
+
+    if (shouldRedirect) {
+      return <Redirect to="/" />;
+    }
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
@@ -42,6 +54,7 @@ class MovieDetails extends Component {
           <div className="movie-card-rating" data-testid="rating">
             <Link to={`/movies/${id}/edit`} className="movie-details-link">EDITAR</Link>
             <Link to={'/'} className="movie-details-link">VOLTAR</Link>
+            <Link to={'/'} className="delete-movie" onClick={this.handleDelete}>DELETAR</Link>
             <span className="rating">{rating}</span>
           </div>
         </div>

@@ -12,14 +12,14 @@ h2 {
 
 .add-movie {
   background-color: rgb(210, 220, 230);
-  border-radius: 10px;
+  border-radius: 3px;
+  box-shadow: inset -2px -2px 3px 0 rgba(10, 14, 22, 0.5);
   color: rgb(10, 20, 30);
-  padding: 8px 12px;
+  padding: 1px 3px 1px 5px;
   position: absolute;
-  right: 1%;
   text-decoration: none;
   text-transform: lowercase;
-  top: 3%;
+  top: 1%;
 }
 
 .add-movie:hover {
@@ -28,6 +28,37 @@ h2 {
 
 .add-movie:active {
   background-color: rgb(220, 230, 240);
+  box-shadow: inset 1px 2px 3px 0 rgba(10, 14, 22, 0.5);
+}
+
+.fa-plus-square {
+  margin: 0;
+  font-size: 2em;
+  vertical-align: middle;
+}
+
+.delete-movie {
+  background-color: rgb(209, 43, 21);
+  border: 0;
+  border-radius: 6px;
+  color: rgb(240, 240, 230);
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 4px 8px 3px;
+  text-decoration: none;
+}
+
+.delete-movie:hover {
+  background-color: rgb(189, 36, 16);
+}
+
+.delete-movie:focus {
+  background-color: rgb(189, 36, 16);
+  outline: none;
+}
+
+.delete-movie:active {
+  background-color: rgb(224, 50, 26);
 }
 
 /* Aproveitando css do projeto movie card library stateful. Me julguem. :P */
