@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import './App.css';
-import { EditMovie, MovieDetails, MovieList, NewMovie, NotFound } from './pages'
+import { EditMovie, MovieDetails, MovieList, NewMovie, NotFound } from './pages';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Route path="/movies/:id" component={MovieDetails} />
       <Route path="/movies/new" component={NewMovie} />
       <Route path="/movies/:id/edit" component={EditMovie} />
-      <Route path="" component={NotFound} />
+      <Route path="/:none" component={NotFound} />
     </Router>
   );
 }
