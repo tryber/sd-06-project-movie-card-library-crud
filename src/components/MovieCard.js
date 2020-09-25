@@ -8,7 +8,7 @@ class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
     return (
-      <div className='movie-list' data-testid="movie-card">
+      <div className="movie-list" data-testid="movie-card">
         <article key={movie.title}>
           <h4>{movie.title}</h4>
           <p>{movie.storyline}</p>

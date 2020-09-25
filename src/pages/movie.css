@@ -1,36 +1,36 @@
 .movie-list {
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 0 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  padding: 0 20px;
 }
 
 .movie-list article {
-    background: rgb(245, 245, 245);
-    border: 1px solid rgb(26, 25, 25);
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+  background: rgb(245, 245, 245);
+  border: 1px solid rgb(26, 25, 25);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .movie-list article p {
-    font-size: 16px;
-    color: rgb(83, 82, 82);
-    margin-top: 5px;
-    line-height: 24px;
+  color: rgb(83, 82, 82);
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 5px;
 
 }
 
 .link {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    height: 42px;
-    border-radius: 5px;
-    border: 2px solid rgb(151, 151, 151);
-    background: rgb(97, 97, 97);
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  align-items: center;
+  background: rgb(97, 97, 97);
+  border: 2px solid rgb(151, 151, 151);
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  height: 42px;
+  justify-content: center;
+  margin-top: 10px;
+  text-decoration: none;
 }
