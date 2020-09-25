@@ -15,13 +15,13 @@ class EditMovie extends Component {
     };
   }
 
-  async handleSubmit(updatedMovie, redirectTrue) {
-    await updateMovie(updatedMovie);
-    this.setState({ redirect: true });
-  }
-
   componentDidMount() {
     this.fetchMovie();
+  }
+
+  async handleSubmit(updatedMovie) {
+    await updateMovie(updatedMovie);
+    this.setState({ redirect: true });
   }
 
   async fetchMovie() {
@@ -31,20 +31,20 @@ class EditMovie extends Component {
     this.setState({
       movie: movieEdit,
       loading: false,
-    })
+    });
   }
 
   render() {
     const { loading, movie, redirect } = this.state;
     if (redirect) {
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
     return (
       <div data-testid="edit-movie">
         { loading ? <Loading /> : (
-        <div>
-          <MovieForm movie={movie} onSubmit={this.handleSubmit} />
-        </div>
+          <div>
+            <MovieForm movie={movie} onSubmit={this.handleSubmit} />
+          </div>
         )}
       </div>
     );
