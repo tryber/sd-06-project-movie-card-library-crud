@@ -59,8 +59,16 @@ class MovieDetails extends Component {
   }
 }
 
+//  propTypes match: 
+//  https://stackoverflow.com/questions/47519612/eslint-
+//  match-is-missing-in-props-validation-react-prop-types/47519751
+
 MovieDetails.propTypes = {
-  match: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default MovieDetails;

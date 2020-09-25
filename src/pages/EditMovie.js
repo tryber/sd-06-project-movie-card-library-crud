@@ -37,6 +37,7 @@ class EditMovie extends Component {
   render() {
     const { loading, movie, redirect } = this.state;
     if (redirect) {
+      //  Redirect: https://reactrouter.com/web/api/Redirect
       return <Redirect to="/" />;
     }
     return (
