@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getMovie, deleteMovie } from '../services/movieAPI';
 import { Loading } from '../components';
@@ -27,15 +26,15 @@ class MovieDetails extends Component {
       loading: false,
     });
   }
-  
+
   async deleteMovieHandler() {
-    const { movie } = this.state 
+    const { movie } = this.state;
     const { id } = movie;
     await deleteMovie(id);
   }
 
   render() {
-    const { loading, redirect } = this.state;
+    const { loading } = this.state;
     const { movie } = this.state;
     const {
       id,
@@ -59,7 +58,7 @@ class MovieDetails extends Component {
             <p>{`Rating: ${rating}`}</p>
             <Link to="/">VOLTAR</Link>
             <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-            <button  type="button" onClick={() => this.deleteMovieHandler()}> 
+            <button type="button" onClick={() => this.deleteMovieHandler()}>
               <Link to="/">DELETAR</Link>
             </button>
           </div>
@@ -68,17 +67,5 @@ class MovieDetails extends Component {
     );
   }
 }
-
-//  propTypes match:
-//  https://stackoverflow.com/questions/47519612/eslint-
-//  match-is-missing-in-props-validation-react-prop-types/47519751
-
-MovieDetails.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
 
 export default MovieDetails;
