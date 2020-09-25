@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import '../App.css';
-import Proptypes from 'prop-types';
 
 import { Link, Redirect } from 'react-router-dom';
 import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
+
+import '../App.css';
+import Proptypes from 'prop-types';
 
 
 class MovieDetails extends Component {
