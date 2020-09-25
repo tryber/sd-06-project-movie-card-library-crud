@@ -5,8 +5,8 @@
 }
 
 .movie-list article {
-  background: rgb(245, 245, 245);
-  border: 1px solid rgb(26, 25, 25);
+  background: whitesmoke;
+  border: 1px solid black;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
@@ -25,10 +25,10 @@
   background: rgb(97, 97, 97);
   border: 2px solid rgb(151, 151, 151);
   border-radius: 5px;
-  color: rgb(255, 255, 255);
+  color: white;
   display: flex;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   height: 42px;
   justify-content: center;
   margin-top: 10px;
