@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { MovieList } from './pages';
+import { MovieDetails, MovieList } from './pages';
 
 
 
@@ -10,6 +10,7 @@ function App() {
       <h1>MCL CRUD</h1>
       <Switch>
         <Route exact path='/' component={MovieList} />
+        <Route path='/movies/:id' component={MovieDetails} />
       </Switch>
     </BrowserRouter>
   );
