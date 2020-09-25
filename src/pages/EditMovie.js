@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { MovieForm, Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 import MovieList from './MovieList';
+import { Redirect } from 'react-router-dom';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class EditMovie extends Component {
   render() {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect === true) {
-      return <MovieList />;
+      return <Redirect to="/" />;
     }
 
     if (status === 'loading') {
