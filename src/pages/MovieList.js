@@ -12,9 +12,14 @@ class MovieList extends Component {
     this.state = {
       movies: [],
     }
+    this.startApp = this.startApp.bind(this);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.startApp();
+  }
+
+  async startApp() {
     const movie = await movieAPI.getMovies()
     this.setState({
       movies: movie,
