@@ -22,7 +22,7 @@ class NewMovie extends Component {
       shouldRedirect: true,
       loading: false,
     });
-  };
+  }
 
   render() {
     const { shouldRedirect, loading } = this.state;
