@@ -11,7 +11,6 @@ class NewMovie extends Component {
     this.state = {
       redirect: false,
     };
-
   }
 
   handleSubmit(newMovie) {
