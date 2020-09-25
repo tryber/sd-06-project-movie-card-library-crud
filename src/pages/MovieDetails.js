@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-    constructor() {
-      super();
+  constructor() {
+    super();
 
       this.state = {
         movies: [],
@@ -14,9 +14,9 @@ class MovieDetails extends Component {
       };
     }
 
-    componentDidMount() {
+  componentDidMount() {
     const { match } = this.props;
-    movieAPI.getMovie(this.props.match.params.id).then((FetchMovies) =>
+    movieAPI.getMovie(match.params.id).then((FetchMovies) =>
     this.setState({
       movies: FetchMovies,
       loading: false,
@@ -27,8 +27,7 @@ class MovieDetails extends Component {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movies;
     const { loading } = this.state;
 
-    if (loading) 
-    return <Loading />;
+    if (loading) return <Loading />;
 
     return (
       <div data-testid="movie-details">
@@ -41,7 +40,7 @@ class MovieDetails extends Component {
         <Link to="/">VOLTAR</Link>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
       </div>
-    ); 
+    );
   }
 }
 
