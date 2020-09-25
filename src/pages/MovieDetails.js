@@ -75,6 +75,9 @@ MovieDetails.propTypes = {
       id: PropTypes.number,
     }).isRequired,
   }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default MovieDetails;
