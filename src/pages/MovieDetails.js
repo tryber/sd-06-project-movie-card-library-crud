@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import '../App.css';
 
 class MovieDetails extends Component {
   constructor() {
@@ -45,8 +46,12 @@ class MovieDetails extends Component {
             <p>{`Rating: ${rating}`}</p>
           </div>
           <div>
-            <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-            <Link to="/">VOLTAR</Link>
+            <div className="Link">
+              <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+            </div>
+            <div className="Link">
+              <Link to="/">VOLTAR</Link>
+            </div>
           </div>
         </div>
         }

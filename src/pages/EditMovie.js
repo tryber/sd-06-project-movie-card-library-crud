@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
+
 class EditMovie extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +28,7 @@ class EditMovie extends Component {
     this.setState({ shouldRedirect: true });
   }
 
-  componentDidMont() {
+  componentDidMount() {
     this.fetchMovie();
   }
 
