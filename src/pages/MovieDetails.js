@@ -7,7 +7,6 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor() {
     super();
-
     this.getMyMovie = this.getMyMovie.bind(this);
     this.showDetails = this.showDetails.bind(this);
     this.handleSubmitDelete = this.handleSubmitDelete.bind(this);
@@ -69,7 +68,6 @@ class MovieDetails extends Component {
     );
   }
 }
-
 MovieDetails.propTypes = { match: PropTypes.shape.isRequired };
 
 export default MovieDetails;

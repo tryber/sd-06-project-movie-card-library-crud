@@ -7,7 +7,6 @@ import * as movieAPI from '../services/movieAPI';
 class MovieList extends Component {
   constructor() {
     super();
-
     this.getMyMovies = this.getMyMovies.bind(this);
 
     this.state = {
@@ -34,7 +33,6 @@ class MovieList extends Component {
 
   render() {
     const { movies, load } = this.state;
-    // Render Loading here if the request is still happening
     return (
       <div data-testid="movie-list">
         <Link to="/movies/new">ADICIONAR CARTÃO</Link>
