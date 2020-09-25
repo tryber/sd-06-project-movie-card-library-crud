@@ -18,11 +18,11 @@ class EditMovie extends Component {
   }
 
   componentDidMount() {
-    this.editMovie();
+    const movieId = this.props.match.params.id;
+    this.editMovie(movieId);
   }
 
-  async editMovie() {
-    const movieId = this.props.match.params.id;
+  async editMovie(movieId) {
     console.log(movieId);
     const movie = await movieAPI.getMovie(movieId);
     console.log(movie);
@@ -61,7 +61,7 @@ class EditMovie extends Component {
 EditMovie.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
     }),
   }).isRequired,
 };
