@@ -14,6 +14,10 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.fetchMovie();
+  }
+
   async fetchMovie() {
     this.setState(
       { status: 'loading' },
@@ -29,13 +33,8 @@ class EditMovie extends Component {
     );
   }
 
-  componentDidMount() {
-    this.fetchMovie();
-  }
-
   handleSubmit(updatedMovie) {
     movieAPI.updateMovie(updatedMovie);
-
   }
 
   render() {
@@ -45,7 +44,7 @@ class EditMovie extends Component {
     }
 
     if (status === 'loading') {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
