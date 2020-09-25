@@ -4,7 +4,7 @@ import { Router, BrowserRouter } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import MutationObserver from 'mutationobserver-shim';
-import { render, waitFor, screen, fireEvent, cleanup } from '@testing-library/react'
+import { render, waitFor, screen, fireEvent, cleanup } from '@testing-library/react';
 
 import data from './services/movieData';
 import * as movieAPI from './services/movieAPI';
