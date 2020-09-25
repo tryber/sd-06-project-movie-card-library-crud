@@ -52,7 +52,7 @@ MovieDetails.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   }).isRequired,
-}
+};
 
 /* https://stackoverflow.com/questions/47519612/eslint-match-is-missing-in-props-validation-react-prop-types/47519751
 Agradecimento especial: Paulo Lins */
