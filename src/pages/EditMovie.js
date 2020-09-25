@@ -19,7 +19,7 @@ class EditMovie extends Component {
   componentDidMount() {
     this.newState3();
   }
-  
+
   async newState3() {
     const { match } = this.props;
     const newState3 = await movieAPI.getMovie(match.params.id);
