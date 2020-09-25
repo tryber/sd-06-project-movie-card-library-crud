@@ -1,13 +1,29 @@
 import React from 'react';
+import { Link }  from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 class MovieCard extends React.Component {
-  render() {
-    return (
-      <div data-testid="movie-card">
+	render() {
+		const { id, title,storyline, imagePath } = this.props.movie;
+		return (
+			<div data-testid="movie-card">
         Movie Card
-      </div>
-    );
-  }
+				<div>
+					<img src={imagePath} alt="Movie" />
+					<p>{title}</p>
+					<p>{storyline}</p>
+				</div>
+				<span>
+					<Link  to={`/movies/${id}`}>
+          VER DETALHES
+					</Link>
+				</span>
+			</div>
+		);
+	}
 }
 
+
+     
 export default MovieCard;
