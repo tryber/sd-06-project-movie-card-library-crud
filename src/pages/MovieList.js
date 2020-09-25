@@ -34,7 +34,7 @@ class MovieList extends Component {
         <div>
           <Link className="default-link" to="movies/new">ADICIONAR CARTÃO</Link>
         </div>
-        <div data-testid="movie-list" class="movie-list">
+        <div data-testid="movie-list" className="movie-list">
           {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
         </div>
       </div>
