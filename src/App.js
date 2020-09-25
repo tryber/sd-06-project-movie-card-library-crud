@@ -1,9 +1,13 @@
 import React from 'react';
+import MovieList from './pages/MovieList'
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
-  return (
-    <div>Movie Card Library CRUD</div>
-  );
+class App extends React.Component {
+  render() {
+    return <BrowserRouter>
+      <MovieList />
+    </BrowserRouter>;
+  }
 }
 
 export default App;
