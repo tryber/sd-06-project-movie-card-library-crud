@@ -55,4 +55,3 @@ MovieDetails.propTypes = {
     id: PropTypes.number,
   }).isRequired,
 };
-
