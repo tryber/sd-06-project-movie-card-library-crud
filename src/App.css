@@ -7,15 +7,15 @@ body {
   color: rgb(180, 175, 175)
 }
 
-.link{
+.link {
   color: white;
   text-decoration: none;
 }
 
 .container {
   background-color: rgb(243, 240, 240);
-  border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
   margin: 50px auto;
   min-height: 620px;
 }
@@ -37,15 +37,15 @@ body {
 
 .movie-list {
   display: flex;
-  justify-content: center;
   flex-flow: row wrap;
+  justify-content: center;
   padding: 48px 30px;
 }
 
 .movie-card {
   background-color: white;
-  border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   height: 450px;
@@ -92,8 +92,8 @@ body {
 
 .details {
   background: linear-gradient(#9e9e9b, #8f8e8e);
-  border-radius: 5px;
   border: 1px solid rgb(80, 79, 79);
+  border-radius: 5px;
   color: white;
   cursor: pointer;
   font: 700 9.5px Arial, Helvetica, sans-serif;
@@ -106,9 +106,9 @@ body {
 }
 
 .add-movie {
-  background: linear-gradient(#ff8c00, #ffa500);
+  background: linear-gradient(darkorange, #ffa500);
+  border: 1px solid black;
   border-radius: 5px;
-  border: 1px solid rgb(0, 0, 0);
   color: white;
   cursor: pointer;
   font: 700 17.5px Arial, Helvetica, sans-serif;
@@ -140,8 +140,8 @@ body {
 
 .movie-details {
   background-color: white;
-  border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   height: 660px;
@@ -188,9 +188,9 @@ body {
 }
 
 .moviedetails-button {
-  background: linear-gradient(#ff8c00, #ffa500);
-  border-radius: 5px;
+  background: linear-gradient(darkorange, #ffa500);
   border: 1px solid black;
+  border-radius: 5px;
   color: white;
   cursor: pointer;
   font: 700 15px Arial, Helvetica, sans-serif;
@@ -202,9 +202,9 @@ body {
 }
 
 .edit-link {
-  background: linear-gradient(#ff8c00, #ffa500);
-  border-radius: 5px;
+  background: linear-gradient(darkorange, #ffa500);
   border: 1px solid black;
+  border-radius: 5px;
   color: white;
   cursor: pointer;
   font: 700 15.5px Arial, Helvetica, sans-serif;
@@ -216,9 +216,9 @@ body {
 }
 
 .back-link {
-  background: linear-gradient(#ff8c00, #ffa500);
-  border-radius: 5px;
+  background: linear-gradient(darkorange, #ffa500);
   border: 1px solid black;
+  border-radius: 5px;
   color: white;
   cursor: pointer;
   font: 700 15.5px Arial, Helvetica, sans-serif;
@@ -310,9 +310,9 @@ body {
 }
 
 .forms-button {
-  background: linear-gradient(#ff8c00, #ffa500);
+  background: linear-gradient(darkorange, #ffa500);
+  border: 1px solid black;
   border-radius: 5px;
-  border: 1px solid rgb(44, 81, 21);
   color: white;
   cursor: pointer;
   font: 700 18px Arial, Helvetica, sans-serif;

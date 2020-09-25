@@ -30,7 +30,7 @@ class MovieDetails extends Component {
 
   async deleteMovies() {
     const id = this.props.match.params.id;
-      await movieAPI.deleteMovie(id);
+    await movieAPI.deleteMovie(id);
   }
 
   render() {
@@ -56,7 +56,7 @@ class MovieDetails extends Component {
                 <Link className="edit-link link" to={`/movies/${id}/edit`}>EDITAR</Link>
               </div>
               <div className="moviedetails-button-div">
-                <button className="moviedetails-button" type='button' onClick={this.deleteMovies} >
+                <button className="moviedetails-button" type="button" onClick={this.deleteMovies} >
                   <Link className="button-link link" to={'/'}>DELETAR</Link>
                 </button>
               </div>
