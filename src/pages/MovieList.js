@@ -17,28 +17,25 @@ componentDidMount(){
     .then((r) => this.setState({ movies: r, loading: false }))
 }
 */
-async componentDidMount(){
-  const apiResult = await movieAPI.getMovies();
-  this.setState({ 
-    movies: apiResult,
-    loading: false
-  })
-}
+  async componentDidMount() {
+    const apiResult = await movieAPI.getMovies();
+    this.setState({ 
+      movies: apiResult,
+      loading: false,
+    })
+  }
 
   render() {
     const { movies, loading } = this.state;
-    
+
     if (loading) return <Loading />;     
     
     return (
       <div data-testid="movie-list">
-        {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+      {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
-      );
-    }   
+    );
   }
+}
 
 export default MovieList;
-
-
-

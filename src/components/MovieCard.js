@@ -3,20 +3,17 @@ import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
-
     const { movie } = this.props;
     const { id,
       title,
-      subtitle,
+      //subtitle,
       storyline,
-      rating,
+      //rating,
       imagePath,
-      bookmarked,
-      genre } = movie;
-      console.log(this.props);
+      //bookmarked,genre 
+      } = movie;
 
     return (
-      
       <div data-testid="movie-card">
         <h1>{title}</h1>
         <img src={`../${imagePath}`} alt={title} />

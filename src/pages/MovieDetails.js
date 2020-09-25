@@ -7,46 +7,42 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
 
   constructor() {
-    super()
-
+    super();
     this.state = {
       movie: {},
       loader: true,
-      id: undefined
-    }
+      id: undefined,
+    };
   }
 
-  /*componentDidMount(){
-    const { id } = this.props.match.params;
-    movieAPI.getMovie(id)
-    .then((r) => this.setState({movie: r, loader: false}))
-    console.log(this.state) // continua undefined
-  }*/
+/*componentDidMount(){
+  const { id } = this.props.match.params;
+  movieAPI.getMovie(id)
+  .then((r) => this.setState({movie: r, loader: false}))
+  console.log(this.state) // continua undefined
+}*/
 
   async componentDidMount() {
     const { getMovie } = movieAPI;
     const { id } = this.props.match.params;
     const movie = await getMovie(id);
     this.setNewState(movie, id);
-    console.log(id)
+    console.log(id);
   }
 
   setNewState(newState, id) {
     this.setState({
       movie: newState,
       loader: false,
-      id: id
-    });
-    
+      id,
+    });   
   }
-
-
 
   render() {
     const { movie, loader, id } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
-    if(loader) return <Loading />
+    if (loader) return <Loading />;
 
     return (
       <div data-testid="movie-details">
