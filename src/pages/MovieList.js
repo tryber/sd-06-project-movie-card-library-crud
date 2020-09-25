@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import '../App.css';
 
@@ -45,9 +46,9 @@ class MovieList extends Component {
     const { movies } = this.state;
     const loadingElement = <span>Carregando...</span>
 
-    // Render Loading here if the request is still happening
     return (
       <div className="movie-list" data-testid="movie-list">
+        <Link to="/movies/new"><p>ADICIONAR CARTÃO</p></Link>
         {this.state.loading ? loadingElement : this.renderMovies()}
       </div>
     );

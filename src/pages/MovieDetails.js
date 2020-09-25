@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -15,6 +15,7 @@ class MovieDetails extends Component {
     };
 
     this.fetchMovie = this.fetchMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
 
@@ -36,6 +37,12 @@ class MovieDetails extends Component {
     );
   }
 
+  deleteMovie() {
+    const movieId = this.state.movie.id;
+    movieAPI.deleteMovie(movieId);
+
+  }
+
   render() {
     // console.log(this.props.match);
     if (this.state.loading) {
@@ -46,7 +53,7 @@ class MovieDetails extends Component {
     const movieLink = `/movies/${id}/edit`;
     return (
       <div className="movie-details" data-testid="movie-details">
-        <p>{id}</p>
+        {/* <p>{id}</p> */}
         <img alt="Movie Cover" src={`../${imagePath}`} />
         <p>{`Title: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
@@ -55,6 +62,7 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to={movieLink}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={this.deleteMovie}>DELETAR</Link>
       </div>
     );
   }
