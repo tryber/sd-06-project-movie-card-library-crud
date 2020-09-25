@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
 import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
 import { Link } from 'react-router-dom';
+import { Loading } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
     super();
 
-    this.state = { movie: [] }
+    this.state = { movie: [] };
   }
 
-  componentDidMount(){
-    this.getMovieData()
+  componentDidMount() {
+    this.getMovieData();
   }
 
   async getMovieData() {
@@ -22,13 +22,12 @@ class MovieDetails extends Component {
   }
 
   render() {
-
     const { movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
     // Change the condition to check the state
     // if (true) return <Loading />;
-    while(movie.length === 0) {
-      return <Loading />
+    while (movie.length === 0) {
+      return <Loading />;
     }
 
 
