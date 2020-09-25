@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -12,6 +12,7 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
       loading: true,
+      shouldRedirect: false,
     };
   }
   componentDidMount() {
@@ -23,10 +24,20 @@ class MovieDetails extends Component {
       });
     });
   }
+  deletMovie() {
+    movieAPI.deleteMovie(this.state.movie.id).then(() => {
+      this.setState({
+        shouldRedirect: true,
+      });
+    });
+  }
 
   render() {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
-    const { loading } = this.state;
+    const { loading, shouldRedirect } = this.state;
+    if (shouldRedirect) {
+      return <Redirect to="/" />;
+    }
 
     if (loading === true) {
       return <Loading />;
