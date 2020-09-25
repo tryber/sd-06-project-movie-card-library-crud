@@ -91,7 +91,7 @@ const renderPath = (path) => {
   return { ...resources }
 };
 
-describe.only('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
+describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
   test('a rota "/" deve renderizar MovieList', async () => {
     const { unmount, getByTestId } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
@@ -126,7 +126,7 @@ describe.only('1 - Rotas: O componente App deve renderizar BrowserRouter', () =>
   })
 });
 
-describe.only('2 - Movie list: Ao ser montado, MovieList deve fazer uma requisição para buscar a lista de filmes a ser renderizada', () => {
+describe('2 - Movie list: Ao ser montado, MovieList deve fazer uma requisição para buscar a lista de filmes a ser renderizada', () => {
   test('deverá exibir o texto "Carregando..." enquanto estiver fazendo a requisição', async () => {
     const { container, unmount, getByText } = renderPath('/');
     expect(getByText('Carregando...'));
@@ -141,7 +141,7 @@ describe.only('2 - Movie list: Ao ser montado, MovieList deve fazer uma requisi�
   })
 });
 
-describe.only('3 - MovieCard: deve possuir um link para a página de detalhes de um filme', () => {
+describe('3 - MovieCard: deve possuir um link para a página de detalhes de um filme', () => {
   test('deve exibir pelo menos o título e a sinopse de seu respectivo filme', async () => {
     const { unmount, getAllByText } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
@@ -209,7 +209,7 @@ describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que 
   });
 });
 
-describe.only('5 - EditMovie: deve realizar uma requisição para buscar o filme que será editado', () => {
+describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que será editado', () => {
 
   it('deverá exibir o texto "Carregando..." enquanto estiver fazendo a requisição', async () => {
     for (const movie of readMovies()) {
@@ -274,7 +274,7 @@ describe.only('5 - EditMovie: deve realizar uma requisição para buscar o filme
 
 })
 
-describe.only('6 - NewMovie: Na página inicial, deve haver um link para criar novos cartões.', () => {
+describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos cartões.', () => {
   it('a página inicial deverá conter um link "ADICIONAR CARTÃO". Esse link deve redirecionar para a página de criação de filmes', async () => {
     const { unmount } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
