@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
-
     const { movie } = this.props;
 
     return (
@@ -14,6 +14,7 @@ class MovieCard extends React.Component {
           <p className="movie-card-storyline">{movie.storyline}</p>
           <div>
           </div>
+          <Link to={`/movies/${movie.id}`}>VER DETALHES</Link>
           <div>
             <h4 className="movie-card-rating">{movie.rating}</h4>
           </div>
