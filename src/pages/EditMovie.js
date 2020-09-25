@@ -36,10 +36,7 @@ class EditMovie extends Component {
 
   render() {
     const { loading, movie, redirect } = this.state;
-    if (redirect) {
-      //  Redirect: https://reactrouter.com/web/api/Redirect
-      return <Redirect to="/" />;
-    }
+    //  Redirect: https://reactrouter.com/web/api/Redirect
     return (
       <div data-testid="edit-movie">
         { loading ? <Loading /> : (
@@ -47,6 +44,7 @@ class EditMovie extends Component {
             <MovieForm movie={movie} onSubmit={this.handleSubmit} />
           </div>
         )}
+        {redirect ? <Redirect to="/" /> : ""}
       </div>
     );
   }

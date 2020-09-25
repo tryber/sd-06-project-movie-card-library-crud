@@ -59,7 +59,7 @@ class MovieDetails extends Component {
   }
 }
 
-//  propTypes match: 
+//  propTypes match:
 //  https://stackoverflow.com/questions/47519612/eslint-
 //  match-is-missing-in-props-validation-react-prop-types/47519751
 
