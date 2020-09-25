@@ -7,11 +7,9 @@ import * as movieAPI from '../services/movieAPI';
 class NewMovie extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       shouldRedirect: false,
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -22,8 +20,7 @@ class NewMovie extends Component {
 
   render() {
     const { shouldRedirect } = this.state;
-
-    if (shouldRedirect) {
+    if (shouldRedirect === true) {
       return <Redirect to="/" />;
     }
 
@@ -36,4 +33,5 @@ class NewMovie extends Component {
     return (newMovie);
   }
 }
+
 export default NewMovie;
