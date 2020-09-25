@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-// import PropTypes from 'prop-types';
 
 import MovieForm from '../components/MovieForm';
 import { createMovie } from '../services/movieAPI';
@@ -38,11 +37,5 @@ class NewMovie extends Component {
     );
   }
 }
-
-// NewMovie.propTypes =
-// { match: PropTypes.objectOf(PropTypes.oneOfType(
-//   [PropTypes.bool, PropTypes.object, PropTypes.string],
-//   )).isRequired,
-// };
 
 export default NewMovie;

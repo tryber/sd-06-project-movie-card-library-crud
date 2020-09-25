@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Loading, MovieCard } from '../components';
 import { getMovies } from '../services/movieAPI';
@@ -11,13 +12,6 @@ class MovieList extends Component {
       movies: [],
     };
   }
-
-  // async componentDidMount() {
-  //   const movies = await getMovies();
-  //   this.setState({
-  //     movies,
-  //   });
-  // }
 
   componentDidMount() {
     getMovies()
@@ -37,8 +31,13 @@ class MovieList extends Component {
       );
     }
     return (
-      <div data-testid="movie-list">
-        {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+      <div>
+        <div data-testid="movie-list" className="movie-list">
+          {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        </div>
+        <nav className="nav-class">
+          <span><Link to={'/movies/new'}>ADICIONAR CARTÃO</Link></span>
+        </nav>
       </div>
     );
   }
