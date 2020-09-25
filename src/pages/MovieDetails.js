@@ -15,6 +15,7 @@ class MovieDetails extends Component {
     };
     this.renderCard = this.renderCard.bind(this);
     this.handleApi = this.handleApi.bind(this);
+    this.deleteMovieSubmit = this.deleteMovieSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +33,13 @@ class MovieDetails extends Component {
     });
   }
 
+  // Referencia, PR da Laís da T06 que eu pude ver
+  // onde estava errando ao deletar o movie
+  async deleteMovieSubmit() {
+    const { id } = this.props.match.params;
+    await movieAPI.deleteMovie(id);
+  }
+
   renderCard(movie) {
     return (
       <div data-testid="movie-details">
@@ -41,8 +49,20 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${movie.storyline}`}</p>
         <p>{`Genre: ${movie.genre}`}</p>
         <p>{`Rating: ${movie.rating}`}</p>
-        <button><Link to={`/movies/${movie.id}/edit`}>EDITAR</Link></button>
-        <button><Link to="/">VOLTAR</Link></button>
+        <button>
+          <Link to={`/movies/${movie.id}/edit`}>EDITAR</Link>
+        </button>
+        <button>
+          <Link to="/">VOLTAR</Link>
+        </button>
+        <button
+          type="button"
+          onClick={this.deleteMovieSubmit}
+        >
+          <Link to="">
+            DELETAR
+          </Link>
+        </button>
       </div>
     );
   }
@@ -57,9 +77,7 @@ class MovieDetails extends Component {
 
 MovieDetails.propTypes = {
   match: PropTypes.shape({
-    params:
-    PropTypes.shape({ id: PropTypes.number.isRequired })
-    .isRequired,
+    params: PropTypes.shape({ id: PropTypes.number.isRequired }).isRequired,
   }).isRequired,
 };
 export default MovieDetails;
