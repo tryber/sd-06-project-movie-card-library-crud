@@ -26,7 +26,7 @@ class MovieList extends Component {
   render() {
     const { movies } = this.state;
 
-    if(movies === []) return <Loading />;
+    if (movies === []) return <Loading />;
 
     return (
       <div className="movie-list" data-testid="movie-list">
