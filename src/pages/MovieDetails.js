@@ -32,7 +32,7 @@ class MovieDetails extends Component {
     const { movie, loading } = this.state;
     if (loading) return <Loading />;
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;;
+    const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
     const movieDetails = (
       <div data-testid="movie-details">
