@@ -60,6 +60,6 @@ class MovieDetails extends Component {
 
 MovieDetails.propTypes = {
   match: PropTypes.string.isRequired,
-}
+};
 
 export default MovieDetails;
