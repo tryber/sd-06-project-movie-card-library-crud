@@ -7,7 +7,7 @@ class NewMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shouldRedirect: false
+      shouldRedirect: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +19,7 @@ class NewMovie extends Component {
   }
 
   render() {
-    const { shouldRedirect } = this.state
+    const { shouldRedirect } = this.state;
     if (shouldRedirect) return <Redirect to="/" />;
     return (
       <div data-testid="new-movie">
