@@ -25,7 +25,6 @@ class MovieDetails extends Component {
 
   async handleDelete() {
     await movieAPI.deleteMovie(this.state.movie.id);
-    this.setState({ shouldRedirect: true });
   }
 
   render() {
@@ -33,10 +32,6 @@ class MovieDetails extends Component {
     const { id } = this.props.match.params;
 
     if (loading) return (<Loading />);
-
-    if (shouldRedirect) {
-      return <Redirect to="/" />;
-    }
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 

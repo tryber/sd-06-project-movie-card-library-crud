@@ -9,6 +9,7 @@ class NewMovie extends Component {
 
     this.state = {
       shouldRedirect: false,
+      movie: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,7 +29,7 @@ class NewMovie extends Component {
 
     return (
       <div data-testid="new-movie" className="movie-list">
-        <MovieForm movie={{}} onSubmit={this.handleSubmit} formTitle="Adicionar filme" />
+        <MovieForm movie={this.state.movie} onSubmit={this.handleSubmit} formTitle="Adicionar filme" />
       </div>
     );
   }
