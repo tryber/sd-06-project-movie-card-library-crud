@@ -1,12 +1,14 @@
 import React from 'react';
-import MovieList from './pages/MovieList'
 import { BrowserRouter } from 'react-router-dom';
+import MovieList from './pages/MovieList';
 
 class App extends React.Component {
   render() {
-    return <BrowserRouter>
-      <MovieList />
-    </BrowserRouter>;
+    return (
+      <BrowserRouter>
+        <MovieList />
+      </BrowserRouter>
+    )
   }
 }
 
