@@ -30,9 +30,9 @@ class MovieList extends Component {
     ));
     return (
       <div data-testid="movie-list">
-        {movies.length > 0 ? 
+        {movies.length > 0 ?
           <div>
-            {movieList} 
+            {movieList}
             <button><Link to="/movies/new">ADICIONAR CARTÃO</Link></button>
           </div>
           : <Loading />
