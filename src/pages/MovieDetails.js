@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -40,7 +40,6 @@ class MovieDetails extends Component {
   deleteMovie() {
     const movieId = this.state.movie.id;
     movieAPI.deleteMovie(movieId);
-
   }
 
   render() {
