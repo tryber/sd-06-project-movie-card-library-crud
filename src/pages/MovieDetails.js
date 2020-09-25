@@ -70,11 +70,9 @@ console.log(this.state) // continua undefined
 }
 
 MovieDetails.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  }),
+  params: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
