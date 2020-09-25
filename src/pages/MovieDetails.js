@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
-import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import { Link } from 'react-router-dom';
+import * as movieAPI from '../services/movieAPI';
 
 class MovieDetails extends Component {
   constructor() {
@@ -11,8 +10,9 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: [],
-    }
+    };
   }
+
   componentDidMount() {
     this.newState2();
   }
@@ -20,17 +20,15 @@ class MovieDetails extends Component {
   async newState2() {
     const parametro = this.props.match.params.id;
     const newState2 = await movieAPI.getMovie(parametro);
-    this.setState({
-      movie: newState2,
-    });
+    this.setState({ movie: newState2 });
   }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
     const { movie } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
     if (movie.length === 0) return <Loading />;
-
     return (
       <div>
         <div data-testid="movie-details">
@@ -43,7 +41,7 @@ class MovieDetails extends Component {
         </div>
         <div>
           <Link to={`/movies/${id}/edit`} >EDITAR</Link>
-          <Link to={`/`} >VOLTAR</Link>
+          <Link to={'/'} >VOLTAR</Link>
         </div>
       </div>
     );
