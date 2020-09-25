@@ -32,6 +32,7 @@ class MovieDetails extends Component {
   render() {
     const { movie, loading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { id } = this.props.match.params;
 
     return (
       <div data-testid="movie-details">
@@ -44,7 +45,7 @@ class MovieDetails extends Component {
           <p>{`Genre: ${genre}`}</p>
           <p>{`Rating: ${rating}`}</p>
         </div>
-        <button type="button"><Link to={`/movies/${movie.id}/edit`}>EDITAR</Link></button>
+        <button type="button"><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
         <button type="button"><Link to="/">VOLTAR</Link></button>
       </div>
     );

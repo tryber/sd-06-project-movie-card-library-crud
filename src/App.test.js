@@ -4,7 +4,7 @@ import { Router, BrowserRouter } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import MutationObserver from 'mutationobserver-shim';
-import { render, waitFor, screen, fireEvent, cleanup } from '@testing-library/react'
+import { render, waitFor, screen, fireEvent, cleanup } from '@testing-library/react';
 
 import data from './services/movieData';
 import * as movieAPI from './services/movieAPI';
@@ -162,7 +162,7 @@ describe('3 - MovieCard: deve possuir um link para a página de detalhes de um f
   })
 })
 
-describe.only('4 - MovieDetails: deve fazer uma requisição para buscar o filme que deverá ser renderizado', () => {
+describe('4 - MovieDetails: deve fazer uma requisição para buscar o filme que deverá ser renderizado', () => {
 
   it('deverá exibir o texto "Carregando..." enquanto estiver fazendo a requisição', () => {
     readMovies().forEach(async (movie) => {
@@ -209,7 +209,7 @@ describe.only('4 - MovieDetails: deve fazer uma requisição para buscar o filme
   });
 });
 
-describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que será editado', () => {
+describe.only('5 - EditMovie: deve realizar uma requisição para buscar o filme que será editado', () => {
 
   it('deverá exibir o texto "Carregando..." enquanto estiver fazendo a requisição', async () => {
     for (const movie of readMovies()) {
@@ -274,7 +274,7 @@ describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que 
 
 })
 
-describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos cartões.', () => {
+describe.only('6 - NewMovie: Na página inicial, deve haver um link para criar novos cartões.', () => {
   it('a página inicial deverá conter um link "ADICIONAR CARTÃO". Esse link deve redirecionar para a página de criação de filmes', async () => {
     const { unmount } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
