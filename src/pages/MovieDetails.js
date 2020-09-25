@@ -54,7 +54,9 @@ class MovieDetails extends Component {
           <div className="movie-card-rating" data-testid="rating">
             <Link to={`/movies/${id}/edit`} className="movie-details-link">EDITAR</Link>
             <Link to={'/'} className="movie-details-link">VOLTAR</Link>
-            <Link to={'/'} className="delete-movie" onClick={this.handleDelete}>DELETAR</Link>
+            <button type="button" onClick={this.handleDelete} className="delete-movie">
+              <Link to={'/'}>DELETAR</Link>
+            </button>
             <span className="rating">{rating}</span>
           </div>
         </div>
