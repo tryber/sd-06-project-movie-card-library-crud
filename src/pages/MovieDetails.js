@@ -8,11 +8,11 @@ import './MovieDetails.css';
 class MovieDetails extends Component {
   constructor() {
     super();
-
     this.state = {
       movie: [],
       loading: true,
     };
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -23,12 +23,16 @@ class MovieDetails extends Component {
     }));
   }
 
+  async handleDelete() {
+    const movieId = this.state.movie.id;
+    const response = await movieAPI.deleteMovie(movieId);
+    return response.status === 'OK' ? '/' : '';
+  }
+
   render() {
     if (this.state.loading) return <Loading />;
 
-
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
-
     return (
       <div className="movie-detailed-container" data-testid="movie-details">
         <div className="movie-detailed-card">
@@ -40,6 +44,7 @@ class MovieDetails extends Component {
           <p>{`Rating: ${rating}`}</p>
           <Link to={`/movies/${id}/edit`} className="see-details-detailed">EDITAR</Link>
           <Link to="/" className="see-details-detailed">VOLTAR</Link>
+          <Link to="/" onClick={this.handleDelete} className="see-details-detailed">DELETAR</Link>
         </div>
       </div>
     );
