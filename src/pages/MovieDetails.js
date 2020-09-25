@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Loading } from '../components';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
@@ -18,8 +18,8 @@ class MovieDetails extends Component {
   }
 
   async newState2() {
-    const parametro = this.props.match.params.id;
-    const newState2 = await movieAPI.getMovie(parametro);
+    const { match } = this.props;
+    const newState2 = await movieAPI.getMovie(match.params.id);
     this.setState({ movie: newState2 });
   }
 
