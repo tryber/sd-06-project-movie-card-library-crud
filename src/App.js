@@ -1,9 +1,9 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { MovieList, MovieDetails, NewMovie, EditMovie, NotFound } from './pages';
 
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
       <BrowserRouter>
