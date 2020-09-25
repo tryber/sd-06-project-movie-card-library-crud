@@ -15,15 +15,17 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    movieAPI.getMovie(id).then((movie) => this.setState({
-      movie,
-      loading: false,
-    }));
+    movieAPI.getMovie(id).then((movie) =>
+      this.setState({
+        movie,
+        loading: false,
+      }),
+    );
   }
 
   render() {
     const { movie, loading } = this.state;
-    const { title, storyline, imagePath, genre, subtitle, id } = movie;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
     if (loading) return <Loading />;
     return (
       <div data-testid="movie-details">
@@ -32,9 +34,18 @@ class MovieDetails extends Component {
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
-        {/* <p>{`Rating: ${rating}`}</p> */}
-        <Link to={`${id}/edit`}>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
+        <p>{`Rating: ${rating}`}</p>
+        <button>
+          <Link to={`${id}/edit`}>EDITAR</Link>
+        </button>
+        <button>
+          <Link to="/">VOLTAR</Link>
+        </button>
+        <button>
+          <Link to="/" onClick={() => movieAPI.deleteMovie(id)}>
+            DELETAR
+          </Link>
+        </button>
       </div>
     );
   }
