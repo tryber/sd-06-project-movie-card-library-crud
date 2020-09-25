@@ -9,6 +9,9 @@ class MovieDetails extends Component {
 
   constructor() {
     super();
+
+    this.deleteMovie = this.deleteMovie.bind(this);
+
     this.state = {
       movie: {},
       loader: true,
@@ -39,6 +42,11 @@ console.log(this.state) // continua undefined
     });
   }
 
+  async deleteMovie() {
+    await movieAPI.deleteMovie(this.state.movie.id);
+    this.props.history.push('/');
+  }
+
   render() {
     const { movie, loader, id } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
@@ -54,6 +62,7 @@ console.log(this.state) // continua undefined
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <p><Link to={`/movies/${id}/edit`}>EDITAR</Link></p>
+        <p><Link to={'/'} onClick={this.deleteMovie}>DELETAR</Link></p>
         <p><Link to={'/'}>VOLTAR</Link></p>
       </div>
     );
