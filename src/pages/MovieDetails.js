@@ -57,10 +57,10 @@ class MovieDetails extends Component {
 
 MovieDetails.propTypes = {
   match: {
-    params:{
-      id: PropTypes.number.isRequired
-    }
-  }
-}
+    params: {
+      id: PropTypes.number.isRequired,
+    },
+  },
+};
 
 export default MovieDetails;
