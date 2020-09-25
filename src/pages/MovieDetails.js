@@ -11,7 +11,7 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
       loading: true,
-    }
+    };
     this.fetchMovie = this.fetchMovie.bind(this);
   }
 
@@ -29,13 +29,12 @@ class MovieDetails extends Component {
   }
 
   render() {
-
     const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
     const { loading } = this.state;
 
     return (
       <div>
-        { loading ?  <Loading /> :
+        { loading ? <Loading /> :
         <div>
           <div data-testid="movie-details">
             <img alt="Movie Cover" src={`../${imagePath}`} />
@@ -49,14 +48,13 @@ class MovieDetails extends Component {
             <Link to={`/movies/${id}/edit`}>EDITAR</Link>
             <Link to="/">VOLTAR</Link>
           </div>
-         </div>
+        </div>
         }
-       </div>
+      </div>
     );
   }
 }
 
-MovieDetails.PropTypes = { match: PropTypes.objectOf(Array).isRequired }
-
+MovieDetails.propTypes = { match: PropTypes.objectOf(Array).isRequired };
 
 export default MovieDetails;
