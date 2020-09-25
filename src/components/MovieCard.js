@@ -9,7 +9,7 @@ class MovieCard extends Component {
       imagePath,
       title,
       storyline,
-      id
+      id,
     } = movie;
     return (
       <div data-testid="movie-card">
