@@ -7,5 +7,5 @@ class Loading extends Component {
     );
   }
 }
-//start
+
 export default Loading;
