@@ -6,6 +6,8 @@ class MovieList extends Component {
   constructor() {
     super();
 
+    this.fetchMovies = this.fetchMovies.bind(this);
+
     this.state = {
       movies: [],
     }
@@ -15,7 +17,7 @@ class MovieList extends Component {
     this.fetchMovies();
   }
 
-  fetchMovies = async () => {
+  fetchMovies() {
     const resultAPI = await movieAPI.getMovies();
     this.setState({ movies: resultAPI });
   }
