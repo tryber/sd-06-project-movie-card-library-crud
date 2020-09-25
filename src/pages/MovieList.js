@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css'
 import { Link } from 'react-router-dom';
 
 import Loading from '../components/Loading';
@@ -40,8 +41,13 @@ class MovieList extends Component {
   render() {
     return (
       <div data-testid="movie-list">
-        {this.renderMovies()}
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        <h1 className="title">MOVIE CARDS</h1>
+        <div className="container">
+          {this.renderMovies()}
+        </div>
+        <div className="button-content">
+          <Link to="/movies/new" className="button">ADICIONAR CARTÃO</Link>
+        </div>
       </div>
     );
   }

@@ -3,3 +3,85 @@ body {
   box-sizing: border-box;
 }
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.movieCard {
+  margin: 10px;
+  width: 30%;
+}
+
+.content {
+  max-width: 99%;
+}
+
+.storyline {
+  text-align: justify;
+}
+
+.title {
+  background-color: darkblue;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  line-height: 60px;
+  margin-top: 0%;
+}
+
+.button {
+  background-color: darkblue;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font: 15px Arial, Helvetica, sans-serif;
+  justify-content: center;
+  max-width: 200px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+.moviedetails {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-content {
+  display: flex;
+  justify-content: center;
+}
+
+.input-text {
+  border-color: lightgray;
+  font-size: 15px;
+  line-height: 25px;
+  margin: 10px;
+}
+
+.label {
+  margin-left: 10px;
+}
+
+.input-textarea {
+  border-color: lightgray;
+  line-height: 30px;
+  margin: 10px;
+}
+
+.loading {
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  margin: 250px 0;
+}

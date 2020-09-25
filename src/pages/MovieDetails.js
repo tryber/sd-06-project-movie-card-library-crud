@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css'
 import Proptypes from 'prop-types';
 
 import { Link, Redirect } from 'react-router-dom';
@@ -58,16 +59,23 @@ class MovieDetails extends Component {
 
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <h4>{`Title: ${title}`}</h4>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
         <div>
-          <button><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
-          <button><Link to="/">VOLTAR</Link></button>
-          <button onClick={this.deleteMovie} type="button"><Link to>DELETAR</Link></button>
+          <h1 className="title">Movie Details</h1>
+        </div>
+        <div className="moviedetails">
+          <div className="movieCard">
+            <img alt="Movie Cover" src={`../${imagePath}`} className="content" />
+            <h4>{`Title: ${title}`}</h4>
+            <p>{`Subtitle: ${subtitle}`}</p>
+            <p className="storyline">{`Storyline: ${storyline}`}</p>
+            <p>{`Genre: ${genre}`}</p>
+            <p>{`Rating: ${rating}`}</p>
+            <div className="buttons">
+              <Link to={`/movies/${id}/edit`} className="button">EDITAR</Link>
+              <Link to="/" className="button">VOLTAR</Link>
+              <Link onClick={this.deleteMovie} to className="button">DELETAR</Link>
+            </div>
+          </div>
         </div>
       </div>
     );
