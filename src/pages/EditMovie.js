@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { MovieForm, Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
+import MovieList from './MovieList';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -27,17 +28,22 @@ class EditMovie extends Component {
     });
   }
 
-  handleSubmit(updatedMovie) {
+  
+async handleSubmit(updatedMovie) {
+    this.setState({
+      movie: await movieAPI.updateMovie(updatedMovie),
+      shouldRedirect: true,
+    })
   }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
-    if (shouldRedirect) {
-      // Redirect
+    if (shouldRedirect === true) {
+      return <MovieList />;
     }
 
     if (status === 'loading') {
-      //return <Loading />;
+      return <Loading />;
     }
 
     return (
