@@ -29,6 +29,7 @@ class MovieDetails extends Component {
 
   render() {
     const { loading } = this.state;
+    const { movie } = this.state;
     const {
       id,
       title,
@@ -37,7 +38,7 @@ class MovieDetails extends Component {
       genre,
       rating,
       subtitle,
-    } = this.state.movie;
+    } = movie;
 
     return (
       <div data-testid="movie-details">
