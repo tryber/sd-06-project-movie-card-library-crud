@@ -1,0 +1,10 @@
+.loading-msg {
+  align-items: center;
+  color: black;
+  display: flex;
+  font-size: 80px;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}

@@ -1,0 +1,31 @@
+.movie-card {
+  background-color: white;
+  border: solid 1px rgb(167, 166, 166);
+  box-shadow: 0 0 10px rgb(167, 166, 166);
+  height: 40vh;
+  margin: 1% 2%;
+  width: 20%;
+}
+
+.movie-card img {
+  height: 60%;
+  width: 100%;
+}
+
+.movie-card h1 {
+  color: white;
+  font-size: 2rem;
+  margin-left: 3%;
+  margin-top: -15%;
+}
+
+.movie-card p {
+  font-size: 0.9rem;
+  margin-left: 3%;
+}
+
+.see-details {
+  color: orange;
+  margin-left: 3%;
+  text-decoration: none;
+}
