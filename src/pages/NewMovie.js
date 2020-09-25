@@ -9,7 +9,13 @@ class NewMovie extends Component {
 
     this.state = {
       shouldRedirect: false,
-      movie: {},
+      movie: {
+        title: '',
+        subtitle: '',
+        storyline: '',
+        imagePath: '',
+        rating: 0,
+      },
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
