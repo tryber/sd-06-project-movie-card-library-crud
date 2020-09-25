@@ -23,7 +23,7 @@ class NewMovie extends Component {
 
 
 	render()  {
-		 const {redirect } = this.state;
+		const {redirect } = this.state;
 		if (redirect === true) {
 			return	<Redirect to="/" />;  
 
@@ -36,4 +36,5 @@ class NewMovie extends Component {
 		);
 	}
 }
+
 export default NewMovie;
