@@ -92,6 +92,7 @@ class MovieForm extends React.Component {
         <label htmlFor="movie_genre">Gênero
           <select
             id="movie_genre"
+            className="movie_genre"
             value={genre}
             onChange={(event) => this.updateMovie('genre', event.target.value)}
           >
@@ -114,6 +115,7 @@ class MovieForm extends React.Component {
           <input
             placeholder="Dê a avaliação do filme"
             id="movie_rating"
+            className="movie_rating"
             type="number"
             step={0.1}
             min={0}
@@ -129,12 +131,12 @@ class MovieForm extends React.Component {
   renderSubmitButton() {
     return (
       <div>
-        <label className="btn-submit">ENVIAR
+        <label htmlFor="btn_submit" className="btn-submit">ENVIAR
           <button
+            id="btn_submit"
             type="button"
             onClick={this.handleSubmit}
-          >          
-          </button>
+          />
         </label>
       </div>
     );
