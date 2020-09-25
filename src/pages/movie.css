@@ -6,10 +6,10 @@
 
 .movie-list article {
   background: whitesmoke;
-  border: 1px solid black;
+  border: 1px solid rgb(206, 205, 205);
   border-radius: 5px;
-  padding: 20px;
   margin-bottom: 20px;
+  padding: 20px;
 }
 
 .movie-list article p {
