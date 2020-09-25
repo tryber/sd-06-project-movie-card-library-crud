@@ -14,7 +14,7 @@ class NewMovie extends Component {
 
   async handleSubmit(newMovie) {
     await createMovie(newMovie);
-    this.setState({redirect: true});
+    this.setState({ redirect: true });
   }
 
   render() {
@@ -22,7 +22,7 @@ class NewMovie extends Component {
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
-        { redirect ? <Redirect to="/" /> : ""}
+        { redirect ? <Redirect to='/' /> : ''}
       </div>
     );
   }

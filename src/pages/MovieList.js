@@ -39,7 +39,7 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         {loading ? <Loading /> : this.renderMovieElement()}
-        {loading ? "" : this.addMovie()}
+        {loading ? '' : this.addMovie()}
       </div>
     );
   }
