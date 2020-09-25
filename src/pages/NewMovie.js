@@ -18,7 +18,7 @@ class NewMovie extends Component {
   async handleSubmit(newMovie) {
     const movie = await movieAPI.createMovie(newMovie);
     this.setState({
-      movie: movie,
+      movie,
       states: true,
     });
   }
