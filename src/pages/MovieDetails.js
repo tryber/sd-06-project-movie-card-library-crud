@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import './MovieDetails.css';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -32,13 +33,13 @@ class MovieDetails extends Component {
       <div data-testid="movie-details">
         {
           this.state.loading ? <Loading /> :
-          <div>
+          <div className="movie-detail-container">
             <img alt="Movie Cover" src={`../${this.state.movie.imagePath}`} />
-            <p>{`Title: ${this.state.movie.title}`}</p>
-            <p>{`Subtitle: ${this.state.movie.subtitle}`}</p>
-            <p>{`Storyline: ${this.state.movie.storyline}`}</p>
-            <p>{`Genre: ${this.state.movie.genre}`}</p>
-            <p>{`Rating: ${this.state.movie.rating}`}</p>
+            <p><b>Title:</b> {this.state.movie.title}</p>
+            <p><b>Subtitle:</b> {this.state.movie.subtitle}</p>
+            <p><b>Storyline:</b> {this.state.movie.storyline}</p>
+            <p><b>Genre:</b> {this.state.movie.genre}</p>
+            <p><b>Rating:</b> {this.state.movie.rating}</p>
             <div>
               <button>
                 <Link to={`/movies/${this.state.movie.id}/edit`}>
