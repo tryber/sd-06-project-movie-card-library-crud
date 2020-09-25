@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   margin: 15px;
-  max-width: 500px;
+  max-width: 400px;
+  min-width: 300px;
 }
 
 .movie-card-header {
