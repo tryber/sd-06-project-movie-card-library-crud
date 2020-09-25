@@ -9,7 +9,7 @@ class MovieList extends Component {
     super();
 
     this.state = {
-      movies: []
+      movies: [],
     }
   }
   componentDidMount() {
@@ -19,7 +19,7 @@ class MovieList extends Component {
   async newState() {
     const newState = await movieAPI.getMovies();
     this.setState({
-      movies: newState
+      movies: newState,
     });
   }
 
