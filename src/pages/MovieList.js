@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
-import "./MovieList.css";
+import './MovieList.css';
 import './MovieForm.css';
 
 class MovieList extends Component {

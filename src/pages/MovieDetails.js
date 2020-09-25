@@ -41,7 +41,7 @@ class MovieDetails extends Component {
 
     if (loading) return <Loading />;
 
-    if (imagePath.substring(0, 7) === "images/") {
+    if (imagePath.substring(0, 7) === 'images/') {
       srcImg = `../${imagePath}`;
     } else {
       srcImg = imagePath;
@@ -51,7 +51,7 @@ class MovieDetails extends Component {
       <div data-testid="movie-details" className="movie-details-body">
         <div>
           <section className="movie-details">
-            <img alt="Movie Cover" src={srcImg} class="movie-card-image" />
+            <img alt="Movie Cover" src={srcImg} className="movie-card-image" />
             <div className="movie-card-body">
               <div className="title-details">
                 <h2 className="movie-card-title">{`Title: ${title}`}</h2>
