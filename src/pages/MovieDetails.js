@@ -74,7 +74,7 @@ MovieDetails.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired,
-  }).isRequired,
+  }),
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
