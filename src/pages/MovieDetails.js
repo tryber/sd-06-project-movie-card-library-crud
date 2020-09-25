@@ -1,8 +1,8 @@
+import Proptypes from 'prop-types';
 import React, { Component } from 'react';
 
 import { Link, Redirect } from 'react-router-dom';
 import { Loading } from '../components';
-import Proptypes from 'prop-types';
 
 import * as movieAPI from '../services/movieAPI';
 
