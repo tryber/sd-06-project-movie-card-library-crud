@@ -22,7 +22,7 @@ class MovieDetails extends Component {
     this.setState(
       { loading: true },
       async () => {
-        const { id } = this.props.match.params
+        const { id } = this.props.match.params;
         const movieObject = await movieAPI.getMovie(id);
         this.setState({
           loading: false,
