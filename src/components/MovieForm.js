@@ -148,7 +148,6 @@ class MovieForm extends React.Component {
 
   render() {
     return (
-      
       <div className="movie-form-container">
         <div className="movie-form-card">
           <img alt="Movie Cover" src={`../../${this.state.imagePath}`} />
