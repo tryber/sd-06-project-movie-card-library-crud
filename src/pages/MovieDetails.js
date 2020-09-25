@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
 import { Loading } from '../components';
 import { Link } from 'react-router-dom';
-
+import React, { Component } from 'react';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieDetails extends Component {
@@ -11,8 +10,8 @@ class MovieDetails extends Component {
     this.fetchMovie = this.fetchMovie.bind(this);
 
     this.state = {
-      movie: []
-    }
+      movie: [],
+    };
   }
 
   componentDidMount() {
@@ -20,7 +19,8 @@ class MovieDetails extends Component {
   }
 
   async fetchMovie() {
-    const result = await movieAPI.getMovie(this.props.match.params.id);
+    const id = this.props.match.params.id;
+    const result = await movieAPI.getMovie(id);
     this.setState({ movie: result });
   }
 
@@ -34,18 +34,18 @@ class MovieDetails extends Component {
 
     return (
       <div>
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Title: ${title}`}</p>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
-      </div>
-      <div>
+        <div data-testid="movie-details">
+          <img alt="Movie Cover" src={`../${imagePath}`} />
+          <p>{`Title: ${title}`}</p>
+          <p>{`Subtitle: ${subtitle}`}</p>
+          <p>{`Storyline: ${storyline}`}</p>
+          <p>{`Genre: ${genre}`}</p>
+          <p>{`Rating: ${rating}`}</p>
+        </div>
+        <div>
         <Link to={`/movies/${id}/edit`} >EDITAR</Link>
-        <Link to={`/`} >VOLTAR</Link>
-      </div>
+        <Link to={'/'} >VOLTAR</Link>
+        </div>
       </div>
     );
   }

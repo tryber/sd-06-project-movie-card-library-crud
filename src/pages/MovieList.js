@@ -10,7 +10,7 @@ class MovieList extends Component {
     this.fetchMovies = this.fetchMovies.bind(this);
 
     this.state = {
-      movies: []
+      movies: [],
     }
   }
 
