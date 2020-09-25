@@ -12,7 +12,6 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
       loading: true,
-      shouldRedirect: false,
     };
   }
   componentDidMount() {
@@ -24,20 +23,10 @@ class MovieDetails extends Component {
       });
     });
   }
-  deletMovie() {
-    movieAPI.deleteMovie(this.state.movie.id).then(() => {
-      this.setState({
-        shouldRedirect: true,
-      });
-    });
-  }
 
   render() {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
-    const { loading, shouldRedirect } = this.state;
-    if (shouldRedirect) {
-      return <Redirect to="/" />;
-    }
+    const { loading } = this.state;
 
     if (loading === true) {
       return <Loading />;
@@ -54,7 +43,7 @@ class MovieDetails extends Component {
         <hr />
         <Link to="/">VOLTAR</Link><br />
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-        <button onClick={this.deletMovie}>DELETAR</button>
+        <Link to="/" onClick={() => { movieAPI.deleteMovie(id); }}>DELETAR</Link>
       </div>
     );
   }
