@@ -1,0 +1,57 @@
+.container {
+  background-color: rgb(192, 192, 192);
+  border: 1px solid rgb(116, 115, 115);
+  border-radius: 10px;
+  display: flex;
+  text-align: center;
+  width: 20%;
+}
+.container:hover {
+  box-shadow: 1px 1px 5px black;
+  margin: 0 40px;
+  width: 23%;
+}
+
+.imgCard {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
+
+h1 {
+  background-color: black;
+  border: 1px outset white;
+  color: rgb(236, 236, 236);
+  font-family: cursive;
+  font-size: larger;
+  font-style: italic;
+}
+
+h2 {
+  border: 1px solid white;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px white;
+  color: aliceblue;
+  font-family: cursive;
+  font-size: small;
+  font-style: italic;
+}
+
+.container p {
+  background-color:  rgb(236, 236, 236);
+  border-radius: 7px;
+  box-shadow: 1px 1px 5px 5px rgb(243, 241, 241);
+  color: rgb(15, 15, 15);
+  height: 70px;
+  line-height: 25px;
+  overflow: scroll;
+  text-align: justify;
+}
+
+.details-link {
+  background-color: black;
+  border: 1px outset white;
+  border-radius: 3px;
+  color: rgb(236, 236, 236);
+  font-size: small;
+  text-decoration: none;
+}

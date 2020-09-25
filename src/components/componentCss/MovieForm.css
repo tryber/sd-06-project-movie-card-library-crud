@@ -1,0 +1,31 @@
+div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+div label {
+  align-self: center;
+  color: rgb(98, 99, 104);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 10px 0;
+  width: 80%;
+}
+
+div input, textarea, select {
+  align-self: center;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px 5px rgb(224, 220, 220);
+  height: 30px;
+  width: 80%;
+}
+
+button {
+  align-self: center;
+  background-color: rgb(150, 155, 155);
+  border-radius: 5px;
+  color: white;
+  height: 30px;
+  margin-top: 20px;
+  width: 10%;
+}
