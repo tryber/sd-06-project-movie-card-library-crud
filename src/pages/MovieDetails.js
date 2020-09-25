@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+// import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -14,47 +14,45 @@ class MovieDetails extends Component {
     this.state = {
       loading: false,
       id: this.props.match.params.id,
-      movie: {}
-    }
+      movie: {},
+    };
   }
 
   componentDidMount() {
     this.updateState();
   }
-  
+
   updateState() {
     this.setState({
-      loading: true
+      loading: true,
     }, async () => {
       const response = await movieAPI.getMovie(this.state.id);
       this.setState({
         loading: false,
-        movie: response
-      })
-    })
+        movie: response,
+      });
+    });
   }
 
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-    const { loading, movie, id } = this.state
+    const { loading, movie, id } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return (
-      <div data-testid="movie-details">
+      <div>
         { loading ? <Loading /> :
+        <div data-testid="movie-details">
+          <img alt="Movie Cover" src={`../${imagePath}`} />
+          <p>{`Title: ${title}`}</p>
+          <p>{`Subtitle: ${subtitle}`}</p>
+          <p>{`Storyline: ${storyline}`}</p>
+          <p>{`Genre: ${genre}`}</p>
+          <p>{`Rating: ${rating}`}</p>
           <div>
-            <img alt="Movie Cover" src={`../${imagePath}`} />
-            <p>{`Title: ${title}`}</p>
-            <p>{`Subtitle: ${subtitle}`}</p>
-            <p>{`Storyline: ${storyline}`}</p>
-            <p>{`Genre: ${genre}`}</p>
-            <p>{`Rating: ${rating}`}</p>
-            <div>
-              <button><Link to={'/'}>VOLTAR</Link></button>
-              <button><Link to={`${id}/edit`}>EDITAR</Link></button>
-            </div>
+            <button><Link to={'/'}>VOLTAR</Link></button>
+            <button><Link to={`${id}/edit`}>EDITAR</Link></button>
           </div>
+        </div>
         }
       </div>
     );
