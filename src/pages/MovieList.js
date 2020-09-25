@@ -32,9 +32,12 @@ class MovieList extends Component {
   render() {
     const { movies, isLoading } = this.state;
 
+    if (isLoading) {
+      return <Loading />;
+    }
+
     return (
       <div data-testid="movie-list">
-        {(isLoading) ? <Loading /> : false}
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
         <button><Link to="/movies/new" >ADICIONAR CARTÃO</Link></button>
       </div>
