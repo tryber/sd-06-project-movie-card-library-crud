@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { getMovie } from '../services/movieAPI';
+import { getMovie, deleteMovie } from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
     super();
-    this.renderizar1 = this.renderizar1.bind(this);
+    this.RequisitionDeleteMovie = this.RequisitionDeleteMovie.bind(this);
     this.requisitionAndLoading = this.requisitionAndLoading.bind(this);
     this.state = {
       movie: {},
       loading: false,
+      redirectHome: false,
     };
   }
 
@@ -34,8 +35,15 @@ class MovieDetails extends Component {
     );
   }
 
-  renderizar1() {
-    const { movie, loading } = this.state;
+  async RequisitionDeleteMovie(id) {
+    await deleteMovie(id);
+    this.setState({
+      redirectHome: true,
+    });
+  }
+
+  render() {
+    const { movie, loading, redirectHome } = this.state;
     const {
       title,
       storyline,
@@ -45,11 +53,14 @@ class MovieDetails extends Component {
       subtitle,
       id,
     } = movie;
+    if (redirectHome) {
+      return <Redirect to="/" />;
+    }
     if (loading) {
       return <Loading />;
     }
     return (
-      <div>
+      <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
         <p>{title}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
@@ -58,12 +69,9 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <button type="button" onClick={() => this.RequisitionDeleteMovie(id)}>DELETAR</button>
       </div>
     );
-  }
-
-  render() {
-    return (<div data-testid="movie-details">{this.renderizar1()}</div>);
   }
 }
 
