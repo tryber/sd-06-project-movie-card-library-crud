@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
-
 import Loading from '../components/Loading';
+import MovieCard from '../components/MovieCard';
 
 class MovieList extends Component {
   constructor() {
@@ -27,7 +26,6 @@ class MovieList extends Component {
   render() {
     const { movies } = this.state;
 
-    // Render Loading here if the request is still happening
     if (movies.length === 0) {
       return <Loading />;
     }
@@ -35,9 +33,6 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
-        {/* { loading ? <Loading /> : '' } */}
-        {/* solution above learned here:
-        https://www.basefactor.com/react-how-to-display-a-loading-indicator-on-fetch-calls */}
       </div>
     );
   }
