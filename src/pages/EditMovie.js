@@ -7,10 +7,9 @@ import * as movieAPI from '../services/movieAPI';
 class EditMovie extends Component {
   constructor(props) {
     super(props);
-    
     this.state = {
       movie: [],
-      shouldRedirect: false
+      shouldRedirect: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,7 +36,7 @@ class EditMovie extends Component {
     if (movie.length === 0) return <Loading />;
 
     if (shouldRedirect) {
-      return <Redirect to={'/'} />
+      return <Redirect to={'/'} />;
     }
 
     if (status === 'loading') {
