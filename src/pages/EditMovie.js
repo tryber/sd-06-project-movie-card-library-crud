@@ -12,7 +12,7 @@ class EditMovie extends Component {
     this.state = {
       movie: {},
       loading: true,
-      shouldRedirect: false,//redirect/pos edit pg inicial
+      shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,7 +27,7 @@ class EditMovie extends Component {
     const movie = await movieAPI.getMovie(movieId);
     console.log(movie);
     this.setState({
-      movie: movie,
+      movie,
       loading: false,
     });
   }
@@ -37,13 +37,13 @@ class EditMovie extends Component {
     this.setState({
       loading: true,
       shouldRedirect: true,
-    })
+    });
   }
 
   render() {
     const { loading, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-      return <Redirect to="/"/>;
+      return <Redirect to="/" />;
     }
 
     if (loading) {
@@ -61,7 +61,8 @@ class EditMovie extends Component {
 EditMovie.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired }).isRequired,
+      id: PropTypes.string.isRequired,
+    }),
   }).isRequired,
 };
 export default EditMovie;
