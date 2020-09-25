@@ -7,6 +7,7 @@ class MovieDetails extends Component {
   constructor() {
     super();
     this.fetchMovie = this.fetchMovie.bind(this);
+    this.deleteMovies = this.deleteMovies.bind(this);
     this.state = {
       movie: [],
       loading: true,
@@ -21,6 +22,11 @@ class MovieDetails extends Component {
     const { match } = this.props;
     const response = await movieAPI.getMovie(match.params.id);
     this.setState({ movie: response, loading: false });
+  }
+
+  async deleteMovies() {
+    const { match } = this.props;
+    await movieAPI.deleteMovie(match.params.id);
   }
 
   render() {
@@ -40,6 +46,7 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/${movie.id}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={this.deleteMovies}>DELETAR</Link>
       </div>
     );
 
