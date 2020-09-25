@@ -44,5 +44,10 @@ class EditMovie extends Component {
 		);
 	}
 }
+EditMovie.propTypes = {
+
+	getMovie :PropTypes.func.isRequired
+
+};
 
 export default EditMovie;
