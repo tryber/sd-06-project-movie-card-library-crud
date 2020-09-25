@@ -9,6 +9,7 @@ class MovieDetails extends Component {
     super();
 
     this.fatchMovie = this.fatchMovie.bind(this);
+    this.deletMovie = this.deletMovie.bind(this);
 
     this.state = {
       idMovie: 0,
@@ -30,9 +31,12 @@ class MovieDetails extends Component {
     });
   }
 
+  async deletMovie() {
+    const { id } = this.props.match.params;
+    await movieAPI.deleteMovie(id);
+  }
+
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
 
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
 
@@ -52,6 +56,7 @@ class MovieDetails extends Component {
           <div>
             <button><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
             <button><Link to="/">VOLTAR</Link></button>
+            <button onClick={this.deletMovie}><Link to="/">DELETAR</Link></button>
           </div>
         </div>
       </div>
@@ -60,7 +65,7 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  match: PropTypes.number.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 export default MovieDetails;
