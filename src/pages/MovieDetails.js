@@ -7,15 +7,12 @@ import * as movieAPI from '../services/movieAPI';
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
-    
-    this.fetchMoviesDetail = this.fetchMoviesDetail.bind(this)
-    const { id: movieId } = props.match.params;
+    this.fetchMoviesDetail = this.fetchMoviesDetail.bind(this);
 
     this.state = {
       movies: {},
       loading: true,
-      movieId,
-    }
+    };
   }
 
   componentDidMount() {
@@ -24,17 +21,15 @@ class MovieDetails extends Component {
 
   async fetchMoviesDetail() {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
-    const { movieId } = this.state;
     this.setState({
       movie,
       loading: false,
-    })
+    });
   }
 
   render() {
-    const { loading, movie } = this.state;
-    if (loading) return <Loading />
-    
+    const { loading } = this.state;
+    if (loading) return <Loading />;
     const { storyline, imagePath, genre, rating, subtitle, title } = this.state.movie;
 
     return (
@@ -58,6 +53,6 @@ MovieDetails.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   }).isRequired,
-}
+};
 
 export default MovieDetails;
