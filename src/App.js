@@ -5,6 +5,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+
 import {
   MovieList,
   NewMovie,
