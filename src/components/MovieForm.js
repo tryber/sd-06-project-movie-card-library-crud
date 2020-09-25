@@ -174,7 +174,7 @@ MovieForm.defaultProps = {
 };
 
 MovieForm.propTypes = {
-  movie: PropTypes.object,
+  movie: PropTypes.objectOf(PropTypes.string),
   onSubmit: PropTypes.func,
 };
 
