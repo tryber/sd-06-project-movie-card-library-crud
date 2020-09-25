@@ -16,16 +16,16 @@ class MovieDetails extends Component {
     this.startApp = this.startApp.bind(this);
   }
 
+  componentDidMount() {
+    this.startApp();
+  }
+
   async startApp() {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({
       estado: true,
       movie: movie,
     });
-  }
-
-  async componentDidMount() {
-    this.startApp();
   }
 
   async deleteCard() {
