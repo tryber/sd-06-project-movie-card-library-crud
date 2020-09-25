@@ -24,7 +24,7 @@ class MovieDetails extends Component {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({
       estado: true,
-      movie: movie,
+      movie,
     });
   }
 

@@ -25,14 +25,14 @@ class EditMovie extends Component {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({
       status: true,
-      movie: movie,
+      movie,
     });
   }
 
   async handleSubmit(updatedMovie) {
     const movie = await movieAPI.updateMovie(updatedMovie);
     this.setState({
-      movie: movie,
+      movie,
       shouldRedirect: true,
     });
   }
