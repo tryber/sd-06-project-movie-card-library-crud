@@ -1,42 +1,39 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 
 class MovieDetails extends Component {
   constructor(props) {
-    super(props);
-
-    this.updateState = this.updateState.bind(this);
+    super();
 
     this.state = {
-      loading: false,
-      id: this.props.match.params.id,
-      movie: {},
+      loading: true,
+      movie: [],
     };
+
+    this.updateState = this.updateState.bind(this);
   }
 
   componentDidMount() {
     this.updateState();
   }
 
-  updateState() {
+  async updateState() {
+    const id = this.props.match.params.id;
+    const response = await movieAPI.getMovie(id);
+
     this.setState({
-      loading: true,
-    }, async () => {
-      const response = await movieAPI.getMovie(this.state.id);
-      this.setState({
-        loading: false,
-        movie: response,
-      });
+      loading: false,
+      movie: response,
     });
   }
 
   render() {
-    const { loading, movie, id } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { loading } = this.state;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
     return (
       <div>
@@ -49,8 +46,8 @@ class MovieDetails extends Component {
           <p>{`Genre: ${genre}`}</p>
           <p>{`Rating: ${rating}`}</p>
           <div>
-            <button><Link to={'/'}>VOLTAR</Link></button>
-            <button><Link to={`${id}/edit`}>EDITAR</Link></button>
+            <Link to={`${id}/edit`}>EDITAR</Link>
+            <Link to="/">VOLTAR</Link>
           </div>
         </div>
         }
@@ -58,5 +55,13 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
+}.isRequired;
 
 export default MovieDetails;
