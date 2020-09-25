@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import EditMovie from './EditMovie';
 
 class MovieDetails extends Component {
   constructor() {
@@ -29,7 +30,6 @@ class MovieDetails extends Component {
       idMovie: id,
     });
   }
-
 
   render() {
     // Change the condition to check the state
