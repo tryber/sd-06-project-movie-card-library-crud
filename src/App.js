@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import { MovieList, NewMovie, EditMovie, MovieDetails, NotFound } from './pages';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
