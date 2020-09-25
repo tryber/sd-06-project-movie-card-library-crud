@@ -9,14 +9,14 @@ class MovieCard extends React.Component {
     // const { title, imagePath: imgSrc, subtitle, storyline, id, rating,
     //    bookmarked, genre } = this.props.movie;
 
-    const { title, imagePath: imgSrc, storyline } = this.props.movie;
+    const { title, imagePath: imgSrc, storyline,id } = this.props.movie;
 
     return (
       <div className="movie-card" data-testid="movie-card">
         <img src={imgSrc} alt={title} />
         <h1>{title}</h1>
         <p>{storyline}</p>
-        <Link to="/movies/:id" className="see-details">VER DETALHES</Link>
+        <Link to={`/movies/${id}`} className="see-details">VER DETALHES</Link>
       </div>
     );
   }
@@ -29,6 +29,7 @@ MovieCard.defaultProps = {
   title: '',
   imagePath: '',
   storyline: '',
+  id: 0,
 };
 
 MovieCard.propTypes = {
@@ -36,4 +37,5 @@ MovieCard.propTypes = {
   title: PropTypes.string,
   imagePath: PropTypes.string,
   storyline: PropTypes.string,
+  id: PropTypes.number,
 };
