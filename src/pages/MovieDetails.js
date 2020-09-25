@@ -16,10 +16,10 @@ class MovieDetails extends Component {
   }
 
 /*componentDidMount(){
-  const { id } = this.props.match.params;
-  movieAPI.getMovie(id)
-  .then((r) => this.setState({movie: r, loader: false}))
-  console.log(this.state) // continua undefined
+const { id } = this.props.match.params;
+movieAPI.getMovie(id)
+.then((r) => this.setState({movie: r, loader: false}))
+console.log(this.state) // continua undefined
 }*/
 
   async componentDidMount() {
@@ -35,7 +35,7 @@ class MovieDetails extends Component {
       movie: newState,
       loader: false,
       id,
-    });   
+    });
   }
 
   render() {
@@ -53,7 +53,7 @@ class MovieDetails extends Component {
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <p><Link to={`/movies/${id}/edit`}>EDITAR</Link></p>
-        <p><Link to={`/`}>VOLTAR</Link></p>
+        <p><Link to={'/'}>VOLTAR</Link></p>
       </div>
     );
   }
