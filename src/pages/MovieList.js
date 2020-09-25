@@ -25,7 +25,7 @@ class MovieList extends Component {
       {
         movies: _movies,
         loading: false,
-      };
+      }
     )
   }
 
