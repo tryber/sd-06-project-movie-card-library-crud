@@ -8,7 +8,7 @@ class NewMovie extends Component {
     super(props);
     this.state = {
       redirect: false,
-    }
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -16,7 +16,7 @@ class NewMovie extends Component {
     await movieAPI.createMovie(newMovie);
     this.setState({
       redirect: true,
-    })
+    });
   }
 
   render() {
