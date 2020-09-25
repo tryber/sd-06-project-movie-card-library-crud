@@ -13,15 +13,19 @@ class MovieDetails extends Component {
       movie: {},
     };
     this.deleteCard = this.deleteCard.bind(this);
+    this.startApp = this.startApp.bind(this);
   }
 
-
-  async componentDidMount() {
+  async startApp() {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({
       estado: true,
       movie: movie,
     });
+  }
+
+  async componentDidMount() {
+    this.startApp();
   }
 
   async deleteCard() {

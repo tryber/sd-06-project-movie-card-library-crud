@@ -13,14 +13,19 @@ class EditMovie extends Component {
       shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.startApp = this.startApp.bind(this);
   }
 
-  async componentDidMount() {
+  async startApp() {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({
       status: true,
       movie: movie,
     });
+  }
+
+  componentDidMount() {
+    this.startApp();
   }
 
   async handleSubmit(updatedMovie) {
