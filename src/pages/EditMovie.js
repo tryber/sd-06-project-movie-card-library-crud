@@ -13,10 +13,9 @@ class EditMovie extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
 
   componentDidMount() {
-  this.fetchMovies();
+    this.fetchMovies();
   }
 
   async fetchMovies() {

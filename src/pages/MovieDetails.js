@@ -23,7 +23,10 @@ class MovieDetails extends Component {
   async fetchMovieDetails() {
     const id = this.props.match.params.id;
     const movie = await movieAPI.getMovie(id);
-    await this.setState({ movie: movie, loading: false });
+    await this.setState({ 
+      movie: movie,
+      loading: false
+    });
   }
 
   render() {
