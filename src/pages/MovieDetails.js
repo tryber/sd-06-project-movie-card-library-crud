@@ -10,14 +10,20 @@ class MovieDetails extends Component {
     super();
 
     this.state = {
-      movie: [],
+      movie: {},
       loading: true,
     };
     this.fetchMovie = this.fetchMovie.bind(this);
+    this.handleDeleteLink = this.handleDeleteLink.bind(this);
   }
 
   componentDidMount() {
     this.fetchMovie();
+  }
+
+  handleDeleteLink() {
+    const { id } = this.props.match.params;
+    movieAPI.deleteMovie(id);
   }
 
   async fetchMovie() {
@@ -51,6 +57,9 @@ class MovieDetails extends Component {
             </div>
             <div className="Link">
               <Link to="/">VOLTAR</Link>
+            </div>
+            <div className="Link">
+              <Link to="/" onClick={this.handleDeleteLink}>DELETAR</Link>
             </div>
           </div>
         </div>

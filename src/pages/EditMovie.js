@@ -11,7 +11,7 @@ class EditMovie extends Component {
     this.state = {
       status: 'loading',
       shouldRedirect: false,
-      movie: [],
+      movie: {},
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fetchMovie = this.fetchMovie.bind(this);
