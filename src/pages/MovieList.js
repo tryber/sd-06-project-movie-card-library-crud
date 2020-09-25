@@ -40,3 +40,4 @@ class MovieList extends Component {
 }
 
 export default MovieList;
+/*<Link to="/movies/new">ADICIONAR CARTÃO</Link>*/

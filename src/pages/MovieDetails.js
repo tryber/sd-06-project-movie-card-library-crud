@@ -21,7 +21,7 @@ class MovieDetails extends Component {
   }
 
   async fetchMovieDetails() {
-    const { id } = this.props.match.params;
+    const id = this.props.match.params.id;
     const movie = await movieAPI.getMovie(id);
     await this.setState({ movie: movie,
       loading: false });
@@ -44,6 +44,7 @@ class MovieDetails extends Component {
           <p>{`Rating: ${rating}`}</p>
           <Link to="/">VOLTAR</Link>
           <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+          <Link to="/" onClick={() => movieAPI.deleteMovie(id)}>DELETAR</Link>
         </div>}
       </div>
     );
