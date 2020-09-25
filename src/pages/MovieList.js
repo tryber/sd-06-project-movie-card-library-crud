@@ -24,8 +24,7 @@ class MovieList extends Component {
     this.setState({
       movies: listOfMovies,
       loading: false,
-      }
-    )
+    })
   }
 
   render() {
