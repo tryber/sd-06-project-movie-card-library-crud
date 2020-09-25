@@ -34,7 +34,8 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         {this.state.isLoading ? <Loading /> :
-        <div className="movie-list">{movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}</div>}
+        <div className="movie-list">{movies.map((movie) =>
+          <MovieCard key={movie.title} movie={movie} />)}</div>}
         <Link to="/movies/new" className="linkDown">ADICIONAR CARTÃO</Link>
       </div>
     );
