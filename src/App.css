@@ -1,6 +1,6 @@
 body {
-  background-color: #ffcc00;
-  background-image: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+  background-color: #fc0;
+  background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
   box-sizing: border-box;
 }
 
@@ -29,8 +29,7 @@ body {
   background: #8686df;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 20px;
-  box-shadow:  6px 6px 10px #4a4a7b, 
-               -6px -6px 10px #c2c2ff;
+  box-shadow: 6px 6px 10px #4a4a7b , -6px -6px 10px #c2c2ff;
   display: flex;
   flex-direction: column;
   height: 450px;
