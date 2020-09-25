@@ -15,10 +15,10 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async componentDidMount() {
-    const movieEdit = await movieAPI.getMovie(this.props.match.params.id);
-    console.log(movieEdit);
-    this.setState({ movie: movieEdit, status: '' });
+  componentDidMount() {
+    movieAPI.getMovie(this.props.match.params.id)
+    .then(r => this.setState({ movie: r, status: '' }));
+    
   }
 
   async handleSubmit(updatedMovie) {
@@ -29,11 +29,11 @@ class EditMovie extends Component {
   render() {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
 
     if (status === 'loading') {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
