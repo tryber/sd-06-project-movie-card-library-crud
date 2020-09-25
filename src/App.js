@@ -1,13 +1,21 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import MovieList from './pages/MovieList';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { MovieList, MovieDetails, NewMovie, EditMovie, NotFound } from './pages/index';
 
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
-        <MovieList />
-      </BrowserRouter>
+        <BrowserRouter>
+          <main>
+            <Switch>
+              <Route path="/movies/:id/edit" component={EditMovie} />
+              <Route path="/movies/new" component={NewMovie} />
+              <Route path="/movies/:id" component={MovieDetails} />
+              <Route exact path="/" component={MovieList} />
+              <Route component={NotFound} />
+            </Switch>
+          </main>
+        </BrowserRouter>
     );
   }
 }
