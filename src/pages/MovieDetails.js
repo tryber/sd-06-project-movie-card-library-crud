@@ -8,11 +8,11 @@ class MovieDetails extends Component {
   constructor() {
     super();
 
-      this.state = {
+    this.state = {
         movies: [],
         loading: true,
-      };
-    }
+    };
+  }
 
   componentDidMount() {
     const { match } = this.props;
@@ -22,7 +22,7 @@ class MovieDetails extends Component {
       loading: false,
     }));
   }
-  
+
   render() {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movies;
     const { loading } = this.state;
