@@ -6,9 +6,6 @@ import './MovieCard.css';
 
 class MovieCard extends React.Component {
   render() {
-    // const { title, imagePath: imgSrc, subtitle, storyline, id, rating,
-    //    bookmarked, genre } = this.props.movie;
-
     const { title, imagePath: imgSrc, storyline, id } = this.props.movie;
 
     return (

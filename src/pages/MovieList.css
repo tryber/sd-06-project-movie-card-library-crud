@@ -8,6 +8,7 @@
 
 .add-card-button-container {
   align-items: center;
+  background-color: rgb(141, 139, 139);
   display: flex;
   height: 8vh;
   justify-content: flex-start;
@@ -15,7 +16,8 @@
 }
 
 .add-card-button {
-  border: solid 1px rgb(167, 166, 166);
+  border: solid 1px white;
+  border-radius: 1px;
   color: orange;
   font-size: 1.5rem;
   font-weight: 600;
