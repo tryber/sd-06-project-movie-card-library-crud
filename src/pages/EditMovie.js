@@ -24,12 +24,12 @@ class EditMovie extends Component {
 
   handleSubmit(updatedMovie) {
     movieAPI.updateMovie(updatedMovie);
-    this.setState({ shouldRedirect: true, })
+    this.setState({ shouldRedirect: true, });
   }
 
   componentDidMont() {
     this.fetchMovie();
-  } 
+  }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
@@ -38,7 +38,7 @@ class EditMovie extends Component {
     }
 
     if (status === 'loading') {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
