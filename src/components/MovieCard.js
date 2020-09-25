@@ -14,7 +14,7 @@ class MovieCard extends React.Component {
     return (
       <div className="movie-card" data-testid="movie-card">
         <img src={imgSrc} alt={title} />
-        <h1>{title}</h1>
+        <h1 className="movie-card-title">{title}</h1>
         <p>{storyline}</p>
         <Link to={`/movies/${id}`} className="see-details">VER DETALHES</Link>
       </div>
