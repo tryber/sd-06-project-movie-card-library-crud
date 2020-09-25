@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -11,7 +11,10 @@ class MovieDetails extends Component {
     this.state = {
       movies: '',
       loading: true,
+      redirect: false,
     };
+
+    this.apagarFilme = this.apagarFilme.bind(this);
   }
 
   componentDidMount() {
@@ -20,9 +23,16 @@ class MovieDetails extends Component {
     .then((movie) => this.setState({ movies: movie, loading: false }));
   }
 
+  apagarFilme() {
+    const { id } = this.props.match.params;
+    movieAPI.deleteMovie(id)
+    .then(() => this.setState({ redirect: true }));
+  }
+
   render() {
-    const { loading, movies } = this.state;
+    const { loading, movies, redirect } = this.state;
     if (loading) return <Loading />;
+    if (redirect) return <Redirect to="/" />;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movies;
 
@@ -36,6 +46,7 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/${movies.id}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <button onClick={this.apagarFilme}><Link to="/">DELETAR</Link></button>
       </div>
     );
   }
