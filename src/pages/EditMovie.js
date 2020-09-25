@@ -20,8 +20,7 @@ class EditMovie extends React.Component {
   }
 
   async fetchMovie() {
-    const numberId = this.props.match.params.id;
-    const movie = await getMovie(numberId);
+    const movie = await getMovie(this.props.match.params.id);
     this.setState({
       movie,
       isLoading: false,
