@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
-import '../App.css'
+import '../App.css';
 
 class MovieCard extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class MovieCard extends React.Component {
     return (
       <div data-testid="movie-card" className="movieCard">
         <div>
-          <img src={imagePath} alt={title} className="content"/>
+          <img src={imagePath} alt={title} className="content" />
           <h4>{title}</h4>
           <p className="storyline">{storyline}</p>
         </div>

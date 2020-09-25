@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'
+import '../App.css';
 // import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
@@ -28,10 +28,9 @@ class MovieForm extends React.Component {
           placeholder="Insira o título"
           id="movie_title"
           type="text"
-          className="validate"
+          className="validate input-text"
           value={title}
           onChange={(event) => this.updateMovie('title', event.target.value)}
-          className="input-text"
         />
       </div>
     );
