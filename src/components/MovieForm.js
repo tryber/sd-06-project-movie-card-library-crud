@@ -7,6 +7,14 @@ class MovieForm extends React.Component {
     super(props);
     this.state = { ...props.movie };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateMovie = this.updateMovie.bind(this);
+    this.renderTitleInput = this.renderTitleInput.bind(this);
+    this.renderSubtitleInput = this.renderSubtitleInput.bind(this);
+    this.renderImagePathInput = this.renderImagePathInput.bind(this);
+    this.renderStorylineInput = this.renderStorylineInput.bind(this);
+    this.renderGenreSelection = this.renderGenreSelection.bind(this);
+    this.renderRatingInput = this.renderRatingInput.bind(this);
+    this.renderSubmitButton = this.renderSubmitButton.bind(this);
   }
 
   handleSubmit() {
@@ -140,6 +148,7 @@ class MovieForm extends React.Component {
 
   render() {
     return (
+      
       <div className="movie-form-container">
         <div className="movie-form-card">
           <img alt="Movie Cover" src={`../../${this.state.imagePath}`} />

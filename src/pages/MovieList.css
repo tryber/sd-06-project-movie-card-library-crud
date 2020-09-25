@@ -1,5 +1,4 @@
 .movie-list-container {
-  border: solid 2px red;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
