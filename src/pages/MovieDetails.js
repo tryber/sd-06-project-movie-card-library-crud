@@ -22,7 +22,7 @@ class MovieDetails extends Component {
   }
 
   async getMovieDetails(movieID) {
-    this.setState({ load: true }, async () => {
+    this.setState(async () => {
       const movie = await movieAPI.getMovie(movieID);
       this.setState({ load: false, movie });
     });
@@ -39,7 +39,6 @@ class MovieDetails extends Component {
 
     return (load ? <Loading /> : (
       <div data-testid="movie-details">
-        MOVIE DETAILS
         <img alt="Movie Cover" src={`../${imagePath}`} />
         <p>{`Title: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
