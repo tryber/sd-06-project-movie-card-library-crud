@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import './movie.css'
 
 class MovieDetails extends Component {
   constructor() {
@@ -28,14 +29,13 @@ class MovieDetails extends Component {
 
   render() {
     // Change the condition to check the state
-    // if (true) return <Loading />;
     if (this.state.isloading === true) {
       return <Loading />;
     }
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
     return (
-      <div data-testid="movie-details">
+      <article className="movie-list" data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
         <p>{`Title: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
@@ -44,7 +44,7 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to="/">VOLTAR</Link>
         <Link to={`/movies/${this.props.match.params.id}/edit`} > EDITAR</Link>
-      </div>
+      </article>
     );
   }
 }
