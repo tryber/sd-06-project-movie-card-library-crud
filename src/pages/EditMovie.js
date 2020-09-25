@@ -23,9 +23,9 @@ class EditMovie extends Component {
     this.fetchMovie();
   }
 
-  async fetchMovie() {
-    const result = await movieAPI.getMovie(this.state.movieId);
-    this.setState({ movie: result, status: '' });
+  fetchMovie() {
+    movieAPI.getMovie(this.state.movieId)
+    .then((result) => this.setState({ movie: result, status: '' }));
   }
 
 
