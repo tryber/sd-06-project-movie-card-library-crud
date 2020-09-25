@@ -14,11 +14,10 @@ body {
 
 .container {
   background-color: rgb(243, 240, 240);
-  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   margin: 50px auto;
-  width: 95%;
-  height: 650px;
+  min-height: 620px;
 }
 
 .movie-card-header {
@@ -45,8 +44,8 @@ body {
 
 .movie-card {
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   display: flex;
   flex-direction: column;
   height: 450px;
@@ -91,60 +90,58 @@ body {
   padding: 12px 20px;
 }
 
-.details{
+.details {
   background: linear-gradient(#9e9e9b, #8f8e8e);
-  border: 1px solid;
-  border-color: rgb(44, 81, 21);
   border-radius: 5px;
+  border: 1px solid rgb(80, 79, 79);
   color: white;
   cursor: pointer;
   font: 700 9.5px Arial, Helvetica, sans-serif;
   line-height: 23.94px;
   padding: 5px 7px;
   text-align: center;
+  text-decoration: none;
   text-shadow: rgba(0, 0, 0, 0.5) 0 1px 2px;
   width: 194px;
-  text-decoration: none;
 }
 
-.add-movie{
+.add-movie {
   background: linear-gradient(#ff8c00, #ffa500);
-  border: 1px solid;
-  border-color: rgb(44, 81, 21);
   border-radius: 5px;
+  border: 1px solid rgb(0, 0, 0);
   color: white;
   cursor: pointer;
   font: 700 17.5px Arial, Helvetica, sans-serif;
   line-height: 23.94px;
-  margin: 10px 0 0 10px;
+  margin: 10px 0 30px 10px;
   padding: 7px 20px;
   text-align: center;
+  text-decoration: none;
   text-shadow: rgba(0, 0, 0, 0.5) 0 1px 2px;
   width: 194px;
-  text-decoration: none;
 }
 
-.add-movie-div{
+.add-movie-div {
   display: flex;
   justify-content: center;
 }
 
-.moviedetails-container{
-  display: flex;
+.moviedetails-container {
   align-items: center;
-  justify-content: center;
   background-color: rgb(243, 240, 240);
-  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  height: 750px;
+  justify-content: center;
   margin: 30px auto;
   width: 95%;
-  height: 750px;
 }
 
-.movie-details{
+.movie-details {
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   display: flex;
   flex-direction: column;
   height: 660px;
@@ -153,7 +150,7 @@ body {
   width: 800px;
 }
 
-.moviedetails-img{
+.moviedetails-img {
   width: 100%;
 }
 
@@ -180,180 +177,177 @@ body {
   text-align: justify;
 }
 
-.moviedetails-options{
+.moviedetails-options {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.moviedetails-button-div{
+.moviedetails-button-div {
   margin: 0 5px 0 5px;
 }
 
-.moviedetails-button{
+.moviedetails-button {
   background: linear-gradient(#ff8c00, #ffa500);
-  border: 1px solid;
-  border-color: rgb(44, 81, 21);
   border-radius: 5px;
+  border: 1px solid black;
   color: white;
   cursor: pointer;
   font: 700 15px Arial, Helvetica, sans-serif;
   padding: 5px 0 5px 0;
   text-align: center;
+  text-decoration: none;
   text-shadow: rgba(0, 0, 0, 0.5) 0 1px 2px;
   width: 100px;
-  text-decoration: none;
 }
 
-.edit-link{
+.edit-link {
   background: linear-gradient(#ff8c00, #ffa500);
-  border: 1px solid;
-  border-color: rgb(44, 81, 21);
   border-radius: 5px;
+  border: 1px solid black;
   color: white;
   cursor: pointer;
   font: 700 15.5px Arial, Helvetica, sans-serif;
   padding: 5px 10px;
   text-align: center;
+  text-decoration: none;
   text-shadow: rgba(0, 0, 0, 0.5) 0 1px 2px;
   width: 100px;
-  text-decoration: none;
 }
 
-.back-link{
+.back-link {
   background: linear-gradient(#ff8c00, #ffa500);
-  border: 1px solid;
-  border-color: rgb(44, 81, 21);
   border-radius: 5px;
+  border: 1px solid black;
   color: white;
   cursor: pointer;
   font: 700 15.5px Arial, Helvetica, sans-serif;
   padding: 5px 10px;
   text-align: center;
+  text-decoration: none;
   text-shadow: rgba(0, 0, 0, 0.5) 0 1px 2px;
   width: 100px;
-  text-decoration: none;
 }
 
-.moviedetails-back-div{
+.moviedetails-back-div {
   margin: 0 5px 0 5px;
 }
 
-.moviedetails-edit-div{
+.moviedetails-edit-div {
   margin: 0 5px 0 5px;
 }
 
-.moviedetails-rating{
-  display: flex;
-  justify-content: center;
+.moviedetails-rating {
   background-color: #0cce1c;
-  width: 85px;
   border-radius: 25px;
   color: white;
+  display: flex;
   font-size: 16px;
   font-weight: 700;
+  justify-content: center;
   padding: 3px 9px;
+  width: 85px;
 }
 
-.container-form{
-  display: flex;
+.container-form {
   align-items: center;
-  justify-content: center;
   background-color: rgb(243, 240, 240);
-  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  height: 700px;
+  justify-content: center;
   margin: 30px auto;
   width: 650px;
-  height: 700px;
 }
 
-.movie-title-div{
-  display: flex;
+.movie-title-div {
   align-items: center;
-  justify-content: center;
+  display: flex;
   flex-flow: column;
-}
-
-.movie-subtitle-div{
-  display: flex;
-  align-items: center;
   justify-content: center;
-  flex-flow: column;
 }
 
-.movie-img-div{
-  display: flex;
+.movie-subtitle-div {
   align-items: center;
+  display: flex;
+  flex-flow: column;
   justify-content: center;
-  flex-flow: column;
 }
 
-.storyline-div{
-  display: flex;
+.movie-img-div {
   align-items: center;
+  display: flex;
+  flex-flow: column;
   justify-content: center;
-  flex-flow: column;
 }
 
-.movie-genre-div{
-  display: flex;
+.storyline-div {
   align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.movie-genre-div {
+  align-items: center;
+  display: flex;
   justify-content: center;
   margin: 30px 0 25px 0;
 }
 
-.movie-rating-div{
-  display: flex;
+.movie-rating-div {
   align-items: center;
-  justify-content: center;
+  display: flex;
   flex-flow: column;
+  justify-content: center;
 }
 
-.forms-button-div{
+.forms-button-div {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.forms-button{
+.forms-button {
   background: linear-gradient(#ff8c00, #ffa500);
-  border: 1px solid;
-  border-color: rgb(44, 81, 21);
   border-radius: 5px;
+  border: 1px solid rgb(44, 81, 21);
   color: white;
   cursor: pointer;
   font: 700 18px Arial, Helvetica, sans-serif;
   padding: 5px 0 5px 0;
   text-align: center;
+  text-decoration: none;
   text-shadow: rgba(0, 0, 0, 0.5) 0 1px 2px;
   width: 120px;
-  text-decoration: none;
 }
 
-input{
-  position: relative;
-  max-width: 500px;
-  width: 600px;
+input {
   height: 30px;
   margin: 15px 0 15px 0;
+  max-width: 500px;
+  position: relative;
+  width: 600px;
 }
 
-form{
-  width: 100%;
+form {
   height: 90%;
+  width: 100%;
 
 }
 
-textarea{
-  max-width: 550px;
+textarea {
   max-height: 100px;
+  max-width: 550px;
 }
 
-select{
+select {
   height: 30px;
   margin: 0 10px 0 10px;
 }
-label{
-  margin-bottom: 10px;
+
+label {
   font-size: 18px;
+  margin-bottom: 10px;
 }
