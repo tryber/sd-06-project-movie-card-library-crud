@@ -7,6 +7,7 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor() {
     super();
+    this.newState2 = this.newState2.bind(this);
 
     this.state = {
       movie: [],
@@ -17,18 +18,18 @@ class MovieDetails extends Component {
   }
 
   async newState2() {
-    const newState2 = await movieAPI.getMovie(this.props.match.params.id);
+    const parametro = this.props.match.params.id;
+    const newState2 = await movieAPI.getMovie(parametro);
     this.setState({
       movie: newState2,
     });
   }
   render() {
-    const { movie } = this.state;
-    if (movie.length === 0) return <Loading />;
     // Change the condition to check the state
     // if (true) return <Loading />;
-
+    const { movie } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
+    if (movie.length === 0) return <Loading />;
 
     return (
       <div>
@@ -42,7 +43,7 @@ class MovieDetails extends Component {
         </div>
         <div>
           <Link to={`/movies/${id}/edit`} >EDITAR</Link>
-          <Link to="/">VOLTAR</Link>
+          <Link to={`/`} >VOLTAR</Link>
         </div>
       </div>
     );
