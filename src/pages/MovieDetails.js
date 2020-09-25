@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-import * as movieAPI from '../services/movieAPI';
+import { Link } from 'react-router-dom';
 import { Loading } from '../components';
+
+import * as movieAPI from '../services/movieAPI';
 
 class MovieDetails extends Component {
   constructor() {
@@ -40,6 +42,10 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
+        <div>
+          <Link to={`/movies/${movie.id}/edit`}>EDITAR</Link>
+          <Link to="/">VOLTAR</Link>
+        </div>
       </div>
     );
 
