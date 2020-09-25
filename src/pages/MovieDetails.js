@@ -10,6 +10,7 @@ class MovieDetails extends Component {
 
     this.fetchMovie = this.fetchMovie.bind(this);
     this.disableLoadingMessage = this.disableLoadingMessage.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
 
     this.state = {
       receivedMovieId: props.match.params.id,
@@ -32,6 +33,11 @@ class MovieDetails extends Component {
     this.setState({ movie });
   }
 
+  async deleteMovie() {
+    await movieAPI.deleteMovie(this.state.movie.id);
+    this.props.history.push('/');
+  }
+
   render() {
     const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
@@ -48,6 +54,7 @@ class MovieDetails extends Component {
               <p>{`Genre: ${genre}`}</p>
               <p>{`Rating: ${rating}`}</p>
               <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+              <Link to="/" onClick={this.deleteMovie}>DELETAR</Link>
               <Link to="/">VOLTAR</Link>
             </div>
         }
@@ -61,6 +68,9 @@ MovieDetails.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
     }).isRequired,
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
   }).isRequired,
 };
 
