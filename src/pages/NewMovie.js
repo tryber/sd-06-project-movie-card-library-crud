@@ -29,7 +29,9 @@ class NewMovie extends Component {
 
     return (
       <div data-testid="new-movie" className="movie-list">
-        <MovieForm movie={this.state.movie} onSubmit={this.handleSubmit} formTitle="Adicionar filme" />
+        <MovieForm
+          movie={this.state.movie} onSubmit={this.handleSubmit} formTitle="Adicionar filme"
+        />
       </div>
     );
   }
