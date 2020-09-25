@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Container } from 'react-bootstrap';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -43,7 +44,7 @@ class MovieDetails extends Component {
   showDetails() {
     const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.myMovie;
     return (
-      <div>
+      <Container>
         <p>Details</p>
         <img alt="Movie Cover" src={`../${imagePath}`} />
         <p>{`Title: ${title}`}</p>
@@ -56,7 +57,7 @@ class MovieDetails extends Component {
         <button onClick={this.handleSubmitDelete}>
           <Link to={'/'}>DELETAR</Link>
         </button>
-      </div>
+      </Container>
     );
   }
 
