@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
-import * as movieAPI from '../services/movieAPI';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
@@ -16,8 +16,7 @@ class MovieDetails extends Component {
   }
 
   async getMovieData() {
-    const id = this.props.match.params.id;
-    const fetchData = await movieAPI.getMovie(id);
+    const fetchData = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({ movie: fetchData });
   }
 
@@ -29,7 +28,6 @@ class MovieDetails extends Component {
     while (movie.length === 0) {
       return <Loading />;
     }
-
 
     return (
       <div data-testid="movie-details">
@@ -47,5 +45,16 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+}
+
+/* https://stackoverflow.com/questions/47519612/eslint-match-is-missing-in-props-validation-react-prop-types/47519751
+Agradecimento especial: Paulo Lins */
 
 export default MovieDetails;
