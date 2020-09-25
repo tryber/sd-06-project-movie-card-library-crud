@@ -38,7 +38,7 @@ class EditMovie extends Component {
     if (isLoading) return <Loading />;
 
     return (
-      <div data-testid="edit-movie">
+      <div data-testid="edit-movie" className="form-body">
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
         <Link className="form-button-back" to={`/movies/${movie.id}`}>VOLTAR</Link>
       </div>

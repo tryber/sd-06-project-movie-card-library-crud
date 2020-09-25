@@ -22,16 +22,15 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_title">Título
-          <input
-            placeholder="Insira o título"
-            id="movie_title"
-            type="text"
-            className="validate"
-            value={title}
-            onChange={(event) => this.updateMovie('title', event.target.value)}
-          />
-        </label>
+        <label htmlFor="movie_title">Título</label>
+        <input
+          placeholder="Insira o título"
+          id="movie_title"
+          type="text"
+          className="validate"
+          value={title}
+          onChange={(event) => this.updateMovie('title', event.target.value)}
+        />
       </div>
     );
   }
@@ -41,15 +40,14 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_subtitle">Subtítulo
-          <input
-            placeholder="Insira o subtítulo"
-            id="movie_subtitle"
-            type="text"
-            value={subtitle}
-            onChange={(event) => this.updateMovie('subtitle', event.target.value)}
-          />
-        </label>
+        <label htmlFor="movie_subtitle">Subtítulo</label>
+        <input
+          placeholder="Insira o subtítulo"
+          id="movie_subtitle"
+          type="text"
+          value={subtitle}
+          onChange={(event) => this.updateMovie('subtitle', event.target.value)}
+        />
       </div>
     );
   }
@@ -58,16 +56,15 @@ class MovieForm extends React.Component {
     const { imagePath } = this.state;
 
     return (
-      <div className="row">
-        <label htmlFor="movie_image">Imagem
-          <input
-            placeholder="Insira o caminho da imagem"
-            id="movie_image"
-            type="text"
-            value={imagePath}
-            onChange={(event) => this.updateMovie('imagePath', event.target.value)}
-          />
-        </label>
+      <div>
+        <label htmlFor="movie_image">Imagem</label>
+        <input
+          placeholder="Insira o caminho da imagem"
+          id="movie_image"
+          type="text"
+          value={imagePath}
+          onChange={(event) => this.updateMovie('imagePath', event.target.value)}
+        />
       </div>
     );
   }
@@ -77,13 +74,12 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_storyline">Sinopse
-          <textarea
-            id="movie_storyline"
-            value={storyline}
-            onChange={(event) => this.updateMovie('storyline', event.target.value)}
-          />
-        </label>
+        <label htmlFor="movie_storyline">Sinopse</label>
+        <textarea
+          id="movie_storyline"
+          value={storyline}
+          onChange={(event) => this.updateMovie('storyline', event.target.value)}
+        />
       </div>
     );
   }
@@ -133,12 +129,13 @@ class MovieForm extends React.Component {
   renderSubmitButton() {
     return (
       <div>
-        <button
-          type="button"
-          onClick={this.handleSubmit}
-        >
-          Submit
-        </button>
+        <label className="btn-submit">ENVIAR
+          <button
+            type="button"
+            onClick={this.handleSubmit}
+          >          
+          </button>
+        </label>
       </div>
     );
   }
@@ -146,14 +143,14 @@ class MovieForm extends React.Component {
   render() {
     return (
       <div>
-        <form className="form-body">
-          {this.renderTitleInput()}<br />
-          {this.renderSubtitleInput()}<br />
-          {this.renderImagePathInput()}<br />
-          {this.renderStorylineInput()}<br />
-          {this.renderGenreSelection()}<br />
+        <form>
+          {this.renderTitleInput()}
+          {this.renderSubtitleInput()}
+          {this.renderImagePathInput()}
+          {this.renderStorylineInput()}
+          {this.renderGenreSelection()}
           {this.renderRatingInput()}<br />
-          {this.renderSubmitButton()}<br />
+          {this.renderSubmitButton()}
         </form>
       </div>
     );

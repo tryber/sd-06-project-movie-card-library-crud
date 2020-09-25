@@ -33,7 +33,7 @@ class NewMovie extends Component {
     if (shouldRedirect) return <Redirect to="/" />;
 
     return (
-      <div data-testid="new-movie" className="my-form">
+      <div data-testid="new-movie" className="form-body">
         <MovieForm onSubmit={this.handleSubmit} />
         <Link className="form-button-back" to="/">VOLTAR</Link>
       </div>

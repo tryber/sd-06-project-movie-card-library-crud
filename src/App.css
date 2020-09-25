@@ -2,6 +2,9 @@ body {
   background-color: whitesmoke;
   box-sizing: border-box;
   font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 .page-title {
@@ -42,13 +45,6 @@ body {
 }
 
 .movie-card-body {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  flex: 1 1 auto;
-  padding: 20px;
-  width: 500px;
-}
-
-.form-body {
   border: 1px solid rgba(0, 0, 0, 0.125);
   flex: 1 1 auto;
   padding: 20px;
@@ -133,9 +129,9 @@ body {
   color: white;
   display: inline-flex;
   font-family: monospace;
+  float: left;
   font-size: 0.7em;
-  margin-left: 50px;
-  padding: 5px;
+  padding: 8px 15px;
   text-decoration-line: none;
 }
 
@@ -173,7 +169,7 @@ body {
 }
 
 .spinner-text {
-  color: white;
+  color: whitesmoke;
 }
 
 @keyframes spin {
@@ -181,4 +177,57 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Form */
+.form-body {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  flex: 1 1 auto;
+  height: 333px;
+  margin: 15px;
+  padding: 20px;
+  width: 500px;
+}
+
+.form-body label {
+  display: flex;
+  line-height: 30px;
+}
+
+.form-body input , textarea , select {
+  background-color: #E3F2F7;
+  border: 1px inset #00008B;
+  font-size: 1em;
+  text-align: justify;
+  width: 100%;
+}
+
+.form-body button {
+  background-color: transparent;
+  border-color: transparent;
+  position: absolute;
+  width: none;
+}
+
+#movie_rating , #movie_genre {
+  margin: 5px;
+  width: 15%;
+}
+
+.btn-submit {
+  background-color: #085bb4ee;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  font-family: monospace;
+  float: right;
+  font-size: 0.7em;
+  padding: 0px 15px;
+  width: min-content;
+  text-decoration-line: none;
+}
+
+.btn-submit:hover {
+  background-color: green;
+  text-decoration-line: none;
 }
