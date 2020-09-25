@@ -13,6 +13,8 @@ class MovieCard extends React.Component {
         <img src={imagePath} alt={title} />
         <span>
           <Link to={`/movies/${id}`} >VER DETALHES</Link>
+          <br></br>
+          <Link to='/movies/new'>ADICIONAR CARTÃO</Link>
         </span>
       </div>
     );
