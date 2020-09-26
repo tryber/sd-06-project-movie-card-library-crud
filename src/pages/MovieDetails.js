@@ -45,16 +45,20 @@ class MovieDetails extends Component {
     return (
       <div className="movie-datails">
         <img alt="Movie Cover" src={`../${imagePath}`} className="movie-card-image" />
-        <p>{`Title: ${title}`}</p>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
-        <h5><Link to={`/movies/${id}/edit`}>EDITAR</Link></h5>
-        <h5><Link to={'/'}>VOLTAR</Link></h5>
-        <button onClick={this.handleSubmitDelete}>
-          <Link to={'/'}>DELETAR</Link>
-        </button>
+        <div className="movie-card-body">
+          <h4 className="movie-card-title">{`Title: ${title}`}</h4>
+          <h5 className="movie-card-subtitle">{`Subtitle: ${subtitle}`}</h5>
+          <p className="movie-card-storyline">{`Storyline: ${storyline}`}</p>
+          <h5 className="movie-card-subtitle">{`Genre: ${genre}`}</h5>
+          <h5 className="movie-card-subtitle">{`Rating: ${rating}`}</h5>
+          <div className="footer-links">
+            <Link to={`/movies/${id}/edit`} className="footer-button footer-link">EDITAR</Link>
+            <button onClick={this.handleSubmitDelete} className="footer-button">
+              <Link to={'/'} className="footer-link">DELETAR</Link>
+            </button>
+            <Link to={'/'} className="footer-button footer-link">VOLTAR</Link>
+          </div>
+        </div>
       </div>
     );
   }

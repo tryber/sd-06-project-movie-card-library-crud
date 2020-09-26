@@ -6,15 +6,8 @@ class Rating extends React.Component {
   render() {
     const { rating, id } = this.props;
     return (
-      <div className="movie-card-rating" data-testid="rating">
-        <h5 className="movie-card-details">
-          <Link
-            to={`/movies/${id}`}
-            className="movie-card-details-text"
-          >
-            VER DETALHES
-          </Link>
-        </h5>
+      <div className="footer-links" data-testid="rating">
+        <Link className="footer-button footer-link" to={`/movies/${id}`}>VER DETALHES</Link>
         <h5 className="rating">Rating: {rating}</h5>
       </div>
     );
