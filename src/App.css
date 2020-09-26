@@ -182,7 +182,7 @@ nav {
 
 ul {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -194,16 +194,17 @@ li {
 a {
   background: linear-gradient(gray, silver, white, silver, gray);
   color: #030303;
+
   /* usando o css para o 'a' porque o Link-> router transforma o Link para <a href>
   por traz dos panos ( demorei para perceber isso ) */
-  text-decoration: none;
   padding: 5px 25px;
+  text-decoration: none;
 }
 
 a:hover {
-  background: linear-gradient(rgb(135, 181, 250), LightBlue, white, LightBlue, rgb(135, 181, 250));
+  background: linear-gradient(rgb(135, 181, 250), lightBlue, white,
+  lightBlue, rgb(135, 181, 250));
   color: #030303;
-
-  text-decoration: none;
   padding: 5px 25px;
+  text-decoration: none;
 }

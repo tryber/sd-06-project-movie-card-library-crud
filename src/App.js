@@ -7,7 +7,7 @@ import MovieList from './pages/MovieList.js';
 import EditMovie from './pages/EditMovie.js';
 import MovieDetails from './pages/MovieDetails.js';
 import NewMovie from './pages/NewMovie.js';
-import NotFound from './pages/NotFound.js'; 
+import NotFound from './pages/NotFound.js';
 
 import './App.css';
 
@@ -29,7 +29,7 @@ class App extends React.Component {
           <Route exact path="/movies/new" component={NewMovie} />
           <Route exact path="/movies/:id/edit" component={EditMovie} />
           <Route exact path="/" component={MovieList} />
-          <Route component={NotFound} /> 
+          <Route component={NotFound} />
         </div>
       </Router>
     );

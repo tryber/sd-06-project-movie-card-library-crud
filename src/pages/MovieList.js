@@ -20,13 +20,13 @@ class MovieList extends Component {
         loading: false,
       });
     });
-  } 
+  }
 
   render() {
-    const { movies, loading } = this.state;    
+    const { movies, loading } = this.state;
     return (
       <div className="movie-list" data-testid="movie-list">
-        {loading ? <Loading /> 
+        {loading ? <Loading />
           : movies.map((movie) => <MovieCard key={movie.title} movies={movie} />)}
       </div>
     );
