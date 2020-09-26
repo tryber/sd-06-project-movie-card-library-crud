@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 
-import { MovieForm } from '../components';
+
+class EditMovie extends Component {
+  render() {
+    return(
+      <p>Esta e a pagina de edicao</p>
+    );
+  }
+}
+
+/*import { MovieForm } from '../components';
+ 
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -29,6 +39,6 @@ class EditMovie extends Component {
       </div>
     );
   }
-}
+} */
 
 export default EditMovie;

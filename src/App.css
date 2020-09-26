@@ -2,6 +2,7 @@ body {
   background-color: silver;
   box-sizing: border-box;
   font-size: 16px;
+  overflow: auto;
 }
 
 .movie-card-header {
@@ -9,7 +10,6 @@ body {
   background: linear-gradient(gray, silver, white, silver, gray);
   border: 6px groove silver;
   display: flex;
-  height: 60px;
   justify-content: center;
 }
 
@@ -33,7 +33,7 @@ body {
   box-shadow: inset 200px 0 50px rgba(2, 2, 0, 1);
   display: flex;
   flex-direction: column;
-  height: 450px;
+  height: 350px;
   margin: 5px;
   overflow: hidden;
   perspective: 200px;
@@ -173,4 +173,37 @@ body {
 .btnAdicionar:hover {
   background: linear-gradient(gray, silver, white, silver, gray);
   box-shadow: 5px 5px 35px white;
+}
+
+nav {
+  border: 5px groove;
+  display: flex;
+}
+
+ul {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+}
+
+li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+a {
+  background: linear-gradient(gray, silver, white, silver, gray);
+  color: #030303;
+  /* usando o css para o 'a' porque o Link-> router transforma o Link para <a href>
+  por traz dos panos ( demorei para perceber isso ) */
+  text-decoration: none;
+  padding: 5px 25px;
+}
+
+a:hover {
+  background: linear-gradient(rgb(135, 181, 250), LightBlue, white, LightBlue, rgb(135, 181, 250));
+  color: #030303;
+
+  text-decoration: none;
+  padding: 5px 25px;
 }
