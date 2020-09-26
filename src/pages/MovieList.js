@@ -13,7 +13,10 @@ class MovieList extends Component {
     }
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    return this.fetchAPI()
+  }
+  async fetchAPI() {
     const apiMovies = await movieAPI.getMovies();
     this.setState({ movies: apiMovies });
   }
@@ -23,7 +26,6 @@ class MovieList extends Component {
     if (movies.length === 0) {
       return <Loading />
     }
-
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
