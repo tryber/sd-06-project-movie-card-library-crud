@@ -12,7 +12,7 @@ class EditMovie extends Component {
     super(props);
     this.state = {
       movie: {},
-      status: "loading",
+      status: 'loading',
       shouldRedirect: false,
     };
 
@@ -21,18 +21,17 @@ class EditMovie extends Component {
     // this.shouldRedirect = this.shouldRedirect.bind(this);
   }
 
-  async functionNeeded() {
-    const movieDownLoaded = await getMovie(this.props.match.params.id);
-    this.setState({
-      movie: movieDownLoaded,
-      status: "not-loading",
-    });
-  }
-
   componentDidMount() {
     this.functionNeeded();
   }
 
+  async functionNeeded() {
+    const movieDownLoaded = await getMovie(this.props.match.params.id);
+    this.setState({
+      movie: movieDownLoaded,
+      status: 'not-loading',
+    });
+  }
 
   async handleSubmit(updatedMovie) {
     await updateMovie(updatedMovie);
@@ -44,11 +43,11 @@ class EditMovie extends Component {
   render() {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-      return <Redirect to='/' />
+      return <Redirect to="/" />;
     }
 
     if (status === 'loading') {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
