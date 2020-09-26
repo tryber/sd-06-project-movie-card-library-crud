@@ -22,11 +22,10 @@ class EditMovie extends Component {
 
   async handleSubmit(updatedMovie) {
     await movieAPI.getMovie(updatedMovie);
-    if (await movieAPI.getMovie(updatedMovie) === 'OK') {
       this.setState({
         shouldRedirect: true,
       });
-    }
+    
   }
 
   async fetch() {
@@ -44,7 +43,7 @@ class EditMovie extends Component {
       // Redirect
       return <Redirect to="/" />;
     }
-
+    
     if (status === 'loading') return <Loading />;
       // render Loading
 
