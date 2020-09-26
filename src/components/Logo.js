@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Logo extends Component {
   render() {
@@ -13,5 +14,7 @@ class Logo extends Component {
     );
   }
 }
+
+Logo.propTypes = {imagem: PropTypes.string.isRequired};
 
 export default Logo;
