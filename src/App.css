@@ -1,9 +1,14 @@
-/* @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700"); */
 body {
   background-color: rgb(78, 77, 77);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.loading {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .movie-card-header {
@@ -15,12 +20,17 @@ body {
 }
 
 .page-title {
-  color: rgb(248, 249, 250);
+  color: rgb(212, 214, 216);
   font-size: 32px;
   font-weight: 500;
   margin-left: 15px;
   text-align: center;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+.page-title:hover {
+  color: white;
 }
 
 .page-title-add-card {

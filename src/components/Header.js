@@ -6,7 +6,7 @@ class Header extends Component {
     return (
       <div className="movie-card-header">
         <h1>
-          <Link className="page-title" to="/">Movie Card Library</Link>
+          <Link className="page-title" to="/">Movie Card Library - Project</Link>
         </h1>
         <Link className="page-title-add-card" to="/movies/new">ADICIONAR CARTÃO</Link>
       </div>
