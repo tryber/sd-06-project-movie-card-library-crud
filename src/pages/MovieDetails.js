@@ -8,10 +8,10 @@ class MovieDetails extends Component {
     super();
 
     this.state = {
-      movie: {},
+      movie: [],
     };
 
-    this.searchMoviesList = this.searchMovieDetails.bind(this);
+    this.searchMovieDetails = this.searchMovieDetails.bind(this);
   }
 
   componentDidMount() {
@@ -19,11 +19,8 @@ class MovieDetails extends Component {
   }
 
   async searchMovieDetails() {
-    // const id = this.props.match.params.id;
-    // const movie = await movieAPI.getMovie(id);
-    // this.setState({ movie });
-    const { match } = this.props;
-    const movie = await movieAPI.getMovie(match.params.id);
+    const id = this.props.match.params.id;
+    const movie = await movieAPI.getMovie(id);
     this.setState({ movie });
   }
 
