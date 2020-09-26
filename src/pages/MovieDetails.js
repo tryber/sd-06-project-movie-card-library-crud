@@ -14,7 +14,7 @@ class MovieDetails extends Component {
     };
   }
   componentDidMount() {
-    return this.fetchAPIMovie()
+    return this.fetchAPIMovie();
   }
   async fetchAPIMovie() {
     const apiMovie = await movieAPI.getMovie(this.props.match.params.id);
@@ -38,11 +38,23 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <Link to={`/movies/${this.movieId}/edit`}>EDITAR</Link><br />
+        <Link to={`/movies/${this.props.match.params.id}/edit`}>EDITAR</Link><br />
         <Link to="/">VOLTAR</Link>
       </div>
     );
   }
+}
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      storyline: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+    }).isRequired,
+  }),
 }
 
 export default MovieDetails;
