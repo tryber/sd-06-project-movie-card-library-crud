@@ -22,7 +22,7 @@ class MovieDetails extends Component {
     this.setState({
       movie: apiMovie,
       loading: false,
-      });
+  });
   }
   render() {
     if (this.state.loading === true) {
