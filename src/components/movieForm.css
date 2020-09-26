@@ -1,0 +1,24 @@
+.containerForm {
+  line-height: 30px;
+  margin: 40px;
+}
+
+.labelForm {
+  font-weight: 500;
+  margin-right: 15px;
+}
+
+.sinopse {
+  height: 110px;
+  width: 300px;
+}
+
+.submitButton {
+  background-color: rgb(189, 196, 202);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  color: rgb(43, 147, 72);
+  font-weight: 600;
+  margin-top: 30px;
+  padding: 6px;
+  text-decoration-line: none;
+}
