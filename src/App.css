@@ -1,5 +1,17 @@
 body {
-  background-color: whitesmoke;
+  background-color: #e9ecef;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
   box-sizing: border-box;
+  font-size: 16px;
+
 }
 
+.linkDown {
+  background-color: rgb(233, 236, 239);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  color: rgb(43, 147, 72);
+  font-weight: 400;
+  margin-left: 40px;
+  padding: 8px;
+  text-decoration-line: none;
+}
