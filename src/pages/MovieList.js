@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
-import Loading from '../components/Loading'
+import Loading from '../components/Loading';
 
 class MovieList extends Component {
   constructor() {
@@ -9,7 +9,7 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
-    }
+    };
 
     this.searchMoviesList = this.searchMoviesList.bind(this);
   }
@@ -27,7 +27,7 @@ class MovieList extends Component {
     const { movies } = this.state;
     // Render Loading here if the request is still happening
     if (movies.length === 0) {
-      return (<Loading />)
+      return (<Loading />);
     }
 
     return (

@@ -9,7 +9,7 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: {},
-    }
+    };
 
     this.searchMoviesList = this.searchMovieDetails.bind(this);
   }
@@ -19,8 +19,11 @@ class MovieDetails extends Component {
   }
 
   async searchMovieDetails() {
-    const id = this.props.match.params.id;
-    const movie = await movieAPI.getMovie(id);
+    // const id = this.props.match.params.id;
+    // const movie = await movieAPI.getMovie(id);
+    // this.setState({ movie });
+    const { match } = this.props;
+    const movie = await movieAPI.getMovie(match.params.id);
     this.setState({ movie });
   }
 
@@ -28,10 +31,12 @@ class MovieDetails extends Component {
     // Change the condition to check the state
     // if (true) return <Loading />;
     const { movie } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
-    
+    const {
+      title, storyline, imagePath, genre, rating, subtitle, id,
+    } = movie;
+
     if (movie.length === 0) {
-      return (<Loading />)
+      return (<Loading />);
     }
 
     return (
@@ -43,7 +48,7 @@ class MovieDetails extends Component {
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <div>
-          <Link to={"/movies/:id/edit"}>EDITAR</Link>
+          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         </div>
         <div>
           <Link to={"/"}>VOLTAR</Link>
