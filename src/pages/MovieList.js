@@ -41,4 +41,3 @@ class MovieList extends Component {
 }
 
 export default MovieList;
-// movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)
