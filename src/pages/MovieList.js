@@ -8,6 +8,8 @@ class MovieList extends Component {
   constructor() {
     super();
 
+    this.changeStage = this.changeStage.bind(this);
+
     this.state = {
       movies: [],
       isLoading: true,
@@ -16,8 +18,12 @@ class MovieList extends Component {
 
   async componentDidMount() {
     const movies = await movieAPI.getMovies();
+    this.changeStage(movies)
+  }
+
+  changeStage(data) {
     this.setState({
-      movies,
+      movies: data,
       isLoading: false,
     });
   }
