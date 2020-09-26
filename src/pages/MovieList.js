@@ -15,7 +15,7 @@ class MovieList extends Component {
     this.changeSetState = this.changeSetState.bind(this);
 
     this.state = {
-      movies: [], 
+      movies: [],
     };
   }
 

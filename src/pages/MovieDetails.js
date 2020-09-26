@@ -48,7 +48,7 @@ class MovieDetails extends Component {
     } = this.state.movieDetailsSelected;
     return (
       <div className="container-movie-list" data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} width="600px"/>
+        <img alt="Movie Cover" src={`../${imagePath}`} width="600px" />
         <div className="info">
           <p><strong>Título:</strong>{` ${title}`}</p>
           <p><strong>Subtitle:</strong>{` ${subtitle}`}</p>
