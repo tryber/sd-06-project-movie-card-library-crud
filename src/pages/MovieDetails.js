@@ -43,9 +43,8 @@ class MovieDetails extends Component {
   showDetails() {
     const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.myMovie;
     return (
-      <div>
-        <p>Details</p>
-        <img alt="Movie Cover" src={`../${imagePath}`} />
+      <div className="movie-datails">
+        <img alt="Movie Cover" src={`../${imagePath}`} className="movie-card-image" />
         <p>{`Title: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>

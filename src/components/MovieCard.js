@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Rating from '../components/Rating';
 
@@ -14,9 +13,8 @@ class MovieCard extends React.Component {
           <h4 data-testid="movie-card-title" className="movie-card-title">{title}</h4>
           <h5 className="movie-card-subtitle">{subtitle}</h5>
           <p className="movie-card-storyline">{storyline}</p>
-          <h5><Link to={`/movies/${id}`}>VER DETALHES</Link></h5>
         </div>
-        <Rating rating={rating} />
+        <Rating rating={rating} id={id} />
       </div>
     );
   }
