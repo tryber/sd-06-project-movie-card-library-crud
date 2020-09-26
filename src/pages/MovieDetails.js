@@ -37,7 +37,7 @@ class MovieDetails extends Component {
       title, storyline, imagePath, genre, rating, subtitle, id,
     } = movie;
 
-    if (movie.length === 0) {
+    if (this.state.loading) {
       return (<Loading />);
     }
 
