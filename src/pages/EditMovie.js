@@ -22,10 +22,9 @@ class EditMovie extends Component {
 
   async handleSubmit(updatedMovie) {
     await movieAPI.getMovie(updatedMovie);
-      this.setState({
-        shouldRedirect: true,
-      });
-    
+    this.setState({
+      shouldRedirect: true,
+    });
   }
 
   async fetch() {
