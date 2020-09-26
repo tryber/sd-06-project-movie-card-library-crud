@@ -18,7 +18,7 @@ class NewMovie extends Component {
     await movieAPI.createMovie(newMovie);
     this.setState({
       shouldRedirect: true,
-    })
+    });
   }
 
   render() {
