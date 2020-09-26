@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class MovieDetails extends Component {
           <p>{`Rating: ${rating}`}</p>
           <div>
             <Link to={`${id}/edit`}>EDITAR</Link>
-            <br/>
+            <br/ >
             <Link to="/">VOLTAR</Link>
           </div>
         </div>
@@ -54,6 +54,7 @@ class MovieDetails extends Component {
     );
   }
 }
+
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
