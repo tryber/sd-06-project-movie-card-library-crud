@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
-
-
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
