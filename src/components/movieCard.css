@@ -4,7 +4,7 @@
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  height: 430px;
+  height: 400px;
   margin: 5px;
   overflow: hidden;
   width: 300px;
@@ -31,11 +31,10 @@
 }
 
 .links {
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.05);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   color: rgb(250, 163, 7);
   display: flex;
-  font-weight: 400;
   justify-content: flex-start;
   padding: 12px 20px;
   text-decoration-line: none;

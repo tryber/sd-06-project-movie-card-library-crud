@@ -1,0 +1,17 @@
+.movie-detail {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 720px;
+  line-height: 20px;
+  margin: 20px;
+  overflow: hidden;
+  width: 720px;
+}
+
+.link-detail {
+  margin: 18px;
+  margin-left: 1px;
+}
