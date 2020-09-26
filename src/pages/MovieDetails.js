@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
+import './pagesCSS/MovieDetails.css';
 
 class MovieDetails extends Component {
 
@@ -46,16 +47,20 @@ class MovieDetails extends Component {
       id,
     } = this.state.movieDetailsSelected;
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Título: ${title}`}</p>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
-        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
-        <Link to="/" onClick={this.delMovie}>DELETAR</Link>
+      <div className="container-movie-list" data-testid="movie-details">
+        <img alt="Movie Cover" src={`../${imagePath}`} width="600px"/>
+        <div className="info">
+          <p><strong>Título:</strong>{` ${title}`}</p>
+          <p><strong>Subtitle:</strong>{` ${subtitle}`}</p>
+          <p><strong>Storyline:</strong>{` ${storyline}`}</p>
+          <p><strong>Genre:</strong>{` ${genre}`}</p>
+          <p><strong>Rating:</strong>{` ${rating}`}</p>
+        </div>
+        <div className="container-buttons">
+          <Link className="buttons" to={`/movies/${id}/edit`}>EDITAR</Link>
+          <Link className="buttons" to="/">VOLTAR</Link>
+          <Link className="buttons" to="/" onClick={this.delMovie}>DELETAR</Link>
+        </div>
       </div>
     );
   }

@@ -1,5 +1,14 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgb(247, 247, 247);
   box-sizing: border-box;
+}
+
+header {
+  background-color: rgb(192, 192, 192);
+  color: white;
+  text-align: center;
+  font-family: cursive;
+  font-style: italic;
+  font-size: large;
 }
 

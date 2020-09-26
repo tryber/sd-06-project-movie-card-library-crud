@@ -7,9 +7,14 @@ import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
 
+import './App.css';
+
 function App() {
   return (
     <BrowserRouter>
+      <header>
+        <h1>Card Movies</h1>
+      </header>
       <Switch>
         <Route exact path="/movies/new" component={NewMovie} />
         <Route exact path="/movies/:id" component={MovieDetails} />
