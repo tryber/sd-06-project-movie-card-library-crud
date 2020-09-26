@@ -9,7 +9,7 @@ class MovieDetails extends Component {
 
     this.state = {
       movies: [],
-    }
+    };
   }
   render() {
     // Change the condition to check the state
