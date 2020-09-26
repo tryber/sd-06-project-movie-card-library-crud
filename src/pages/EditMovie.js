@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import { MovieForm } from '../components';
 import { getMovie, updateMovie } from '../services/movieAPI';
@@ -57,13 +57,5 @@ class EditMovie extends Component {
     );
   }
 }
-
-EditMovie.propTypes = {
-  match: {
-    params: {
-      id: PropTypes.number.isRequired,
-    },
-  }.isRequired,
-};
 
 export default EditMovie;
