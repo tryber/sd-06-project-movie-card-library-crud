@@ -18,8 +18,6 @@ class MovieList extends Component {
     this.fetchList()
   }
 
-  //  Criar uma função para a requisição obtida atraves do movieAPI
-
   async fetchList() {
     const listOfMovies = await movieAPI.getMovies();
     this.setState({
