@@ -19,8 +19,8 @@ class MovieDetails extends Component {
   const { id } = this.props.match.params;
     const resquestObject = await movieAPI.getMovie(id);
     this.setState({
-    loading: false,
-    movie: resquestObject,
+      loading: false,
+      movie: resquestObject,
     });
   }
   componentDidMount() {
