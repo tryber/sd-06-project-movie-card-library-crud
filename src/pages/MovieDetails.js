@@ -44,8 +44,7 @@ class MovieDetails extends Component {
         <Link to="/movies/:id/edit"><button>EDITAR</button></Link>
         </div>
       }
-      
-      </div>
+       </div>
     );
   }
 }
