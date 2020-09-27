@@ -31,10 +31,10 @@ class MovieList extends Component {
   render() {
     const { movies, loading } = this.state;
     if (loading === true) {
-      return ( 
-      <div data-testid="movie-list">
-        <Loading />
-      </div>
+      return (
+        <div data-testid="movie-list">
+          <Loading />
+        </div>
       )
     }
 
