@@ -11,7 +11,7 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: false,
-    }
+    };
   }
 
   componentDidMount() {
@@ -26,7 +26,7 @@ class MovieDetails extends Component {
 
     const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
-    if (!this.state.movie) return (<Loading />)
+    if (!this.state.movie) return (<Loading />);
 
     return (
       <div data-testid="movie-details">
