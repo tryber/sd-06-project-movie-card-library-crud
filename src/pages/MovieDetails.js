@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
@@ -8,7 +9,7 @@ class MovieDetails extends Component {
     super();
 
     this.state = {
-      movie: [],
+      movie: {},
       loading: true,
     };
 
@@ -43,9 +44,9 @@ class MovieDetails extends Component {
 
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{title}</p>
+        <p>{`Título: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
+        <img alt="Movie Cover" src={`../${imagePath}`} />
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
@@ -53,11 +54,16 @@ class MovieDetails extends Component {
           <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         </div>
         <div>
-          <Link to={'/'}>VOLTAR</Link>
+          <Link to="/">VOLTAR</Link>
         </div>
+        <button type="button">
+          <Link to="/" onClick={() => movieAPI.deleteMovie(id)}>DELETAR</Link>
+        </button>
       </div>
     );
   }
 }
+
+MovieDetails.propTypes = { match: PropTypes.number.isRequired };
 
 export default MovieDetails;
