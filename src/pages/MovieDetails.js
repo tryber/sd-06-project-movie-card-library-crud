@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
 import propTypes from 'prop-types';
+import { Loading } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
@@ -35,25 +35,26 @@ class MovieDetails extends Component {
       <div>
         {loading === true ? <Loading /> :
         <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <h4>{`title: ${title}`}</h4>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
-        <Link to="/"><button>VOLTAR</button></Link>
-        <Link to="/movies/:id/edit"><button>EDITAR</button></Link>
-      </div>
+          <img alt="Movie Cover" src={`../${imagePath}`} />
+          <h4>{`title: ${title}`}</h4>
+          <p>{`Subtitle: ${subtitle}`}</p>
+          <p>{`Storyline: ${storyline}`}</p>
+          <p>{`Genre: ${genre}`}</p>
+          <p>{`Rating: ${rating}`}</p>
+          <Link to="/"><button>VOLTAR</button></Link>
+          <Link to="/movies/:id/edit"><button>EDITAR</button></Link>
+        </div>
       }
       </div>
     );
   }
 }
+// Vi o Ícaro fazendo PropTypes assim em um plantão, não sei se está correto
 
 MovieDetails.propTypes = { match: propTypes.shape({
   params: propTypes.shape({
     id: propTypes.string,
   }),
-})}.isRequired;
+}) }.isRequired;
 
 export default MovieDetails;
