@@ -7,14 +7,14 @@ import * as movieAPI from '../services/movieAPI';
 
 
 class EditMovie extends Component {
-  constructor() {
-    super();
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.fetchMovie = this.fetchMovie.bind(this);
+  constructor(props) {
+    super(props);
     this.state = {
       shouldRedirect: false,
-      isloading: true,
+      // isloading: true,
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fetchMovie = this.fetchMovie.bind(this);
   }
 
   componentDidMount() {
@@ -25,7 +25,8 @@ class EditMovie extends Component {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({
       movie,
-      isloading: false,
+      // isloading: false,
+      status: 'loading',
     });
   }
 
@@ -33,12 +34,13 @@ class EditMovie extends Component {
     await movieAPI.updateMovie(updatedMovie);
     this.setState({
       shouldRedirect: true,
-      isloading: false,
+      // isloading: false,
+      status: '',
     });
   }
 
   render() {
-    const { shouldRedirect, movie } = this.state;
+    const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       return <Redirect to="/" />;
     }
