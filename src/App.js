@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Route, Switch, Link,
+} from 'react-router-dom';
 import './App.css';
 import MovieList from './pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
@@ -19,7 +21,7 @@ function App() {
           <Route exact path="/movies/:id/edit" component={EditMovie} />
           <Route exact path="" component={NotFound} />
         </Switch>
-        <Link to={"/movies/new"}>ADICIONAR CARTÃO</Link>
+        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </Router>
     </div>
   );
