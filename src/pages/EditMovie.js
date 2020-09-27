@@ -18,13 +18,13 @@ class EditMovie extends Component {
   componentDidMount() {
     this.fetchList();
   }
-  
+
   async fetchList() {
     const movieId = this.props.match.params.id;
     const idMovie = await movieAPI.getMovie(movieId);
     this.setState({
       movie: idMovie,
-      status: ""
+      status: '',
     });
   }
 
@@ -32,7 +32,7 @@ class EditMovie extends Component {
     await movieAPI.updateMovie(updatedMovie);
     this.setState({
       shouldRedirect: true,
-    })
+    });
   }
 
   render() {
@@ -42,7 +42,7 @@ class EditMovie extends Component {
     }
 
     if (status === 'loading') {
-      return <Loading />
+      return <Loading />;
     }
 
     return (
