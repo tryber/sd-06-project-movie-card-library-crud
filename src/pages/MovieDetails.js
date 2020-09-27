@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import movies from '../services/movieData';
-
 
 class MovieDetails extends Component {
   constructor() {
@@ -47,7 +45,7 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  movies: PropTypes.exact({
+  resultado: PropTypes.exact({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
@@ -55,6 +53,7 @@ MovieDetails.propTypes = {
     imagePath: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
   }).isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 
