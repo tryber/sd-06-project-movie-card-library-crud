@@ -1,24 +1,64 @@
 import React, { Component } from 'react';
-
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
-  render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+  constructor() {
+    super();
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    this.fetchSingleMovie = this.fetchSingleMovie.bind(this);
+    this.showDetailedMovie = this.showDetailedMovie.bind(this);
+    this.state = {
+      movie: {},
+      isLoading: true,
+    }
+  }
 
+  componentDidMount() {
+    this.fetchSingleMovie();
+  }
+
+  async fetchSingleMovie() {
+    this.setState({ isLoading: true }, async () => {
+      const { id } = this.props.match.params;
+      const requestReturn = await movieAPI.getMovie(id);
+      this.setState({
+        movie: requestReturn,
+        isLoading: false,
+      });
+    });
+  }
+
+  showDetailedMovie() {
+    const { movie } = this.state;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
+  
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
+        <p>{title}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
+        <div>
+          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+          <Link to="/">VOLTAR</Link>
+        </div>
       </div>
     );
+  }
+  render() {
+    // Change the condition to check the state
+    // if (true) return <Loading />;
+    const { isLoading } = this.state;
+    return (
+      <main>
+        {isLoading ? <Loading /> : this.showDetailedMovie()}
+      </main>
+    );
+    
   }
 }
 
