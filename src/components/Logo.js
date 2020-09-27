@@ -15,6 +15,6 @@ class Logo extends Component {
   }
 }
 
-Logo.propTypes = {imagem: PropTypes.string.isRequired};
+Logo.propTypes = { imagem: PropTypes.string.isRequired };
 
 export default Logo;
