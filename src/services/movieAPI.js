@@ -21,7 +21,7 @@ export const getMovie = (movieId) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(movie);
-    }, 2000);
+    }, 1000);
   });
 };
 
