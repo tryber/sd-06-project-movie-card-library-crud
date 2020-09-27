@@ -11,48 +11,49 @@ class EditMovie extends Component {
       status: 'loading',
       shouldRedirect: false,
       loading: true,
-      movie: {}
+      movie: {},
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.findMyMovie = this.findMyMovie.bind(this);
-    console.log("No Constructor", this.props);
+    console.log('No Constructor', this.props);
+  }
+
+  componentDidMount() {
+    this.findMyMovie();
   }
 
   async handleSubmit(updatedMovie) {
     const editedMovie = await movieAPI.updateMovie(updatedMovie);
     this.setState({
       movie: editedMovie,
-      shouldRedirect: true
-    })
-    console.log("No HandleSubmit", editedMovie)
+      shouldRedirect: true,
+    });
+    console.log('No HandleSubmit', editedMovie);
   }
 
   async findMyMovie() {
     this.setState(
-      {loading: true},
+      { loading: true },
       async () => {
         const originalMovie = await movieAPI.getMovie(this.props.match.params.id);
-        this.setState({loading: false, movie: originalMovie})
-        console.log("No  findMyMovie/Did Mount:",originalMovie)
-      }
-    )
-  }
-  
-  componentDidMount() {
-    this.findMyMovie();
-  }
-
-  componentDidUpdate() {
-    console.log("No DidUpdate",this.state);
+        this.setState({ loading: false, movie: originalMovie });
+        console.log('No  findMyMovie/Did Mount:', originalMovie);
+      },
+    );
   }
 
   render() {
     const { status, shouldRedirect, movie, loading } = this.state;
-    const loadingElement = <span>Carregando...</span>
-    console.log("no render:",movie);
-    
+    const loadingElement = <span>Carregando...</span>;
+    console.log('no render:', movie);
+
+    // no plantão Ícaro disse para lermos a documentação:
+    // https://reactrouter.com/web/api/Redirect
+    // além disso pesquisei
+    // e encontrei essa resposta no StackOverflow:
+    // https://stackoverflow.com/questions/45089386/what-is-the-best-way-to-redirect-a-page-using-react-router
     if (shouldRedirect) {
-     return  <Redirect to="/" />
+      return <Redirect to="/" />;
     }
 
     if (status === 'loading') {
@@ -61,7 +62,7 @@ class EditMovie extends Component {
 
     return (
       <div data-testid="edit-movie">
-        {loading ? loadingElement : <MovieForm movie={movie} onSubmit={this.handleSubmit} />}
+        {loading ? loadingElement : <MovieForm movie={movie} onSubmit={this.handleSubmit} />};
       </div>
     );
   }

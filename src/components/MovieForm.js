@@ -6,7 +6,7 @@ class MovieForm extends React.Component {
     super(props);
     this.state = { ...props.movie };
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log("No MovieForms", props)
+    console.log('No MovieForms', props);
   }
 
   handleSubmit() {
@@ -23,6 +23,7 @@ class MovieForm extends React.Component {
 
     return (
       <div>
+        <label htmlFor="movie_title">Título</label>
         <input
           placeholder="Insira o título"
           id="movie_title"
@@ -31,7 +32,6 @@ class MovieForm extends React.Component {
           value={title}
           onChange={(event) => this.updateMovie('title', event.target.value)}
         />
-        <label htmlFor="movie_title">Título</label>
       </div>
     );
   }
@@ -48,7 +48,7 @@ class MovieForm extends React.Component {
           type="text"
           value={subtitle}
           onChange={(event) => this.updateMovie('subtitle', event.target.value)}
-        /> 
+        />
       </div>
     );
   }
