@@ -48,4 +48,5 @@ class EditMovie extends Component {
   }
 }
 
+EditMovie.propTypes = { match: PropTypes.objectOf(Array).isRequired };
 export default EditMovie;
