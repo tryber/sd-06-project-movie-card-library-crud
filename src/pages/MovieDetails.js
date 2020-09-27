@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import * as movieAPI from '../services/movieAPI';
-
-
 import { Loading } from '../components';
 
 
@@ -12,6 +11,7 @@ class MovieDetails extends Component {
     super();
 
     this.state = {
+      status: 'loading',
       movie: {},
     };
   }
@@ -23,15 +23,17 @@ class MovieDetails extends Component {
   async fetchMovie() {
     const { id } = this.props.match.params;
     const movie = await movieAPI.getMovie(id);
-    this.setState({ movie });
+    this.setState({
+      movie,
+      status: '',
+    });
   }
 
   render() {
-    const { movie } = this.state;
+    const { movie, status } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
-    const isObjectEmpty = Object.values(movie).length === 0;
 
-    if (isObjectEmpty) {
+    if (status === 'loading') {
       return <Loading />;
     }
 
