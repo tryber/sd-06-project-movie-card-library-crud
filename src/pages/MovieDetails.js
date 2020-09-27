@@ -7,6 +7,9 @@ import Loading from '../components/Loading';
 class MovieDetails extends Component {
   constructor() {
     super();
+
+    this.deleteCard = this.deleteCard.bind(this);
+
     this.state = {
       movies: [],
       loading: true,
@@ -15,20 +18,24 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    movieAPI.getMovie(id).then((resultado) => {
+    movieAPI.getMovie(id).then((result) => {
       this.setState({
-        movies: resultado,
+        movies: result,
         loading: false,
       });
     });
+  }
+
+  deleteCard() {
+    const { id } = this.props.match.params;
+    movieAPI.deleteMovie(id);
   }
 
   render() {
     if (this.state.loading === true) {
       return <Loading />;
     }
-    const { resultado } = this.state.movies;
-    const { title, storyline, imagePath, genre, rating, subtitle, id } = { resultado };
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movies;
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`${imagePath}`} />
@@ -37,8 +44,9 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <Link to={`/movies/${id}/edit`}>Editar</Link>
-        <Link to="/">Voltar</Link>
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+        <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={this.deleCard}>DELETAR</Link>
       </div>
     );
   }

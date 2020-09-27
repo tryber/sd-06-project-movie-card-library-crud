@@ -33,7 +33,7 @@ body {
   box-shadow: inset 200px 0 50px rgba(2, 2, 0, 1);
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 270px;
   margin: 5px;
   overflow: hidden;
   perspective: 200px;
