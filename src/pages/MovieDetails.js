@@ -44,6 +44,7 @@ class MovieDetails extends Component {
         <button type="button">
           <Link to={`${id}/edit`}>EDITAR</Link>
         </button>
+        <button type="button"><Link to="/">DELETAR</Link></button>
       </div>
     );
   }
