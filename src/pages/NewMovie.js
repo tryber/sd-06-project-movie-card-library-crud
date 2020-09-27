@@ -15,6 +15,7 @@ class NewMovie extends Component {
   render() {
     return (
       <div data-testid="new-movie">
+        Testa se a renderização em NewMovie ocorre com sucesso
         <MovieForm onSubmit={this.handleSubmit} />
       </div>
     );

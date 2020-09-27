@@ -25,6 +25,7 @@ class EditMovie extends Component {
 
     return (
       <div data-testid="edit-movie">
+        Testa se a renderização em EidtMovie ocorre com sucesso
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
       </div>
     );
