@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -10,12 +10,12 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
       loading: true,
-    }
+    };
     this.fetchList = this.fetchList.bind(this);
   }
 
   componentDidMount() {
-    this.fetchList()
+    this.fetchList();
   }
   
   async fetchList() {
@@ -24,12 +24,10 @@ class MovieDetails extends Component {
     this.setState({
       movie: idMovie,
       loading: false,
-    })
+    });
   }
 
   render() {
-    
-
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
     const { loading } = this.state;
     return (
@@ -42,9 +40,11 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
+        <Link to="/"><button>VOLTAR</button></Link>
+        <Link to="/movies/:id/edit"><button>EDITAR</button></Link>
         </div>
-        
       }
+      
       </div>
     );
   }
