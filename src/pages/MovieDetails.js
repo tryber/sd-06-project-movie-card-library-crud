@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
 import * as movieAPI from '../services/movieAPI';
 // import { Loading } from '../components';
 
@@ -18,8 +19,7 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.props.match.params;
-    this.fetchMovie(id);
+    this.fetchMovie();
   }
 
   async fetchMovie() {

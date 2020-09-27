@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom' 
+import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 
 class MovieCard extends React.Component {
   render() {
-    const {movie} = this.props;
+    const { movie } = this.props;
     return (
       <div data-testid="movie-card">
         <div>
@@ -17,5 +18,9 @@ class MovieCard extends React.Component {
     );
   }
 }
+
+MovieCard.propTypes = {
+  movie: propTypes.arrayOf(propTypes.object).isRequired,
+};
 
 export default MovieCard;
