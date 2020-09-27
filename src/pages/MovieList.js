@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieCard from '../components/MovieCard';
 import Loading from '../components/Loading';
-import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
@@ -18,10 +18,10 @@ class MovieList extends Component {
   }
   async fetchMovies() {
     const requestObj = await movieAPI.getMovies(); // retorna o filme - faz o fetch
-        this.setState({
-          movies: requestObj, // coloca dentro de movies o filme retornado
-          loading: false,
-        });
+      this.setState({
+        movies: requestObj, // coloca dentro de movies o filme retornado
+        loading: false,
+      });
   }
 
   render() {

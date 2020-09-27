@@ -5,22 +5,22 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class MovieDetails extends Component {
-constructor() {
-  super();
-  this.fetchMovieDetails = this.fetchMovieDetails.bind(this);
-  this.state = {
-    loading: true,
-    movie: [],
+  constructor() {
+    super();
+    this.fetchMovieDetails = this.fetchMovieDetails.bind(this);
+    this.state = {
+      loading: true,
+      movie: [],
+    };
   }
-}
 
- async fetchMovieDetails() {
-   //importar o id  de MovieCard
-   const { id } = this.props.match.params;
+  async fetchMovieDetails() {
+   // importar o id  de MovieCard
+  const { id } = this.props.match.params;
     const resquestObject = await movieAPI.getMovie(id);
     this.setState({
-        loading: false,
-        movie: resquestObject,
+    loading: false,
+    movie: resquestObject,
     });
   }
   componentDidMount() {
@@ -32,7 +32,7 @@ constructor() {
     // if (true) return <Loading />;
     const { loading, movie } = this.state;
     const { storyline, imagePath, genre, rating, subtitle, title, id } = movie;
-    if(loading) return <Loading />;
+    if (loading) return <Loading />;
     return (
       <div>
         <div data-testid="movie-details">
@@ -56,6 +56,7 @@ constructor() {
 
 MovieDetails.propType = {
   loading: PropTypes.bool.isRequired,
+  match: PropTypes.object.isRequired,
   movie: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,

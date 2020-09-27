@@ -16,6 +16,9 @@ class EditMovie extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  componentDidMount() {
+    this.fetchEditMovie();
+  }
   // requisição do filme de acordo com o id fornecido na URL
   // atualiza o estado com o filme equivalente ao id fornecido e o status
   async fetchEditMovie() {
@@ -24,11 +27,8 @@ class EditMovie extends Component {
     this.setState({
       status: 'not-loading',
       movie,
-    })
+    });
   }
-   componentDidMount() {
-     this.fetchEditMovie();
-   }
 
   async handleSubmit(updatedMovie) {
     const movie = await movieAPI.updateMovie(updatedMovie);
