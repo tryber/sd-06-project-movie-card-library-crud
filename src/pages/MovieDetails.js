@@ -9,6 +9,8 @@ class MovieDetails extends Component {
   constructor() {
     super();
 
+    this.delete = this.delete.bind(this);
+
     this.state = {
       movie: false,
     };
@@ -20,6 +22,10 @@ class MovieDetails extends Component {
         movie,
       }),
     );
+  }
+
+  async delete() {
+    movieAPI.deleteMovie(this.props.match.params.id);
   }
 
   render() {
@@ -38,13 +44,13 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <button type="button">
+        <button>
           <Link to="/">VOLTAR</Link>
         </button>
-        <button type="button">
+        <button>
           <Link to={`${id}/edit`}>EDITAR</Link>
         </button>
-        <button type="button"><Link to="/">DELETAR</Link></button>
+        <button onClick={this.delete}><Link to="/">DELETAR</Link></button>
       </div>
     );
   }
