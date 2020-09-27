@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
+import Loading from '../components/Loading';
 
 class MovieDetails extends Component {
   constructor() {
@@ -45,7 +45,7 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  match: propTypes.objectOf(propTypes.any).isRequired,
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default MovieDetails;
