@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 import Loading from '../components/Loading';
-
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
@@ -41,5 +41,5 @@ class MovieList extends Component {
 MovieList.propType = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired,
-}
+};
 export default MovieList;
