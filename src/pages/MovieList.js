@@ -24,7 +24,6 @@ class MovieList extends Component {
   async fetchMovies() {
     this.setState({ isLoading: true }, async () => {
       const requestReturn = await movieAPI.getMovies();
-      console.log(requestReturn);
       this.setState({
         movies: requestReturn,
         isLoading: false,
