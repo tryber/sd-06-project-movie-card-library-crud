@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Loading } from '../components';
 import { MovieForm } from '../components';
-import { Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -10,20 +10,27 @@ class EditMovie extends Component {
     this.state = {
       status: 'loading',
       shouldRedirect: false,
-      movie: [],
+      movie: null,
     };
-    
+ 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getMovieById = this.getMovieById.bind(this);
   }
 
   componentDidMount() {
-    this.handleSubmit();
+    this.getMovieById();
   }
 
   async handleSubmit(updatedMovie) {
+    await movieAPI.updateMovie(updatedMovie);
+    this.setState({ shouldRedirect: true });
+  }
+
+  async getMovieById() {
     const { match } = this.props;
     const movie = await movieAPI.getMovie(match.params.id);
-    this.setState({ updatedMovie, movie });
+    const loading = 'done';
+    this.setState({ movie, status: loading });
   }
 
   render() {
@@ -41,32 +48,6 @@ class EditMovie extends Component {
     return (
       <div data-testid="edit-movie">
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
-          {/* <form>
-            <label htmlFor="inputTitulo">
-              <input type="text" name="inputTitulo">Título</input>
-            </label>
-            <label htmlFor="inputSubtitulo">
-              <input type="text" name="inputSubtitulo">Subtítulo</input>
-            </label>
-            <label htmlFor="inputImagem">
-              <input type="text" name="inputImagem">Imagem</input>
-            </label>
-            <label htmlFor="inputSinopse">
-              <textarea type="text" name="inputSinopse">Sinopse</textarea>
-            </label>
-            <label htmlFor="genre">
-              <select type="text" name="genre">
-                Gênero
-                <option value="action">Ação</option>
-                <option value="comedy">Comédia</option>
-                <option value="thriller">Suspense</option>
-                <option value="fantasy">Fantasia</option>
-              </select>
-            </label>
-            <label htmlFor="inputAvaliacao">
-              <input type="text" name="inputAvaliacao">Avaliação</input>
-            </label>
-          </form> */}
       </div>
     );
   }
