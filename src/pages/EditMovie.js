@@ -12,7 +12,7 @@ class EditMovie extends Component {
       shouldRedirect: false,
       movie: null,
     };
- 
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getMovieById = this.getMovieById.bind(this);
   }
@@ -20,17 +20,17 @@ class EditMovie extends Component {
   componentDidMount() {
     this.getMovieById();
   }
-
-  async handleSubmit(updatedMovie) {
-    await movieAPI.updateMovie(updatedMovie);
-    this.setState({ shouldRedirect: true });
-  }
-
+  
   async getMovieById() {
     const { match } = this.props;
     const movie = await movieAPI.getMovie(match.params.id);
     const loading = 'done';
     this.setState({ movie, status: loading });
+  }
+
+  async handleSubmit(updatedMovie) {
+    await movieAPI.updateMovie(updatedMovie);
+    this.setState({ shouldRedirect: true });
   }
 
   render() {
