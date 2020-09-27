@@ -34,7 +34,6 @@ class MovieDetails extends Component {
     if (loading === true) {
       return <Loading />;
     }
-  
     return (
       <div>
         {loading === true ? <Loading /> :
