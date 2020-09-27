@@ -45,16 +45,7 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  resultado: PropTypes.exact({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-  }).isRequired,
-  id: PropTypes.number.isRequired,
+  match: propTypes.objectOf(propTypes.any).isRequired,
 };
-
 
 export default MovieDetails;
