@@ -202,9 +202,5 @@ a {
 }
 
 a:hover {
-  background: linear-gradient(rgb(135, 181, 250), lightblue, white,
-  lightblue, rgb(135, 181, 250));
-  color: #030303;
-  padding: 5px 25px;
-  text-decoration: none;
+  box-shadow: 4px 4px 25px white;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropsType from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -46,6 +46,16 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.propTypes = {id: PropsType.string.isRequired};
+MovieDetails.propTypes = {
+  movies: PropTypes.exact({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+  }).isRequired,
+};
+
 
 export default MovieDetails;

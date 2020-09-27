@@ -20,6 +20,15 @@ class MovieCard extends React.Component {
   }
 }
 
-Logo.propTypes = { movies: PropTypes.object.isRequired };
+MovieCard.propTypes = {
+  movies: PropTypes.exact({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 
 export default MovieCard;
