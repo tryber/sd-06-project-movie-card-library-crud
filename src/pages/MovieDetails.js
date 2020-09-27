@@ -17,7 +17,7 @@ class MovieDetails extends Component {
   componentDidMount() {
     this.fetchList();
   }
-  
+
   async fetchList() {
     const movieId = this.props.match.params.id;
     const idMovie = await movieAPI.getMovie(movieId);
@@ -33,7 +33,7 @@ class MovieDetails extends Component {
     return (
       <div>
         {loading === true ? <Loading /> :
-      <div data-testid="movie-details">
+        <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
         <h4>{`title: ${title}`}</h4>
         <p>{`Subtitle: ${subtitle}`}</p>
@@ -42,9 +42,9 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to="/"><button>VOLTAR</button></Link>
         <Link to="/movies/:id/edit"><button>EDITAR</button></Link>
-        </div>
+      </div>
       }
-       </div>
+      </div>
     );
   }
 }
