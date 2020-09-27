@@ -29,7 +29,7 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
     const { loading } = this.state;
     return (
       <div>
@@ -41,8 +41,10 @@ class MovieDetails extends Component {
           <p>{`Storyline: ${storyline}`}</p>
           <p>{`Genre: ${genre}`}</p>
           <p>{`Rating: ${rating}`}</p>
-          <Link to="/"><button>VOLTAR</button></Link>
-          <Link to="/movies/:id/edit"><button>EDITAR</button></Link>
+          <div>
+            <Link to="/">VOLTAR</Link>
+            <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+            </div>
         </div>
       }
       </div>
