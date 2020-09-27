@@ -36,7 +36,7 @@ class EditMovie extends Component {
       isloading: false,
     });
   }
-  
+
   render() {
     const { shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
