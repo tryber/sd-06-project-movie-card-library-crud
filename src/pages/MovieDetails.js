@@ -25,7 +25,7 @@ class MovieDetails extends Component {
       loading: false,
       movie: resquestObject,
     });
-   }
+  }
 
   render() {
     // Change the condition to check the state
@@ -54,7 +54,7 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.propType = {
+MovieDetails.propTypes = {
   loading: PropTypes.bool.isRequired,
   match: PropTypes.number.isRequired,
   movie: PropTypes.shape({
