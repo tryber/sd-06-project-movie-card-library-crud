@@ -5,7 +5,21 @@ import './componentCss/MovieForm.css';
 class MovieForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...props.movie };
+    const path = props.props.match.path;
+    console.log(props)
+    const movie = {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      genre: '',
+      rating: '',
+    };
+    if (path === '/movies/new') this.state = movie;
+    if (path === '/movies/:id/edit') this.state = { ...props.movie };
+    // this.state = {
+    //   ...props.movie || movie,
+    // };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -158,13 +172,31 @@ class MovieForm extends React.Component {
 export default MovieForm;
 
 MovieForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  movie: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-  }).isRequired,
+  onSubmit: PropTypes.func,
+  props: PropTypes.shape({
+    history: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired,
+  }),
+  movie: PropTypes.func,
 };
+
+MovieForm.propTypes = {
+  onSubmit: PropTypes.func,
+  props: PropTypes.shape({
+    history: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired,
+  }),
+  movie: PropTypes.shape({
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    storyline: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
+};
+
