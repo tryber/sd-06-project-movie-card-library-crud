@@ -8,7 +8,6 @@ import * as movieAPI from '../services/movieAPI';
 class EditMovie extends Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this.state = {
       status: 'loading',
       shouldRedirect: false,

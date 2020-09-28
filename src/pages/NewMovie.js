@@ -7,7 +7,6 @@ import * as movieAPI from '../services/movieAPI';
 class NewMovie extends Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this.state = {
       redirection: false,
     };

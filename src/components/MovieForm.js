@@ -172,22 +172,22 @@ class MovieForm extends React.Component {
 export default MovieForm;
 
 MovieForm.propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
   props: PropTypes.shape({
     history: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     match: PropTypes.object.isRequired,
-  }),
+  }).isRequired,
   movie: PropTypes.func,
 };
 
 MovieForm.propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
   props: PropTypes.shape({
     history: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     match: PropTypes.object.isRequired,
-  }),
+  }).isRequired,
   movie: PropTypes.shape({
     bookmarked: PropTypes.bool,
     genre: PropTypes.string.isRequired,
@@ -197,6 +197,6 @@ MovieForm.propTypes = {
     storyline: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
 };
 
