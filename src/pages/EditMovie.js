@@ -53,7 +53,13 @@ class EditMovie extends Component {
 
     return (
       <div className="edit-movie-centered" data-testid="edit-movie">
-        {loading ? <Loading className="loading-img" /> : <MovieForm className="movie-form" movie={movie} onSubmit={this.handleSubmit} />}
+        {loading ? <Loading className="loading-img" /> :
+        <MovieForm
+          className="movie-form"
+          movie={movie}
+          onSubmit={this.handleSubmit}
+        />
+        }
       </div>
     );
   }

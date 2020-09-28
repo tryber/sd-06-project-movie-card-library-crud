@@ -49,7 +49,8 @@ class MovieList extends Component {
             />)
         }
         {
-          movies.length > 0 ? <Link className="add-newmovie-btn" to="/movies/new">+</Link> : false
+          movies.length > 0 ?
+            <Link className="add-newmovie-btn" to="/movies/new">+</Link> : false
         }
       </div>
     );
