@@ -11,7 +11,7 @@ class NewMovie extends Component {
     this.state = {
       movie: {},
       status: '',
-    }
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
