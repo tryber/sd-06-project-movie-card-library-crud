@@ -17,13 +17,7 @@ class NewMovie extends Component {
     movieAPI.createMovie(newMovie);
     this.setState({ redirect: true });
   }
-  async fetchAPICreate() {
-    await movieAPI.createMovie(newMovie);
-    this.setState({
-      redirect: true,
-    });
-  }
-
+  
   render() {
     if (this.state.redirect === true) {
       return (
