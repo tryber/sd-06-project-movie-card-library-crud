@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/movie/:id" component={MovieDetails}/>
+        <Route path="/movie/:id" component={ MovieDetails } />
         <Link />
         <div className="app">
           <div>Movie Card Library CRUD</div>
