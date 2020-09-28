@@ -15,10 +15,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route exact path="/movies/:id" component={ MovieDetails } />
-        <Route path="/movies/new" component={ NewMovie } />
-        <Route path="/movies/:id/edit" component={ EditMovie } />
-        <Route path=" " component={ Notfound }/>
+        <Route exact path="/movies/:id" component={MovieDetails} />
+        <Route exact path="/movies/new" component={NewMovie} />
+        <Route exact path="/movies/:id/edit" component={EditMovie} />
+        <Route path="*" component={Notfound} />
         <Link />
         <div className="app">
           <div>Movie Card Library CRUD</div>
