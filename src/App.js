@@ -6,6 +6,7 @@ import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
 import Header from './components/Header';
+
 function App() {
   return (
     <div>

@@ -18,19 +18,19 @@ class NewMovie extends Component {
     this.setState({ redirect: true });
   }
   async fetchAPICreate() {
-    const movie = await movieAPI.createMovie(newMovie);
+    const newMovie = await movieAPI.createMovie(newMovie);
     this.setState({
       redirect: true,
     });
   }
 
   render() {
-      if (this.state.redirect === true) {
-        return (
-          <Redirect to="/" />
-        );
-      }
+    if (this.state.redirect === true) {
       return (
+        <Redirect to="/" />
+      );
+    }
+    return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
       </div>
