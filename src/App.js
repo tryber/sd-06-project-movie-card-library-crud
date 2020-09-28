@@ -8,6 +8,7 @@ import MovieList from './pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
+import Notfound from './pages/NotFound';
 import movies from './services/movieData';
 
 
