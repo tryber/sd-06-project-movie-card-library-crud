@@ -18,7 +18,7 @@ class NewMovie extends Component {
     this.setState({ redirect: true });
   }
   async fetchAPICreate() {
-    const newMovie = await movieAPI.createMovie(newMovie);
+    await movieAPI.createMovie(newMovie);
     this.setState({
       redirect: true,
     });
@@ -34,7 +34,6 @@ class NewMovie extends Component {
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
       </div>
-      
     );
   }
 }
