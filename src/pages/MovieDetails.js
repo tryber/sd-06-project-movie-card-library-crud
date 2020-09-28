@@ -23,8 +23,11 @@ class MovieDetails extends Component {
     this.setState({
       loading: true,
     }, async () => {
+      const { match } = this.props;
+      const requestMovie = await movieAPI.getMovie(match.params.id);
+
       this.setState({
-        details: await movieAPI.getMovie(this.props.match.params.id),
+        details: requestMovie,
         loading: false,
       });
     });
@@ -37,16 +40,16 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details">
         { loading ? <Loading /> : <div>
-            <img alt="Movie Cover" src={`../${imagePath}`} />
-            <h1>{`title: ${title}`}</h1>
-            <p>{`subtitle: ${subtitle}`}</p>
-            <p>{`storyline: ${storyline}`}</p>
-            <p>{`genre: ${genre}`}</p>
-            <p>{`rating: ${rating}`}</p>
+          <img alt="Movie Cover" src={`../${imagePath}`} />
+          <h1>{`title: ${title}`}</h1>
+          <p>{`subtitle: ${subtitle}`}</p>
+          <p>{`storyline: ${storyline}`}</p>
+          <p>{`genre: ${genre}`}</p>
+          <p>{`rating: ${rating}`}</p>
 
-            <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-            <Link to="/">VOLTAR</Link>
-          </div>
+          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+          <Link to="/">VOLTAR</Link>
+        </div>
         }
       </div>
     );
