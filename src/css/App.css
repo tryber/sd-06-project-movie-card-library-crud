@@ -1,0 +1,16 @@
+body {
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(#484e55, #3a3f44 60%, #313539);
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  color: #c8c8c8;
+}
