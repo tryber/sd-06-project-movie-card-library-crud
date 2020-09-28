@@ -18,10 +18,10 @@ class MovieList extends Component {
   }
   async fetchMovies() {
     const requestObj = await movieAPI.getMovies(); // retorna o filme - faz o fetch
-      this.setState({
-        movies: requestObj, // coloca dentro de movies o filme retornado
-        loading: false,
-      });
+    this.setState({
+      movies: requestObj, // coloca dentro de movies o filme retornado
+      loading: false,
+    });
   }
 
   render() {

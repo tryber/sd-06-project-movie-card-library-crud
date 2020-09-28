@@ -18,7 +18,7 @@ class MovieCard extends React.Component {
 }
 
 MovieCard.propType = {
-  movie: PropTypes.shape({
+    movie: PropTypes.shape({
     title: PropTypes.string,
     storyline: PropTypes.string,
     id: PropTypes.number,

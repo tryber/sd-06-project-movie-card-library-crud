@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
+
 
 class MovieDetails extends Component {
   constructor() {
@@ -13,19 +14,18 @@ class MovieDetails extends Component {
       movie: [],
     };
   }
-
+  componentDidMount() {
+    this.fetchMovieDetails();
+  }
   async fetchMovieDetails() {
-   // importar o id  de MovieCard
-  const { id } = this.props.match.params;
+    // importar o id  de MovieCard
+    const { id } = this.props.match.params;
     const resquestObject = await movieAPI.getMovie(id);
     this.setState({
       loading: false,
       movie: resquestObject,
     });
-  }
-  componentDidMount() {
-    this.fetchMovieDetails();
-  }
+   }
 
   render() {
     // Change the condition to check the state
@@ -56,7 +56,7 @@ class MovieDetails extends Component {
 
 MovieDetails.propType = {
   loading: PropTypes.bool.isRequired,
-  match: PropTypes.object.isRequired,
+  match: PropTypes.number.isRequired,
   movie: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
