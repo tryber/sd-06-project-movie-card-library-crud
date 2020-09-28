@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
+import '../css/Loading.css';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -51,8 +52,8 @@ class EditMovie extends Component {
     }
 
     return (
-      <div data-testid="edit-movie">
-        {loading ? <Loading /> : <MovieForm movie={movie} onSubmit={this.handleSubmit} />}
+      <div className="edit-movie-centered" data-testid="edit-movie">
+        {loading ? <Loading className="loading-img" /> : <MovieForm className="movie-form" movie={movie} onSubmit={this.handleSubmit} />}
       </div>
     );
   }

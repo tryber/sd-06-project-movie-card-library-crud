@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
+import '../css/MovieList.css';
 
 class MovieList extends Component {
   constructor() {
@@ -34,18 +35,22 @@ class MovieList extends Component {
   render() {
     const { movies, loading } = this.state;
     return (
-      <div data-testid="movie-list">
-        <div><Link to="/movies/new">ADICIONAR CARTÃO</Link></div>
-        { loading ? <Loading /> : movies.map((movie) =>
-          <MovieCard
-            key={movie.title}
-            id={movie.id}
-            title={movie.title}
-            subtitle={movie.subtitle}
-            imgPath={movie.imagePath}
-            storyline={movie.storyline}
-            rating={movie.rating}
-          />) }
+      <div className="movie-list" data-testid="movie-list">
+        { loading ? <Loading /> :
+          movies.map((movie) =>
+            <MovieCard
+              key={movie.title}
+              id={movie.id}
+              title={movie.title}
+              subtitle={movie.subtitle}
+              imgPath={movie.imagePath}
+              storyline={movie.storyline}
+              rating={movie.rating}
+            />)
+        }
+        {
+          movies.length > 0 ? <Link className="add-newmovie-btn" to="/movies/new">+</Link> : false
+        }
       </div>
     );
   }
