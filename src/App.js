@@ -15,9 +15,9 @@ class App extends Component {
         <Route />
         <Link />
         <div className="app">
-        <div>Movie Card Library CRUD</div>
-        <MovieList movies={movies} />
-      </div>
+          <div>Movie Card Library CRUD</div>
+          <MovieList movies={movies} />
+        </div>
       </Router>
     );
   }
