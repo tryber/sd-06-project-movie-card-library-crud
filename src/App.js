@@ -8,11 +8,10 @@ function App() {
     <div>
       Movie Card Library CRUD
       <Router>
-        {/* <MovieDetails path="/movies/:id" /> */}
         <Switch>
-          <Route path="/movies/:id" component={MovieDetails}/* render={(props) => <MovieDetails {...props} />} */ />
-          <Route path="movies/:id/edit" component={EditMovie}/* render={(props) => <EditMovie {...props} />} */ />
-          <Route path="movies/new" component={NewMovie} />
+          <Route path="/movies/new" component={NewMovie} />
+          <Route path="/movies/:id/edit" render={(props) => <EditMovie {...props} />} />
+          <Route path="/movies/:id" render={(props) => <MovieDetails {...props} />} />
           <Route exact path="/" component={MovieList} />
           <Route component={NotFound} />
         </Switch>
