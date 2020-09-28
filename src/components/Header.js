@@ -6,11 +6,11 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-      <BrowserRouter>
-        <Switch>
-        <Link to={'/movies/new'}>ADICIONAR CARTÃO</Link>
-        </Switch>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Switch>
+          <Link to={'/movies/new'}>ADICIONAR CARTÃO</Link>
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
