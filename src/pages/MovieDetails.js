@@ -54,14 +54,6 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.propTypes = {
-  match: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-};
+MovieDetails.propTypes = { match: PropTypes.number.isRequired };
 
 export default MovieDetails;
