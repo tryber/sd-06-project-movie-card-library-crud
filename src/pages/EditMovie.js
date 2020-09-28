@@ -12,7 +12,7 @@ class EditMovie extends Component {
     this.state = {
       shouldRedirect: false,
       // isloading: true,
-      status: 'loading'
+      status: 'loading',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fetchMovie = this.fetchMovie.bind(this);
