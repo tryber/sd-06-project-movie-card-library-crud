@@ -12,12 +12,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <Route></Route>
-      <Link></Link>
-        <div className="app">
-          <div>Movie Card Library CRUD</div>
-          <MovieList movies={movies} />
-        </div>
+        <Route />
+        <Link />
+          <div className="app">
+            <div>Movie Card Library CRUD</div>
+            <MovieList movies={movies} />
+          </div>
       </Router>
     );
   }
