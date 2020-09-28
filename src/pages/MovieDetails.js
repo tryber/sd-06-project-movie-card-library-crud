@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { Loading } from '../components';
-import { getMovie } from '../services/movieAPI';
+import { getMovie, deleteMovie } from '../services/movieAPI';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -11,8 +11,10 @@ class MovieDetails extends Component {
 
     this.state = {
       isMovieEmpty: true,
+      shouldRedirect: false,
       movie: {},
     };
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -22,8 +24,14 @@ class MovieDetails extends Component {
       this.setState({
         movie: result,
         isMovieEmpty: false,
+        shouldRedirect: false,
       });
     });
+  }
+
+  async handleDelete() {
+    const { id } = this.state.movie;
+    await deleteMovie(id);
   }
 
   render() {
@@ -48,6 +56,11 @@ class MovieDetails extends Component {
           <span><Link to={`${id}/edit`}>EDITAR</Link></span>
           <span><Link to={'/'}>VOLTAR</Link></span>
         </nav>
+        <div>
+          <button type="button" onClick={this.handleDelete}>
+            <Link to="/">DELETAR</Link>
+          </button>
+        </div>
       </div>
     );
   }
