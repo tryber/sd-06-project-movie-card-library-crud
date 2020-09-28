@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -23,6 +22,7 @@ class MovieDetails extends Component {
     const movie = await movieAPI.getMovie(this.props.match.params.id);
     this.setState({
       movie,
+      // movie: movie,
       isLoading: false,
     });
   }
@@ -30,10 +30,12 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { movie, isLoading } = this.state;
-    if (isLoading) return <Loading />;
-
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
+    // const { movie, isLoading } = this.state;
+    const { isLoading } = this.state;
+    if (isLoading) {
+      return <Loading />;
+    }
 
     return (
       <div data-testid="movie-details">
@@ -53,7 +55,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
 };
