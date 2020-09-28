@@ -8,7 +8,7 @@ class Header extends React.Component {
       <div>
         <BrowserRouter>
           <Switch>
-          <Link to={'/movies/new'}>ADICIONAR CARTÃO</Link>
+            <Link to={'/movies/new'}>ADICIONAR CARTÃO</Link>
           </Switch>
         </BrowserRouter>
       </div>
