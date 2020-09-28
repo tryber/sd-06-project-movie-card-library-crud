@@ -11,7 +11,7 @@ export const getMovies = () => (
     setTimeout(() => {
       const movies = readMovies();
       resolve(movies);
-    }, 2000);
+    }, 500);
   })
 );
 
@@ -21,7 +21,7 @@ export const getMovie = (movieId) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(movie);
-    }, 2000);
+    }, 1000);
   });
 };
 
