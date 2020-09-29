@@ -274,7 +274,7 @@ describe('5 - EditMovie: deve realizar uma requisição para buscar o filme que 
 
 })
 
-describe('6 - NewMovie: Na página inicial, deve haver um link para criar novos cartões.', () => {
+describe.only('6 - NewMovie: Na página inicial, deve haver um link para criar novos cartões.', () => {
   it('a página inicial deverá conter um link "ADICIONAR CARTÃO". Esse link deve redirecionar para a página de criação de filmes', async () => {
     const { unmount } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
