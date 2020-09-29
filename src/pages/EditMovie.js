@@ -21,7 +21,7 @@ class EditMovie extends Component {
   }
 
   async fetchMovieForEdition() {
-    this.setState({ status: 'loading'}, async () => {
+    this.setState({ status: 'loading' }, async () => {
       const { id } = this.props.match.params;
       const requestReturn = await movieAPI.getMovie(id);
       this.setState({
@@ -43,7 +43,7 @@ class EditMovie extends Component {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       // Redirect
-      return (<Redirect to="/"/>);
+      return (<Redirect to="/" />);
     }
 
     if (status === 'loading') {

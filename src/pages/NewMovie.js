@@ -7,12 +7,11 @@ import * as movieAPI from '../services/movieAPI';
 class NewMovie extends Component {
   constructor(props) {
     super(props);
-    
     this.state = {
       redirect: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  };
 
   async handleSubmit(newMovie) {
     await movieAPI.createMovie(newMovie);

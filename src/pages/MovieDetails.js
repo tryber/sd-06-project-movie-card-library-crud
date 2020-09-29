@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor() {
@@ -13,7 +13,7 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       isLoading: true,
-    }
+    };
   }
 
   componentDidMount() {
@@ -34,7 +34,6 @@ class MovieDetails extends Component {
   showDetailedMovie() {
     const { movie } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
-  
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
@@ -57,7 +56,6 @@ class MovieDetails extends Component {
         {isLoading ? <Loading /> : this.showDetailedMovie()}
       </main>
     );
-    
   }
 }
 
