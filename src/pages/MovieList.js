@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 import Loading from '../components/Loading'
 import * as movieAPI from '../services/movieAPI';
+import movies from '../services/movieData';
 
 class MovieList extends Component {
   constructor() {
@@ -9,23 +10,25 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
+      isLoading: true,
     }
   }
   
-  async componentDidMount () {
-    const getApi = await movieAPI.getMovies();
-    console.log(getApi);
-    this.setState({
-      movies: getApi
-    })
+  componentDidMount() {
+    this.fetchMovies();
   }
-  
+
+  async fetchMovies() {
+    const getApi = await movieAPI.getMovies();
+    this.setState({
+      movies: getApi,
+      isLoading: false,
+    });
+  }
 
   render() {
-    const { movies } = this.state;
-    
-
-    return (
+    const { movies, isLoading } = this.state;
+    return isLoading ? <Loading /> : (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
