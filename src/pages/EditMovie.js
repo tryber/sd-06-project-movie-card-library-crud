@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import { MovieForm } from '../components';
+import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -15,12 +14,13 @@ class EditMovie extends Component {
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
+    console.log(status);
     if (shouldRedirect) {
       // Redirect
     }
 
     if (status === 'loading') {
-      // render Loading
+      return <Loading />
     }
 
     return (
