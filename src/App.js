@@ -5,7 +5,7 @@ import { EditMovie, MovieDetails, MovieList, NewMovie, NotFound } from './pages'
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
       <BrowserRouter>
         <Switch>
@@ -16,7 +16,7 @@ function App() {
           <Route path="*" component={NotFound} />
         </Switch>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
