@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
     super();
+    this.handleGetMovie = this.handleGetMovie.bind(this);
     this.state = {
       carregando: true,
       movies: [],
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.handleGetMovie();
+  }
+
+  async handleGetMovie() {
     const { match } = this.props;
     const movie = await movieAPI.getMovie(match.params.id);
     this.setState({

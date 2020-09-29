@@ -7,16 +7,19 @@ import * as movieAPI from '../services/movieAPI';
 class MovieList extends Component {
   constructor() {
     super();
-
+    this.handleListMovie = this.handleListMovie.bind(this);
     this.state = {
       movies: [],
       carregando: true,
     };
   }
 
-  async componentDidMount() {
-    const movie = await movieAPI.getMovies();
+  componentDidMount() {
+    this.handleListMovie();
+  }
 
+  async handleListMovie() {
+    const movie = await movieAPI.getMovies();
     this.setState({
       movies: movie,
       carregando: false,
