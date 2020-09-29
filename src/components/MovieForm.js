@@ -13,8 +13,8 @@ class MovieForm extends React.Component {
     onSubmit(this.state);
   }
 
-  updateMovie(field, new_value) {
-    this.setState({ [field]: new_value });
+  updateMovie(field, newValue) {
+    this.setState({ [field]: newValue });
   }
 
   renderTitleInput() {

@@ -16,21 +16,22 @@ class EditMovie extends Component {
     this.renderLoading = this.renderLoading.bind(this);
   }
 
+  componentDidMount() {
+    this.renderLoading();
+  }
+
   async handleSubmit(updatedMovie) {
     await movieAPI.updateMovie(updatedMovie);
     this.setState({ shouldRedirect: false });
   }
 
   async renderLoading() {
-    const filme = await movieAPI.getMovie(this.props.match.params.id);
+    const { match } = this.props;
+    const filme = await movieAPI.getMovie(match.params.id);
     this.setState({
       status: false,
       movie: filme,
     });
-  }
-
-  componentDidMount() {
-    this.renderLoading();
   }
 
   render() {
