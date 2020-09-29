@@ -47,7 +47,6 @@ class MovieDetails extends Component {
             <Link to={`/movies/${id}/edit`}>EDITAR</Link>
           </div>
         </div>
-      }
       </div>
     );
   }
