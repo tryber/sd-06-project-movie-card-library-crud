@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import * as movieAPI from '../services/movieAPI';
 import { Link } from 'react-router-dom';
+import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
@@ -11,24 +11,24 @@ class MovieDetails extends Component {
     this.state = {
       loading: true,
       movies: {}
-    }
+    };
   }
-  
+
   componentDidMount() {
     this.handleFetch();
   }
 
   async handleFetch() {
-    const { id } = this.props.match.params
+    const { id } = this.props.match.params;
     const result = await movieAPI.getMovie(id);
     this.setState({
       loading: false,
-      movies: result
+      movies: result,
     });
   }
 
   render() {
-    const { loading } = this.state
+    const { loading } = this.state;
 
     if (loading) return <Loading />;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movies;
