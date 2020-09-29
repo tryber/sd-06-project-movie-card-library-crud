@@ -155,5 +155,5 @@ class MovieForm extends React.Component {
     );
   }
 }
-{/*test*/}
+
 export default MovieForm;
