@@ -32,9 +32,7 @@ class EditMovie extends Component {
   }
 
   async handleSubmit(updatedMovie) {
-    // call API to update movie
-    // redirect to main page
-    // see shouldRedirect
+    // call API to update movie and redirect to main page
     await movieAPI.updateMovie(updatedMovie);
     this.setState({ shouldRedirect: true });
   }
@@ -63,7 +61,7 @@ class EditMovie extends Component {
 EditMovie.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired }).isRequired,
+      id: PropTypes.string.isRequired }).isRequired,
   }).isRequired,
 };
 
