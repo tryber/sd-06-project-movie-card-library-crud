@@ -9,7 +9,8 @@ class MovieDetails extends Component {
     super();
 
     this.fetchSingleMovie = this.fetchSingleMovie.bind(this);
-    this.showDetailedMovie = this.showDetailedMovie.bind(this);
+    this.renderDetailedMovie = this.renderDetailedMovie.bind(this);
+    this.renderDeleteMovieButton = this.renderDeleteMovieButton.bind(this);
     this.state = {
       movie: {},
       isLoading: true,
@@ -22,8 +23,9 @@ class MovieDetails extends Component {
   }
 
   async fetchSingleMovie(id) {
+    const { getMovie } = movieAPI;
     this.setState({ isLoading: true }, async () => {
-      const requestReturn = await movieAPI.getMovie(id);
+      const requestReturn = await getMovie(id);
       this.setState({
         movie: requestReturn,
         isLoading: false,
@@ -31,7 +33,7 @@ class MovieDetails extends Component {
     });
   }
 
-  showDetailedMovie() {
+  renderDetailedMovie() {
     const { movie } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
     return (
@@ -49,11 +51,22 @@ class MovieDetails extends Component {
       </div>
     );
   }
+
+  renderDeleteMovieButton() {
+    const { id } = this.props.match.params;
+    const { deleteMovie } = movieAPI;
+    return (<Link to="/" onClick={() => deleteMovie(id)}>DELETAR</Link>);
+  }
+
   render() {
     const { isLoading } = this.state;
+    if (isLoading) {
+      return (<Loading />);
+    }
     return (
       <main>
-        {isLoading ? <Loading /> : this.showDetailedMovie()}
+        {this.renderDetailedMovie()}
+        {this.renderDeleteMovieButton()}
       </main>
     );
   }
@@ -62,7 +75,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired }).isRequired,
+      id: PropTypes.string.isRequired }).isRequired,
   }).isRequired,
 };
 
