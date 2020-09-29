@@ -13,7 +13,7 @@ class MovieList extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     movieAPI.getMovies().then((result) => {
       this.setState({
         movies: result,
