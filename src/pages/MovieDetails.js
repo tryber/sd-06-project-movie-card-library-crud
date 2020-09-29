@@ -17,12 +17,12 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    this.fetchSingleMovie();
+    const { id } = this.props.match.params;
+    this.fetchSingleMovie(id);
   }
 
-  async fetchSingleMovie() {
+  async fetchSingleMovie(id) {
     this.setState({ isLoading: true }, async () => {
-      const { id } = this.props.match.params;
       const requestReturn = await movieAPI.getMovie(id);
       this.setState({
         movie: requestReturn,

@@ -17,12 +17,12 @@ class EditMovie extends Component {
   }
 
   componentDidMount() {
-    this.fetchMovieForEdition();
+    const { id } = this.props.match.params;
+    this.fetchMovieForEdition(id);
   }
 
-  async fetchMovieForEdition() {
+  async fetchMovieForEdition(id) {
     this.setState({ status: 'loading' }, async () => {
-      const { id } = this.props.match.params;
       const requestReturn = await movieAPI.getMovie(id);
       this.setState({
         status: 'ready',
