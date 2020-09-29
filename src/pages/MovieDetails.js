@@ -43,11 +43,11 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details" className="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p><span className="bold">Title:</span> {`${title}`}</p>
-        <p><span className="bold">Subtitle: </span>{`${subtitle}`}</p>
-        <p><span className="bold">Storyline: </span>{`${storyline}`}</p>
-        <p><span className="bold">Genre: </span>{`${genre}`}</p>
-        <p><span className="bold">Rating: </span>{`${rating}`}</p>
+        <p><span className="bold">Título: <br /></span> {`${title}`}</p>
+        <p><span className="bold">Subtítulo: <br /></span>{`${subtitle}`}</p>
+        <p><span className="bold">Sinopse: <br /></span>{`${storyline}`}</p>
+        <p><span className="bold">Gênero: <br /></span>{`${genre}`}</p>
+        <p><span className="bold">Avaliação: <br /></span>{`${rating}`}</p>
         <div className="buttons">
           <button><Link to={`/movies/${id}/edit`}>EDITAR</Link></button>
           <button><Link to="/">VOLTAR</Link></button>
