@@ -35,17 +35,16 @@ class MovieDetails extends Component {
       return <Loading />;
     }
     return (
-        <div data-testid="movie-details">
-          <img alt="Movie Cover" src={`../${imagePath}`} />
-          <h4>{`title: ${title}`}</h4>
-          <p>{`Subtitle: ${subtitle}`}</p>
-          <p>{`Storyline: ${storyline}`}</p>
-          <p>{`Genre: ${genre}`}</p>
-          <p>{`Rating: ${rating}`}</p>
-          <div>
-            <Link to="/">VOLTAR</Link>
-            <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-          </div>
+      <div data-testid="movie-details">
+        <img alt="Movie Cover" src={`../${imagePath}`} />
+        <h4>{`title: ${title}`}</h4>
+        <p>{`Subtitle: ${subtitle}`}</p>
+        <p>{`Storyline: ${storyline}`}</p>
+        <p>{`Genre: ${genre}`}</p>
+        <p>{`Rating: ${rating}`}</p>
+        <div>
+          <Link to="/">VOLTAR</Link>
+          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         </div>
       </div>
     );
