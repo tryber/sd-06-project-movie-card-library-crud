@@ -30,6 +30,6 @@ MovieCard.propTypes = {
     rating: PropTypes.number.isRequired,
     genre: PropTypes.string.isRequired,
   }).isRequired,
-}
+};
 
 export default MovieCard;
