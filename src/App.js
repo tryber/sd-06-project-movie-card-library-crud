@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Route,
   Link,
-  BrowserRouter as Router, Switch } from 'react-router-dom';
+  BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import MovieList from './pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
@@ -15,15 +15,15 @@ class App extends Component {
   render() {
     return (
       <Router>
-          <Route exact path="/movies/:id" component={MovieDetails} />
-          <Route exact path="/movies/new" component={NewMovie} />
-          <Route exact path="/movies/:id/edit" component={EditMovie} />
-          <Route path="*" component={Notfound} />
-          <Link />
-          <div className="app">
-            <div>Movie Card Library CRUD</div>
-            <MovieList movies={movies} />
-          </div>
+        <Route exact path="/movies/:id" component={MovieDetails} />
+        <Route exact path="/movies/new" component={NewMovie} />
+        <Route exact path="/movies/:id/edit" component={EditMovie} />
+        <Route path="*" component={Notfound} />
+        <Link />
+        <div className="app">
+          <div>Movie Card Library CRUD</div>
+          <MovieList movies={movies} />
+        </div>
       </Router>
     );
   }

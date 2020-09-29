@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 // import MovieDetails from '../pages/MovieDetails';
 
 class MovieCard extends React.Component {
@@ -15,7 +15,7 @@ class MovieCard extends React.Component {
           <h5 className="movie-card-subtitle">{subtitle}</h5>
           <p className="movie-card-storyline">{storyline}</p>
         </div>
-        <Link to={`/movies/${id}`} className="links">VER DETALHES</Link>  
+        <Link to={`/movies/${id}`} className="links">VER DETALHES</Link>
       </div>
     );
   }

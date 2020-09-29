@@ -12,15 +12,15 @@ class MovieDetails extends Component {
       isLoading: true,
     };
   }
-  componentDidMount(){
+  componentDidMount() {
     this.fetchMovies();
   }
-  async fetchMovies(){
+  async fetchMovies() {
     const getApi = await movieAPI.getMovies();
     this.setState({
       movies: getApi,
       isLoading: false,
-    })
+    });
   }
   render() {
     // Change the condition to check the state
