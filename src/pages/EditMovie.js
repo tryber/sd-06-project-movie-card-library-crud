@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Loading from '../components/Loading';
-import { MovieForm } from '../components';
 import { Redirect } from 'react-router-dom';
+import { MovieForm } from '../components';
+import Loading from '../components/Loading';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -12,7 +12,7 @@ class EditMovie extends Component {
       shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.fetchMovie = this.fetchMovie.bind(this)
+    this.fetchMovie = this.fetchMovie.bind(this);
   }
 
   componentDidMount() {
@@ -37,11 +37,11 @@ class EditMovie extends Component {
   render() {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-     return <Redirect to="/" />
+      return <Redirect to="/" />
     }
 
     if (status === 'loading') {
-      return <Loading />
+      return <Loading />;
     }
 
     return (

@@ -3,9 +3,9 @@ import React from 'react';
 class MovieForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       ...props.movie,
-      loading: false
+      loading: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
