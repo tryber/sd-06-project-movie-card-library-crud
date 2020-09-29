@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
@@ -51,7 +52,6 @@ class EditMovie extends Component {
         <Loading />
       );
     }
-    console.log(this.props.match.params);
     return (
       <div data-testid="edit-movie">
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
@@ -59,5 +59,12 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number.isRequired }).isRequired,
+  }).isRequired,
+};
 
 export default EditMovie;

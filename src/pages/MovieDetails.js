@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -50,8 +51,6 @@ class MovieDetails extends Component {
     );
   }
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
     const { isLoading } = this.state;
     return (
       <main>
@@ -61,5 +60,12 @@ class MovieDetails extends Component {
     
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number.isRequired }).isRequired,
+  }).isRequired,
+};
 
 export default MovieDetails;
