@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import PropTypes from 'prop-types';
 
 class MovieDetails extends Component {
 
@@ -10,7 +11,7 @@ class MovieDetails extends Component {
     this.handleFetch = this.handleFetch.bind(this);
     this.state = {
       loading: true,
-      movies: {}
+      movies: {},
     };
   }
 
@@ -46,6 +47,10 @@ class MovieDetails extends Component {
       </div>
     );
   }
+}
+
+handleFetch.PropTypes = {
+  id: PropTypes.number,
 }
 
 export default MovieDetails;
