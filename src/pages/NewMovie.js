@@ -8,13 +8,11 @@ class NewMovie extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    
   }
 
   handleSubmit(newMovie) {
-    const {movies } = this.state;
-    this.setState({ movies: [...movies,newMovie]});
-    
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
