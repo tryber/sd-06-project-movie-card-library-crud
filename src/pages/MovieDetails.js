@@ -49,8 +49,4 @@ class MovieDetails extends Component {
   }
 }
 
-match.PropTypes = {
-  id: PropTypes.number,
-};
-
 export default MovieDetails;
