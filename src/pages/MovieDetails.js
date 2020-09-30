@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Loading } from '../components';
 import { Link } from 'react-router-dom';
-// import { MovieCard } from '../components';
+import { Loading } from '../components';
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
-
-
-
 
 class MovieDetails extends Component {
   constructor() {
     super();
 
     this.state = {
-      movie:{},
+      movie: [],
       isLoading: true,
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.fetchMovies();
   }
 
   async fetchMovies() {
     const movieId = this.props.match.params.id;
-    const result = await movieAPI.getMovie(movieId)
+    const result = await movieAPI.getMovie(movieId);
     this.setState({
       movie: result,
       isLoading: false,
@@ -32,11 +28,11 @@ class MovieDetails extends Component {
   }
   render() {
     const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
-    const { isLoading } = this.state
+    const { isLoading } = this.state;
     return (
       <div>
         { isLoading === true ? <Loading /> :
-        <div>  
+        <div>
           <div data-testid="movie-details">
             <img alt="Movie Cover" src={`../${imagePath}`} />
             <p>{`Title: ${title}`}</p>
@@ -46,8 +42,8 @@ class MovieDetails extends Component {
             <p>{`Rating: ${rating}`}</p>
           </div>
           <div>
-            <Link to="/">VOLTAR</Link> <br/>
-            <Link to="/">DELETAR</Link>
+            <Link to="/" >VOLTAR</Link> <br/>
+            <Link to="/" >DELETAR</Link>
             <Link to={`/movies/${id}/edit`}>EDITAR</Link>
           </div>
         </div>
@@ -57,5 +53,5 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.propTypes = {match: PropTypes.objectOf(Array).isRequired};
+MovieDetails.propTypes = { match: PropTypes.objectOf(Array).isRequired };
 export default MovieDetails;
