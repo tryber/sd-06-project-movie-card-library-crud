@@ -1,44 +1,61 @@
 import React, { Component } from 'react';
-
-import * as movieAPI from '../services/movieAPI';
+import PropTypes from 'prop-types';
 import { Loading } from '../components';
+import { Link } from 'react-router-dom';
+// import { MovieCard } from '../components';
+import * as movieAPI from '../services/movieAPI';
+
+
+
 
 class MovieDetails extends Component {
   constructor() {
     super();
 
     this.state = {
-      movies: [],
+      movie:{},
       isLoading: true,
-    };
+    }
   }
-  componentDidMount() {
+
+  componentDidMount(){
     this.fetchMovies();
   }
+
   async fetchMovies() {
-    const getApi = await movieAPI.getMovies();
+    const movieId = this.props.match.params.id;
+    const result = await movieAPI.getMovie(movieId)
     this.setState({
-      movies: getApi,
+      movie: result,
       isLoading: false,
-    });
+    })
   }
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
-
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
+    const { isLoading } = this.state
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Subtitle: ${title}`}</p>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
+      <div>
+        { isLoading === true ? <Loading /> :
+        <div>  
+          <div data-testid="movie-details">
+            <img alt="Movie Cover" src={`../${imagePath}`} />
+            <p>{`Title: ${title}`}</p>
+            <p>{`Subtitle: ${subtitle}`}</p>
+            <p>{`Storyline: ${storyline}`}</p>
+            <p>{`Genre: ${genre}`}</p>
+            <p>{`Rating: ${rating}`}</p>
+          </div>
+          <div>
+            <Link to="/">VOLTAR</Link> <br/>
+            <Link to="/">DELETAR</Link>
+            <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+          </div>
+        </div>
+      }
       </div>
     );
   }
 }
 
+MovieDetails.propTypes = {match: PropTypes.objectOf(Array).isRequired};
 export default MovieDetails;
