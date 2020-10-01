@@ -23,8 +23,8 @@ class MovieDetails extends Component {
         this.setState({
           movie,
           loading: false,
-        })
-      })
+        });
+      });
   }
 
   render() {
@@ -59,6 +59,6 @@ MovieDetails.propTypes = {
       id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
-}
+};
 
 export default MovieDetails;
