@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 
 import MovieForm from '../components/MovieForm';
@@ -10,21 +10,21 @@ class NewMovie extends Component {
     super(props);
     this.state = {
       redirect: false,
-    }
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(newMovie) {
-    movieAPI.createMovie(newMovie)
+    movieAPI.createMovie(newMovie);
     const { movies } = this.state;
-    this.setState({ 
+    this.setState({
       redirect: true,
     });
   }
 
   render() {
     const { redirect } = this.state;
-    if(redirect === true) {
+    if (redirect === true) {
       return <Redirect to="/" />;
     }
     return (
