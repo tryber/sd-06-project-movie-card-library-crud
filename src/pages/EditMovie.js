@@ -56,7 +56,7 @@ EditMovie.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string,
     }),
-  }).isRequired
+  }).isRequired,
 };
 
 export default EditMovie;
