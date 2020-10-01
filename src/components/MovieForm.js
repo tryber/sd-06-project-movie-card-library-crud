@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
@@ -19,19 +20,18 @@ class MovieForm extends React.Component {
 
   renderTitleInput() {
     const { title } = this.state;
-
     return (
-      <div>
+      <label data-testid="text-input-label" htmlFor="movie_title">
         <input
           placeholder="Insira o título"
+          className="validate form-control"
           id="movie_title"
           type="text"
-          className="validate"
+          name="movie_title"
           value={title}
           onChange={(event) => this.updateMovie('title', event.target.value)}
         />
-        <label htmlFor="movie_title">Título</label>
-      </div>
+      </label>
     );
   }
 
@@ -39,7 +39,7 @@ class MovieForm extends React.Component {
     const { subtitle } = this.state;
 
     return (
-      <div>
+      <label data-testid="text-input-label" htmlFor="movie_subtitle">Subtítulo
         <input
           placeholder="Insira o subtítulo"
           id="movie_subtitle"
@@ -47,8 +47,7 @@ class MovieForm extends React.Component {
           value={subtitle}
           onChange={(event) => this.updateMovie('subtitle', event.target.value)}
         />
-        <label htmlFor="movie_subtitle">Subtítulo</label>
-      </div>
+      </label>
     );
   }
 
@@ -56,31 +55,35 @@ class MovieForm extends React.Component {
     const { imagePath } = this.state;
 
     return (
-      <div className="row">
+      <label data-testid="text-input-label" htmlFor="movie_image">Imagem
         <input
           placeholder="Insira o caminho da imagem"
+          className="validate form-control"
           id="movie_image"
           type="text"
+          name="movie_image"
           value={imagePath}
           onChange={(event) => this.updateMovie('imagePath', event.target.value)}
         />
-        <label htmlFor="movie_image">Imagem</label>
-      </div>
+      </label>
     );
   }
 
   renderStorylineInput() {
     const { storyline } = this.state;
-
     return (
-      <div>
+      <label htmlFor="movie_storyline">
+        Sinopse
         <textarea
+          placeholder="Informe a sinopse do filme"
+          className="validate form-control"
+          type="text"
           id="movie_storyline"
+          name="movie_storyline"
           value={storyline}
           onChange={(event) => this.updateMovie('storyline', event.target.value)}
         />
-        <label htmlFor="movie_storyline">Sinopse</label>
-      </div>
+      </label>
     );
   }
 
@@ -88,11 +91,12 @@ class MovieForm extends React.Component {
     const { genre } = this.state;
 
     return (
-      <div>
-        <label htmlFor="movie_genre">Gênero</label>
+      <label htmlFor="movie_genre">Gênero
         <select
           id="movie_genre"
           value={genre}
+          name="movie_genre"
+          className="validate form-control"
           onChange={(event) => this.updateMovie('genre', event.target.value)}
         >
           <option value="action">Ação</option>
@@ -100,7 +104,7 @@ class MovieForm extends React.Component {
           <option value="thriller">Suspense</option>
           <option value="fantasy">Fantasia</option>
         </select>
-      </div>
+      </label>
     );
   }
 
@@ -108,10 +112,11 @@ class MovieForm extends React.Component {
     const { rating } = this.state;
 
     return (
-      <div>
+      <label htmlFor="movie_rating">Avaliação
         <input
           placeholder="Dê a avaliação do filme"
           id="movie_rating"
+          className="validate form-control"
           type="number"
           step={0.1}
           min={0}
@@ -119,20 +124,20 @@ class MovieForm extends React.Component {
           value={rating}
           onChange={(event) => this.updateMovie('rating', event.target.value)}
         />
-        <label htmlFor="movie_rating">Avaliação</label>
-      </div>
+      </label>
     );
   }
 
   renderSubmitButton() {
     return (
-      <div>
+      <div className="footer-links">
         <button
           type="button"
           onClick={this.handleSubmit}
-        >
-          Submit
-        </button>
+          className="footer-button footer-link"
+        >Salvar
+          </button>
+        <Link to={'/'} className="footer-button footer-link">VOLTAR</Link>
       </div>
     );
   }
@@ -140,7 +145,8 @@ class MovieForm extends React.Component {
   render() {
     return (
       <div>
-        <form>
+        <form className="form-group">
+          <h3 className="form-group-title">Informações do Filme</h3>
           {this.renderTitleInput()}
           {this.renderSubtitleInput()}
           {this.renderImagePathInput()}
@@ -153,5 +159,10 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.propTypes = {
+  movie: PropTypes.shape.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default MovieForm;
