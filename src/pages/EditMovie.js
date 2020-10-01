@@ -17,17 +17,16 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  
   componentDidMount() {
     movieAPI.getMovie(this.props.match.params.id)
-    .then((movie) => {
-      this.setState({
-        movie,
-        status: '',
+      .then((movie) => {
+        this.setState({
+          movie,
+          status: '',
+        });
       });
-    });
   }
-  
+
   handleSubmit(updatedMovie) {
     this.setState({ shouldRedirect: false },
       () => {
