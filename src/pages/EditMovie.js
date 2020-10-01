@@ -7,7 +7,7 @@ import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       movie: {},
       status: 'loading',
@@ -17,17 +17,7 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(updatedMovie) {
-    this.setState({ shouldRedirect: false },
-      () => {
-        movieAPI.updateMovie(updatedMovie);
-        this.setState({
-          shouldRedirect: true,
-        });
-      }
-    );
-  }
-
+  
   componentDidMount() {
     movieAPI.getMovie(this.props.match.params.id)
     .then((movie) => {
@@ -37,11 +27,22 @@ class EditMovie extends Component {
       });
     });
   }
+  
+  handleSubmit(updatedMovie) {
+    this.setState({ shouldRedirect: false },
+      () => {
+        movieAPI.updateMovie(updatedMovie);
+        this.setState({
+          shouldRedirect: true,
+        });
+      },
+    );
+  }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
-      if (shouldRedirect) return (<Redirect to="/" />);
-      if (status === 'loading') return (<Loading />);
+    if (shouldRedirect) return (<Redirect to="/" />);
+    if (status === 'loading') return (<Loading />);
     return (
       <div data-testid="edit-movie">
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
