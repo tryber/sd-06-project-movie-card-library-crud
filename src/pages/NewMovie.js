@@ -10,7 +10,7 @@ class NewMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       shouldRedirect: false,
-    }
+    };
   }
 
   async handleSubmit(newMovie) {
