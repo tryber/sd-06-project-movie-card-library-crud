@@ -6,12 +6,16 @@ import * as movieAPI from '../services/movieAPI';
 class MovieList extends Component {
   constructor() {
     super();
-    //this.setMovies = this.setMovies.bind.this;
+    // this.setMovies = this.setMovies.bind.this;
 
     this.state = {
       movies: [],
       loading: false,
-    }
+    };
+  }
+
+  componentDidMount() {
+    this.setMovies();
   }
 
   setMovies() {
@@ -21,20 +25,13 @@ class MovieList extends Component {
     });
   }
 
-  componentDidMount() {
-    this.setMovies()
-  }
-
   render() {
     const { movies, loading } = this.state;
-    // Render Loading here if the request is still happening
     return (
       <div data-testid="movie-list">
-        {/* movies.map((movie) => <MovieCard key={movie.title} movie={movie} />) */}
         { loading
           ? <Loading />
-          : movies.map((movie) =>
-            <MovieCard key={movie.title} movie={movie} />
+          : movies.map((movie) => <MovieCard key={movie.title} movie={movie} />,
           )
         }
       </div>
