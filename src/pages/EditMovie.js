@@ -6,17 +6,17 @@ import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       shouldRedirect: false,
-      movies: [],
+      movie: [],
       loading: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    movieAPI.getMovies().then((result) => this.setState({
-      movies: result,
+    movieAPI.getMovie(this.props.match.params.id).then((result) => this.setState({
+      movie: result,
       loading: false,
     }));
   }

@@ -21,7 +21,7 @@ class MovieForm extends React.Component {
   renderTitleInput() {
     const { title } = this.state;
     return (
-      <label data-testid="text-input-label" htmlFor="movie_title">
+      <label data-testid="text-input-label" htmlFor="movie_title">Título
         <input
           placeholder="Insira o título"
           className="validate form-control"
