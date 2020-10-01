@@ -15,14 +15,14 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.handleFetch();
+  }
+
   async handleSubmit(updatedMovie) {
     const getUpdate = await movieAPI.updateMovie(updatedMovie);
     console.log(getUpdate);
-    this.setState({ shouldRedirect: true, })
-  }
-
-  componentDidMount() {
-    this.handleFetch();
+    this.setState({ shouldRedirect: true });
   }
 
   async handleFetch() {
@@ -54,9 +54,9 @@ class EditMovie extends Component {
 EditMovie.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.string
+      id: PropTypes.string,
     }),
   }).isRequired
-}
+};
 
 export default EditMovie;
