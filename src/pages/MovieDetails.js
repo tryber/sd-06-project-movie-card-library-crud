@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import propTypes from "prop-types";
-import { Link, Redirect } from "react-router-dom";
-import * as movieAPI from "../services/movieAPI";
-import { Loading } from "../components";
+import React, { Component } from 'react';
+import propTypes from 'prop-types'
+import { Link, Redirect } from 'react-router-dom';
+import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
@@ -58,25 +58,25 @@ class MovieDetails extends Component {
     return loading ? (
       <Loading />
     ) : (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Title: ${title}`}</p>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
-        <Link to="/">VOLTAR</Link>
-        <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-        <Link
-          to="/"
-          onClick={() => {
-            this.deleteMovie(id);
-          }}
-        >
-          DELETAR
+        <div data-testid="movie-details">
+          <img alt="Movie Cover" src={`../${imagePath}`} />
+          <p>{`Title: ${title}`}</p>
+          <p>{`Subtitle: ${subtitle}`}</p>
+          <p>{`Storyline: ${storyline}`}</p>
+          <p>{`Genre: ${genre}`}</p>
+          <p>{`Rating: ${rating}`}</p>
+          <Link to="/">VOLTAR</Link>
+          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+          <Link
+            to="/"
+            onClick={() => {
+              this.deleteMovie(id);
+            }}
+          >
+            DELETAR
         </Link>
-      </div>
-    );
+        </div>
+      );
   }
 }
 

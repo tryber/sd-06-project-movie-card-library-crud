@@ -1,12 +1,12 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
   MovieList,
   MovieDetails,
   NewMovie,
   EditMovie,
   NotFound,
-} from "./pages";
+} from './pages';
 
 function App() {
   return (
