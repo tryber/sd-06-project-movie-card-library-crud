@@ -11,6 +11,7 @@ class MovieDetails extends Component {
     super();
     this.state = {
       movie: '',
+      loading: true,
     };
     this.fetchMovie = this.fetchMovie.bind(this);
   }
@@ -22,12 +23,15 @@ class MovieDetails extends Component {
   async fetchMovie() {
     const { id } = this.props.match.params;
     const movie = await movieAPI.getMovie(id);
-    this.setState({ movie });
+    this.setState({
+      movie,
+      loading: false,
+    });
   }
 
   render() {
-    const { movie } = this.state;
-    if (movie === '') return <Loading />;
+    const { movie, loading } = this.state;
+    if (loading) return <Loading />;
     const { id } = this.props.match.params;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
