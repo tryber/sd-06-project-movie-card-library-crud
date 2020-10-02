@@ -28,7 +28,7 @@ class MovieList extends Component {
     });
   }
 
-  render () {
+  render() {
     const { movies, loading } = this.state;
     if (loading === true) {
       return <Loading />;
