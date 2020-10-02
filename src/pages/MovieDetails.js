@@ -72,7 +72,7 @@ class MovieDetails extends Component {
           onClick={() => {
             this.deleteMovie(id);
           }
-          }>
+         }>
             DELETAR
         </Link>
       </div>
