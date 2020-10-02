@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import propTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
-import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
+import React, { Component } from "react";
+import propTypes from "prop-types";
+import { Link, Redirect } from "react-router-dom";
+import * as movieAPI from "../services/movieAPI";
+import { Loading } from "../components";
 
 class MovieDetails extends Component {
   constructor() {
@@ -39,7 +39,7 @@ class MovieDetails extends Component {
 
   async deleteMovie(idMovie) {
     const deletedMovie = await movieAPI.deleteMovie(idMovie);
-    if (deletedMovie.status === 'OK') {
+    if (deletedMovie.status === "OK") {
       this.setState({
         shouldRedirect: true,
       });
@@ -52,10 +52,12 @@ class MovieDetails extends Component {
     const { id } = this.props.match.params;
 
     if (shouldRedirect) {
-      return (<Redirect to="/" />);
+      return <Redirect to="/" />;
     }
 
-    return loading ? <Loading /> : (
+    return loading ? (
+      <Loading />
+    ) : (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
         <p>{`Title: ${title}`}</p>
@@ -65,7 +67,14 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to="/">VOLTAR</Link>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-        <Link to="/" onClick={() => { this.deleteMovie(id); }}>DELETAR</Link>
+        <Link
+          to="/"
+          onClick={() => {
+            this.deleteMovie(id);
+          }}
+        >
+          DELETAR
+        </Link>
       </div>
     );
   }
