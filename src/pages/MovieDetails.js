@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types'
+import propTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -58,7 +58,7 @@ class MovieDetails extends Component {
     return loading ? (
       <Loading />
     ) : (
-        <div data-testid="movie-details">
+      <div data-testid="movie-details">
           <img alt="Movie Cover" src={`../${imagePath}`} />
           <p>{`Title: ${title}`}</p>
           <p>{`Subtitle: ${subtitle}`}</p>
