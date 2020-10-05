@@ -61,7 +61,7 @@ console.log(this.state) // continua undefined
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <p><Link to={`/movies/${id}/edit`}>EDITAR</Link></p>
+        <p><Link to={`${id}/edit`}>EDITAR</Link></p>
         <p><Link to={'/'} onClick={this.deleteMovie}>DELETAR</Link></p>
         <p><Link to={'/'}>VOLTAR</Link></p>
       </div>
