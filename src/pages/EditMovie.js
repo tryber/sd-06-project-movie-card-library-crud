@@ -6,10 +6,13 @@ import * as movieAPI from '../services/movieAPI';
 class EditMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      movie: {},
+      loading: true,
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  
   handleSubmit(updatedMovie) {
   }
 
@@ -20,7 +23,6 @@ class EditMovie extends Component {
     }
 
     if (status === 'loading') {
-      // render Loading
     }
 
     return (

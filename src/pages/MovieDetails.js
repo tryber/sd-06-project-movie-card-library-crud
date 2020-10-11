@@ -4,12 +4,30 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      movie: {},
+      isLoading: true,
+    };
+  }
+  componentDidMount() {
+    this.fetchMovies();
+  }
+
+  async fetchMovies() {
+    const { id } = this.props.match.params;
+    const getApi = await movieAPI.getMovie(id);
+    this.setState({
+      movie: getApi,
+      isLoading: false,
+    });
+  }
+
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
     const { movie, isLoading } = this.props;
-    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
-    
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
     return isLoading ? <Loading /> : (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
@@ -18,10 +36,10 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <Link to="/" classname="links">Voltar</Link>
-        <Link to="/movies/:id/edit"  classname="links" >Editar</Link>
+        <Link to={`/movies/${id}/edit`} className="links" >EDITAR</Link>
+        <Link to="/" className="links">VOLTAR</Link>
       </div>
-    ); 
+    );
   }
 }
 export default MovieDetails;
