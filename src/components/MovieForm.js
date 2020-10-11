@@ -21,7 +21,7 @@ class MovieForm extends React.Component {
     const { title } = this.state;
 
     return (
-      <div><br/>
+      <div><br />
         <input
           placeholder="Insira o título"
           id="movie_title"
@@ -30,7 +30,7 @@ class MovieForm extends React.Component {
           value={title}
           onChange={(event) => this.updateMovie('title', event.target.value)}
         />
-        <label htmlFor="movie_title">Título</label><br/>
+        <label htmlFor="movie_title">Título</label><br />
       </div>
     );
   }
@@ -47,7 +47,7 @@ class MovieForm extends React.Component {
           value={subtitle}
           onChange={(event) => this.updateMovie('subtitle', event.target.value)}
         />
-        <label htmlFor="movie_subtitle">Subtítulo</label><br/>
+        <label htmlFor="movie_subtitle">Subtítulo</label><br />
       </div>
     );
   }
@@ -64,7 +64,7 @@ class MovieForm extends React.Component {
           value={imagePath}
           onChange={(event) => this.updateMovie('imagePath', event.target.value)}
         />
-        <label htmlFor="movie_image">Imagem</label><br/>
+        <label htmlFor="movie_image">Imagem</label><br />
       </div>
     );
   }
@@ -78,7 +78,7 @@ class MovieForm extends React.Component {
           value={storyline}
           onChange={(event) => this.updateMovie('storyline', event.target.value)}
         />
-        <label htmlFor="movie_storyline">Sinopse</label><br/>
+        <label htmlFor="movie_storyline">Sinopse</label><br />
       </div>
     );
   }
@@ -116,7 +116,7 @@ class MovieForm extends React.Component {
           value={rating}
           onChange={(event) => this.updateMovie('rating', event.target.value)}
         />
-        <label htmlFor="movie_rating">Avaliação</label><br/>
+        <label htmlFor="movie_rating">Avaliação</label><br />
       </div>
     );
   }
@@ -129,7 +129,7 @@ class MovieForm extends React.Component {
           onClick={this.handleSubmit}
         >
           Submit
-        </button><br/>
+        </button><br />
       </div>
     );
   }

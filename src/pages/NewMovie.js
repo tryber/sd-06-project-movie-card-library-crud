@@ -6,8 +6,7 @@ import * as movieAPI from '../services/movieAPI';
 class NewMovie extends Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    
+    this.handleSubmit = this.handleSubmit.bind(this);  
   }
   componentDidMount() {
     this.fetchMovies();
@@ -23,14 +22,13 @@ class NewMovie extends Component {
   handleSubmit(newMovie) {
     const { movies } = this.state;
     this.setState({ movies: [...movies, newMovie] });
-    <Redirect to="/" />
   }
 
   render() {
-      return (
+    return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
-         <Link to="/movies/new" className="links">ADICIONAR CARTÃO</Link>
+        <Link to="/movies/new" className="links">ADICIONAR CARTÃO</Link>
       </div>
     );
   }
