@@ -18,16 +18,11 @@ class EditMovie extends Component {
     if (shouldRedirect) {
       // Redirect
     }
-    return isLoading ? <Loading /> :
-    (
+    return (
       <div data-testid="edit-movie">
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
       </div>
     );
   }
 }
-EditMovies.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  movie: PropTypes.objectOf.isRequired,
-};
 export default EditMovie;

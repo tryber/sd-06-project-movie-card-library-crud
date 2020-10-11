@@ -41,14 +41,5 @@ class MovieDetails extends Component {
       </div>
     );
   }
-}EditMovies.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      isLoading: PropTypes.bool.isRequired,
-      movie: PropTypes.objectOf.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
-
+}
 export default MovieDetails;
