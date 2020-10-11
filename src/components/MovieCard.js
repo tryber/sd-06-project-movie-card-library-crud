@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 // import movies from '../services/movieData';
 
 class MovieCard extends React.Component {
-  
   render() {
     const { movie } = this.props;
     const { title, storyline, imagePath, subtitle, id } = movie;

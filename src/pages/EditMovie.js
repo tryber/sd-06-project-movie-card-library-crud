@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
@@ -8,14 +7,14 @@ class EditMovie extends Component {
     super(props);
     this.state = {
       movie: {},
-      loading: true,
+      isloading: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(updatedMovie) {
   }
   render() {
-    const { status, shouldRedirect, movie } = this.state;
+    const { shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       // Redirect
     }
@@ -27,5 +26,8 @@ class EditMovie extends Component {
     );
   }
 }
-
+EditMovies.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  movie: PropTypes.objectOf.isRequired,
+};
 export default EditMovie;
