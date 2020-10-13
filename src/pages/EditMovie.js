@@ -10,6 +10,7 @@ class EditMovie extends Component {
     this.state = {
       redirect: false,
       loading: true,
+      movieId: props.match.params.id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fetchMovie = this.fetchMovie.bind(this);
@@ -20,7 +21,7 @@ class EditMovie extends Component {
   }
 
   async fetchMovie() {
-    const result = await movieAPI.getMovie(this.props.match.params.id);
+    const result = await movieAPI.getMovie(this.state.movieId);
     this.setState({ movie: result, loading: false });
   }
 

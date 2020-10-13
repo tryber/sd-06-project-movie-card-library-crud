@@ -13,7 +13,7 @@ const movies = [
     id: 2,
     title: 'Final Fantasy',
     subtitle: 'Spirits Within',
-    storyline: 'A scientist makes a last stand on Earth with the help of a ragtag team of soldiers against an invasion of alien phantoms.',
+    storyline: 'In 2065, Earth is infested by alien life forms known as Phantoms. A scientist makes a last stand on Earth with the help of a ragtag team of soldiers against an invasion of alien phantoms.',
     rating: 4.5,
     imagePath: 'images/Final_Fantasy_Spirits_Within.jpg',
     bookmarked: false,

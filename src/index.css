@@ -42,8 +42,10 @@ code {
 
 .link{
   text-align: center;
+  text-align: bottom;
   font-size: 20px;
   padding: 20px;
+  margin-top: 0px;
   background-color:#f5c518;
 }
 
