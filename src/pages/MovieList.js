@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
-import Loading from '../components/Loading';
 import PropTypes from 'prop-types';
+import Loading from '../components/Loading';
 import * as movieAPI from '../services/movieAPI';
-import movies from '../services/movieData';
+
 
 class MovieList extends Component {
   constructor() {
