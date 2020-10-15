@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { MovieForm } from '../components';
-import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class EditMovie extends Component {
   render() {
     const { shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-      // Redirect
+       Redirect
     }
     return (
       <div data-testid="edit-movie">

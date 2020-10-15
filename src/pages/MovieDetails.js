@@ -27,8 +27,9 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { movie, isLoading } = this.props;
+    const { isLoading } = this.props;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
+
     return isLoading ? <Loading /> : (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
@@ -37,8 +38,9 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
+
         <Link to={`/movies/${id}/edit`} className="links" >EDITAR</Link>
-        <Link to="/" className="links">VOLTAR</Link>
+        <Link to={'/'} className="links">VOLTAR</Link>
       </div>
     );
   }
