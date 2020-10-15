@@ -15,7 +15,7 @@ class EditMovie extends Component {
   render() {
     const { shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-       //Redirect
+       // Redirect
     }
     return (
       <div data-testid="edit-movie">
