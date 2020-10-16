@@ -24,11 +24,11 @@ class MovieList extends Component {
     if (loading === true) { return <Loading />; }
 
     return (
-      <div>
+      <section>
         <div data-testid="movie-list">
           {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
         </div>
-      </div>
+      </section>
     );
   }
 }
