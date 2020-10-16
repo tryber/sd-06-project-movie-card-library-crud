@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
-import Loading from '../components/Loading'
+import Loading from '../components/Loading';
 
 import * as movieAPI from '../services/movieAPI';
 
@@ -23,14 +23,13 @@ class MovieList extends Component {
       // while loading content
      { loading: true },
       async () => {
-        // calls movieAPI to get all movies, create and object and set in page's state 
+        // calls movieAPI to get all movies, create and object and set in page's state
         const movies = await movieAPI.getMovies();
         this.setState({
           load: false, // after all content is properly loaded in the page
           movies,
         });
-      }
-    );
+      });
   }
 
   render() {
