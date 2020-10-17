@@ -21,7 +21,6 @@ class NewMovie extends Component {
   }
 
   render() {
-
     if (this.state.redirect === true) {
       return (
         <Redirect to="/" />
