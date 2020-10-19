@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link, Redirect } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor() {
     super();
     this.setMovieState = this.setMovieState.bind(this);
-    this.setLoadingMovie = this.setLoadingMovie.bind(this);    
+    this.setLoadingMovie = this.setLoadingMovie.bind(this);
     this.state = ({
       movie: [],
     });
@@ -22,7 +22,7 @@ class MovieDetails extends Component {
     this.setState({
       movie: getMovies,
     });
-  }  
+  }
 
   setLoadingMovie() {
     const { movie } = this.state;
@@ -30,7 +30,7 @@ class MovieDetails extends Component {
     if (movie.length === 0) {
       return (
         <div>
-          <Loading> </Loading>
+          <Loading />
         </div>
       );
     }
@@ -42,21 +42,29 @@ class MovieDetails extends Component {
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-         <Link to="/" onClick={() => {
+        <Link
+          to="/"
+          onClick={() => {
             movieAPI.deleteMovie(id);
-          }}>DELETAR</Link>
-
-      <span>  </span>
-        <Link to={{ pathname: `/movies/${id}/edit` }}>EDITAR</Link> <span>  </span>
+          }}>
+          DELETAR
+        </Link>
+        <span />
+        <Link
+          to={{ pathname: `/movies/${id}/edit` }}
+        >
+          EDITAR
+        </Link>
+        <span />
         <Link to="/">VOLTAR</Link>
       </div>
     );
   }
 
   render() {
-    const { shouldRedirect } = this.state
-     if (shouldRedirect) {
-    return  <Redirect  to='/'/>
+    const { shouldRedirect } = this.state;
+    if (shouldRedirect) {
+      return <Redirect to="/" />;
     }
     // Change the condition to check the state
     // if (true) return <Loading />;

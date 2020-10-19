@@ -22,14 +22,14 @@ class MovieList extends Component {
     console.log(getMovies);
     this.setState({
       movies: getMovies,
-    }); 
+    });
   }
   setLoading() {
     const { movies } = this.state;
     if (movies.length === 0) {
       return (
         <div>
-          <Loading> </Loading>
+          <Loading />
         </div>
       );
     }
@@ -37,24 +37,18 @@ class MovieList extends Component {
       <div>
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
         <div>
-          <p></p>
+          <p />
           <Link to="/movies/new">ADICIONAR CARTÃO</Link>
         </div>
       </div>
     );
   }
 
-
   render() {
-    const { movies } = this.state;
     const loading = this.setLoading();
-    // Render Loading here if the request is still happening
-
     return (
       <div data-testid="movie-list">
-
         {loading}
-ccd
       </div>
     );
   }

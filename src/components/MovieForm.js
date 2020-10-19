@@ -26,10 +26,10 @@ class MovieForm extends React.Component {
           id="movie_title"
           type="text"
           className="validate"
-          value={ title }
+          value={title}
           onChange={(event) => this.updateMovie('title', event.target.value)}
         />
-        <label 
+        <label
           htmlFor="movie_title"
         >
           Título
@@ -47,7 +47,7 @@ class MovieForm extends React.Component {
           placeholder="Insira o subtítulo"
           id="movie_subtitle"
           type="text"
-          value={ subtitle }
+          value={subtitle}
           onChange={(event) => this.updateMovie('subtitle', event.target.value)}
         />
         <label htmlFor="movie_subtitle">Subtítulo</label>
@@ -116,11 +116,11 @@ class MovieForm extends React.Component {
           placeholder="Dê a avaliação do filme"
           id="movie_rating"
           type="number"
-          step={ 0.1 }
-          min={ 0 }
-          max={ 5 }
+          step={0.1}
+          min={0}
+          max={5}
           value={rating}
-          onChange={(event) => this.updateMovie('rating', event.target.value) }
+          onChange={(event) => this.updateMovie('rating', event.target.value)}
         />
         <label htmlFor="movie_rating">Avaliação</label>
       </div>
@@ -132,7 +132,7 @@ class MovieForm extends React.Component {
       <div>
         <button
           type="button"
-          onClick={ this.handleSubmit }
+          onClick={this.handleSubmit}
         >
           Submit
         </button>
@@ -144,13 +144,13 @@ class MovieForm extends React.Component {
     return (
       <div>
         <form>
-          { this.renderTitleInput() }
-          { this.renderSubtitleInput() }
-          { this.renderImagePathInput() }
-          { this.renderStorylineInput() }
-          { this.renderGenreSelection() }
-          { this.renderRatingInput() }
-          { this.renderSubmitButton() }
+          {this.renderTitleInput()}
+          {this.renderSubtitleInput()}
+          {this.renderImagePathInput()}
+          {this.renderStorylineInput()}
+          {this.renderGenreSelection()}
+          {this.renderRatingInput()}
+          {this.renderSubmitButton()}
         </form>
       </div>
     );
