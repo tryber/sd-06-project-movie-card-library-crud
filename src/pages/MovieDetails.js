@@ -46,7 +46,8 @@ class MovieDetails extends Component {
           to="/"
           onClick={() => {
             movieAPI.deleteMovie(id);
-          }}>
+          }}
+        >
           DELETAR
         </Link>
         <span />

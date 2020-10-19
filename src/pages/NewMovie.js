@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import * as movieAPI from '../services/movieAPI' 
 import MovieForm from '../components/MovieForm';
 
 class NewMovie extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {}
+    this.state = {};
   }
 
   handleSubmit(newMovie) {
@@ -17,7 +18,7 @@ class NewMovie extends Component {
   }
 
   render() {
-    const { shouldRedirect } = this.state
+    const { shouldRedirect } = this.state;
     if (shouldRedirect) {
       return <Redirect to="/" />;
     }

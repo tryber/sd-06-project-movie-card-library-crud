@@ -15,13 +15,6 @@ class EditMovie extends Component {
     };
   }
 
-  handleSubmit(updatedMovie) {
-    movieAPI.updateMovie(updatedMovie);
-    this.setState({
-      shouldRedirect: true,
-    });
-  }
-
   componentDidMount() {
     this.setMovieState();
   }
@@ -50,8 +43,15 @@ class EditMovie extends Component {
     );
   }
 
+  handleSubmit(updatedMovie) {
+    movieAPI.updateMovie(updatedMovie);
+    this.setState({
+      shouldRedirect: true,
+    });
+  }
+
   render() {
-    const { shouldRedirect } = this.state
+    const { shouldRedirect } = this.state;
     if (shouldRedirect) {
       return <Redirect to="/" />;
     }
