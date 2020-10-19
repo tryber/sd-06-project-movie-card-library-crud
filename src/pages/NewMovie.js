@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
 import { Redirect } from 'react-router-dom';
@@ -12,9 +11,9 @@ class NewMovie extends Component {
     this.state={}
   }
 
-  handleSubmit(newMovie) {    
+  handleSubmit(newMovie) {
      movieAPI.createMovie(newMovie);
-     this.setState({     
+     this.setState({
       shouldRedirect: true,
     });
   }
@@ -31,4 +30,5 @@ class NewMovie extends Component {
     );
   }
 }
+
 export default NewMovie;
