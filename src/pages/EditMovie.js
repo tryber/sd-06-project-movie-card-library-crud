@@ -12,7 +12,6 @@ class EditMovie extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
   render() {
     const { shouldRedirect, movie, isLoading } = this.state;
     if (shouldRedirect) {
