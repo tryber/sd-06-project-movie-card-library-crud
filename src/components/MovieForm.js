@@ -1,9 +1,12 @@
 import React from 'react';
+// import Loading from '../components/Loading';
 
 class MovieForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...props.movie };
+    this.state = { ...props.movie,
+    // isLoading: true
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 

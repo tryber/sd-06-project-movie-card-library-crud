@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { MovieForm } from '../components';
+import * as movieAPI from '../services/movieAPI';
+import Loading from '../components/Loading';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -10,14 +12,14 @@ class EditMovie extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(updatedMovie) {
-  }
+  
   render() {
-    const { shouldRedirect, movie } = this.state;
+    const { shouldRedirect, movie, isLoading } = this.state;
     if (shouldRedirect) {
        // Redirect
     }
-    return (
+    return isLoading ? <Loading /> :
+    (
       <div data-testid="edit-movie">
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
       </div>

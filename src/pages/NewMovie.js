@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
+// import Loading from '../components/Loading';
 
 class NewMovie extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class NewMovie extends Component {
     const createApi = await movieAPI.createMovie();
     this.setState({
       movies: createApi,
+      // isLoading: true,
     });
   }
 
@@ -28,7 +30,7 @@ class NewMovie extends Component {
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={this.handleSubmit} />
-        <Link to="/movies/new" className="links">ADICIONAR CARTÃO</Link>
+        <Link to={`/newMovies`} className="links">ADICIONAR CARTÃO</Link>
       </div>
     );
   }
