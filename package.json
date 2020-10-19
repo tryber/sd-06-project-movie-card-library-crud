@@ -6,9 +6,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/user-event": "^7.2.1",
     "mutationobserver-shim": "^0.3.5",
+    "optionator": "^0.9.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "^3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,6 +34,13 @@
   },
   "devDependencies": {
     "@testing-library/react": "^10.0.4",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-react-hooks": "^2.5.1",
     "react-router-dom": "^5.2.0"
   }
 }

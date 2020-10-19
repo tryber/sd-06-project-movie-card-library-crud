@@ -10,16 +10,19 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-            
-          <Route path="/movies/:id" component={MovieDetails} />
-          <Route path="/movies/new" component={NewMovie} />
+           <Switch>  
+           <Route path="/movies/new" component={NewMovie} />
+          <Route exact  path="/movies/:id" component={MovieDetails} />         
           <Route path="/movies/:id/edit" component={EditMovie} />
-          <Route path="/" component={MovieList} />
+          <Route exact path="/" component={MovieList} />
           <Route path='*' component={NotFound} />  
-              
+        </Switch> 
       </BrowserRouter>
     </div>
   );
+
+
+
 }
 
 export default App;
