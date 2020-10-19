@@ -9,14 +9,14 @@ class MovieCard extends React.Component {
       <div data-testid="movie-card">
         <h1> {title} </h1>
         <span> {storyline} </span>
-        <Link to={{ pathname: `/movies/${id}`, state: {props: id} }}> VER DETALHES </Link>
+        <Link to={{ pathname: `/movies/${id}`, state: { props: id } }}> VER DETALHES </Link>
       </div>
     );
   }
 }
 
 MovieCard.propTypes = {
-  movie: PropTypes.shape({
+  movie: ({
     title: PropTypes.string.isRequired,
     storyline: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
