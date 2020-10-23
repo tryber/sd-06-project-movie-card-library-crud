@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MovieCard, Loading } from '../components';
 
 import * as movieAPI from '../services/movieAPI';
+import movies from '../services/movieData';
 
 class MovieList extends Component {
   constructor() {
@@ -19,11 +20,12 @@ class MovieList extends Component {
   }
 
   async updateState() {
+    console.log(this.state.movies);
     const apiResult = await movieAPI.getMovies();
     this.setState({
       movies: apiResult,
       loading: true,
-    });
+    }, () => console.log(movies));
   }
 
   render() {
