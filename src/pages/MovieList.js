@@ -24,7 +24,7 @@ class MovieList extends Component {
     this.setState({
       movies: apiResult,
       loading: true,
-    }, () => console.log(movies));
+    }, () => console.log(this.state.movies));
   }
 
   render() {
