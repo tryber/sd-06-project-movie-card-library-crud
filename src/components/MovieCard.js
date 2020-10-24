@@ -11,6 +11,7 @@ class MovieCard extends React.Component {
         <div>
           <h1>{title}</h1>
           <p>{storyline}</p>
+          <h3>{id}</h3>
         </div>
       </div>
     );
@@ -18,3 +19,11 @@ class MovieCard extends React.Component {
 }
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+  }).isRequired,
+};
