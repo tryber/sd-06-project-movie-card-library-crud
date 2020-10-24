@@ -1,18 +1,17 @@
 import React from 'react';
-// import Loading from '../components/Loading';
 
 class MovieForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...props.movie,
-    // isLoading: true
-    };
+    this.state = { ...props.movie };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+ // chega como props mas não atribui ao state, na pagina não preenche o forms
   handleSubmit() {
     const { onSubmit } = this.props;
+    // recebo a função  via props porque vem de outro componente
     onSubmit(this.state);
+    // chamo a função e através dela eu envio o estado como um parametro 
   }
 
   updateMovie(field, newValue) {
@@ -31,7 +30,8 @@ class MovieForm extends React.Component {
           className="validate"
           value={title}
           onChange={(event) => this.updateMovie('title', event.target.value)}
-        />
+        /> 
+        {/* funçaõ onChange evento de digitação */}
         <label htmlFor="movie_title">Título</label><br />
       </div>
     );

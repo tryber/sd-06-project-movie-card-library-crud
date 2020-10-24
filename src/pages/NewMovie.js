@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
-// import Loading from '../components/Loading';
 
 class NewMovie extends Component {
   constructor(props) {
@@ -17,7 +16,6 @@ class NewMovie extends Component {
     const createApi = await movieAPI.createMovie();
     this.setState({
       movies: createApi,
-      // isLoading: true,
     });
   }
 

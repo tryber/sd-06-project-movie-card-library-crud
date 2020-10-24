@@ -27,7 +27,7 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { isLoading } = this.props;
+    const { isLoading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
 
     return isLoading ? <Loading /> : (
