@@ -12,21 +12,21 @@ class EditMovie extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-componentDidMount() {
-  this.fetchMovie();
-}
+  componentDidMount() {
+    this.fetchMovie();
+  }
 
-async handleSubmit(movie) {
-  await movieAPI.updateMovie(movie);
-}
+  async handleSubmit(movie) {
+    await movieAPI.updateMovie(movie);
+  }
 
-async fetchMovie() {
-  const id = this.props.match.params.id;
-  const filme = await movieAPI.getMovie(id);
-  this.setState({
-    movie: filme,
-    isLoading: false,
-  });// atualiza o estado do filme
+  async fetchMovie() {
+    const id = this.props.match.params.id;
+    const filme = await movieAPI.getMovie(id);
+    this.setState({
+      movie: filme,
+      isLoading: false,
+    });// atualiza o estado do filme
 }
   render() {
     const { shouldRedirect, movie, isLoading } = this.state;
