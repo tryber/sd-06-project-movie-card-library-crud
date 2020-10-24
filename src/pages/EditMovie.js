@@ -5,11 +5,11 @@ import Loading from '../components/Loading';
 import PropTypes from 'prop-types';
 class EditMovie extends Component {
   constructor(props) {
-  super(props);
-    this.state = {
-      movie: [],
-      isloading: true,
-    };
+    super(props);
+      this.state = {
+        movie: [],
+        isloading: true,
+      };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
@@ -27,7 +27,7 @@ class EditMovie extends Component {
       movie: filme,
       isLoading: false,
     });// atualiza o estado do filme
-}
+  }
   render() {
     const { shouldRedirect, movie, isLoading } = this.state;
     if (shouldRedirect) {
