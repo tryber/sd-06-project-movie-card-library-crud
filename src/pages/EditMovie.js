@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
-import PropTypes from 'prop-types';
+
 class EditMovie extends Component {
   constructor(props) {
     super(props);
-      this.state = {
-        movie: [],
-        isloading: true,
-      };
+    this.state = {
+      movie: [],
+      isloading: true,
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
