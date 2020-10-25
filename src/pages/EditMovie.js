@@ -21,21 +21,21 @@ class EditMovie extends Component {
     this.renderMovie();
   }
 
+  async handleSubmit(updatedMovie) {
+    this.setState({
+      movie: { ...updatedMovie },
+    });
+    await movieAPI.updateMovie(updatedMovie);
+    this.setState({ shouldRedirect: true });
+  }
+
   async renderMovie() {
     const { id } = this.props.match.params;
     const resultAPI = await movieAPI.getMovie(id);
     this.setState({
-      movie: {...resultAPI},
+      movie: { ...resultAPI },
       status: '',
     });
-  }
-
-  async handleSubmit(updatedMovie) {
-    this.setState({
-      movie: {...updatedMovie},
-    });
-    await movieAPI.updateMovie(updatedMovie);
-    this.setState({ shouldRedirect: true });
   }
 
   render() {
