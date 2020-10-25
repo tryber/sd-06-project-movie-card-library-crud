@@ -19,12 +19,11 @@ class MovieList extends Component {
   }
 
   async updateState() {
-    console.log(this.state.movies);
     const apiResult = await movieAPI.getMovies();
     this.setState({
       movies: apiResult,
       loading: true,
-    }, () => console.log(this.state.movies));
+    });
   }
 
   render() {
