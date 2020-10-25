@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
@@ -10,8 +11,8 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: [],
-      loading: false
-    }
+      loading: false,
+    };
     this.renderMovie = this.renderMovie.bind(this);
   }
 
@@ -30,8 +31,8 @@ class MovieDetails extends Component {
 
   render() {
     const { loading, movie } = this.state;
-    if(loading === false) {
-      return <Loading />
+    if (loading === false) {
+      return <Loading />;
     }
 
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
@@ -51,5 +52,9 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape().isRequired,
+};
 
 export default MovieDetails;
