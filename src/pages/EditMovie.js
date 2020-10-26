@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import { MovieForm, Loading } from '../components';
-import { Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -35,7 +35,7 @@ class EditMovie extends Component {
       movie: updateForEdit,
       status: false,
       shouldRedirect: true,
-    })
+    });
   }
 
   render() {
