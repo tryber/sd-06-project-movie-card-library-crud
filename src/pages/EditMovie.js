@@ -37,7 +37,6 @@ class EditMovie extends Component {
     return isLoading ? <Loading /> :
     (
       <div data-testid="edit-movie">
-        {console.log(movie)}
         <MovieForm movie={movie} onSubmit={this.handleSubmit} />
       </div>
     );
