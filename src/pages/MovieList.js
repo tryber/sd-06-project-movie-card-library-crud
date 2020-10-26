@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
+import propTypes from 'prop-types'
 
 import { Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
+import MovieDetails from './MovieDetails';
 
 class MovieList extends Component {
   constructor() {
@@ -23,18 +25,22 @@ class MovieList extends Component {
     this.setState({
       movies: returnApi,
       loading: false,
-    });
+    })
   }
 
   render() {
-    const { movies } = this.state;
-    if (this.state.loading === true) return <Loading />;
+    const { movies, loading } = this.state;
+    if (loading === true) return <Loading />;
     return (
       <div data-testid="movie-list">
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
     );
   }
+}
+
+MovieDetails.propTypes = {
+    id: propTypes.number,
 }
 
 export default MovieList;
