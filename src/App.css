@@ -1,4 +1,11 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgb(230, 218, 218);
   box-sizing: border-box;
+}
+
+.links {
+  background-color: darkcyan;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px;
 }
