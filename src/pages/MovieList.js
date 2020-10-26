@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types'
+import propTypes from 'prop-types';
 import MovieCard from '../components/MovieCard';
 
 import { Loading } from '../components';
@@ -25,7 +25,7 @@ class MovieList extends Component {
     this.setState({
       movies: returnApi,
       loading: false,
-    })
+    });
   }
 
   render() {
@@ -41,6 +41,6 @@ class MovieList extends Component {
 
 MovieDetails.propTypes = {
   id: propTypes.number,
-}
+};
 
 export default MovieList;

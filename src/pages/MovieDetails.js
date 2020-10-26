@@ -32,7 +32,7 @@ class MovieDetails extends Component {
     const { loading } = this.state;
     return (
       <div>
-        { loading === true ? <Loading /> :
+        { loading ? <Loading /> :
         <div data-testid="movie-details">
           <div>
             <img alt="Movie Cover" src={`../${imagePath}`} />
@@ -43,8 +43,8 @@ class MovieDetails extends Component {
             <p>{`Rating: ${rating}`}</p>
           </div>
           <div>
-            <Link to="/">VOLTAR</Link>
             <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+            <Link to="/">VOLTAR</Link>
           </div>
         </div>
         }
