@@ -21,11 +21,10 @@ class MovieList extends Component {
 
   async updateState() {
     const apiResult = await movieAPI.getMovies();
-    // console.log(apiResult);
     this.setState({
       movies: [...apiResult],
       loading: true,
-    }, /* () => console.log(apiResult) */);
+    });
     console.log(apiResult);
   }
 
