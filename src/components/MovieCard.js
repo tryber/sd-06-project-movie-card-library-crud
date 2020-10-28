@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
-    // const { movie } = this.props;
-    const { title, storyline, imagePath, subtitle, id } = this.props.movie;
+    const { title, subtitle, storyline, imagePath, id } = this.props.movie;
     return (
       <div data-testid="movie-card" className="movie-card">
         <div className="movie-card-body">

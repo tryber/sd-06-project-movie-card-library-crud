@@ -20,7 +20,8 @@ class MovieForm extends React.Component {
     const { title } = this.state;
 
     return (
-      <div><br />
+      <div>
+        <br />
         <input
           placeholder="Insira o título"
           id="movie_title"
@@ -127,7 +128,8 @@ class MovieForm extends React.Component {
           onClick={this.handleSubmit}
         >
           Submit
-        </button><br />
+        </button>
+        <br />
       </div>
     );
   }

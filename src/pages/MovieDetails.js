@@ -9,7 +9,7 @@ class MovieDetails extends Component {
     super();
 
     this.state = {
-      movie: {},
+      movie: [],
       isLoading: true,
     };
   }
@@ -18,7 +18,7 @@ class MovieDetails extends Component {
   }
 
   async fetchMovies() {
-    const { id } = this.props.match.params;
+    const { id } = this.props.match.params.id;
     const getApi = await movieAPI.getMovie(id);
     this.setState({
       movie: getApi,
@@ -39,8 +39,9 @@ class MovieDetails extends Component {
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
 
-        <Link to={`/movies/${id}/edit`} className="links" >EDITAR </Link>
         <Link to={'/'} className="links"> VOLTAR</Link>
+        <Link to={'/'} className="links">DELETAR</Link>
+        <Link to={`/movies/${id}/edit`} className="links" >EDITAR </Link>
       </div>
     );
   }
@@ -50,4 +51,5 @@ MovieDetails.propTypes = {
   id: PropTypes.string.isRequire,
   isLoading: PropTypes.bool.isRequire,
 }.isRequire;
+
 export default MovieDetails;
