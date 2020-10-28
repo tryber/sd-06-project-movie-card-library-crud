@@ -33,7 +33,6 @@ class MovieDetails extends Component {
 
   async renderMovie() {
     const { id } = this.props.match.params;
-    console.log(this.props.match.params);
     const resultAPI = await movieAPI.getMovie(id);
     this.setState({
       movie: resultAPI,
