@@ -27,11 +27,11 @@ class MovieDetails extends Component {
       loading: false,
     });
   }
-  
+
   async removeMovie(event) {
     event.preventDefault();
     const { id } = this.props.match.params;
-    await movieAPI.deleteMovie(id)
+    await movieAPI.deleteMovie(id);
   }
 
   render() {
