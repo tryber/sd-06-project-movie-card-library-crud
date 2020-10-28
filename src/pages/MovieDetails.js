@@ -4,7 +4,6 @@ import { Link, Redirect } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import MovieList from './MovieList';
 
 class MovieDetails extends Component {
   constructor() {
@@ -13,7 +12,6 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
       loading: false,
-      deleted: false,
     };
     this.renderMovie = this.renderMovie.bind(this);
     this.deleteMovie = this.deleteMovie.bind(this);
@@ -26,9 +24,6 @@ class MovieDetails extends Component {
   async deleteMovie() {
     const { movie } = this.state;
     await movieAPI.deleteMovie(movie.id);
-    this.setState({
-      deleted: true,
-    });
   }
 
   async renderMovie() {
@@ -41,13 +36,9 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { loading, movie, deleted } = this.state;
+    const { loading, movie } = this.state;
     if (loading === false) {
       return <Loading />;
-    }
-
-    if (deleted === true) {
-      return <Redirect to={MovieList} />;
     }
 
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
@@ -62,7 +53,7 @@ class MovieDetails extends Component {
         <p>{`Rating: ${rating}`}</p>
         <Link to={`/movies/${id}/edit`}>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
-        <button onClick={this.deleteMovie} type="button">DELETAR</button>
+        <Link to="/" onClick={this.deleteMovie}>DELETAR</Link>
       </div>
     );
   }

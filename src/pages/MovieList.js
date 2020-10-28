@@ -25,7 +25,6 @@ class MovieList extends Component {
       movies: [...apiResult],
       loading: true,
     });
-    console.log(apiResult);
   }
 
   render() {
