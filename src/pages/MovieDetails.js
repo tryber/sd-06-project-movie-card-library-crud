@@ -23,21 +23,21 @@ class MovieDetails extends Component {
     this.renderMovie();
   }
 
+  async deleteMovie() {
+    const { movie } = this.state;
+    await movieAPI.deleteMovie(movie.id);
+    this.setState({
+      deleted: true,
+    });
+  }
+
   async renderMovie() {
     const { id } = this.props.match.params;
+    console.log(this.props.match.params);
     const resultAPI = await movieAPI.getMovie(id);
     this.setState({
       movie: resultAPI,
       loading: true,
-    });
-  }
-
-  async deleteMovie() {
-    console.log('clicou');
-    const { movie } = this.state;
-    await movieAPI.deleteMovie(movie.id);
-    this.setState({
-      deleted: true
     });
   }
 
@@ -70,7 +70,9 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  match: PropTypes.shape().isRequired,
+  params: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default MovieDetails;
