@@ -9,7 +9,7 @@ class MovieDetails extends Component {
     super();
 
     this.state = {
-      movie:{},
+      movie: {},
       isLoading: true,
     };
   }
