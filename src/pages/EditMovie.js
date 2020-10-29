@@ -30,10 +30,8 @@ class EditMovie extends Component {
           { loading: false,
             shouldRedirect: false,
             movieToEdit,
-          }
-        );
-      }
-    );
+          });
+      });
   }
 
   async handleSubmit(updatedMovie) {
@@ -44,10 +42,8 @@ class EditMovie extends Component {
         this.setState(
           { loading: false,
             shouldRedirect: true,
-          }
-        );
-      }
-    );
+          });
+      });
   }
 
   render() {
