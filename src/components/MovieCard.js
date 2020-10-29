@@ -21,6 +21,6 @@ MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
   storyline: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-};
+}.isRequired;
 
 export default MovieCard;
