@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import PropTypes from 'prop-types';
 
 class MovieDetails extends Component {
-  constructor(){
+  constructor() {
     super();
 
     this.getMyMovieDetail = this.getMyMovieDetail.bind(this);
@@ -12,7 +13,7 @@ class MovieDetails extends Component {
     this.state = {
       loading: true,
       movieDetail: {},
-    }
+    };
   }
 
   componentDidMount() {
@@ -44,23 +45,25 @@ class MovieDetails extends Component {
       <div data-testid="movie-details">
         { loading ? <Loading />
           :
-          <div>
-            <img alt="Movie Cover" src={`../${imagePath}`} />
-            <p>{`Title: ${title}`}</p>
-            <p>{`Subtitle: ${subtitle}`}</p>
-            <p>{`Storyline: ${storyline}`}</p>
-            <p>{`Genre: ${genre}`}</p>
-            <p>{`Rating: ${rating}`}</p>
-            <Link to={`/`}>VOLTAR</Link>
-            <br/>
-            <Link to={`/movies/${id}/edit`}>EDITAR</Link>
-          </div>
+        <div>
+          <img alt="Movie Cover" src={`../${imagePath}`} />
+          <p>{`Title: ${title}`}</p>
+          <p>{`Subtitle: ${subtitle}`}</p>
+          <p>{`Storyline: ${storyline}`}</p>
+          <p>{`Genre: ${genre}`}</p>
+          <p>{`Rating: ${rating}`}</p>
+          <Link to={'/'}>VOLTAR</Link>
+          <br />
+          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+        </div>
         }
-        
+
       </div>
-      
+
     );
   }
 }
+
+MovieDetails.propTypes = { match: PropTypes.shape.isRequired };
 
 export default MovieDetails;
