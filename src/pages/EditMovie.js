@@ -16,19 +16,6 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async handleSubmit(updatedMovie) {
-    this.setState(
-      { loading: true },
-      async () => {
-        await movieAPI.updateMovie(updatedMovie);
-        this.setState(
-          {loading: false,
-          shouldRedirect: true,}
-        );
-      }
-    )
-  }
-
   componentDidMount() {
     const { id } = this.props.match.params;
     this.getMyMovieInformation(id);
@@ -40,9 +27,22 @@ class EditMovie extends Component {
       async () => {
         const movieToEdit = await movieAPI.getMovie(id);
         this.setState(
-          {loading: false,
-          shouldRedirect: false,
-          movieToEdit,}
+          { loading: false,
+            shouldRedirect: false,
+            movieToEdit, }
+        );
+      }
+    );
+  }
+
+  async handleSubmit(updatedMovie) {
+    this.setState(
+      { loading: true },
+      async () => {
+        await movieAPI.updateMovie(updatedMovie);
+        this.setState(
+          { loading: false,
+            shouldRedirect: true, }
         );
       }
     );
@@ -51,7 +51,7 @@ class EditMovie extends Component {
   render() {
     const { loading, shouldRedirect, movieToEdit } = this.state;
     if (shouldRedirect) {
-      return <Redirect to='/' />;
+      return <Redirect to="/" />;
     }
 
     if (loading) {
@@ -67,7 +67,7 @@ class EditMovie extends Component {
 }
 
 EditMovie.propTypes = {
-  match: PropTypes.shape.isRequired
+  match: PropTypes.shape.isRequired,
 };
 
 export default EditMovie;
