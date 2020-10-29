@@ -9,7 +9,7 @@ class MovieDetails extends Component {
     super();
 
     this.state = {
-      movie: [],
+      movie:{},
       isLoading: true,
     };
   }
@@ -33,6 +33,7 @@ class MovieDetails extends Component {
     return isLoading ? <Loading /> : (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
+        console.log(imagePath);
         <p>{`title: ${title}`}</p>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
@@ -47,9 +48,9 @@ class MovieDetails extends Component {
   }
 }
 MovieDetails.propTypes = {
-  movie: PropTypes.object.isRequire,
-  id: PropTypes.string.isRequire,
-  isLoading: PropTypes.bool.isRequire,
-}.isRequire;
+  movie: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+}.isRequired;
 
 export default MovieDetails;
