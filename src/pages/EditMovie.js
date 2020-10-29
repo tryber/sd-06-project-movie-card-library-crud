@@ -29,7 +29,7 @@ class EditMovie extends Component {
         this.setState(
           { loading: false,
             shouldRedirect: false,
-            movieToEdit, }
+            movieToEdit }
         );
       }
     );
@@ -42,7 +42,7 @@ class EditMovie extends Component {
         await movieAPI.updateMovie(updatedMovie);
         this.setState(
           { loading: false,
-            shouldRedirect: true, }
+            shouldRedirect: true }
         );
       }
     );
