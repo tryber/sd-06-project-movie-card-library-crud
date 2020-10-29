@@ -19,8 +19,8 @@ class MovieCard extends React.Component {
 
 MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired, 
+  storyline: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-}
+};
 
 export default MovieCard;
