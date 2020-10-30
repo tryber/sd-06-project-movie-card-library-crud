@@ -1,0 +1,62 @@
+.div-form {
+  display: flex;
+  justify-content: center;
+}
+
+.default-form {
+  width: 50%; 
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px; 
+  border: solid 1px #ccc;
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  background: #ebebeb;
+}
+
+input {
+  width: calc(100% - 57px);
+  height: 36px;
+  padding-left: 10px; 
+  margin: 10px;
+  border-radius: 0 5px 5px 0;
+  border: solid 1px #cbc9c9;
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  background: #fff; 
+}
+
+textarea {
+  width: 95%;
+  margin: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 20px;
+  border-radius: 5px; 
+  border: none;
+  background: darkcyan; 
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+button:hover {
+  background: lightseagreen;
+}
+
+#movie_rating {
+  margin: 5px;
+  width: 25%;
+  display: flex;
+}
+
+#movie_genre {
+  display: flex;
+  margin: 10px;
+}
+
+label {
+  margin: 10px;
+  
+}
