@@ -9,6 +9,7 @@ class MovieDetails extends Component {
     super();
 
     this.getMyMovieDetail = this.getMyMovieDetail.bind(this);
+    this.deleteSelectedMovie = this.deleteSelectedMovie.bind(this);
 
     this.state = {
       loading: true,
@@ -34,6 +35,12 @@ class MovieDetails extends Component {
     );
   }
 
+  async deleteSelectedMovie() {
+    const { id } = this.props.match.params;
+    await movieAPI.deleteMovie(id);
+    this.props.history.push("/");
+  }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
@@ -55,11 +62,11 @@ class MovieDetails extends Component {
           <Link to={'/'}>VOLTAR</Link>
           <br />
           <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+          <br />
+          <Link to="/" onClick={this.deleteSelectedMovie}>DELETAR</Link>
         </div>
         }
-
       </div>
-
     );
   }
 }
