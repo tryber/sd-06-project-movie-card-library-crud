@@ -62,7 +62,9 @@ class MovieForm extends React.Component {
           id="movie_image"
           type="text"
           value={imagePath}
-          onChange={(event) => this.updateMovie('imagePath', event.target.value)}
+          onChange={(event) =>
+            this.updateMovie('imagePath', event.target.value)
+          }
         />
         <label htmlFor="movie_image">Imagem</label>
       </div>
@@ -77,7 +79,9 @@ class MovieForm extends React.Component {
         <textarea
           id="movie_storyline"
           value={storyline}
-          onChange={(event) => this.updateMovie('storyline', event.target.value)}
+          onChange={(event) =>
+            this.updateMovie('storyline', event.target.value)
+          }
         />
         <label htmlFor="movie_storyline">Sinopse</label>
       </div>
@@ -127,10 +131,7 @@ class MovieForm extends React.Component {
   renderSubmitButton() {
     return (
       <div>
-        <button
-          type="button"
-          onClick={this.handleSubmit}
-        >
+        <button type="button" onClick={this.handleSubmit}>
           Submit
         </button>
       </div>
@@ -141,6 +142,7 @@ class MovieForm extends React.Component {
     return (
       <div>
         <form>
+          <h1>Adicione um novo filme</h1>
           {this.renderTitleInput()}
           {this.renderSubtitleInput()}
           {this.renderImagePathInput()}
@@ -153,5 +155,28 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.defaultProps = {
+  movie: {
+    id: '',
+    title: '',
+    sotryline: '',
+    rating: 0,
+    imagePath: '',
+    genre: '',
+  },
+};
+
+MovieForm.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    rating: PropTypes.number,
+    storyline: PropTypes.string,
+    imagePath: PropTypes.string,
+    genre: PropTypes.string,
+  }),
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default MovieForm;
