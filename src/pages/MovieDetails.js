@@ -38,7 +38,7 @@ class MovieDetails extends Component {
   async deleteSelectedMovie() {
     const { id } = this.props.match.params;
     await movieAPI.deleteMovie(id);
-    this.props.history.push("/");
+    this.props.history.push('/');
   }
 
   render() {
@@ -71,6 +71,9 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.propTypes = { match: PropTypes.shape.isRequired };
+MovieDetails.propTypes = {
+  match: PropTypes.shape.isRequired,
+  history: PropTypes.shape.isRequired,
+};
 
 export default MovieDetails;
