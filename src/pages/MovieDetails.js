@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
+// import PropTypes from 'prop-types';
+// import * as movieAPI from '../services/movieAPI';
+// import { Loading } from '../components';
 
 class MovieDetails extends Component {
   constructor() {
@@ -11,8 +11,6 @@ class MovieDetails extends Component {
       movie: {},
     };
   }
-
-  
 
   render() {
     // Change the condition to check the state
