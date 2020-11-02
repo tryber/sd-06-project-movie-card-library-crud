@@ -33,16 +33,16 @@ class MovieDetails extends Component {
     return isLoading ? <Loading /> :
      (
        <div data-testid="movie-details">
-        <img alt="Movie Cover" src={`../${imagePath}`} />
-        <p>{`Title: ${title}`}</p>
-        <p>{`Subtitle: ${subtitle}`}</p>
-        <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
-        <p>{`Rating: ${rating}`}</p>
-        <Link to={'/'} className="links"> VOLTAR</Link>
-        <Link to={'/'} className="links">DELETAR</Link>
-        <Link to={`/movies/${id}/edit`} className="links" >EDITAR </Link>
-      </div>
+         <img alt="Movie Cover" src={`../${imagePath}`} />
+         <p>{`Title: ${title}`}</p>
+         <p>{`Subtitle: ${subtitle}`}</p>
+         <p>{`Storyline: ${storyline}`}</p>
+         <p>{`Genre: ${genre}`}</p>
+         <p>{`Rating: ${rating}`}</p>
+         <Link to={'/'} className="links"> VOLTAR</Link>
+         <Link to={'/'} className="links">DELETAR</Link>
+         <Link to={`/movies/${id}/edit`} className="links" >EDITAR </Link>
+       </div>
     );
   }
 }
