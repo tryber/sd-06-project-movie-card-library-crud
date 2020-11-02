@@ -69,7 +69,7 @@ class MovieForm extends React.Component {
   renderStorylineInput() {
     const { storyline } = this.state;
     return (
-      <div>< br />
+      <div>
         <textarea
           id="movie_storyline"
           value={storyline}
