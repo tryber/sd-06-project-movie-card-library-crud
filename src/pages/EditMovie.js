@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
@@ -8,7 +9,7 @@ class EditMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: [],
+      movie: {},
       isloading: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +23,7 @@ class EditMovie extends Component {
   }
 
   async fetchMovie() {
-    const id = this.props.match.params.id;
+    const { id }= this.props.match.params;
     const filme = await movieAPI.getMovie(id);
     this.setState({
       movie: filme,
@@ -30,7 +31,7 @@ class EditMovie extends Component {
     });// atualiza o estado do filme
   }
   render() {
-    const { shouldRedirect, movie, isLoading } = this.state;
+    const { shouldRedirect, movie, isLoading } = this.state.movie;
     if (shouldRedirect) {
        // Redirect
     }
