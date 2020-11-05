@@ -1,0 +1,33 @@
+.movie-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1% 2%;
+}
+
+.add-card-button-container {
+  align-items: center;
+  background-color: rgb(141, 139, 139);
+  display: flex;
+  height: 8vh;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.add-card-button {
+  border: solid 1px white;
+  border-radius: 1px;
+  color: orange;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 4%;
+  padding: 0.5% 2%;
+  text-decoration: none;
+}
+
+.add-card-button:hover {
+  background-color: orange;
+  box-shadow: 0 0 10px rgb(167, 166, 166);
+  color: white;
+  padding: 0.8% 2%;
+}

@@ -1,0 +1,70 @@
+.movie-form-container {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.movie-form-card {
+  background-color: white;
+  border: solid 1px rgb(167, 166, 166);
+  box-shadow: 0 0 10px rgb(167, 166, 166);
+  height: 95vh;
+  margin: 1% 2%;
+  width: 40%;
+}
+
+.movie-form-card img {
+  background-color: rgb(167, 166, 166);
+  height: 40%;
+  min-height: 40%;
+  min-width: 100%;
+  width: 100%;
+}
+
+.movie-form-card label {
+  font-size: 1.5rem;
+  min-width: 20%;
+}
+
+.movie-form-card input, textarea, select {
+  font-size: 1rem;
+  min-height: 4vh;
+  min-width: 70%;
+}
+
+.movie-form-card input:focus, textarea:focus, select:focus {
+  background-color: rgba(255, 166, 0, 0.705);
+  border: solid 1px rgb(167, 166, 166);
+  box-shadow: 0 0 10px rgb(167, 166, 166);
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.8% 0;
+}
+
+.movie-form-card textarea {
+  min-height: 10vh;
+}
+
+.movie-form-card button {
+  border: solid 1px rgb(167, 166, 166);
+  color: orange;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 4% 0;
+  padding: 0.5rem 5rem;
+  text-align: center;
+}
+
+.movie-form-card button:hover {
+  background-color: orange;
+  box-shadow: 0 0 10px rgb(167, 166, 166);
+  color: white;
+  padding: 0.6rem 6rem;
+}
+
+.movie-form-card div {
+  display: flex;
+  justify-content: center;
+  margin: 2% 0;
+}
