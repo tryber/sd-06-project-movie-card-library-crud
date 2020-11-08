@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
 
@@ -7,31 +7,25 @@ class NewMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      redirect: false,
+      movie: [],
+      shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount() {
-    this.fetchMovies();
-  }
-
-  async fetchMovies() {
-    const createApi = await movieAPI.createMovie();
-    this.setState({
-      movies: createApi,
-    });
-  }
-
-  handleSubmit(newMovie) {
-    const { movies } = this.state;
-    this.setState({ movies: [...movies, newMovie] });
+  
+  async handleSubmit(newMovie) {
+    const createApi = await movieAPI.createMovie(newMovie);
+    this.setState({ movies: createApi, shouldRedirect: true });
   }
 
   render() {
+    const { shouldRedirect } = this.state;
+    if (shouldRedirect) {
+      return <Redirect to={'/'} />
+    }
     return (
       <div data-testid="new-movie">
-        <MovieForm onSubmit={this.handleSubmit} />
-        <Link to={'/movies/new'} className="links">ADICIONAR CARTÃO</Link>
+        <MovieForm onSubmit={this.handleSubmit} />    
       </div>
     );
   }

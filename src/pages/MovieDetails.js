@@ -9,9 +9,11 @@ class MovieDetails extends Component {
     super();
 
     this.state = {
-      movie: {}, // tentar ''
-      isLoading: true,
+      movie: {}, 
+      isLoading: false,
     };
+    this.delMovie = this.delMovie.bind(this);
+    this.fetchMovies = this.fetchMovies.bind(this);
   }
 
   componentDidMount() {
@@ -23,14 +25,20 @@ class MovieDetails extends Component {
     const getApi = await movieAPI.getMovie(id);
     this.setState({
       movie: getApi,
-      isLoading: false,
+      isLoading: true,
     });
   }
+
+  async delMovie() {
+   const { id } = this.props.match.params;
+   await movieAPI.deleteMovie(id);
+  }
+
   render() {
     const { isLoading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
 
-    return isLoading ? <Loading /> :
+    return !isLoading ? <Loading /> :
      (
        <div data-testid="movie-details">
          <img alt="Movie Cover" src={`../${imagePath}`} />
@@ -40,7 +48,11 @@ class MovieDetails extends Component {
          <p>{`Genre: ${genre}`}</p>
          <p>{`Rating: ${rating}`}</p>
          <Link to={'/'} className="links"> VOLTAR</Link>
-         <Link to={'/'} className="links">DELETAR</Link>
+         <button 
+         type="button"
+         onClick = { this.delMovie }
+         >
+           <Link to={'/'} className="links">DELETAR</Link> </button>
          <Link to={`/movies/${id}/edit`} className="links" >EDITAR </Link>
        </div>
     );
