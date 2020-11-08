@@ -9,7 +9,7 @@ class MovieDetails extends Component {
     super();
 
     this.state = {
-      movie: {}, 
+      movie: {},
       isLoading: false,
     };
     this.delMovie = this.delMovie.bind(this);
@@ -30,8 +30,8 @@ class MovieDetails extends Component {
   }
 
   async delMovie() {
-   const { id } = this.props.match.params;
-   await movieAPI.deleteMovie(id);
+    const { id } = this.props.match.params;
+    await movieAPI.deleteMovie(id);
   }
 
   render() {
@@ -48,10 +48,10 @@ class MovieDetails extends Component {
          <p>{`Genre: ${genre}`}</p>
          <p>{`Rating: ${rating}`}</p>
          <Link to={'/'} className="links"> VOLTAR</Link>
-         <button 
-         type="button"
-         onClick = { this.delMovie }
-         >
+         <button
+           type="button"
+           onClick={this.delMovie}
+         >   await movieAPI.deleteMovie(id);
            <Link to={'/'} className="links">DELETAR</Link> </button>
          <Link to={`/movies/${id}/edit`} className="links" >EDITAR </Link>
        </div>
