@@ -12,6 +12,8 @@ class MovieDetails extends Component {
       isFetching: true,
       movie: {},
     };
+
+    this.fetchAPI = this.fetchAPI.bind(this);
   }
 
   componentDidMount() {
