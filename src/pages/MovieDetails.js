@@ -16,7 +16,6 @@ class MovieDetails extends Component {
     this.requestMovie = this.requestMovie.bind(this);
     this.handleDeleteMovie = this.handleDeleteMovie.bind(this);
     this.renderMovieDetails = this.renderMovieDetails.bind(this);
-    
   }
 
   componentDidMount() {
@@ -38,7 +37,7 @@ class MovieDetails extends Component {
 
   async handleDeleteMovie() {
     const { id } = this.state.movie;
-    await movieAPI.deleteMovie(id)
+    await movieAPI.deleteMovie(id);
   }
 
   renderMovieDetails() {
@@ -71,5 +70,7 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = { match: PropTypes.shape.isRequired };
 
 export default MovieDetails;
