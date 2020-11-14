@@ -45,12 +45,12 @@ class MovieDetails extends Component {
     const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
     return (
       <div>
-        <img src={`../${imagePath}`} alt="cover" />
-        <h4>{title}</h4>
-        <h5>{subtitle}</h5>
-        <p>{storyline}</p>
-        <p>{genre}</p>
-        <p>{rating}</p>
+        <img src={`../${imagePath}`} alt="Movie Cover" />
+        <h4>Title: {title}</h4>
+        <h5>Subtitle: {subtitle}</h5>
+        <p>Storyline: {storyline}</p>
+        <p>Genre: {genre}</p>
+        <p>Rating: {rating}</p>
         <div>
           <Link to={`/movies/${id}/edit`}>EDITAR</Link>
           <button onClick={this.handleDeleteMovie}>
