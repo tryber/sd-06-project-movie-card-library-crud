@@ -23,7 +23,7 @@ class MovieList extends Component {
       // while loading content
      { loading: true },
       async () => {
-        // calls movieAPI to get all movies, create and object and set in page's state
+        // calls movieAPI to get all movies, create an object and set in state
         const movies = await movieAPI.getMovies();
         this.setState({
           load: false, // after all content is properly loaded in the page
