@@ -1,5 +1,7 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgb(142, 205, 193);
+  background-image: url('https://www.transparenttextures.com/patterns/black-twill.png');
   box-sizing: border-box;
+  font-family: Roboto , sans-serif;
+  font-size: medium;
 }
-

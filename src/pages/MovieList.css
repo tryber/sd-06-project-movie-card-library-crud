@@ -1,0 +1,16 @@
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.title {
+  background-color: rgb(19, 43, 38);
+  color: rgb(233, 233, 238);
+  height: 50px;
+  text-align: center;
+}
+
+.add-card {
+  text-align: center;
+}
