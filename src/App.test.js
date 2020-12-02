@@ -111,7 +111,7 @@ describe('1 - Rotas: O componente App deve renderizar BrowserRouter', () => {
     expect.anything(getByTestId('new-movie'));
     unmount();
   })
-  test('a rota "/movies/:id/edit" deve renderizar EditMovie', async () => {
+test('a rota "/movies/:id/edit" deve renderizar EditMovie', async () => {
     for (const movie of readMovies()) {
       const { unmount, getByTestId } = renderPath('/movies/' + movie.id + '/edit');
       await waitFor(() => movieAPI.getMovies());
