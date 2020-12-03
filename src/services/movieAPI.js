@@ -6,7 +6,7 @@ const readMovies = () => JSON.parse(localStorage.getItem('movies'));
 
 const saveMovies = (movies) => localStorage.setItem('movies', JSON.stringify(movies));
 
-export const getMovies = () => (
+export const getMovies = async () => (
   new Promise((resolve) => {
     setTimeout(() => {
       const movies = readMovies();
