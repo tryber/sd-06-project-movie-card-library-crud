@@ -1,0 +1,35 @@
+.movie-list {
+  margin: 20px auto;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.movie-list article {
+  background: whitesmoke;
+  border: 1px solid rgb(206, 205, 205);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.movie-list article p {
+  color: rgb(83, 82, 82);
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 5px;
+}
+
+.link {
+  align-items: center;
+  background: rgb(97, 97, 97);
+  border: 2px solid gray;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  font-size: 16px;
+  font-weight: 700;
+  height: 42px;
+  justify-content: center;
+  margin-top: 10px;
+  text-decoration: none;
+}
