@@ -17,6 +17,8 @@ export const getMovies = () => (
 
 export const getMovie = (movieId) => {
   const movie = readMovies().find((mov) => mov.id === parseInt(movieId, 10));
+  const xxx = readMovies(1);
+  console.log(`asd + ${xxx}`);
 
   return new Promise((resolve) => {
     setTimeout(() => {
