@@ -11,3 +11,104 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.movie-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgb(70, 69, 69);
+  
+}
+
+.movie-card {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  padding: 5px;
+  background-color: whitesmoke;
+
+}
+
+.movie-details {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  padding: 5px;
+  background-color: whitesmoke;
+}
+
+.link{
+  text-align: center;
+  text-align: bottom;
+  font-size: 20px;
+  padding: 20px;
+  margin-top: 0px;
+  background-color:#f5c518;
+}
+
+a {  
+  text-decoration: none;
+  color: black;
+  font-weight: 900;
+}
+
+.header {
+  text-align: center;
+  padding: 30px;
+  background-color:#f5c518;
+  font-size: 30px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.form {
+  font: 95% Arial, Helvetica, sans-serif;
+	max-width: 400px;
+	margin: 10px auto;
+	padding: 16px;
+	background: whitesmoke;
+}
+
+.form select{
+	outline: none;
+	box-sizing: border-box;
+	width: 100%;
+	background: white;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+}
+
+.form input{
+	box-sizing: border-box;
+	width: 100%;
+	padding: 3%;
+	background: white;
+	border-top-style: none;
+	border-right-style: none;
+  border-left-style: none;	
+  margin-bottom: 15px;
+}
+
+.form textarea {
+  outline: none;
+}
+
+.form label {
+  font-size: 16px;
+}
+
+.form button {
+  border: 0;
+  padding:5px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  background-color: #f5c518;
+  margin-top: 10px;
+}
