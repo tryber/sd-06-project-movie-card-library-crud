@@ -1,5 +1,245 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgb(25, 28, 32);
+  box-shadow: inset 0 -6px 6px 0 rgba(10, 14, 22, 0.5);
   box-sizing: border-box;
+  font-size: 16px;
+  min-height: 100vh;
 }
 
+h2 {
+  margin: 0 10px 6px 0;
+}
+
+.add-movie {
+  background-color: rgb(235, 223, 148);
+  border-radius: 3px;
+  box-shadow: inset -2px -2px 3px 0 rgba(10, 14, 22, 0.5);
+  color: rgb(10, 20, 30);
+  padding: 4px 10px 7px 9px;
+  position: absolute;
+  text-decoration: none;
+  text-transform: lowercase;
+  top: 2%;
+}
+
+.add-movie:hover {
+  background-color: rgb(226, 219, 176);
+}
+
+.add-movie:active {
+  background-color: rgb(250, 238, 144);
+  box-shadow: inset 1px 2px 3px 0 rgba(10, 14, 22, 0.5);
+}
+
+.delete-movie {
+  background-color: rgb(209, 43, 21);
+  border: 0;
+  border-radius: 6px;
+}
+
+.loading {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+
+.delete-movie a {
+  color: rgb(240, 240, 230);
+  font-size: 1.1em;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.delete-movie:hover {
+  background-color: rgb(189, 36, 16);
+}
+
+.delete-movie:focus {
+  background-color: rgb(189, 36, 16);
+  outline: none;
+}
+
+.delete-movie:active {
+  background-color: rgb(224, 50, 26);
+}
+
+/* Aproveitando css do projeto movie card library stateful. Me julguem. :P */
+.movie-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 48px 30px;
+}
+
+.add-movie-form {
+  color: oldlace;
+  margin: auto;
+  min-width: 300px;
+  padding: 30px 0;
+  text-align: right;
+  width: 30%;
+}
+
+.add-movie-form label {
+  display: block;
+}
+
+.movie-card {
+  background-color: rgb(240, 240, 248);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  box-shadow: 0 0 8px -2px rgb(240, 240, 230);
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  margin: 15px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.movie-card img {
+  width: 100%;
+}
+
+.movie-card-body {
+  flex: 1 1 auto;
+  overflow: hidden;
+  padding: 2px 20px;
+}
+
+.movie-card-title {
+  font-size: 1.4em;
+  font-weight: 500;
+  margin: 2px 0 0;
+}
+
+.movie-card-subtitle {
+  color: #6c757d;
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: 400;
+  margin: 0 0 11px;
+}
+
+.movie-card-storyline {
+  color: rgb(20, 22, 15);
+  font-size: 0.95em;
+  height: 68px;
+  line-height: 110%;
+  margin: 2px 0;
+}
+
+.rating {
+  background-color: #007bff;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 3px 9px;
+}
+
+.movie-card-rating {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+.movie-details-link {
+  font-style: italic;
+  text-decoration: none;
+}
+
+.movie-details {
+  background-color: white;
+  border-radius: 20px 20px 3px 3px;
+  box-shadow: 0 0 8px -2px rgb(240, 240, 230);
+  display: flex;
+  flex-direction: column;
+  width: 680px;
+}
+
+.movie-details-title {
+  color: rgb(230, 235, 210);
+  font-size: 2em;
+  font-weight: 300;
+  margin: -1.5em 0 8px 19px;
+  text-shadow: 0 0 6px rgb(20, 25, 10) , 0 0 2px rgb(20, 25, 10);
+  z-index: 1;
+}
+
+.movie-details img {
+  border-radius: 20px 20px 0 0;
+  z-index: 0;
+}
+
+.edit-movie-form {
+  align-items: flex-start;
+  background-color: rgb(240, 240, 248);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  box-shadow: 0 0 8px -2px rgb(240, 240, 230);
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  padding: 20px 20px 0;
+}
+
+.edit-movie-form label {
+  display: inline-block;
+  font-weight: 300;
+  margin: 0 0 12px;
+  min-width: 70px;
+}
+
+.edit-movie-form input:not( [ type = 'number' ] ) {
+  margin: 10px 10px 0;
+  width: 280px;
+}
+
+.edit-movie-form textarea {
+  margin: 10px 10px 0;
+  padding: 4px 6px;
+  width: 272px;
+}
+
+.edit-movie-form select {
+  margin: 10px 10px 0;
+  width: 280px;
+}
+
+.input-number {
+  margin: 10px 10px 0;
+  width: 40px;
+}
+
+.movie-edit-button {
+  align-self: center;
+  margin: 20px 10px 20px 20px;
+}
+
+.movie-edit-button button {
+  background-color: rgb(130, 180, 50);
+  border: none;
+  border-radius: 10px;
+  color: rgb(245, 240, 230);
+  font-weight: 700;
+  padding: 8px 18px;
+}
+
+.movie-edit-button button:hover {
+  background-color: rgb(146, 189, 76);
+}
+
+.movie-edit-button button:focus {
+  background-color: rgb(100, 140, 20);
+  outline: none;
+}
+
+.movie-edit-button button:active {
+  background-color: rgb(153, 211, 60);
+}
