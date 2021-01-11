@@ -43,7 +43,12 @@ export const updateMovie = (updatedMovie) => {
 
 export const createMovie = (movieData) => {
   let movies = readMovies();
-  const nextId = movies[movies.length - 1].id + 1;
+  let nextId = 0;
+  if (movies[movies.length - 1]) {
+    nextId = movies[movies.length - 1].id + 1;
+  } else {
+    nextId = 1;
+  }
   const newMovie = { ...movieData, id: nextId };
   movies = [...movies, newMovie];
   saveMovies(movies);
