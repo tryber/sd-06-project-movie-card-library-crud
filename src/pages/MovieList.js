@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import '../App.css';
+import Loading from '../components/Loading';
 
 import * as movieAPI from '../services/movieAPI';
 
@@ -12,6 +13,7 @@ class MovieList extends Component {
     this.state = {
       movies: [],
       loading: false,
+      show: '',
     }
 
     this.renderMovies = this.renderMovies.bind(this);
@@ -32,24 +34,31 @@ class MovieList extends Component {
         this.setState({
           loading: false,
           movies: moviesJson,
+          show: 'invisible',
         });
       },
     );
   }
 
   renderMovies() {
+    // let z = 0;
     const { movies } = this.state;
-    return movies.map((movie) => <MovieCard key={movie.title} movie={movie} />);
+    const myMovies = movies.map((movie) => {
+      return <MovieCard key={movie.title} movie={movie} /*zStyle={z += 1}*/ />
+    })
+    return <>
+      { myMovies}
+      <div className="add-card"><Link to="/movies/new"><p>ADICIONAR CARTÃO</p></Link></div>
+    </>
   }
 
   render() {
     const { movies } = this.state;
-    const loadingElement = <span>Carregando...</span>
+    const loadingElement = <p></p>;
 
     return (
-      <div className="movie-list" data-testid="movie-list">
+      <div className="movie-list" id={this.state.show} data-testid="movie-list">
         {this.state.loading ? loadingElement : this.renderMovies()}
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </div>
     );
   }

@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom';
 
 import '../App.css';
 
-
 class MovieCard extends React.Component {
   render() {
-    const { movie } = this.props;
+    const { movie, zStyle } = this.props;
     const movieLink = `/movies/${movie.id}`;
     return (
-      <div className="movie-card" data-testid="movie-card" alt="Movie image">
-        <img src={movie.imagePath} alt="" />
+      <div className="movie-card" data-testid="movie-card" alt={movie.title} /* style={{
+        zIndex: { zStyle },
+      }} */>
+        <Link to={movieLink}><img src={movie.imagePath} alt="" /></Link>
         <h1>{movie.title}</h1>
         <p>{movie.storyline}</p>
-        <Link to={movieLink}>VER DETALHES</Link>
-      </div>
+        <Link to={movieLink} class="noShow">VER DETALHES</Link>
+      </div >
     );
   }
 }
