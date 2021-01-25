@@ -1,0 +1,79 @@
+.movie-card {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  margin: 1%;
+  width: 300px;
+}
+
+.movie-img {
+  height: 250px;
+  width: 300px;
+}
+
+h2 {
+  font-size: 15px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 12px;
+  text-align: center;
+}
+
+p {
+  font-size: 13px;
+}
+
+.movie-rating {
+  font-size: 14px;
+  text-align: center;
+}
+
+.more-details-btn a {
+  all: unset;
+}
+
+.more-details-btn a:link {
+  color: whitesmoke;
+}
+
+.more-details-btn a:visited {
+  color: whitesmoke;
+}
+
+.more-details-btn a:active {
+  color: whitesmoke;
+}
+
+.more-details-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.more-details-btn button {
+  background: linear-gradient(180deg, rgba(38, 38, 38, 1) 0%, rgba(70, 70, 70, 1) 100%, rgba(96, 97, 97, 1) 100%);
+  color: whitesmoke;
+  cursor: pointer;
+  outline: none;
+}
+
+.more-details-btn button:hover {
+  animation: wiggle 0.6s;
+}
+
+@keyframes wiggle {
+
+  25% {
+    transform: scale(0.8, 1.3);
+  }
+
+  50% {
+    transform: scale(1.1, 0.8);
+  }
+
+  75% {
+    transform: scale(0.7, 1.2);
+  }
+}

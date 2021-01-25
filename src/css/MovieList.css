@@ -1,0 +1,29 @@
+body {
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2%;
+}
+
+.add-newmovie-btn {
+  background: linear-gradient(180deg, rgba(38, 38, 38, 1) 0%, rgba(70, 70, 70, 1) 100%, rgba(96, 97, 97, 1) 100%);
+  border-radius: 50%;
+  bottom: 5%;
+  color: white;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: bold;
+  height: 60px;
+  line-height: 60px;
+  position: fixed;
+  right: 2%;
+  text-align: center;
+  text-decoration: none;
+  width: 60px;
+}
