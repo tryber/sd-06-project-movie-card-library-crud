@@ -1,25 +1,67 @@
 import React, { Component } from 'react';
 
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+  constructor() {
+    super();
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    this.fetchDetails = this.fetchDetails.bind(this);
+    this.delete = this.delete.bind(this);
+
+    this.state = {
+      movie: undefined,
+      loading: true,
+    };
+  }
+
+  componentDidMount() {
+    this.fetchDetails();
+  }
+
+  async fetchDetails() {
+    const details = await movieAPI.getMovie(this.props.match.params.id);
+    this.setState({
+      movie: details,
+      loading: false,
+    });
+  }
+
+  delete() {
+    const { id } = this.props.match.params;
+    movieAPI.deleteMovie(id);
+  }
+  render() {
+    if (this.state.loading === true) return <Loading />;
+
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
 
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={`../${imagePath}`} />
+        <h3>{`Title: ${title}`}</h3>
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
+        <Link to="/">VOLTAR</Link><br /><br />
+        <Link to={`/movies/${id}/edit`}>EDITAR</Link><br /><br />
+        <Link to="/" onClick={this.delete}>DELETAR</Link>
       </div>
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default MovieDetails;
